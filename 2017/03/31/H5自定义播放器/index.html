@@ -1,0 +1,871 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTML5播放器," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="关于自定义播放器的笔记，写给自己看的，仅供参考">
+<meta name="keywords" content="HTML5播放器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5详解之自定义播放器">
+<meta property="og:url" content="http://yoursite.com/2017/03/31/H5自定义播放器/index.html">
+<meta property="og:site_name" content="Prawns's Blog">
+<meta property="og:description" content="关于自定义播放器的笔记，写给自己看的，仅供参考">
+<meta property="og:updated_time" content="2017-04-06T02:57:35.687Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5详解之自定义播放器">
+<meta name="twitter:description" content="关于自定义播放器的笔记，写给自己看的，仅供参考">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/31/H5自定义播放器/"/>
+
+
+
+
+
+  <title>HTML5详解之自定义播放器 | Prawns's Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Prawns's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/31/H5自定义播放器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prawns's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTML5详解之自定义播放器
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-31T21:49:39+08:00">
+                2017-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML5/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>关于自定义播放器的笔记，写给自己看的，仅供参考</p>
+<p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
+<p><the rest="" of="" contents="" |="" 余下全文=""></the></p>
+<h2 id="音频和视频"><a href="#音频和视频" class="headerlink" title="音频和视频"></a>音频和视频</h2><h3 id="audio"><a href="#audio" class="headerlink" title="audio"></a>audio</h3><pre><code>音频播放标签
+</code></pre><h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><pre><code>视频播放标签
+</code></pre><h3 id="soure"><a href="#soure" class="headerlink" title="soure"></a>soure</h3><pre><code>兼容视频或音频不同格式的标签
+&lt;video controls&gt;
+    &lt;source src=&quot;Intermission-Walk-in.ogv&quot;&gt;&lt;/source&gt;
+    &lt;source src=&quot;Intermission-Walk-in_512kb.mp4&quot;&gt;&lt;/source&gt;
+&lt;/video&gt;
+</code></pre><h3 id="视频容器"><a href="#视频容器" class="headerlink" title="视频容器"></a>视频容器</h3><pre><code>容器文件：类似于压缩了一组文件，包括音频轨道，视频轨道，封面，标题，字幕等。
+格式：.avi, .flv, .mp4, .mkv, .ogv等。
+</code></pre><h3 id="编解码器"><a href="#编解码器" class="headerlink" title="编解码器"></a>编解码器</h3><pre><code>由于原始的视频容器非常大，网页加载速度过慢，所以浏览器自带了一个解码器，叫做编解码器。
+编解码器先将视频重新编码，然后在播放的时候再解码。编码之后会压缩文件，将其质量变得很小，方便页面快速加载。
+音频编解码器：
+            AAC、MPEG-3、Ogg Vorbis
+视频编解码器：
+            H.264、VP8、Ogg Theora
+</code></pre><h2 id="媒体元素"><a href="#媒体元素" class="headerlink" title="媒体元素"></a>媒体元素</h2><h3 id="controls"><a href="#controls" class="headerlink" title="controls"></a>controls</h3><pre><code>系统自带的播放控件  添加显示/不添加隐藏用户控制界面
+</code></pre><h3 id="autoplay"><a href="#autoplay" class="headerlink" title="autoplay"></a>autoplay</h3><pre><code>媒体是否自动播放
+</code></pre><h3 id="loop"><a href="#loop" class="headerlink" title="loop"></a>loop</h3><pre><code>媒体是否循环播放
+</code></pre><h3 id="currentTime"><a href="#currentTime" class="headerlink" title="currentTime"></a>currentTime</h3><pre><code>获取开始到播放现在所用的时间，可设置
+</code></pre><h3 id="duration"><a href="#duration" class="headerlink" title="duration"></a>duration</h3><pre><code>媒体总时间(只读)
+</code></pre><h3 id="volume"><a href="#volume" class="headerlink" title="volume"></a>volume</h3><pre><code>0.0-1.0的音量相对值，可设置
+</code></pre><h3 id="muted"><a href="#muted" class="headerlink" title="muted"></a>muted</h3><pre><code>是否静音 ，返回布尔值，静音返回true，非静音返回false
+</code></pre><h3 id="autobuffer"><a href="#autobuffer" class="headerlink" title="autobuffer"></a>autobuffer</h3><pre><code>开始的时候是否缓冲加载，autoplay自动播放的时候，忽略此属性
+</code></pre><h3 id="paused"><a href="#paused" class="headerlink" title="paused"></a>paused</h3><pre><code>媒体是否暂停(只读)。返回布尔值，暂停状态返回true，播放状态返回false
+</code></pre><h3 id="ended"><a href="#ended" class="headerlink" title="ended"></a>ended</h3><pre><code>媒体是否播放完毕(只读)。返回布尔值，结束返回true，未结束返回false
+</code></pre><h3 id="error"><a href="#error" class="headerlink" title="error"></a>error</h3><pre><code>媒体发生错误的时候，返回错误代码 (只读)，无错返回null
+</code></pre><h3 id="error-code"><a href="#error-code" class="headerlink" title="error.code"></a>error.code</h3><pre><code>1.用户终止 2.网络错误 3.解码错误 4.URL无效
+</code></pre><h3 id="buffered"><a href="#buffered" class="headerlink" title="buffered;"></a>buffered;</h3><pre><code>返回已缓冲区域，TimeRanges
+</code></pre><h3 id="currentSrc"><a href="#currentSrc" class="headerlink" title="currentSrc"></a>currentSrc</h3><pre><code>以字符串的形式返回当前媒体的URL地址(只读)
+</code></pre><p><strong>示例</strong></p>
+<pre><code>&lt;script&gt;
+window.onload = function(){
+    var oA = document.getElementById(&apos;a1&apos;);
+
+    setInterval(function(){
+        console.log(oA.currentTime);
+    },1000);               //每1秒获取一次播放的时间
+
+    oA.currentTime = 60;  //获取现在播放的时间，可设置播放的时间
+    console.log( oA.duration ); //获取媒体的总时间
+    console.log( oA.volume );    //获取音量值，  
+    console.log( oA.muted );      
+    console.log( oA.paused );
+    console.log( oA.ended );
+    console.log( oA.error );
+    console.log( oA.currentSrc );
+
+};
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;audio id=&quot;a1&quot; controls src=&quot;johann_sebastian_bach_air.mp3&quot;&gt;&lt;/audio&gt;
+&lt;/body&gt;
+</code></pre><h3 id="play-媒体播放"><a href="#play-媒体播放" class="headerlink" title="play()  :  媒体播放"></a>play()  :  媒体播放</h3><h3 id="pause-媒体暂停"><a href="#pause-媒体暂停" class="headerlink" title="pause()  :  媒体暂停"></a>pause()  :  媒体暂停</h3><h3 id="load"><a href="#load" class="headerlink" title="load()  :"></a>load()  :</h3><pre><code>重新加载媒体，当修改了媒体链接的时候，需要调用此方法进行重新加载媒体资源。
+</code></pre><p><strong>示例</strong></p>
+<pre><code>&lt;script&gt;
+window.onload = function(){
+    var oV = document.getElementById(&apos;v1&apos;);
+    var oInput = document.getElementById(&apos;input1&apos;);
+    var aS = document.getElementsByTagName(&apos;source&apos;);
+
+    oV.onmouseover = function(){
+        this.play();              //鼠标移入播放
+    };
+
+    oV.onmouseout = function(){
+        this.pause();             //鼠标移出暂停
+    };
+
+    oInput.onclick = function(){
+        aS[0].src = &apos;xxxx.mp4&apos;;
+        aS[1].src = &apos;yyyy.mp4&apos;;
+        oV.load();                //点击按钮修改链接之后需要调用此方法，重新加载
+    };
+};
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;input type=&quot;button&quot; value=&quot;重新加载&quot; id=&quot;input1&quot; /&gt;
+&lt;video id=&quot;v1&quot;&gt;
+    &lt;source src=&quot;Intermission-Walk-in.ogv&quot;&gt;&lt;/source&gt;
+    &lt;source src=&quot;Intermission-Walk-in_512kb.mp4&quot;&gt;&lt;/source&gt;
+&lt;/video&gt;
+&lt;/body&gt;
+</code></pre><h2 id="Video额外特性"><a href="#Video额外特性" class="headerlink" title="Video额外特性"></a>Video额外特性</h2><h3 id="poster"><a href="#poster" class="headerlink" title="poster"></a>poster</h3><pre><code>视频播放前的预览图片   video.poster = ‘图片地址’
+</code></pre><h3 id="width、height"><a href="#width、height" class="headerlink" title="width、height"></a>width、height</h3><pre><code>设置视频的尺寸
+</code></pre><h3 id="videoWidth、-videoHeight"><a href="#videoWidth、-videoHeight" class="headerlink" title="videoWidth、 videoHeight"></a>videoWidth、 videoHeight</h3><pre><code>视频的实际尺寸(只读)
+</code></pre><h2 id="媒体事件"><a href="#媒体事件" class="headerlink" title="媒体事件"></a>媒体事件</h2><p>onloadstart   在 Internet Explorer 开始查找媒体数据时引发。在从站点请求视频（或音频）资源时发生此事件，并且每个请求只发生一次。<br>onprogress    引发此事件以指示正在下载媒体内容。下载完成后停止引发。<br>onsuspend     媒体暂停的时候触发的事件<br>onemptied     当发生故障并且文件突然不可用时运行的事件（比如连接意外断开时）。<br>onstalled      在下载被中断三秒以上时引发。这可以指示网络问题。<br>onplay：       媒体开始播放时触发的事件<br>onpause<br>onloadedmetadata<br>onloadeddata<br>onwaiting      在播放由于视频的下一帧不可用（可能需要缓冲）而停止时引发。<br>onplaying   回放<br>oncanplay<br>oncanplaythrough<br>onseeking<br>onseeked<br>ontimeupdate        播放时间改变时触发<br>onended:          当媒体结束时触发的事件（可发送类似“感谢观看”之类的消息）<br>onratechange<br>ondurationchange   资源长度改变时触发<br>onvolumechange    音量改变时触发</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a><a href="http://www.jianshu.com/p/404d01b8e713" target="_blank" rel="external">参考链接</a></h3><h2 id="全屏"><a href="#全屏" class="headerlink" title="全屏"></a>全屏</h2><h3 id="启动全屏模式"><a href="#启动全屏模式" class="headerlink" title="启动全屏模式"></a>启动全屏模式</h3><p>全屏API requestFullscreen方法在一些老的浏览器里面依然使用带前缀形式的方法名,因此可能需要进行检测判断:  </p>
+<p>兼容个版本浏览器,需要带上内核前缀，未来应该都不需要了。</p>
+<pre><code>function launchFullScreen(element) {
+    if(element.requestFullscreen) {
+        element.requestFullscreen();
+    }
+    else if(element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+    }
+    else if(element.webkitRequestFullscreen) {
+        element.webkitRequestFullscreen();
+    }
+    else if(element.msRequestFullscreen) {
+        element.msRequestFullscreen();
+    }
+}
+
+
+// 在支持全屏的浏览器中启动全屏
+// 整个页面
+launchFullScreen(document.documentElement);
+// 某个元素
+launchFullScreen(document.getElementById(&quot;videoElement&quot;));
+</code></pre><p>将需要全屏显示的DOM元素作为参数,调用此方法即可让window进入全屏状态,有时候可能需要用户同意(浏览器自己和用户交互),假若用户拒绝,则可能出现各种不完全的全屏.<br>如果用户同意进入全屏,那么工具栏以及其他浏览器组件会隐藏起来,使document框架的宽度和高度横跨整个屏幕.</p>
+<h3 id="退出全屏模式"><a href="#退出全屏模式" class="headerlink" title="退出全屏模式"></a>退出全屏模式</h3><p>使用 exitFullscreen 方法可以使浏览器退出全屏,返回原先的布局. 该方法在一些老的浏览器上也是支持前缀方法.  </p>
+<p><strong>请注意:</strong> exitFullscreen 只能通过 document 对象调用 —— 而不是使用普通的 DOM element.</p>
+<pre><code>// 退出 fullscreen
+function exitFullscreen() {
+    if(document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if(document.mozExitFullScreen) {
+        document.mozExitFullScreen();
+    } else if(document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    }
+}
+</code></pre><h3 id="Fullscreen-属性与事件"><a href="#Fullscreen-属性与事件" class="headerlink" title="Fullscreen 属性与事件"></a>Fullscreen 属性与事件</h3><ol>
+<li>document.fullscreenElement:  当前处于全屏状态的元素 element.</li>
+<li>document.fullscreenEnabled:  标记 fullscreen 当前是否可用.</li>
+</ol>
+<p>当进入/退出 全屏模式时,会触发 fullscreenchange 事件:</p>
+<pre><code>var fullscreenElement = document.fullscreenEnabled || document.mozFullscreenElement || document.webkitFullscreenElement;
+var fullscreenEnabled = document.fullscreenEnabled || document.mozFullscreenEnabled || document.webkitFullscreenEnabled;
+</code></pre><h3 id="Fullscreen-CSS"><a href="#Fullscreen-CSS" class="headerlink" title="Fullscreen CSS"></a>Fullscreen CSS</h3><p>浏览器提供了一些有用的 fullscreen CSS 控制规则:</p>
+<pre><code>/* html */
+:-webkit-full-screen {
+    /* properties */
+}
+
+:-moz-fullscreen {
+    /* properties */
+}
+
+
+:fullscreen {
+    /* properties */
+}
+
+
+/* deeper elements */
+:-webkit-full-screen video {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* styling the backdrop */
+::backdrop {
+    /* properties */
+}
+</code></pre><p>在某些情况下,WebKit需要一些特殊处理,所以在处理多媒体时,你可能需要上面的代码。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML5播放器/" rel="tag"># HTML5播放器</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/06/HTML5拖放事件/" rel="next" title="HTML5详解之拖放操作事件">
+                <i class="fa fa-chevron-left"></i> HTML5详解之拖放操作事件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#音频和视频"><span class="nav-number">1.</span> <span class="nav-text">音频和视频</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#audio"><span class="nav-number">1.1.</span> <span class="nav-text">audio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#video"><span class="nav-number">1.2.</span> <span class="nav-text">video</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#soure"><span class="nav-number">1.3.</span> <span class="nav-text">soure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视频容器"><span class="nav-number">1.4.</span> <span class="nav-text">视频容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编解码器"><span class="nav-number">1.5.</span> <span class="nav-text">编解码器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体元素"><span class="nav-number">2.</span> <span class="nav-text">媒体元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#controls"><span class="nav-number">2.1.</span> <span class="nav-text">controls</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#autoplay"><span class="nav-number">2.2.</span> <span class="nav-text">autoplay</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loop"><span class="nav-number">2.3.</span> <span class="nav-text">loop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#currentTime"><span class="nav-number">2.4.</span> <span class="nav-text">currentTime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#duration"><span class="nav-number">2.5.</span> <span class="nav-text">duration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#volume"><span class="nav-number">2.6.</span> <span class="nav-text">volume</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#muted"><span class="nav-number">2.7.</span> <span class="nav-text">muted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#autobuffer"><span class="nav-number">2.8.</span> <span class="nav-text">autobuffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#paused"><span class="nav-number">2.9.</span> <span class="nav-text">paused</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ended"><span class="nav-number">2.10.</span> <span class="nav-text">ended</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#error"><span class="nav-number">2.11.</span> <span class="nav-text">error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#error-code"><span class="nav-number">2.12.</span> <span class="nav-text">error.code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#buffered"><span class="nav-number">2.13.</span> <span class="nav-text">buffered;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#currentSrc"><span class="nav-number">2.14.</span> <span class="nav-text">currentSrc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#play-媒体播放"><span class="nav-number">2.15.</span> <span class="nav-text">play()  :  媒体播放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pause-媒体暂停"><span class="nav-number">2.16.</span> <span class="nav-text">pause()  :  媒体暂停</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#load"><span class="nav-number">2.17.</span> <span class="nav-text">load()  :</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Video额外特性"><span class="nav-number">3.</span> <span class="nav-text">Video额外特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#poster"><span class="nav-number">3.1.</span> <span class="nav-text">poster</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#width、height"><span class="nav-number">3.2.</span> <span class="nav-text">width、height</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#videoWidth、-videoHeight"><span class="nav-number">3.3.</span> <span class="nav-text">videoWidth、 videoHeight</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体事件"><span class="nav-number">4.</span> <span class="nav-text">媒体事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">4.1.</span> <span class="nav-text">参考链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全屏"><span class="nav-number">5.</span> <span class="nav-text">全屏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#启动全屏模式"><span class="nav-number">5.1.</span> <span class="nav-text">启动全屏模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#退出全屏模式"><span class="nav-number">5.2.</span> <span class="nav-text">退出全屏模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fullscreen-属性与事件"><span class="nav-number">5.3.</span> <span class="nav-text">Fullscreen 属性与事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fullscreen-CSS"><span class="nav-number">5.4.</span> <span class="nav-text">Fullscreen CSS</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

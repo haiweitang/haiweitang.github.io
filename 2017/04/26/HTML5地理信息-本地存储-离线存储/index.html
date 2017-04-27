@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="HTML5," />
 
 
 
@@ -90,12 +90,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Prawns's Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="地理位置经度  :   南北极的连接线纬度  :   东西连接的线 位置信息从何而来IP地址GPS全球定位系统Wi-Fi无线网络基站 地理位置对象navigator.geolocation 单次定位请求getCurrentPosition(请求成功，请求失败，数据收集方式)括号里传入三个参数，分别是请求成功的回调，请求失败的回调，收据收集的方式请求成功函数经度 :  coords.longitud">
+<meta name="keywords" content="HTML5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5地理信息-本地存储-离线存储">
+<meta property="og:url" content="http://yoursite.com/2017/04/26/HTML5地理信息-本地存储-离线存储/index.html">
 <meta property="og:site_name" content="Prawns's Blog">
+<meta property="og:description" content="地理位置经度  :   南北极的连接线纬度  :   东西连接的线 位置信息从何而来IP地址GPS全球定位系统Wi-Fi无线网络基站 地理位置对象navigator.geolocation 单次定位请求getCurrentPosition(请求成功，请求失败，数据收集方式)括号里传入三个参数，分别是请求成功的回调，请求失败的回调，收据收集的方式请求成功函数经度 :  coords.longitud">
+<meta property="og:updated_time" content="2017-04-27T08:22:56.583Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Prawns's Blog">
+<meta name="twitter:title" content="HTML5地理信息-本地存储-离线存储">
+<meta name="twitter:description" content="地理位置经度  :   南北极的连接线纬度  :   东西连接的线 位置信息从何而来IP地址GPS全球定位系统Wi-Fi无线网络基站 地理位置对象navigator.geolocation 单次定位请求getCurrentPosition(请求成功，请求失败，数据收集方式)括号里传入三个参数，分别是请求成功的回调，请求失败的回调，收据收集的方式请求成功函数经度 :  coords.longitud">
 
 
 
@@ -123,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/26/HTML5地理信息-本地存储-离线存储/"/>
 
 
 
 
 
-  <title>Prawns's Blog</title>
+  <title>HTML5地理信息-本地存储-离线存储 | Prawns's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -154,9 +159,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,9 +242,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -271,10 +274,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/04/26/HTML5地理信息-本地存储-离线存储/" itemprop="url">
-                  HTML5地理信息-本地存储-离线存储
-                </a>
+                HTML5地理信息-本地存储-离线存储
               
             
           </h1>
@@ -324,9 +324,7 @@
       
 
       
-        
-          
-            <p><strong>地理位置</strong><br>经度  :   南北极的连接线<br>纬度  :   东西连接的线</p>
+        <p><strong>地理位置</strong><br>经度  :   南北极的连接线<br>纬度  :   东西连接的线</p>
 <p><strong>位置信息从何而来</strong><br>IP地址<br>GPS全球定位系统<br>Wi-Fi无线网络<br>基站</p>
 <h3 id="地理位置对象"><a href="#地理位置对象" class="headerlink" title="地理位置对象"></a>地理位置对象</h3><p><strong>navigator.geolocation</strong></p>
 <h4 id="单次定位请求"><a href="#单次定位请求" class="headerlink" title="单次定位请求"></a>单次定位请求</h4><p><strong>getCurrentPosition(请求成功，请求失败，数据收集方式)</strong><br>括号里传入三个参数，分别是请求成功的回调，请求失败的回调，收据收集的方式<br><strong>请求成功函数</strong><br>经度 :  coords.longitude<br>纬度 :  coords.latitude<br>准确度 :  coords.accuracy<br>海拔 :  coords.altitude<br>海拔准确度 :  coords.altitudeAcuracy<br>行进方向 :  coords.heading<br>地面速度 :  coords.speed<br>时间戳 : new Date(position.timestamp)</p>
@@ -513,688 +511,72 @@ window.onload = function(){
 &lt;/html&gt;
 </code></pre><h5 id="存储事件"><a href="#存储事件" class="headerlink" title="存储事件"></a>存储事件</h5><p>当数据有修改或删除的情况下，就会触发storage事件,但是在对数据进行改变的窗口对象上是不会触发的<br>Key : 修改或删除的key值，如果调用clear(),key为null<br>newValue  :  新设置的值，如果调用removeStorage(),key为null<br>oldValue :  调用改变前的value值<br>storageArea : 当前的storage对象<br>url :  触发该脚本变化的文档的url<br>注：session同窗口才可以,例子：iframe操作</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/11/Ajax的新特性/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Prawns's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/11/Ajax的新特性/" itemprop="url">
-                  Ajax的新特性
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-11T01:03:42+08:00">
-                2017-04-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/HTML5/" rel="tag"># HTML5</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          <h2 id="XMLHttpRequest-Level2"><a href="#XMLHttpRequest-Level2" class="headerlink" title="XMLHttpRequest Level2"></a>XMLHttpRequest Level2</h2><p><Excerpt in index | 首页摘要><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/11/Ajax的新特性/#more" rel="contents">
-              Read more &raquo;
-            </a>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/08/ECMAScript6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Prawns's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/04/11/Ajax的新特性/" rel="prev" title="Ajax的新特性">
+                Ajax的新特性 <i class="fa fa-chevron-right"></i>
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2017/04/08/ECMAScript6/" itemprop="url">
-                  ECMAScript6
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-08T01:23:20+08:00">
-                2017-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在2015年6月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。<br>作者：阮一峰的博客地址  <a href="http://es6.ruanyifeng.com/#docs/intro">点击打开</a></p>
-<p><Excerpt in index | 首页摘要><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/08/ECMAScript6/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/07/JS初级/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Prawns's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/07/JS初级/" itemprop="url">
-                  数组、字符串、时间方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-07T23:50:14+08:00">
-                2017-04-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>JS很初级的东西，放进博客是为了方便自己忘了的时候查阅。</p>
-<p><Excerpt in index | 首页摘要><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/07/JS初级/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/06/HTML5拖放事件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Prawns's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/06/HTML5拖放事件/" itemprop="url">
-                  HTML5详解之拖放操作事件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-06T23:42:08+08:00">
-                2017-04-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>初步了解HTML5的拖放事件，实现页内元素或外部元素与目标元素的交互。</p>
-<p><Excerpt in index | 首页摘要><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/06/HTML5拖放事件/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/31/H5自定义播放器/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Prawns's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/31/H5自定义播放器/" itemprop="url">
-                  HTML5详解之自定义播放器
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-31T21:49:39+08:00">
-                2017-03-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML5/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML5</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>关于自定义播放器的笔记，写给自己看的，仅供参考</p>
-<p><Excerpt in index | 首页摘要><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/31/H5自定义播放器/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -1202,6 +584,10 @@ window.onload = function(){
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -1221,8 +607,17 @@ window.onload = function(){
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -1284,6 +679,22 @@ window.onload = function(){
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#地理位置对象"><span class="nav-number">1.</span> <span class="nav-text">地理位置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单次定位请求"><span class="nav-number">1.1.</span> <span class="nav-text">单次定位请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多次定位请求"><span class="nav-number">1.2.</span> <span class="nav-text">多次定位请求</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地存储"><span class="nav-number">2.</span> <span class="nav-text">本地存储</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie-存储数据"><span class="nav-number">2.1.</span> <span class="nav-text">cookie :  存储数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Storage"><span class="nav-number">2.2.</span> <span class="nav-text">Storage</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Storage-API"><span class="nav-number">2.2.1.</span> <span class="nav-text">Storage API</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储事件"><span class="nav-number">2.2.2.</span> <span class="nav-text">存储事件</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1397,6 +808,10 @@ window.onload = function(){
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 

@@ -1,0 +1,858 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTML5," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="初步了解HTML5的拖放事件，实现页内元素或外部元素与目标元素的交互。">
+<meta name="keywords" content="HTML5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5详解之拖放操作事件">
+<meta property="og:url" content="http://yoursite.com/2017/04/06/HTML5拖放事件/index.html">
+<meta property="og:site_name" content="Prawns's Blog">
+<meta property="og:description" content="初步了解HTML5的拖放事件，实现页内元素或外部元素与目标元素的交互。">
+<meta property="og:updated_time" content="2017-04-07T15:24:17.486Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5详解之拖放操作事件">
+<meta name="twitter:description" content="初步了解HTML5的拖放事件，实现页内元素或外部元素与目标元素的交互。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/06/HTML5拖放事件/"/>
+
+
+
+
+
+  <title>HTML5详解之拖放操作事件 | Prawns's Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Prawns's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/06/HTML5拖放事件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prawns's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTML5详解之拖放操作事件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-06T23:42:08+08:00">
+                2017-04-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>初步了解HTML5的拖放事件，实现页内元素或外部元素与目标元素的交互。</p>
+<p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+
+<h3 id="draggable"><a href="#draggable" class="headerlink" title="draggable"></a>draggable</h3><p>给元素添加这个属性，设置为true，元素就可以拖拽了</p>
+<h3 id="拖拽元素事件"><a href="#拖拽元素事件" class="headerlink" title="拖拽元素事件"></a>拖拽元素事件</h3><p>事件对象为被拖拽元素</p>
+<h4 id="dragstart"><a href="#dragstart" class="headerlink" title="dragstart"></a>dragstart</h4><p>拖拽前触发</p>
+<h4 id="drag"><a href="#drag" class="headerlink" title="drag"></a>drag</h4><p>拖拽前、拖拽结束之间，连续触发。跟mousemove一样，但是它停止移动的时候也会连续触发</p>
+<h4 id="dragend"><a href="#dragend" class="headerlink" title="dragend"></a>dragend</h4><p>拖拽结束触发</p>
+<h3 id="目标元素事件"><a href="#目标元素事件" class="headerlink" title="目标元素事件"></a>目标元素事件</h3><p> 事件对象为目标元素</p>
+<h4 id="dragenter"><a href="#dragenter" class="headerlink" title="dragenter"></a>dragenter</h4><p>进入目标元素触发，相当于mouseover</p>
+<h4 id="dragover"><a href="#dragover" class="headerlink" title="dragover"></a>dragover</h4><p>进入目标、离开目标之间，连续触发<br>如果要想触发drop，就必须在dragover当中阻止默认事件。 ev.preventDefault() / return false;</p>
+<h4 id="dragleave"><a href="#dragleave" class="headerlink" title="dragleave"></a>dragleave</h4><p>离开目标元素触发，相当于mouseout</p>
+<h4 id="drop"><a href="#drop" class="headerlink" title="drop"></a>drop</h4><p>在目标元素上释放鼠标触发,前提是必须在ondragover事件中阻止掉默认事件才能触发</p>
+<h3 id="拖放事件的执行顺序"><a href="#拖放事件的执行顺序" class="headerlink" title="拖放事件的执行顺序"></a>拖放事件的执行顺序</h3><p>drop不触发的时候  </p>
+<pre><code>dragstart  &gt;  drag &gt;  dragenter &gt;  dragover &gt;  dragleave &gt; dragend
+</code></pre><p>drop触发的时候(dragover的时候阻止默认事件)</p>
+<pre><code>dragstart  &gt;  drag &gt;  dragenter &gt;  dragover &gt;  drop &gt; dragend
+</code></pre><p>不能释放的光标和能释放的光标不一样</p>
+<h3 id="dataTransfer对象"><a href="#dataTransfer对象" class="headerlink" title="dataTransfer对象"></a>dataTransfer对象</h3><p>要解决火狐下不能拖拽的问题，必须设置ev.dataTransfer对象的setData方法才可以拖拽除图片以外的其他标签</p>
+<h4 id="setData"><a href="#setData" class="headerlink" title="setData()"></a>setData()</h4><p>设置数据 key和value(必须是字符串)  ev.dataTransfer.setData(‘name’,’hello’);</p>
+<h4 id="getData"><a href="#getData" class="headerlink" title="getData() :"></a>getData() :</h4><p>获取数据，根据key值，获取对应的value ev.dataTransfer.getData(‘name’);</p>
+<h4 id="effectAllowed"><a href="#effectAllowed" class="headerlink" title="effectAllowed"></a>effectAllowed</h4><p>effectAllowed : 设置光标样式(none, copy, copyLink, copyMove, link, linkMove, move, all 和 uninitialized)<br>例：ev.dataTransfer.effectAllowed = ‘光标样式’;</p>
+<h4 id="setDragImage"><a href="#setDragImage" class="headerlink" title="setDragImage"></a>setDragImage</h4><p>ev.dataTransfer.setDragImage(oDiv,0,0); 三个参数：指定的元素，坐标X，坐标Y<br>可以让拖拽过程中的元素的形状变成指定的元素样子，比如说图片</p>
+<h4 id="拖放事件案例1"><a href="#拖放事件案例1" class="headerlink" title="拖放事件案例1"></a>拖放事件案例1</h4><pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+&lt;title&gt;无标题文档&lt;/title&gt;
+&lt;style&gt;
+li{ list-style:none; width:100px; height:30px; background:yellow; margin:10px;}
+#div1{ width:100px; height:100px; background:red; margin:200px;}
+&lt;/style&gt;
+&lt;script&gt;
+window.onload = function(){
+    var oUl = document.getElementsByTagName(&apos;ul&apos;)[0];
+    var aLi = oUl.getElementsByTagName(&apos;li&apos;);
+    var oDiv = document.getElementById(&apos;div1&apos;);
+    var i = 0;
+
+    for(var i=0;i&lt;aLi.length;i++){
+        aLi[i].index = i;
+        aLi[i].ondragstart = function(ev){  //开始拖拽触发事件
+            var ev = ev || window.event;
+            ev.dataTransfer.setData(&apos;name&apos;,this.index);  //拖拽的时候获取li的索引值
+            ev.dataTransfer.effectAllowed = &apos;copy&apos;;      //设置拖拽时候的光标样式
+            ev.dataTransfer.setDragImage(oDiv,0,0);      //指定拖放时候的元素样式
+            this.style.background = &apos;green&apos;;
+        };
+
+        /*aLi[i].ondrag = function(){  //开始与结束连续触发
+            document.title = i++;
+        };*/
+
+        aLi[i].ondragend = function(){        //结束拖放时的时间
+            this.style.background = &apos;yellow&apos;;
+        };
+    }
+
+    oDiv.ondragenter = function(){         //移入目标元素时触发的事件
+        this.style.background = &apos;blue&apos;;
+    };
+
+    oDiv.ondragover = function(ev){        //悬停在目标元素的时候触发
+        //enter和leave之间连续触发
+        //document.title = i++;
+
+        ev.preventDefault();         //要想触发drop事件，就必须在dragover当中阻止默认事件
+    };
+
+    oDiv.ondragleave = function(){     //离开目标元素的时候触发
+        this.style.background = &apos;red&apos;;
+    };
+
+    oDiv.ondrop = function(ev){        //在目标元素上释放鼠标之后触发，必须先在dragover时间中阻止掉默认事件
+       oUl.removeChild( aLi[ev.dataTransfer.getData(&apos;name&apos;)] );  //删除拖动的li元素
+
+        for(var i=0;i&lt;aLi.length;i++){
+            aLi[i].index = i;                //删除元素之后索引值会发生变化，所以需要在这里重新生成一下索引值
+        }
+    };
+};
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;ul&gt;
+    &lt;li draggable=&quot;true&quot;&gt;a&lt;/li&gt;
+    &lt;li draggable=&quot;true&quot;&gt;b&lt;/li&gt;
+    &lt;li draggable=&quot;true&quot;&gt;c&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h4 id="files"><a href="#files" class="headerlink" title="files"></a>files</h4><p>ev.dataTransfer.files;</p>
+<ol>
+<li>获取外部拖拽的文件，返回一个filesList列表</li>
+<li><p>filesList下有个type属性，返回文件的类型</p>
+<p> var fs = ev.dataTransfer.files;        //获取外部拖拽的文件<br> //alert(fs.length);                   //获取外部拖拽的文件的长度<br> //alert( fs[0].type );                //获取外部拖拽的文件的类型和格式</p>
+</li>
+</ol>
+<h3 id="FileReader-读取文件信息"><a href="#FileReader-读取文件信息" class="headerlink" title="FileReader(读取文件信息)"></a>FileReader(读取文件信息)</h3><p>对象，new FileReader();,下面有两个方法</p>
+<h4 id="readAsDataURL"><a href="#readAsDataURL" class="headerlink" title="readAsDataURL"></a>readAsDataURL</h4><p>new FileReader().readAsDataURL()<br>参数为要读取的文件对象，将文件读取为DataUrl</p>
+<h4 id="onload"><a href="#onload" class="headerlink" title="onload"></a>onload</h4><p>new FileReader().onload = function(){}<br>当读取文件成功完成的时候触发此事件<br><strong>this.result</strong> , 来获取读取的文件数据，如果是图片，将返回base64格式的图片数据</p>
+<h4 id="拖放事件案例2-上传图片预览"><a href="#拖放事件案例2-上传图片预览" class="headerlink" title="拖放事件案例2-上传图片预览"></a>拖放事件案例2-上传图片预览</h4><pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+&lt;title&gt;无标题文档&lt;/title&gt;
+&lt;style&gt;
+#div1{ width:200px; height:200px; background:red; margin:100px;}
+&lt;/style&gt;
+&lt;script&gt;
+window.onload = function(){
+    var oDiv = document.getElementById(&apos;div1&apos;);
+    var oUl = document.getElementById(&apos;ul1&apos;);
+
+    oDiv.ondragenter = function(){
+        this.innerHTML = &apos;可以释放啦&apos;;
+    };
+
+    oDiv.ondragover = function(ev){
+        ev.preventDefault();
+    };
+
+    oDiv.ondragleave = function(){
+        this.innerHTML = &apos;将文件拖拽到此区域&apos;;
+    };
+
+    oDiv.ondrop = function(ev){
+        ev.preventDefault();                //为了防止浏览器打开外部文件，所以需要阻止掉浏览器的默认操作事件
+        var fs = ev.dataTransfer.files;        //获取外部拖拽的文件
+
+        //alert(fs.length);                   //获取外部拖拽的文件的长度
+        //alert( fs[0].type );                //获取外部拖拽的文件的类型和格式
+
+        for(var i=0;i&lt;fs.length;i++){
+            if(fs[i].type.indexOf(&apos;image&apos;)!=-1){
+                var fd = new FileReader();            //创建一个FileReader对象
+
+                fd.readAsDataURL( fs[i] );            //将拖放进来的文件读取为DataUrl
+
+                fd.onload = function(){                //读取完成之后执行onload事件
+
+                    var oLi = document.createElement(&apos;li&apos;);
+                    var oImg = document.createElement(&apos;img&apos;);
+                    oImg.src = this.result;            //this.result 获取读取的文件的数据
+                    oLi.appendChild(oImg);
+                    oUl.appendChild(oLi);
+
+                };
+            }
+            else{
+                alert(&apos;亲，请上传图片类型&apos;);
+            }
+        }
+    };
+};
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div id=&quot;div1&quot;&gt;将文件拖拽到此区域&lt;/div&gt;
+    &lt;ul id=&quot;ul1&quot;&gt;&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></the>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML5/" rel="tag"># HTML5</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/07/JS初级/" rel="next" title="数组、字符串、时间方法">
+                <i class="fa fa-chevron-left"></i> 数组、字符串、时间方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/31/H5自定义播放器/" rel="prev" title="HTML5详解之自定义播放器">
+                HTML5详解之自定义播放器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#draggable"><span class="nav-number">1.</span> <span class="nav-text">draggable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拖拽元素事件"><span class="nav-number">2.</span> <span class="nav-text">拖拽元素事件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dragstart"><span class="nav-number">2.1.</span> <span class="nav-text">dragstart</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#drag"><span class="nav-number">2.2.</span> <span class="nav-text">drag</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dragend"><span class="nav-number">2.3.</span> <span class="nav-text">dragend</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标元素事件"><span class="nav-number">3.</span> <span class="nav-text">目标元素事件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dragenter"><span class="nav-number">3.1.</span> <span class="nav-text">dragenter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dragover"><span class="nav-number">3.2.</span> <span class="nav-text">dragover</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dragleave"><span class="nav-number">3.3.</span> <span class="nav-text">dragleave</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#drop"><span class="nav-number">3.4.</span> <span class="nav-text">drop</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拖放事件的执行顺序"><span class="nav-number">4.</span> <span class="nav-text">拖放事件的执行顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dataTransfer对象"><span class="nav-number">5.</span> <span class="nav-text">dataTransfer对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#setData"><span class="nav-number">5.1.</span> <span class="nav-text">setData()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getData"><span class="nav-number">5.2.</span> <span class="nav-text">getData() :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#effectAllowed"><span class="nav-number">5.3.</span> <span class="nav-text">effectAllowed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setDragImage"><span class="nav-number">5.4.</span> <span class="nav-text">setDragImage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拖放事件案例1"><span class="nav-number">5.5.</span> <span class="nav-text">拖放事件案例1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#files"><span class="nav-number">5.6.</span> <span class="nav-text">files</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FileReader-读取文件信息"><span class="nav-number">6.</span> <span class="nav-text">FileReader(读取文件信息)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#readAsDataURL"><span class="nav-number">6.1.</span> <span class="nav-text">readAsDataURL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onload"><span class="nav-number">6.2.</span> <span class="nav-text">onload</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拖放事件案例2-上传图片预览"><span class="nav-number">6.3.</span> <span class="nav-text">拖放事件案例2-上传图片预览</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

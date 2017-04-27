@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/27/applet/index.html">
 <meta property="og:site_name" content="Prawns's Blog">
 <meta property="og:description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
-<meta property="og:updated_time" content="2017-04-27T10:00:01.916Z">
+<meta property="og:updated_time" content="2017-04-27T10:01:29.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序入门">
 <meta name="twitter:description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
@@ -357,7 +357,10 @@
 <h4 id="text"><a href="#text" class="headerlink" title="text"></a>text</h4><p>在小程序中，text类似于html5中的p。文本<br>支持转义符”\”。</p>
 <p><text> 组件内只支持 <text> 嵌套。<br>除了文本节点以外的其他节点都无法长按选中。</text></text></p>
 <h4 id="wx-if"><a href="#wx-if" class="headerlink" title="wx:if"></a>wx:if</h4><p>wx:if=”false“<br>逻辑判断<br>在任何标签里传入wx:if=”false“，就能阻止掉当前标签的显示。如果双大括号里天true，就能显示该标签</p>
-<h4 id="wx-for"><a href="#wx-for" class="headerlink" title="wx:for"></a>wx:for</h4></the>
+<h4 id="wx-for"><a href="#wx-for" class="headerlink" title="wx:for"></a>wx:for</h4><pre><code>wx:for=&quot;{{}}&quot; 括号里传入数据的变量名，
+wx:for-item=&quot;item&quot; for循环默认子元素指代是以item来命名的。所以block标签内写不写都无所谓。item指定子元素本身
+wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
+</code></pre></the>
       
     </div>
 

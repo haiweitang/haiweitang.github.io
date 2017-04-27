@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 
 <head>
   <meta charset="UTF-8" />
@@ -42,7 +42,7 @@
     var NexT = window.NexT || {};
     var CONFIG = {
       root: '/',
-      scheme: 'Muse',
+      scheme: 'Pisces',
       sidebar: {
         "position": "left",
         "display": "post",
@@ -126,6 +126,14 @@
               </a>
             </li>
 
+            <li class="menu-item menu-item-categories">
+              <a href="/categories" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-th"></i>
+                <br /> 分类
+              </a>
+            </li>
+
             <li class="menu-item menu-item-about">
               <a href="/about" rel="section">
 
@@ -206,16 +214,6 @@
                         2017-04-07
                       </time>
 
-                    </span>
-
-                    <span class="post-comments-count">
-                      <span class="post-meta-divider">|</span>
-                      <span class="post-meta-item-icon">
-                        <i class="fa fa-comment-o"></i>
-                      </span>
-                      <a class="cloud-tie-join-count" href="/2017/04/07/JS初级/#comments" itemprop="discussionUrl">
-                        <span class="post-comments-count join-count" itemprop="commentCount"></span>
-                      </a>
                     </span>
 
                   </div>
@@ -481,8 +479,6 @@ Math.round(Math.random()*10);   随机返回1到10之间的任何一个整数。
           </div>
 
           <div class="comments" id="comments">
-
-            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 
           </div>
 
@@ -803,7 +799,7 @@ Math.round(Math.random()*10);   随机返回1到10之间的任何一个整数。
         <div class="theme-info">
           主题 -
           <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-            NexT.Muse
+            NexT.Pisces
           </a>
         </div>
 
@@ -840,21 +836,14 @@ Math.round(Math.random()*10);   随机返回1到10之间的任何一个整数。
 
   <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
 
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
   <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
-
-  <script>
-    var cloudTieConfig = {
-      url: document.location.href,
-      sourceId: "",
-      productKey: "54915ed1e07e4d9386fb961dcb11a732",
-      target: "cloud-tie-wrapper"
-    };
-
-  </script>
-  <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
 
   <a href="https://github.com/you">
     <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github.com/haiweitang"

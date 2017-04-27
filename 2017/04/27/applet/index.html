@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/27/applet/index.html">
 <meta property="og:site_name" content="Prawns's Blog">
 <meta property="og:description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
-<meta property="og:updated_time" content="2017-04-27T09:53:44.955Z">
+<meta property="og:updated_time" content="2017-04-27T09:56:02.748Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序入门">
 <meta name="twitter:description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -287,7 +287,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-27T17:48:27+08:00">
                 2017-04-27
@@ -351,6 +351,11 @@
 <h3 id="底层框架的工作原理"><a href="#底层框架的工作原理" class="headerlink" title="底层框架的工作原理"></a>底层框架的工作原理</h3><p>这个框架是双向的数据绑定系统：用户做视图上的修改会自动同步到数据模型中去，同样的，如果数据模型中的值发生了变化，也会立刻同步到视图中去。</p>
 <h3 id="必要的文件"><a href="#必要的文件" class="headerlink" title="必要的文件"></a>必要的文件</h3><p><strong>app.js ：</strong>是小程序的脚本代码。我们可以在这个文件中监听并处理小程序的生命周期函数、声明全局变量。调用框架提供的丰富的 API。<br><strong>app.json :</strong>是对整个小程序的全局配置。我们可以在这个文件中配置小程序是由哪些页面组成，配置小程序的窗口背景色，配置导航条样式，配置默认标题。注意该文件不可添加任何注释。<br><strong>app.wxss :</strong> 是整个小程序的公共样式表。我们可以在页面组件的 class 属性上直接使用 app.wxss 中声明的样式规则。</p>
 <h3 id="创建页面"><a href="#创建页面" class="headerlink" title="创建页面"></a>创建页面</h3><p>在这个教程里，我们有两个页面，index 页面和 logs 页面，即欢迎页和小程序启动日志的展示页，他们都在 pages 目录下。微信小程序中的每一个页面的【路径+页面名】都需要写在 app.json 的 pages中，且 pages 中的第一个页面是小程序的首页。</p>
+<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><h4 id="view"><a href="#view" class="headerlink" title="view"></a>view</h4><p>视图容器，类似于html5中的div</p>
+<h4 id="scroll-view"><a href="#scroll-view" class="headerlink" title="scroll-view"></a>scroll-view</h4><p>类似于html5中自带overflow:hidden的div</p>
+<h4 id="swiper"><a href="#swiper" class="headerlink" title="swiper"></a>swiper</h4><p>滑块视图容器。<br>其中只可放置<code>&lt;swiper-item/</code>&gt;组件，否则会导致未定义的行为。<br>宽高只能设置到swiper，swiper-item不能设置宽高。<br>添加属性vertical=”true”,可以纵向滚动，官方API里没有说明<br><strong>swiper-item</strong><br>仅可放置在<swiper>组件中，宽高自动设置为100%。</swiper></p>
+<h4 id="text"><a href="#text" class="headerlink" title="text"></a>text</h4><p>在小程序中，text类似于html5中的p。文本<br>支持转义符”\”。</p>
+<p><text> 组件内只支持 <text> 嵌套。<br>除了文本节点以外的其他节点都无法长按选中。</text></text></p>
 </the>
       
     </div>
@@ -450,10 +455,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -474,7 +479,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -485,7 +490,7 @@
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">categories</span>
+                <span class="site-state-item-name">Kategorien</span>
               
             </div>
           
@@ -496,7 +501,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               
             </div>
           
@@ -530,7 +535,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动设备的分辨率与rpx"><span class="nav-number">1.</span> <span class="nav-text">移动设备的分辨率与rpx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是微信小程序？"><span class="nav-number">2.</span> <span class="nav-text">什么是微信小程序？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序的特点"><span class="nav-number">3.</span> <span class="nav-text">小程序的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成结构"><span class="nav-number">4.</span> <span class="nav-text">组成结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底层框架的工作原理"><span class="nav-number">5.</span> <span class="nav-text">底层框架的工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必要的文件"><span class="nav-number">6.</span> <span class="nav-text">必要的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建页面"><span class="nav-number">7.</span> <span class="nav-text">创建页面</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动设备的分辨率与rpx"><span class="nav-number">1.</span> <span class="nav-text">移动设备的分辨率与rpx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是微信小程序？"><span class="nav-number">2.</span> <span class="nav-text">什么是微信小程序？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序的特点"><span class="nav-number">3.</span> <span class="nav-text">小程序的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成结构"><span class="nav-number">4.</span> <span class="nav-text">组成结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底层框架的工作原理"><span class="nav-number">5.</span> <span class="nav-text">底层框架的工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必要的文件"><span class="nav-number">6.</span> <span class="nav-text">必要的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建页面"><span class="nav-number">7.</span> <span class="nav-text">创建页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签"><span class="nav-number">8.</span> <span class="nav-text">标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#view"><span class="nav-number">8.1.</span> <span class="nav-text">view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scroll-view"><span class="nav-number">8.2.</span> <span class="nav-text">scroll-view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swiper"><span class="nav-number">8.3.</span> <span class="nav-text">swiper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text"><span class="nav-number">8.4.</span> <span class="nav-text">text</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -562,7 +567,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

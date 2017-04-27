@@ -1,0 +1,943 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="正则 ： 也叫做规则，让计算机读懂人类的规则。    PS：正则都是操作字符串的;   简写形式：var re = /a/;  大部分情况下推荐简写。因双斜杠//会造成浏览器识别成注释，所以做斜杠之间添加一个a。      全写形式：var re = new RegExp(‘a’);  特殊情况下需要写全写。比如在传参的情况下，就必须写全写方式">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS正则表达式">
+<meta property="og:url" content="http://yoursite.com/2017/04/08/JS正则表达式/index.html">
+<meta property="og:site_name" content="Prawns's Blog">
+<meta property="og:description" content="正则 ： 也叫做规则，让计算机读懂人类的规则。    PS：正则都是操作字符串的;   简写形式：var re = /a/;  大部分情况下推荐简写。因双斜杠//会造成浏览器识别成注释，所以做斜杠之间添加一个a。      全写形式：var re = new RegExp(‘a’);  特殊情况下需要写全写。比如在传参的情况下，就必须写全写方式">
+<meta property="og:updated_time" content="2017-04-09T12:45:21.117Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS正则表达式">
+<meta name="twitter:description" content="正则 ： 也叫做规则，让计算机读懂人类的规则。    PS：正则都是操作字符串的;   简写形式：var re = /a/;  大部分情况下推荐简写。因双斜杠//会造成浏览器识别成注释，所以做斜杠之间添加一个a。      全写形式：var re = new RegExp(‘a’);  特殊情况下需要写全写。比如在传参的情况下，就必须写全写方式">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/08/JS正则表达式/"/>
+
+
+
+
+
+  <title>JS正则表达式 | Prawns's Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Prawns's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/08/JS正则表达式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prawns's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JS正则表达式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-08T14:34:54+08:00">
+                2017-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记类/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记类</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>正则 ：</strong> 也叫做规则，让计算机读懂人类的规则。<br>    PS：正则都是操作字符串的;  </p>
+<p><strong>简写形式：</strong><br>var re = /a/;  大部分情况下推荐简写。因双斜杠//会造成浏览器识别成注释，所以做斜杠之间添加一个a。     </p>
+<p><strong>全写形式：</strong><br>var re = new RegExp(‘a’);  特殊情况下需要写全写。比如在传参的情况下，就必须写全写方式</p>
+<p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
+<p><the rest="" of="" contents="" |="" 余下全文=""></the></p>
+<h2 id="常规正则例子"><a href="#常规正则例子" class="headerlink" title="常规正则例子"></a>常规正则例子</h2><p>匹配中文：[\u4e00-\u9fa5]<br>行首行尾空格：^\s<em>|\s</em>$<br>Email：^\w+@[a-z0-9]+(\.[a-z]+){1,3}$<br>网址：[a-zA-z]+://[^\s]*<br>QQ号：[1-9]\d{4,9}$<br>邮政编码：^[1-9]\d{5}$<br>身份证：[1-9]\d{14}|[1-9]\d{17}|[1-9]\d{16}x</p>
+<h2 id="正则表达式常用方法："><a href="#正则表达式常用方法：" class="headerlink" title="正则表达式常用方法："></a>正则表达式常用方法：</h2><h3 id="test方法"><a href="#test方法" class="headerlink" title="test方法"></a><font color="red">test方法</font></h3><p><strong>test方法能做什么 :</strong><br>正则去匹配字符串，如果匹配成功就返回真，如果匹配失败就返回假。<br><strong>test的写法：</strong><br>正则.test(字符串);</p>
+<p>示例：</p>
+<pre><code>var str = ‘abcdef’;
+var re = /b/;           //通过b去匹配字符串中的字符。如果含有b，就返回布尔值true/否则返回false
+alert(re.test(str));    //true
+</code></pre><p>转义字符： 字符前面加反斜杠\，会转义字符。<br>\s : 空格;  \S : 非空格;  \d：数字;  \D：非数字;  \w：字符(字母，数字，下划线_);  \W：非字符;</p>
+<p>示例：<br>通过\D来判断，非数字是为真，弹出 ’不全是数字’；没有非数字的时候弹出 ‘全是数字’；</p>
+<pre><code>var str = ‘56464t46464’;
+var re = /\D/;
+if( re.test(str) ){
+alert(‘不全是数字’);
+}  
+else{
+  alert( ‘全是数字’ )
+}
+</code></pre><h3 id="search方法"><a href="#search方法" class="headerlink" title="search方法"></a><font color="red">search方法</font></h3><p><strong>search方法能做什么 :</strong><br> 正则去匹配字符串，如果匹配成功就返回匹配成功的位置，如果匹配失败就返回-1。<br><strong>search的写法：</strong><br>字符串.search(正则);<br>示例：</p>
+<pre><code>var str = ‘abcdef’;
+var re = /B/i;           //通过b去匹配字符串中的字符。如果含有b，就返回b的位置/否则返回-1
+alert( tr.search(re) );  // 1
+</code></pre><p><strong>正则默认：</strong><br>正则默认下是区分大小写;<br>如果不区分大小写的话，需要在正则的最后加标识符 <font color="#f60"><strong>i</strong> (不区分大小写)</font><br>示例：</p>
+<pre><code>var re = /B/i;                  //表示不区分大小写。
+var re = new RegExp(‘B’,’i’);   //不区分大小，全写下的写法。
+</code></pre><h3 id="match方法"><a href="#match方法" class="headerlink" title="match方法"></a><font color="red">match方法</font></h3><p><strong>match方法能做什么 :</strong><br>正则去匹配字符串，如果匹配成功就返回匹配成功的数组，如果匹配失败就返回null。<br><strong>match的写法：</strong><br>字符串.match(正则);<br>示例：</p>
+<pre><code>var str = ‘ab123c45de678f54fd9’;
+var re = /\d+/g;            //通过/d数字去匹配字符串中的字符。如果含有数字，就返回数组
+alert( str.match(re) );    //1,2,3,4,5,6,7,8,9
+</code></pre><p><strong>正则默认：</strong><br>正则匹配成功就会结束，不会继续匹配。<br>如果想全部查找，就要加标识符  <font color="#f60"><strong>g</strong> (全局匹配)</font><br> 示例：</p>
+<pre><code>var re = /\d+/g;    //表示走完整个字符串。
+ var re = new RegExp(‘\d+’,’g’);  
+</code></pre><p><strong>量词 ‘+’ :</strong> + 表示至少出现一次(&gt;=1)， 可以匹配不确定的位置。<br>示例：</p>
+<pre><code>var str = ‘ab123c45de678f54fd9’;
+var re = /\d+/g;           
+alert( str.match(re) );    //123，45，678，9
+</code></pre><h3 id="replace方法"><a href="#replace方法" class="headerlink" title="replace方法"></a><font color="red">replace方法</font></h3><p><strong>replace方法能做什么 :</strong><br>正则去匹配字符串，匹配成功的字符去替换成新的字符串，如果匹配失败就返回null。<br><strong>replace的写法：</strong><br>字符串.replace(正则, 新的字符串);<br>replace的第二个参数：可以是字符串，也可以是一个回调函数。</p>
+<p>示例：</p>
+<pre><code>var str = ‘aaa’;
+alert( str.replace(/a/,’b’) );       //弹出baa; 通过a去匹配字符串中的字符。如果含有a，就替换成b
+alert( str.replace(/a/g,’b’) );      //弹出bbb;
+alert( str.replace(/a+/g,’b’) );     //弹出b;
+</code></pre><p><strong>|:</strong> 正则中表示‘或’的意思。<br>示例：</p>
+<pre><code>&lt;script&gt;
+    window.onload = function(){
+        var aT = document.getElementsByTagName(&apos;textarea&apos;);
+        var oBtn = document.getElementById(&apos;btn&apos;);
+        var re = /大众|技术|特色|越骂越火/g;
+        oBtn.onclick=function(){
+            aT[1].value = aT[0].value.replace(re,function(str){  //函数的第一个参数str，就是匹配成果的字符
+                var result = &apos;&apos;;
+                for(var i=0; i&lt;str.length; i++){
+                    result += &apos;*&apos;;
+                }
+                return result;
+            });
+        }
+    }
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    替换前&lt;/br&gt;
+    &lt;textarea name=&quot;&quot; id=&quot;&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;&lt;/br&gt;
+    替换后&lt;/br&gt;
+    &lt;textarea name=&quot;&quot; id=&quot;&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;&lt;/br&gt;
+    &lt;input type=&quot;button&quot; id=&quot;btn&quot; value=&quot;确定&quot;&gt;
+&lt;/body&gt;*
+</code></pre><h3 id="正则表达式中的小括号"><a href="#正则表达式中的小括号" class="headerlink" title="正则表达式中的小括号"></a><font color="red">正则表达式中的小括号</font></h3><p>匹配子项 : 小括号();<br>()还有另外一种意思，分组操作。<br>把正则的整体叫做《母亲》，<br>然后把左边第一个小括号里面的正则，叫做第一个子项(母亲的第一个孩子)<br>示例：</p>
+<pre><code>var str = &apos;2013-6-7&apos;
+var re = /(\d+)(-)/g;
+str = str.replace(re,function($0,$1,$2){    //第一个参数：$0(母亲), 第二个参数:$1(第一个子项), 第二个参数：$2(第二个子项)
+        return $1 + &apos;.&apos;;                    //不用指向的方法return $0.substring(0,$0.length-1) + &apos;.&apos;;
+    })
+    alert(str);                             //通过匹配指向，把str 变成了 2013.6.7
+</code></pre><p>match指向方法<br>示例：</p>
+<pre><code>var str = ‘abc’;
+Var re = /(a)(b)(c)/;
+alert( str.match(re) ) ;  //[abc,a,b,c]
+</code></pre><p>当match不加g的时候才可以获取到子项的集合</p>
+<h3 id="正则表达式中的字符类"><a href="#正则表达式中的字符类" class="headerlink" title="正则表达式中的字符类"></a><font color="red">正则表达式中的字符类</font></h3><h4 id="字符类"><a href="#字符类" class="headerlink" title="字符类 :"></a>字符类 :</h4><p>用[]中括号来表示。一组相似的元素。<br>[]的整体代表一个字符。<br>[]里面的内容是或者关系。<br>示例：</p>
+<pre><code>var str = ‘abc’;
+var re = /a[bde]c/;   //[]里面的内容是或者关系，只代表一个字符
+alert(re.test(str));   //true
+</code></pre><h4 id="排除"><a href="#排除" class="headerlink" title="排除 :  ^"></a>排除 :  ^</h4><p>如果^写在[]里面的话，就表示排除的意思。<br>和JS中的！差不多意思，都是表示 非 的意思。<br>如果写在正则的最开始位置，就代表起始的意思<br>示例：</p>
+<pre><code>var str = ‘abc’;
+var re = /a[^bde]c/;      //如果str中第二位不是中括号里都内容，那么返回真。
+alert(re.test(str));      // false  意思是必须排除掉中括号里面的内容才是真。
+</code></pre><h4 id="范围"><a href="#范围" class="headerlink" title="范围 :  -"></a>范围 :  -</h4><p>如果-写在[]里面的话，就表示范围的意思。写法是必须从小到大。<br>示例：</p>
+<pre><code>var str = ‘abc’;
+var re = /a[a-z]c/;         //如果str中第二位是中括号里都范围，那么返回真。
+var re=/a[a-z0-9A-Z]+c/;    //如果要增大范围，需要在中括号后面添加一个‘+’；
+                            //意思是从a到做，0到9，A到Z之间的范围
+alert(re.test(str));        //意思是从a到z中间任意一个字母能匹配到b，就返回真。
+</code></pre><p>案例：过滤标签</p>
+<pre><code>script&gt;
+    window.onload = function(){
+        var aT = document.getElementsByTagName(&apos;textarea&apos;);
+        var oInput = document.getElementById(&apos;input1&apos;);
+    方法1
+        var re = /&lt;[^&gt;]+&gt;/g;               //匹配只要不是&gt;的都可以
+    方法2
+        var re = /[\w\W]+/g;                //匹配所有字符或非字符
+        oInput.onclick = function(){
+            aT[1].value = aT[0].value.replace(re,&apos;&apos;);
+        };
+    };
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    替换前&lt;br /&gt;
+    &lt;textarea&gt;&lt;/textarea&gt;&lt;br /&gt;
+    替换后&lt;br /&gt;
+    &lt;textarea&gt;&lt;/textarea&gt;&lt;br /&gt;
+    &lt;input type=&quot;button&quot; value=&quot;确定&quot; id=&quot;input1&quot; /&gt;
+&lt;/body&gt;
+</code></pre><h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><p><strong>转义字符：</strong><br> 字符前面加反斜杠\，会转义字符。<br><strong>\s: 空格;  \S: 非空格;</strong><br><strong>\d：数字;  \D：非数字;</strong><br><strong>\w：字符(字母，数字，下划线_);  \W：非字符;</strong></p>
+<p><strong>. : 任意字符;  . : 代表真正的点;</strong></p>
+<p>示例：</p>
+<pre><code>var str = &apos;a.c&apos;;
+var re = /a\.c/;        //a和c中间的 \. 代表只能匹配点 . ;
+alert(re.test(str));
+</code></pre><p><strong>\b : 独立的部分</strong>   （ 起始，结束，空格 ）<br><strong>\B : 非独立的部分</strong></p>
+<pre><code>var str = &apos;onetwo&apos;;
+var re = /one\b/;       //不是结束的位置，返回false
+var re = /\bone/;       //起始的位置，返回true
+alert( re.test(str) );
+</code></pre><p>案例：利用正则获取class</p>
+<pre><code>window.onload = function(){
+    var aLi = getByClass(document,&apos;box1&apos;);
+
+    for(var i=0;i&lt;aLi.length;i++){
+        aLi[i].style.background = &apos;red&apos;;
+    }
+
+利用非正则的方法
+    /*function getByClass(oParent,sClass){
+        var arr = [];
+        var aEle = oParent.getElementsByTagName(&apos;*&apos;);
+
+        for(var i=0;i&lt;aEle.length;i++){
+            if( aEle[i].className == sClass ){
+                arr.push( aEle[i] );
+            }
+        }
+
+        return arr;
+
+    }*/
+
+使用正则的方法
+    function getByClass(oParent,sClass){
+        var arr = [];
+        var aEle = oParent.getElementsByTagName(&apos;*&apos;);
+
+        //var re = /sClass/;  //当正则需要传参的时候，一定要用全称的写法
+        var re = new RegExp(&apos;\\b&apos;+sClass+&apos;\\b&apos;);
+
+        for(var i=0;i&lt;aEle.length;i++){
+            if( re.test(aEle[i].className) ){
+                arr.push( aEle[i] );
+            }
+        }
+        return arr;
+    }
+};
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;ul&gt;
+    &lt;li class=&quot;box1&quot;&gt;111&lt;/li&gt;
+    &lt;li&gt;111&lt;/li&gt;
+    &lt;li class=&quot;box1box2&quot;&gt;111&lt;/li&gt;
+    &lt;li&gt;111&lt;/li&gt;
+    &lt;li class=&quot;box1 box2&quot;&gt;111&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+</code></pre><p>重复的子项</p>
+<p>\1 : 重复的第一个子项  ，1这个数字就代表重复的第几个子项</p>
+<p>示例：</p>
+<pre><code>var str = &apos;abca&apos;;
+var re = /(a)(b)(c)\2/;  //这里的\2表示重复第二个子项，但是\2的位置对应的是a,所以返回的是false
+alert( re.test(str) );
+
+var re = /\w\w/;  c9        
+var re = /(\w)\1/; cc  99   //由于\1是重复第一个子项，所以它匹配的是对应第一个子项通向的字符，比如 cc  99 这样两个相同的字符才能匹配成功。
+</code></pre><p>案例：查找字符串中重复最多的字符</p>
+<p>var str = ‘assssjdssskssalsssdkjsssdss’;<br>var arr = str.split(‘’);<br>str = arr.sort().join(‘’);</p>
+<p>var value = ‘’;<br>var index = 0;<br>var re = /(\w)\1+/g;<br>str.replace(re,function($0,$1){<br>    if(index&lt;$0.length){<br>        index = $0.length;<br>        value = $1;<br>    }<br>});<br>alert(‘最多的字符:’+value+’,重复的次数:’+index);</p>
+<h2 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h2><p>量词 ： 正则中是用大括号来书写的 {}<br>{4,7} : 意思是最少出现4次，最多出现7次<br>{4，} ： 意思是最少出现4次，最大无限<br>{4} ： 意思是正好出现4次</p>
+<p>+ : {1,} 至少出现1次<br>? : {0,1} 出现0次或者1次<br>* : {0,} 至少出现0次</p>
+<p>+ 和 * 有一定的区别，+ 必须出现至少1次，而* 可以一次也不用出现<br>示例：</p>
+<pre><code>var str = &apos;ab&apos;;
+var re = /ab+/;   
+alert(re.test(str));   //返回真，但是如果str = &apos;ac&apos;; 呢，就会返回假
+</code></pre><p>我们再来看</p>
+<pre><code>var str = &apos;ac&apos;;
+var re = /ab*/;   
+alert(re.test(str));  //返回真
+</code></pre><p>从上面的例子可以看出来，如果我们把b后面的 + 号换成 * 号，就可以返回true。</p>
+<p><strong>^ : 写在正则的最开始位置，就代表起始的意思</strong><br><strong>$ : 写在正则的最后位置 , 就代表结束的意思</strong></p>
+<p>案例： 判断是不是QQ号</p>
+<pre><code>window.onload = function(){
+    var aInput = document.getElementsByTagName(&apos;input&apos;);
+    var re = /^[1-9]\d{4,11}$/;
+    aInput[1].onclick = function(){
+        if( re.test(aInput[0].value) ){
+            alert(&apos;是QQ号&apos;);
+        }
+        else{
+            alert(&apos;不是QQ号&apos;);
+        }
+    };
+};
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;input type=&quot;text&quot; /&gt;&lt;input type=&quot;button&quot; value=&quot;确定&quot; /&gt;
+&lt;/body&gt;
+</code></pre><p>案例：去除前后空格</p>
+<pre><code>var str = &apos; hello &apos;;
+alert( &apos;(&apos;+trim(str)+&apos;)&apos; );
+function trim(str){
+    var re = /^\s+|\s+$/g;
+    return str.replace(re,&apos;&apos;);
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"># JS</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/09/jQ-常用API/" rel="next" title="jQ初探-常用API">
+                <i class="fa fa-chevron-left"></i> jQ初探-常用API
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/08/JS的一些知识类点/" rel="prev" title="JS原创知识类点">
+                JS原创知识类点 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常规正则例子"><span class="nav-number">1.</span> <span class="nav-text">常规正则例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式常用方法："><span class="nav-number">2.</span> <span class="nav-text">正则表达式常用方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#test方法"><span class="nav-number">2.1.</span> <span class="nav-text">test方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#search方法"><span class="nav-number">2.2.</span> <span class="nav-text">search方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#match方法"><span class="nav-number">2.3.</span> <span class="nav-text">match方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#replace方法"><span class="nav-number">2.4.</span> <span class="nav-text">replace方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式中的小括号"><span class="nav-number">2.5.</span> <span class="nav-text">正则表达式中的小括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式中的字符类"><span class="nav-number">2.6.</span> <span class="nav-text">正则表达式中的字符类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符类"><span class="nav-number">2.6.1.</span> <span class="nav-text">字符类 :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#排除"><span class="nav-number">2.6.2.</span> <span class="nav-text">排除 :  ^</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范围"><span class="nav-number">2.6.3.</span> <span class="nav-text">范围 :  -</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转义字符"><span class="nav-number">3.</span> <span class="nav-text">转义字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#量词"><span class="nav-number">4.</span> <span class="nav-text">量词</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

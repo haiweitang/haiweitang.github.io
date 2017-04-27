@@ -1,0 +1,910 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js 笔记," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="个人学习笔记，仅供参考">
+<meta name="keywords" content="js 笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ajax初探">
+<meta property="og:url" content="http://yoursite.com/2017/03/31/关于ajax/index.html">
+<meta property="og:site_name" content="Prawns's Blog">
+<meta property="og:description" content="个人学习笔记，仅供参考">
+<meta property="og:updated_time" content="2017-04-07T12:51:42.680Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ajax初探">
+<meta name="twitter:description" content="个人学习笔记，仅供参考">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/31/关于ajax/"/>
+
+
+
+
+
+  <title>ajax初探 | Prawns's Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Prawns's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/31/关于ajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prawns's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ajax初探
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-31T16:06:27+08:00">
+                2017-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>个人学习笔记，仅供参考</p>
+<p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
+<p><the rest="" of="" contents="" |="" 余下全文=""></the></p>
+<h2 id="什么是Ajax"><a href="#什么是Ajax" class="headerlink" title="什么是Ajax?"></a>什么是Ajax?</h2><p>Asynchronous JavaScript and XML（异步JavaScript和XML)</p>
+<pre><code>节省用户操作，时间，提高用户体验，减少数据请求  
+传输获取数据  
+</code></pre><h2 id="创建Ajax对象"><a href="#创建Ajax对象" class="headerlink" title="创建Ajax对象"></a>创建Ajax对象</h2><h3 id="标准下："><a href="#标准下：" class="headerlink" title="标准下："></a>标准下：</h3><pre><code>new XMLHttpRequest();   
+获取服务器地址，创建一个ajax对象 var xhr = new XMLHttpRequest();
+</code></pre><h3 id="IE6下："><a href="#IE6下：" class="headerlink" title="IE6下："></a>IE6下：</h3><pre><code>new ActiveXObject(&apos;Microsoft.XMLHttp&apos;);   //IE6下d插件，括号内是获取插件的名称
+var xhr = new ActiveXObject(&apos;Microsoft.XMLHttp&apos;);
+</code></pre><h3 id="兼容标准与IE6："><a href="#兼容标准与IE6：" class="headerlink" title="兼容标准与IE6："></a>兼容标准与IE6：</h3><pre><code>if (window.XMLHttpRequest) {
+      xhr = new XMLHttpRequest();
+} else {
+    xhr = new ActiveXObject(&apos;Microsoft.XMLHTTP&apos;);
+}
+</code></pre><h3 id="异常处理机制："><a href="#异常处理机制：" class="headerlink" title="异常处理机制："></a>异常处理机制：</h3><pre><code>代码尝试执行try这个块中的内容,如果有错误，则会执行catch{},并且传入错误信息参数
+
+try {
+    //alert(a);                    //a不存在，错误
+    //throw new Error(&apos;错了错了&apos;);   //手动报错，写入这段代码，即使没错，系统也会认为错误
+}
+catch (e) {                 //括号里传入的参数，就是为什么错误的提示
+    alert(e);              //弹出错误的原因的提示
+}
+
+示例：try {
+            xhr = new XMLHttpRequest();
+        } catch (e) {
+            xhr = new ActiveXObject(&apos;Microsoft.XMLHTTP&apos;);
+        }
+</code></pre><h3 id="open方法："><a href="#open方法：" class="headerlink" title="open方法："></a>open方法：</h3><p><strong>设置参数信息</strong></p>
+<pre><code>1. 打开方式;
+2. 地址;  
+3. 是否异步;  
+   示例：xhr.open(&apos;get&apos;,&apos;1.txt&apos;,true);
+
+   1. 异步：-&gt;非阻塞模式-&gt;前面代码不会影响后面代码的执行  
+   2. 同步：-&gt;阻塞模式-&gt;前面代码会影响后面代码的执行  
+   2. PS：大量情况下采用异步，当后续代码需要前面的代码的时候可以通过回调函数来解决。
+</code></pre><h3 id="send方法："><a href="#send方法：" class="headerlink" title="send方法："></a>send方法：</h3><p><strong>发送请求：</strong> 通过它才能把你的数据请求发送给后端。  示例：xhr.send();  </p>
+<h3 id="responseText："><a href="#responseText：" class="headerlink" title="responseText："></a>responseText：</h3><pre><code>ajax请求返回的内容就被存放到这个属性下面。
+返回以文本字符串形式存放的内容  
+示例:  xhr.responseText
+</code></pre><h3 id="responseXML："><a href="#responseXML：" class="headerlink" title="responseXML："></a>responseXML：</h3><pre><code>返回XML形式的内容
+</code></pre><h2 id="请求状态监控"><a href="#请求状态监控" class="headerlink" title="请求状态监控"></a>请求状态监控</h2><h3 id="onreadystatechange事件"><a href="#onreadystatechange事件" class="headerlink" title="onreadystatechange事件"></a>onreadystatechange事件</h3><pre><code>当readyState状态值发生改变的时候触发
+</code></pre><h3 id="readyState属性：请求状态"><a href="#readyState属性：请求状态" class="headerlink" title="readyState属性：请求状态"></a>readyState属性：请求状态</h3><p>调用这个方法之后会返回5个数字类型的状态值，不同数字代表不同的意思</p>
+<pre><code>0    （初始化）还没有调用open()方法
+1    （载入）已调用send()方法，正在发送请求
+2    （载入完成）send()方法完成，已收到全部响应内容
+3    （解析）正在解析响应内容
+4    （完成）响应内容解析完成，可以在客户端调用了
+</code></pre><h3 id="status属性：服务器状态码"><a href="#status属性：服务器状态码" class="headerlink" title="status属性：服务器状态码"></a>status属性：服务器状态码</h3><pre><code>服务器(请求资源)的状态  返回Http状态码  
+返回的内容可以做容错处理，返回200表示成功   404表示错误
+</code></pre><h2 id="以上内容综合示例："><a href="#以上内容综合示例：" class="headerlink" title="以上内容综合示例："></a>以上内容综合示例：</h2><pre><code>oBtn.onclick=function(){
+         var xhr = null;
+
+    if (window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();    
+    } else {
+        xhr = new ActiveXObject(&apos;Microsoft.XMLHTTP&apos;);
+    }                                
+     //这一步是兼容标准和IE6的对象创建
+
+    xhr.open(&apos;get&apos;,&apos;1.txt&apos;,true);     //确定发送的方式，地址，是否异步
+
+    xhr.send();                         //发送请求
+
+    xhr.onreadystatechange = function(){    //当状态值改变的时候触发事件
+
+        if(xhr.readyState == 4){             //状态到第4步的时候执行里面的文本        
+
+            if(xhr.status == 200){          //容错处理，200弹出内容，                                
+                alert(xhr.responseText);    //否则弹出错误信息
+            }
+            else{
+                alert(&apos;出错了，Err:&apos; + xhr.status)
+            }     
+        }
+    }
+}
+</code></pre><h2 id="应用中get和post的区别处理："><a href="#应用中get和post的区别处理：" class="headerlink" title="应用中get和post的区别处理："></a>应用中get和post的区别处理：</h2><h3 id="get方式，用于获取数据。"><a href="#get方式，用于获取数据。" class="headerlink" title="get方式，用于获取数据。"></a>get方式，用于获取数据。</h3><pre><code>1. 优点：便于分享
+2. 缺点：有缓存问题，每次请求的地址如果不改变就会始终读取浏览器缓存的数据
+    1. 需要在’url？’后面连接一个随机数  
+    2. 解决方案：加时间戳new Date().getTime()
+
+3. 传输中文的时候，会出现乱码，需要用encodeURI编码后传输
+4. 安全系数低，容量有限，几K左右
+</code></pre><p>示例：</p>
+<pre><code>xhr.open(&apos;get&apos;,&apos;2.get.php?username=&apos;+encodeURI(&apos;刘伟&apos;)+&apos;&amp;age=30&amp;&apos; + new Date().getTime(),true);
+</code></pre><h3 id="Post"><a href="#Post" class="headerlink" title="Post:"></a>Post:</h3><pre><code>1. post方式，用于上传数据。 缺点：不便于分享
+2. post方式，数据放在send()里面作为参数传递,需做数据类型声明。
+3. 在web的机制下，post是没有缓存问题的。    
+4. 在做数据声明的时候，已经做了encodeURI编码，所以传输数据的时候无需再做编码   安全系数一般，容量几乎无限。  
+</code></pre><p>示例：</p>
+<pre><code>xhr.open(&apos;post&apos;,&apos;2.post.php&apos;,true);
+xhr.setRequestHeader(&apos;content-type&apos;, &apos;application/x-www-form-urlencoded&apos;);   //申明发送的数据类型
+xhr.send(&apos;username=刘伟&amp;age=30&apos;);
+</code></pre><p>PS：post方法是用来提交数据的，所以不会产生缓存。</p>
+<hr>
+<h2 id="表单数据提交方式："><a href="#表单数据提交方式：" class="headerlink" title="表单数据提交方式："></a>表单数据提交方式：</h2><hr>
+<p><strong>表单：</strong> 数据的提交</p>
+<h3 id="action"><a href="#action" class="headerlink" title="action :"></a>action :</h3><p>数据提交的地址，默认是当前页面</p>
+<h3 id="method"><a href="#method" class="headerlink" title="method :"></a>method :</h3><ol>
+<li>数据提交的方式，默认是get方式</li>
+<li>get方式和post方式发送数据的形式都是一样的，只是发送的位置不同，都是采取username=tom&amp;age=30这种形式发送</li>
+<li>后端用什么方式接受，前端就应该用什么方式传输，如果后端用REQUEST方式获取数据的话，那么前端不管用get还是post都无所谓。</li>
+</ol>
+<h4 id="get"><a href="#get" class="headerlink" title="get"></a>get</h4><pre><code>1. get通过url地址传输，可能会被浏览器历史纪录记录下来，泄露用户隐私。
+2. get方式只能传送字符串类型的数据，不能传输其他类型。
+2. 把数据名称和数据值用 “=” 连接，如果有多个的话，那么他会把多个数据组合用&amp;进行连接，然后把数据放到url?后面传到指定页面
+3. url长度限制的原因（每个浏览器都不同），我们不要通过get方式传递过多的数据
+</code></pre><h4 id="post"><a href="#post" class="headerlink" title="post"></a>post</h4><pre><code>1. post通过浏览器内部REQUEST HEADERS(请求头)传输，不会被缓存，所以理论上不会泄露用户隐私。
+2. post可以传更多的数据类型
+2. 理论上传送内容的长度和容量是无限的
+</code></pre><p><strong>enctype :</strong> 提交的数据格式，默认application/x-www-form-urlencoded</p>
+<pre><code>&lt;form action=&quot;1.post.php&quot; method=&quot;post&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;username&quot; /&gt;
+    &lt;input type=&quot;text&quot; name=&quot;age&quot; /&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;
+&lt;/form&gt;
+</code></pre><h2 id="JSON转换"><a href="#JSON转换" class="headerlink" title="JSON转换"></a>JSON转换</h2><h3 id="stringify"><a href="#stringify" class="headerlink" title="stringify :"></a>stringify :</h3><p>可以把一个对象转成对应字符串  JSON.stringify()；</p>
+<pre><code>var arr = [1,2,3];
+var j = {left:100};
+/*alert( JSON.stringify(arr) );*/
+/*alert( JSON.stringify(j) );*/
+</code></pre><h3 id="parse"><a href="#parse" class="headerlink" title="parse :"></a>parse :</h3><p>可以把字符串转成对应对象    JSON.parse()</p>
+<pre><code>var s1 = &apos;[100,200,300]&apos;;
+var a1 = JSON.parse(s1);
+//alert(a1[0])
+var s2 = &apos;{&quot;left&quot;:100}&apos;;    //严格模式，key值必须加双引号。
+var a2 = JSON.parse(s2);
+alert(a2.left)
+</code></pre><p>eval:  就是计算机字符串里面的值。Var str = ‘1*3+5’   alert(eval(str));  //弹出8</p>
+<h2 id="Ajax函数封装"><a href="#Ajax函数封装" class="headerlink" title="Ajax函数封装"></a>Ajax函数封装</h2><p>function ajax(method, url, data, success) {<br>    var xhr = null;<br>    try {<br>        xhr = new XMLHttpRequest();<br>    } catch (e) {<br>        xhr = new ActiveXObject(‘Microsoft.XMLHTTP’);<br>    }</p>
+<pre><code>if (method == &apos;get&apos; &amp;&amp; data) {
+    url += &apos;?&apos; + data;
+}
+
+xhr.open(method,url,true);
+if (method == &apos;get&apos;) {
+    xhr.send();
+} else {
+    xhr.setRequestHeader(&apos;content-type&apos;, &apos;application/x-www-form-urlencoded&apos;);
+    xhr.send(data);
+}
+
+xhr.onreadystatechange = function() {
+
+    if ( xhr.readyState == 4 ) {
+        if ( xhr.status == 200 ) {
+            success &amp;&amp; success(xhr.responseText);
+        } else {
+            alert(&apos;出错了,Err：&apos; + xhr.status);
+        }
+    }
+
+}
+</code></pre><p>}</p>
+<h2 id="Ajax跨域"><a href="#Ajax跨域" class="headerlink" title="Ajax跨域"></a>Ajax跨域</h2><p>跨域:  跨域名。 一个域名下的文件去请求了和他不一样的域名下的资源文件，那么就产生跨域请求。但是在有些方式里面是会被禁止的。<br>跨域的解决:  Jsonp : json with padding  ， Jsonp主要是通过script标签去加载外部资源</p>
+<h4 id="script标签："><a href="#script标签：" class="headerlink" title="script标签："></a>script标签：</h4><ol>
+<li>src的作用 ： 加载（包含指定的外部文件）  </li>
+<li>可以跨域包含，并且没有跨域问题。</li>
+<li>被包含的资源可以是任何类型的文件(可以是txt,php等)</li>
+<li>它只关注被包含的文件的内容是否是合法的JS。</li>
+</ol>
+<h4 id="过程："><a href="#过程：" class="headerlink" title="过程："></a>过程：</h4><p>在资源加载进来之前定义好一个函数，这个函数接收一个参数（数据），函数里面利用这个参数做一些事情。然后在需要的时候通过script标签加载对应远程文件资源，当远程的文件资源被加载进来的时候， 就会去执行我们前面定义好的函数，并且把数据当作这个函数的参数传入进去。<br>PS：需要做到按需加载，可以使用createElement的方式去动态创建一个script标签元素。</p>
+<p> 示例：    </p>
+<pre><code>&lt;script&gt;
+function fn(data) {
+    alert(data);
+}
+&lt;/script&gt;
+
+&lt;script&gt;
+window.onload = function() {
+    var oBtn = document.getElementById(&apos;btn&apos;);
+    oBtn.onclick = function() {
+        //当按钮点击的时候再去加载远程资源，让他执行
+        var oScript = document.createElement(&apos;script&apos;);
+        oScript.src = &apos;2.txt&apos;;
+        document.body.appendChild(oScript);
+    }
+}
+&lt;/script&gt;
+</code></pre><p>百度搜索示例：</p>
+<pre><code>&lt;script&gt;
+    function show(data){
+        var oUl = document.getElementById(&apos;ul&apos;);
+        var html = &apos;&apos;;
+        if( data.s.length){
+            oUl.style.display = &apos;block&apos;;
+            for( var i=0; i&lt;data.s.length; i++){
+                html += &apos;&lt;li&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://www.baidu.com/s?wd=&apos;+data.s[i]+&apos;&quot;&gt;&apos; + data.s[i] + &apos;&lt;/a&gt;&lt;/li&gt;&apos;;
+            }
+            oUl.innerHTML = html;
+        }
+        else{
+            oUl.style.display = &apos;none&apos;;
+        }
+    }
+window.onload = function(){
+    var oQ = document.getElementById(&apos;q&apos;);
+    var oUl = document.getElementById(&apos;ul&apos;);
+
+    oQ.onkeyup = function(){
+        if( this.value != &apos;&apos;){
+            var oScript = document.createElement(&apos;script&apos;);
+            oScript.src = &apos;http://suggestion.baidu.com/su?wd=&apos;+this.value+&apos;&amp;cb=show&apos;;
+            document.body.appendChild(oScript);
+        }
+        else{
+            oUl.style.display = &apos;none&apos;;
+        }
+    }
+}
+
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;input type=&quot;text&quot; id=&quot;q&quot;&gt;
+    &lt;ul id=&quot;ul&quot;&gt;&lt;/ul&gt;
+&lt;/body&gt;
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js-笔记/" rel="tag"># js 笔记</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/31/H5自定义播放器/" rel="next" title="HTML5详解之自定义播放器">
+                <i class="fa fa-chevron-left"></i> HTML5详解之自定义播放器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Ajax"><span class="nav-number">1.</span> <span class="nav-text">什么是Ajax?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Ajax对象"><span class="nav-number">2.</span> <span class="nav-text">创建Ajax对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标准下："><span class="nav-number">2.1.</span> <span class="nav-text">标准下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IE6下："><span class="nav-number">2.2.</span> <span class="nav-text">IE6下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#兼容标准与IE6："><span class="nav-number">2.3.</span> <span class="nav-text">兼容标准与IE6：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理机制："><span class="nav-number">2.4.</span> <span class="nav-text">异常处理机制：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open方法："><span class="nav-number">2.5.</span> <span class="nav-text">open方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#send方法："><span class="nav-number">2.6.</span> <span class="nav-text">send方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#responseText："><span class="nav-number">2.7.</span> <span class="nav-text">responseText：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#responseXML："><span class="nav-number">2.8.</span> <span class="nav-text">responseXML：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求状态监控"><span class="nav-number">3.</span> <span class="nav-text">请求状态监控</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#onreadystatechange事件"><span class="nav-number">3.1.</span> <span class="nav-text">onreadystatechange事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#readyState属性：请求状态"><span class="nav-number">3.2.</span> <span class="nav-text">readyState属性：请求状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#status属性：服务器状态码"><span class="nav-number">3.3.</span> <span class="nav-text">status属性：服务器状态码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以上内容综合示例："><span class="nav-number">4.</span> <span class="nav-text">以上内容综合示例：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用中get和post的区别处理："><span class="nav-number">5.</span> <span class="nav-text">应用中get和post的区别处理：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#get方式，用于获取数据。"><span class="nav-number">5.1.</span> <span class="nav-text">get方式，用于获取数据。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Post"><span class="nav-number">5.2.</span> <span class="nav-text">Post:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单数据提交方式："><span class="nav-number">6.</span> <span class="nav-text">表单数据提交方式：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#action"><span class="nav-number">6.1.</span> <span class="nav-text">action :</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#method"><span class="nav-number">6.2.</span> <span class="nav-text">method :</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#get"><span class="nav-number">6.2.1.</span> <span class="nav-text">get</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#post"><span class="nav-number">6.2.2.</span> <span class="nav-text">post</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON转换"><span class="nav-number">7.</span> <span class="nav-text">JSON转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stringify"><span class="nav-number">7.1.</span> <span class="nav-text">stringify :</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parse"><span class="nav-number">7.2.</span> <span class="nav-text">parse :</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax函数封装"><span class="nav-number">8.</span> <span class="nav-text">Ajax函数封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax跨域"><span class="nav-number">9.</span> <span class="nav-text">Ajax跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#script标签："><span class="nav-number">9.0.1.</span> <span class="nav-text">script标签：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#过程："><span class="nav-number">9.0.2.</span> <span class="nav-text">过程：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

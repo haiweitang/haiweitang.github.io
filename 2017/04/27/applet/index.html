@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/27/applet/index.html">
 <meta property="og:site_name" content="Prawns's Blog">
 <meta property="og:description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
-<meta property="og:updated_time" content="2017-04-27T10:05:58.019Z">
+<meta property="og:updated_time" content="2017-04-27T10:07:17.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序入门">
 <meta name="twitter:description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
@@ -398,6 +398,69 @@ wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
     console.log(&apos;onUnload&apos;)
   }
 </code></pre><h3 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h3><p>我们可以自己写入数据</p>
+<pre><code> var post_contentl={
+      date:&quot;sep 18 2017&quot;,
+      title:&quot;正是虾肥蟹壮时&quot;,
+      img:{
+        post_img:&quot;/image/post/crab.png&quot;,
+        author_img:&quot;/image/avatar/1.png&quot;
+      },
+      content:&quot;现在鳌山湾里最出名的就是手钓鲈鱼了！”据青岛市海洋与渔业局渔业处的工作人员介绍，鳌山湾位于崂山湾的北部，起自鳌山头，绕鳌山卫、温泉、王村、洼里4处乡镇沿岸，至女岛，形成长约15公里的湾口，面积约250平方公里，水深2—10米。&quot;,
+      view_num:&quot;112&quot;,
+      collect_num:&quot;96&quot;,
+    }
+    this.setData(post_contentl);
+
+把数据放入上面的生命周期函数里，只要通过this.setData(post_contentl)，括号内传入json变量，就可以直接把数据添加到Data{}中。
+而后在wxml中用{{}}把数据传进去。
+</code></pre><h3 id="数据绑定的运算与逻辑"><a href="#数据绑定的运算与逻辑" class="headerlink" title="数据绑定的运算与逻辑"></a>数据绑定的运算与逻辑</h3><h3 id="AppData区域"><a href="#AppData区域" class="headerlink" title="AppData区域"></a>AppData区域</h3><h3 id="事件与事件对象"><a href="#事件与事件对象" class="headerlink" title="事件与事件对象"></a>事件与事件对象</h3><p>在小程序中，任何事件都要在前面加上bind(冒泡)或catch(非冒泡)，一般bind使用比较多。</p>
+<h4 id="tap"><a href="#tap" class="headerlink" title="tap"></a>tap</h4><p>类似于js中的onclick，但是默认是冒泡的，如果不想它冒泡，可以用catchtap。微信小程序中的事件是卸载行间的。</p>
+<h4 id="wx-navigateTo-OBJECT"><a href="#wx-navigateTo-OBJECT" class="headerlink" title="wx.navigateTo(OBJECT)"></a>wx.navigateTo(OBJECT)</h4><p>保留当前页面，跳转到应用内的某个页面，使用wx.navigateBack可以返回到原页面。</p>
+<h4 id="wx-redirectTo-OBJECT"><a href="#wx-redirectTo-OBJECT" class="headerlink" title="wx.redirectTo(OBJECT)"></a>wx.redirectTo(OBJECT)</h4><p>关闭当前页面，跳转到应用内的某个页面。</p>
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><h3 id="列表渲染-核心知识"><a href="#列表渲染-核心知识" class="headerlink" title="列表渲染(核心知识)"></a>列表渲染(核心知识)</h3><h3 id="Template模板的使用-核心知识"><a href="#Template模板的使用-核心知识" class="headerlink" title="Template模板的使用(核心知识)"></a>Template模板的使用(核心知识)</h3><pre><code>&lt;block wx:for=&quot;{{posts_key}}&quot; wx:for-item=&quot;item&quot;&gt;
+    &lt;view class=&quot;post-container&quot;&gt;
+        &lt;view class=&quot;post-author-date&quot;&gt;
+            &lt;image class=&quot;post-author&quot; src=&quot;{{item.avatar}}&quot;&gt;&lt;/image&gt;
+            &lt;text class=&quot;post-date&quot;&gt;{{item.date}}&lt;/text&gt;
+        &lt;/view&gt;
+        &lt;text class=&quot;post-title&quot;&gt;{{item.title}}&lt;/text&gt;
+        &lt;image class=&quot;post-image&quot; src=&quot;{{item.imgSrc}}&quot;&gt;&lt;/image&gt;
+        &lt;text class=&quot;post-content&quot;&gt;{{item.content}}&lt;/text&gt;
+        &lt;view class=&quot;post-like&quot;&gt;
+            &lt;image class=&quot;post-like-image&quot; src=&quot;../../image/icon/chat.png&quot;&gt;&lt;/image&gt;
+            &lt;text class=&quot;post-like-image&quot;&gt;{{item.reading}}&lt;/text&gt;
+            &lt;image class=&quot;post-like-image&quot; src=&quot;../../image/icon/view.png&quot;&gt;&lt;/image&gt;
+            &lt;text class=&quot;post-like-image&quot;&gt;{{item.collection}}&lt;/text&gt;
+        &lt;/view&gt;
+    &lt;/view&gt;
+&lt;/block&gt;
+</code></pre><p>通过上面的代码，我们看到wx:for里面有很多代码，那么可以把它里面的代码放到其他文件专门存储起来吗，微信给我们提供了一个template模板来实现夸页面来获取这段数据<br>如果wx:for想跨页面获取数据,就必须用templat模板来获取。<br>新建一个目录文件夹，再分别新建一个template.wxml和template.wxss。<br>因为template是一个模板而不是一个模块，所以创建js文件也是不会被运行的。<br>在template.wxml文件里写一个<code>&lt;template name=&quot;postItem&quot;</code>&gt;<code>&lt;/template</code>&gt;标签，需要指定一个name名字，然后把wx:for里面的内容放入这个标签里</p>
+<pre><code>&lt;template  name=&quot;postItem&quot;&gt;
+     &lt;view class=&quot;post-container&quot;&gt;
+        &lt;view class=&quot;post-author-date&quot;&gt;
+            &lt;image class=&quot;post-author&quot; src=&quot;{{item.avatar}}&quot;&gt;&lt;/image&gt;
+            &lt;text class=&quot;post-date&quot;&gt;{{item.date}}&lt;/text&gt;
+        &lt;/view&gt;
+        &lt;text class=&quot;post-title&quot;&gt;{{item.title}}&lt;/text&gt;
+        &lt;image class=&quot;post-image&quot; src=&quot;{{item.imgSrc}}&quot;&gt;&lt;/image&gt;
+        &lt;text class=&quot;post-content&quot;&gt;{{item.content}}&lt;/text&gt;
+        &lt;view class=&quot;post-like&quot;&gt;
+            &lt;image class=&quot;post-like-image&quot; src=&quot;../../image/icon/chat.png&quot;&gt;&lt;/image&gt;
+            &lt;text class=&quot;post-like-image&quot;&gt;{{item.reading}}&lt;/text&gt;
+            &lt;image class=&quot;post-like-image&quot; src=&quot;../../image/icon/view.png&quot;&gt;&lt;/image&gt;
+            &lt;text class=&quot;post-like-image&quot;&gt;{{item.collection}}&lt;/text&gt;
+        &lt;/view&gt;
+    &lt;/view&gt;
+&lt;/template&gt;
+</code></pre><p>然后要在wx:for所在的文件里引用这个templa模板，需要在文件顶部写入代码引用。<br>wxml文件</p>
+<pre><code>&lt;import src=&quot;post-item/post-item-template.wxml&quot;/&gt;       //src是template模板的路径
+</code></pre><p>wxss文件</p>
+<pre><code>@import &quot;post-item/post-item-template.wxml&quot;;     //src是template模板的路径
+</code></pre><p>继续在wx:for所在的标签下，写一个<code>&lt;template is=&quot;postItem&quot; data=&quot;&quot;/</code>&gt;<br>用这个标签来获取template模板下的数据。</p>
+<pre><code>&lt;block wx:for=&quot;{{posts_key}}&quot; wx:for-item=&quot;item&quot;&gt;
+    &lt;template is=&quot;postItem&quot; data=&quot;{{item}}&quot;&gt;&lt;/template&gt;
+&lt;/block&gt;
+</code></pre><p>is是获取template模板name的名字<br>由于templata获取的是for循环列表里的一个，如果有要获取所有数据，需要再指定一个变量，就像是js for循环中的i一样。所以data就是用来传入这个变量的。<br>通过这样的方式，我们就可以精简掉wx:for循环代码。<br>template模板的好处，不仅限于精简掉当前页面的代码，我们可以在多个页面通过这样一句代码，引入这个模板里的数据。实现多页面复用。</p>
 </the>
       
     </div>
@@ -577,7 +640,7 @@ wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动设备的分辨率与rpx"><span class="nav-number">1.</span> <span class="nav-text">移动设备的分辨率与rpx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是微信小程序？"><span class="nav-number">2.</span> <span class="nav-text">什么是微信小程序？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序的特点"><span class="nav-number">3.</span> <span class="nav-text">小程序的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成结构"><span class="nav-number">4.</span> <span class="nav-text">组成结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底层框架的工作原理"><span class="nav-number">5.</span> <span class="nav-text">底层框架的工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必要的文件"><span class="nav-number">6.</span> <span class="nav-text">必要的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建页面"><span class="nav-number">7.</span> <span class="nav-text">创建页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签"><span class="nav-number">8.</span> <span class="nav-text">标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#view"><span class="nav-number">8.1.</span> <span class="nav-text">view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scroll-view"><span class="nav-number">8.2.</span> <span class="nav-text">scroll-view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swiper"><span class="nav-number">8.3.</span> <span class="nav-text">swiper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text"><span class="nav-number">8.4.</span> <span class="nav-text">text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-if"><span class="nav-number">8.5.</span> <span class="nav-text">wx:if</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-for"><span class="nav-number">8.6.</span> <span class="nav-text">wx:for</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#require"><span class="nav-number">8.7.</span> <span class="nav-text">require</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#module-exports"><span class="nav-number">8.8.</span> <span class="nav-text">module.exports</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swiper组件"><span class="nav-number">9.</span> <span class="nav-text">Swiper组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#App-json里的关于导航栏，标题的配置"><span class="nav-number">10.</span> <span class="nav-text">App.json里的关于导航栏，标题的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Page页面与应用程序的生命周期"><span class="nav-number">11.</span> <span class="nav-text">Page页面与应用程序的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据绑定"><span class="nav-number">12.</span> <span class="nav-text">数据绑定</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动设备的分辨率与rpx"><span class="nav-number">1.</span> <span class="nav-text">移动设备的分辨率与rpx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是微信小程序？"><span class="nav-number">2.</span> <span class="nav-text">什么是微信小程序？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序的特点"><span class="nav-number">3.</span> <span class="nav-text">小程序的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成结构"><span class="nav-number">4.</span> <span class="nav-text">组成结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底层框架的工作原理"><span class="nav-number">5.</span> <span class="nav-text">底层框架的工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必要的文件"><span class="nav-number">6.</span> <span class="nav-text">必要的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建页面"><span class="nav-number">7.</span> <span class="nav-text">创建页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签"><span class="nav-number">8.</span> <span class="nav-text">标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#view"><span class="nav-number">8.1.</span> <span class="nav-text">view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scroll-view"><span class="nav-number">8.2.</span> <span class="nav-text">scroll-view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swiper"><span class="nav-number">8.3.</span> <span class="nav-text">swiper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text"><span class="nav-number">8.4.</span> <span class="nav-text">text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-if"><span class="nav-number">8.5.</span> <span class="nav-text">wx:if</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-for"><span class="nav-number">8.6.</span> <span class="nav-text">wx:for</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#require"><span class="nav-number">8.7.</span> <span class="nav-text">require</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#module-exports"><span class="nav-number">8.8.</span> <span class="nav-text">module.exports</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swiper组件"><span class="nav-number">9.</span> <span class="nav-text">Swiper组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#App-json里的关于导航栏，标题的配置"><span class="nav-number">10.</span> <span class="nav-text">App.json里的关于导航栏，标题的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Page页面与应用程序的生命周期"><span class="nav-number">11.</span> <span class="nav-text">Page页面与应用程序的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据绑定"><span class="nav-number">12.</span> <span class="nav-text">数据绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据绑定的运算与逻辑"><span class="nav-number">13.</span> <span class="nav-text">数据绑定的运算与逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AppData区域"><span class="nav-number">14.</span> <span class="nav-text">AppData区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件与事件对象"><span class="nav-number">15.</span> <span class="nav-text">事件与事件对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tap"><span class="nav-number">15.1.</span> <span class="nav-text">tap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-navigateTo-OBJECT"><span class="nav-number">15.2.</span> <span class="nav-text">wx.navigateTo(OBJECT)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-redirectTo-OBJECT"><span class="nav-number">15.3.</span> <span class="nav-text">wx.redirectTo(OBJECT)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存"><span class="nav-number">16.</span> <span class="nav-text">缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表渲染-核心知识"><span class="nav-number">17.</span> <span class="nav-text">列表渲染(核心知识)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Template模板的使用-核心知识"><span class="nav-number">18.</span> <span class="nav-text">Template模板的使用(核心知识)</span></a></li></ol></div>
             
 
           </div>

@@ -1,0 +1,855 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="当用户打开一个有很多图片的大网站的时候，这么多图片如果要加载完再观看，会让用户的浏览体验不好。有没有一种方法可以在页面刚打开的时候，去加载第一张图片，然后页面加载完了以后，在用户看的时间内去加载后面的内容。又或者用户再看到前面几张图片的时候就点开或者离开，如果这时候浏览器还把后面所有的图片都加载完，就会造成极大的资源浪费。通过这篇文章可以解决掉上面的问题，实现图片预加载或按需加载">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图片预加载">
+<meta property="og:url" content="http://yoursite.com/2017/04/07/图片预加载/index.html">
+<meta property="og:site_name" content="Prawns's Blog">
+<meta property="og:description" content="当用户打开一个有很多图片的大网站的时候，这么多图片如果要加载完再观看，会让用户的浏览体验不好。有没有一种方法可以在页面刚打开的时候，去加载第一张图片，然后页面加载完了以后，在用户看的时间内去加载后面的内容。又或者用户再看到前面几张图片的时候就点开或者离开，如果这时候浏览器还把后面所有的图片都加载完，就会造成极大的资源浪费。通过这篇文章可以解决掉上面的问题，实现图片预加载或按需加载">
+<meta property="og:updated_time" content="2017-04-07T15:19:39.125Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图片预加载">
+<meta name="twitter:description" content="当用户打开一个有很多图片的大网站的时候，这么多图片如果要加载完再观看，会让用户的浏览体验不好。有没有一种方法可以在页面刚打开的时候，去加载第一张图片，然后页面加载完了以后，在用户看的时间内去加载后面的内容。又或者用户再看到前面几张图片的时候就点开或者离开，如果这时候浏览器还把后面所有的图片都加载完，就会造成极大的资源浪费。通过这篇文章可以解决掉上面的问题，实现图片预加载或按需加载">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/07/图片预加载/"/>
+
+
+
+
+
+  <title>图片预加载 | Prawns's Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Prawns's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/07/图片预加载/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prawns's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                图片预加载
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-07T21:51:13+08:00">
+                2017-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>当用户打开一个有很多图片的大网站的时候，这么多图片如果要加载完再观看，会让用户的浏览体验不好。有没有一种方法可以在页面刚打开的时候，去加载第一张图片，然后页面加载完了以后，在用户看的时间内去加载后面的内容。<br>又或者用户再看到前面几张图片的时候就点开或者离开，如果这时候浏览器还把后面所有的图片都加载完，就会造成极大的资源浪费。<br>通过这篇文章可以解决掉上面的问题，实现图片预加载或按需加载</p>
+<p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>要做到图片预加载，需要一个工具 -&gt; Image对象</p>
+<h3 id="Image对象"><a href="#Image对象" class="headerlink" title="Image对象"></a>Image对象</h3><pre><code>var oImage = new Image();
+oImage.src = &apos;&apos;;
+</code></pre><p><strong>属性</strong> ： scr :当我们给Image对象的src属性赋值一个url的时候，这个Image对象就会去加载url资源，加载完成以后的资源被保存到了浏览器的缓存文件夹里面，下次如果我们要去调用这个url地址的时候，直接从缓存文件夹读取到的，所以速度很快，并且还可以节约资源。</p>
+<h4 id="onload事件"><a href="#onload事件" class="headerlink" title="onload事件"></a>onload事件</h4><p>当资源加载完成的时候触发</p>
+<h4 id="onerror事件"><a href="#onerror事件" class="headerlink" title="onerror事件"></a>onerror事件</h4><p>当资源加载失败的时候触发</p>
+<h4 id="案例1，图片预加载"><a href="#案例1，图片预加载" class="headerlink" title="案例1，图片预加载"></a>案例1，图片预加载</h4><pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;title&gt;无标题文档&lt;/title&gt;
+&lt;script&gt;
+window.onload = function() {
+
+    var oImg = document.getElementById(&apos;img1&apos;);
+
+    var oImage = new Image();
+
+    var arr = [
+        &apos;http://d.hiphotos.baidu.com/image/w%3D2048/sign=2846dc1369600c33f079d9c82e74500f/a044ad345982b2b7938726c333adcbef76099b98.jpg&apos;,
+        &apos;http://f.hiphotos.baidu.com/image/w%3D2048/sign=2da141ad013b5bb5bed727fe02ebd439/7dd98d1001e9390124aacd3879ec54e736d1960f.jpg&apos;,
+        &apos;http://g.hiphotos.baidu.com/image/w%3D2048/sign=5e067f12a918972ba33a07cad2f57b89/b8014a90f603738d27674f24b11bb051f819ec83.jpg&apos;,
+        &apos;http://f.hiphotos.baidu.com/image/w%3D2048/sign=fc9023a7d343ad4ba62e41c0b63a5baf/4bed2e738bd4b31ca2a24ab985d6277f9e2ff812.jpg&apos;,
+        &apos;http://f.hiphotos.baidu.com/image/w%3D2048/sign=99191869cebf6c81f7372be88806b035/9345d688d43f8794a159b42fd01b0ef41bd53a08.jpg&apos;,
+        &apos;http://a.hiphotos.baidu.com/image/w%3D2048/sign=4aaddd39718da9774e2f812b8469f919/8b13632762d0f70391b28bd60afa513d2697c5b3.jpg&apos;,
+        &apos;http://g.hiphotos.baidu.com/image/w%3D2048/sign=50df8b2efffaaf5184e386bfb86c95ee/fc1f4134970a304ebbdb83f2d3c8a786c9175c38.jpg&apos;
+    ];
+
+    var iCur = 0;
+    var i = 0;
+
+    xunlei();
+
+    oImg.onclick = function() {
+        i++;
+        if (i &lt; arr.length) {
+            oImg.src = arr[i];
+        }
+    }
+
+    function xunlei() {
+        oImage.src = arr[iCur];
+        oImage.onload = function() {
+            iCur++;
+            if (iCur &lt; arr.length) {
+                xunlei();    //递归
+            }
+            document.title = iCur + &apos; / &apos; + arr.length;
+        }
+    }
+
+}
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;img src=&quot;http://b.hiphotos.baidu.com/image/w%3D2048/sign=526ef7bda41ea8d38a227304a332314e/1ad5ad6eddc451dae05f4cedb4fd5266d016320e.jpg&quot; id=&quot;img1&quot; style=&quot;width: 300px;&quot; /&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h4 id="案例2，图片按需加载"><a href="#案例2，图片按需加载" class="headerlink" title="案例2，图片按需加载"></a>案例2，图片按需加载</h4><pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;title&gt;无标题文档&lt;/title&gt;
+&lt;style&gt;
+#ul1 {margin: 100px auto 0; padding: 0;}
+li {float: left; margin:0 0 10px 10px; list-style:none; border: 1px solid black;}
+img {width: 290px; height: 200px; display: block;}
+&lt;/style&gt;
+&lt;script&gt;
+window.onload = function() {
+    var oUl = document.getElementById(&apos;ul1&apos;);
+    var aImg = oUl.getElementsByTagName(&apos;img&apos;);
+    showImage();
+    window.onscroll = showImage;
+    function showImage() {
+        var scrollTop  = document.documentElement.scrollTop || document.body.scrollTop;
+        for (var i=0; i&lt;aImg.length; i++) {
+            if ( !aImg[i].isLoad &amp;&amp; getTop(aImg[i]) &lt; scrollTop + document.documentElement.clientHeight ) {
+                //alert(i);
+                aImg[i].src = aImg[i].getAttribute(&apos;_src&apos;);
+                aImg[i].isLoad = true;
+            }
+        }
+    }
+
+    function getTop(obj) {
+        var iTop = 0;
+        while(obj) {
+            iTop += obj.offsetTop;
+            obj = obj.offsetParent;
+        }
+        return iTop;
+    }
+
+}
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;ul id=&quot;ul1&quot;&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/1.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/2.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/3.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/4.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/5.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/6.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/7.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/1.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/2.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/3.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/4.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/5.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/6.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/7.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/1.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/2.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/3.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/4.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/5.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/6.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/7.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/1.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/2.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/3.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/4.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/5.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/6.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/7.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/1.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/2.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/3.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/4.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/5.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/6.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/7.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/1.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/2.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/3.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/4.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/5.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/6.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/7.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/1.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/2.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/3.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/4.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/5.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/6.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/7.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/1.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/2.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/3.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/4.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/5.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/6.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;img _src=&quot;img/7.jpg&quot; src=&quot;img/white.JPG&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></the>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"># JS</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/07/JS初级/" rel="next" title="数组、字符串、时间方法">
+                <i class="fa fa-chevron-left"></i> 数组、字符串、时间方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/07/HTML5之canvas基础/" rel="prev" title="HTML5之canvas基础">
+                HTML5之canvas基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Image对象"><span class="nav-number">1.</span> <span class="nav-text">Image对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#onload事件"><span class="nav-number">1.1.</span> <span class="nav-text">onload事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onerror事件"><span class="nav-number">1.2.</span> <span class="nav-text">onerror事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#案例1，图片预加载"><span class="nav-number">1.3.</span> <span class="nav-text">案例1，图片预加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#案例2，图片按需加载"><span class="nav-number">1.4.</span> <span class="nav-text">案例2，图片按需加载</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -228,8 +228,7 @@
                     <h5 id="XMLHttpRequest改进版">
                       <a href="#XMLHttpRequest改进版" class="headerlink" title="XMLHttpRequest改进版"></a>XMLHttpRequest改进版</h5>
                     <p>详细信心请参考XMLHttpRequest改进版新特性
-                      <a href="https://xhr.spec.whatwg.org/"
-                                                                                                      target="_blank" rel="external">https://xhr.spec.whatwg.org/</a>
+                      <a href="https://xhr.spec.whatwg.org/" target="_blank" rel="external">https://xhr.spec.whatwg.org/</a>
                       <br>XMLHttpRequest :增加很多功能，他也不推荐使用onreadystatechange这个事件来监听，推荐使用onload
                       <br>而onload事件不需要再去做判断，只有当xhr.status == 200的时候才会去触发。</p>
                     <p>1.请求页面与数据页面必须属性不同的域
@@ -237,14 +236,12 @@
                       <br>3.origin值的展现
                       <br>在标准浏览器下，XMLHttpRequest对象已经是升级版本，支持了更多的特性，可以跨域请求，如果想实现跨域请求，还需要后端的相关配合才可以。
                       <br>后端需要在头信息里输入’Access-Control-Allow-origin:
-                      <a href="http://域名&#39;;(这段信息可以在chrome下的console控制台找到。"
-                                                                                                      target="_blank" rel="external">http://域名&#39;;(这段信息可以在chrome下的console控制台找到。</a>)
+                      <a href="http://域名&#39;;(这段信息可以在chrome下的console控制台找到。" target="_blank" rel="external">http://域名&#39;;(这段信息可以在chrome下的console控制台找到。</a>)
                       <br>示例：
                       <br>这是www.b.com域名下的ajax.php的内容</p>
                     <p>&lt;?php
                       <br>header(‘Access-Control-Allow-Origin:
-                      <a href="http://www.a.com"
-                                                                                                      target="_blank" rel="external">http://www.a.com</a>‘); //这是允许访问该资源的域
+                      <a href="http://www.a.com" target="_blank" rel="external">http://www.a.com</a>‘); //这是允许访问该资源的域
                       <br>echo ‘hello’;</p>
                     <p>这事www.a.com下的ajax.html的内容</p>
                     <pre><code>&lt;script&gt;
@@ -277,8 +274,8 @@ window.onload = function() {
                       <br>XDomainRequest方法不支持IE6
                       <br>当然同域下，还是使用XMLHttpRequest去实现请求</p>
                     <p>XDomainRequest对象的官方说明文档
-                      <a href="http://msdn.microsoft.com/en-us/library/cc288060(Vs.85).aspx"
-                                                                                                      target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/cc288060(Vs.85).aspx</a>
+                      <a href="http://msdn.microsoft.com/en-us/library/cc288060(Vs.85).aspx" target="_blank"
+                                                                                                      rel="external">http://msdn.microsoft.com/en-us/library/cc288060(Vs.85).aspx</a>
                     </p>
                     <h5 id="新的事件-：">
                       <a href="#新的事件-：" class="headerlink" title="新的事件 ："></a>新的事件 ：</h5>
@@ -544,19 +541,22 @@ function exit_status($str){
                     <li class="nav-item nav-level-2">
                       <a class="nav-link" href="#XMLHttpRequest-Level2">
                         <span class="nav-number">1.</span>
-                        <span class="nav-text">XMLHttpRequest Level2</span>
+                        <span class="nav-text">
+                          XMLHttpRequest Level2</span>
                       </a>
                       <ol class="nav-child">
                         <li class="nav-item nav-level-4">
                           <a class="nav-link" href="#标准下">
                             <span class="nav-number">1.0.1.</span>
-                            <span class="nav-text">标准下</span>
+                            <span class="nav-text">
+                              标准下</span>
                           </a>
                           <ol class="nav-child">
                             <li class="nav-item nav-level-5">
                               <a class="nav-link" href="#XMLHttpRequest改进版">
                                 <span class="nav-number">1.0.1.1.</span>
-                                <span class="nav-text">XMLHttpRequest改进版</span>
+                                <span class="nav-text">
+                                  XMLHttpRequest改进版</span>
                               </a>
                             </li>
                           </ol>
@@ -564,25 +564,29 @@ function exit_status($str){
                         <li class="nav-item nav-level-4">
                           <a class="nav-link" href="#IE下">
                             <span class="nav-number">1.0.2.</span>
-                            <span class="nav-text">IE下</span>
+                            <span class="nav-text">
+                              IE下</span>
                           </a>
                           <ol class="nav-child">
                             <li class="nav-item nav-level-5">
                               <a class="nav-link" href="#XDomainRequest">
                                 <span class="nav-number">1.0.2.1.</span>
-                                <span class="nav-text">XDomainRequest</span>
+                                <span class="nav-text">
+                                  XDomainRequest</span>
                               </a>
                             </li>
                             <li class="nav-item nav-level-5">
                               <a class="nav-link" href="#新的事件-：">
                                 <span class="nav-number">1.0.2.2.</span>
-                                <span class="nav-text">新的事件 ：</span>
+                                <span class="nav-text">
+                                  新的事件 ：</span>
                               </a>
                             </li>
                             <li class="nav-item nav-level-5">
                               <a class="nav-link" href="#方法">
                                 <span class="nav-number">1.0.2.3.</span>
-                                <span class="nav-text">方法</span>
+                                <span class="nav-text">
+                                  方法</span>
                               </a>
                             </li>
                           </ol>
@@ -594,31 +598,36 @@ function exit_status($str){
                   <li class="nav-item nav-level-2">
                     <a class="nav-link" href="#Ajax无刷新上传">
                       <span class="nav-number">2.</span>
-                      <span class="nav-text">Ajax无刷新上传</span>
+                      <span class="nav-text">
+                        Ajax无刷新上传</span>
                     </a>
                     <ol class="nav-child">
                       <li class="nav-item nav-level-3">
                         <a class="nav-link" href="#file">
                           <span class="nav-number">2.1.</span>
-                          <span class="nav-text">file</span>
+                          <span class="nav-text">
+                            file</span>
                         </a>
                       </li>
                       <li class="nav-item nav-level-3">
                         <a class="nav-link" href="#files">
                           <span class="nav-number">2.2.</span>
-                          <span class="nav-text">files</span>
+                          <span class="nav-text">
+                            files</span>
                         </a>
                       </li>
                       <li class="nav-item nav-level-3">
                         <a class="nav-link" href="#FormData">
                           <span class="nav-number">2.3.</span>
-                          <span class="nav-text">FormData</span>
+                          <span class="nav-text">
+                            FormData</span>
                         </a>
                       </li>
                       <li class="nav-item nav-level-3">
                         <a class="nav-link" href="#upload">
                           <span class="nav-number">2.4.</span>
-                          <span class="nav-text">upload</span>
+                          <span class="nav-text">
+                            upload</span>
                         </a>
                       </li>
                     </ol>

@@ -26,17 +26,17 @@
 
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
-  <meta name="description" content="当用户打开一个有很多图片的大网站的时候，这么多图片如果要加载完再观看，会让用户的浏览体验不好。有没有一种方法可以在页面刚打开的时候，去加载第一张图片，然后页面加载完了以后，在用户看的时间内去加载后面的内容。又或者用户再看到前面几张图片的时候就点开或者离开，如果这时候浏览器还把后面所有的图片都加载完，就会造成极大的资源浪费。通过这篇文章可以解决掉上面的问题，实现图片预加载或按需加载">
+  <meta name="description" content="当用户打开一个有很多图片的大网站的时候，这么多图片如果要加载完再观看，会让用户的浏览体验不好。有没有一种方法可以在页面刚打开的时候，去加载第一张图片，然后页面加载完了以后，在用户看的时间内去加载后面的内容。   又或者用户再看到前面几张图片的时候就点开或者离开，如果这时候浏览器还把后面所有的图片都加载完，就会造成极大的资源浪费。   通过这篇文章可以解决掉上面的问题，实现图片预加载或按需加载">
   <meta name="keywords" content="JS">
   <meta property="og:type" content="article">
   <meta property="og:title" content="图片预加载">
   <meta property="og:url" content="http://yoursite.com/2017/04/07/图片预加载/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
-  <meta property="og:description" content="当用户打开一个有很多图片的大网站的时候，这么多图片如果要加载完再观看，会让用户的浏览体验不好。有没有一种方法可以在页面刚打开的时候，去加载第一张图片，然后页面加载完了以后，在用户看的时间内去加载后面的内容。又或者用户再看到前面几张图片的时候就点开或者离开，如果这时候浏览器还把后面所有的图片都加载完，就会造成极大的资源浪费。通过这篇文章可以解决掉上面的问题，实现图片预加载或按需加载">
+  <meta property="og:description" content="当用户打开一个有很多图片的大网站的时候，这么多图片如果要加载完再观看，会让用户的浏览体验不好。有没有一种方法可以在页面刚打开的时候，去加载第一张图片，然后页面加载完了以后，在用户看的时间内去加载后面的内容。   又或者用户再看到前面几张图片的时候就点开或者离开，如果这时候浏览器还把后面所有的图片都加载完，就会造成极大的资源浪费。   通过这篇文章可以解决掉上面的问题，实现图片预加载或按需加载">
   <meta property="og:updated_time" content="2017-04-07T15:19:39.125Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="图片预加载">
-  <meta name="twitter:description" content="当用户打开一个有很多图片的大网站的时候，这么多图片如果要加载完再观看，会让用户的浏览体验不好。有没有一种方法可以在页面刚打开的时候，去加载第一张图片，然后页面加载完了以后，在用户看的时间内去加载后面的内容。又或者用户再看到前面几张图片的时候就点开或者离开，如果这时候浏览器还把后面所有的图片都加载完，就会造成极大的资源浪费。通过这篇文章可以解决掉上面的问题，实现图片预加载或按需加载">
+  <meta name="twitter:description" content="当用户打开一个有很多图片的大网站的时候，这么多图片如果要加载完再观看，会让用户的浏览体验不好。有没有一种方法可以在页面刚打开的时候，去加载第一张图片，然后页面加载完了以后，在用户看的时间内去加载后面的内容。   又或者用户再看到前面几张图片的时候就点开或者离开，如果这时候浏览器还把后面所有的图片都加载完，就会造成极大的资源浪费。   通过这篇文章可以解决掉上面的问题，实现图片预加载或按需加载">
 
   <script type="text/javascript" id="hexo.configurations">
     var NexT = window.NexT || {};
@@ -528,31 +528,36 @@ window.onload = function() {
                     <li class="nav-item nav-level-3">
                       <a class="nav-link" href="#Image对象">
                         <span class="nav-number">1.</span>
-                        <span class="nav-text">Image对象</span>
+                        <span class="nav-text">
+                          Image对象</span>
                       </a>
                       <ol class="nav-child">
                         <li class="nav-item nav-level-4">
                           <a class="nav-link" href="#onload事件">
                             <span class="nav-number">1.1.</span>
-                            <span class="nav-text">onload事件</span>
+                            <span class="nav-text">
+                              onload事件</span>
                           </a>
                         </li>
                         <li class="nav-item nav-level-4">
                           <a class="nav-link" href="#onerror事件">
                             <span class="nav-number">1.2.</span>
-                            <span class="nav-text">onerror事件</span>
+                            <span class="nav-text">
+                              onerror事件</span>
                           </a>
                         </li>
                         <li class="nav-item nav-level-4">
                           <a class="nav-link" href="#案例1，图片预加载">
                             <span class="nav-number">1.3.</span>
-                            <span class="nav-text">案例1，图片预加载</span>
+                            <span class="nav-text">
+                              案例1，图片预加载</span>
                           </a>
                         </li>
                         <li class="nav-item nav-level-4">
                           <a class="nav-link" href="#案例2，图片按需加载">
                             <span class="nav-number">1.4.</span>
-                            <span class="nav-text">案例2，图片按需加载</span>
+                            <span class="nav-text">
+                              案例2，图片按需加载</span>
                           </a>
                         </li>
                       </ol>

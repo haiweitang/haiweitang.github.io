@@ -26,17 +26,17 @@
 
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
-  <meta name="description" content="正则 ： 也叫做规则，让计算机读懂人类的规则。    PS：正则都是操作字符串的;   简写形式：var re = /a/;  大部分情况下推荐简写。因双斜杠//会造成浏览器识别成注释，所以做斜杠之间添加一个a。      全写形式：var re = new RegExp(‘a’);  特殊情况下需要写全写。比如在传参的情况下，就必须写全写方式">
+  <meta name="description" content="正则 ： 也叫做规则，让计算机读懂人类的规则。    PS：正则都是操作字符串的;     简写形式：   var re = /a/; 大部分情况下推荐简写。因双斜杠//会造成浏览器识别成注释，所以做斜杠之间添加一个a。     全写形式：   var re = new RegExp(‘a’); 特殊情况下需要写全写。比如在传参的情况下，就必须写全写方式">
   <meta name="keywords" content="JS">
   <meta property="og:type" content="article">
   <meta property="og:title" content="JS正则表达式">
   <meta property="og:url" content="http://yoursite.com/2017/04/08/JS正则表达式/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
-  <meta property="og:description" content="正则 ： 也叫做规则，让计算机读懂人类的规则。    PS：正则都是操作字符串的;   简写形式：var re = /a/;  大部分情况下推荐简写。因双斜杠//会造成浏览器识别成注释，所以做斜杠之间添加一个a。      全写形式：var re = new RegExp(‘a’);  特殊情况下需要写全写。比如在传参的情况下，就必须写全写方式">
+  <meta property="og:description" content="正则 ： 也叫做规则，让计算机读懂人类的规则。    PS：正则都是操作字符串的;     简写形式：   var re = /a/; 大部分情况下推荐简写。因双斜杠//会造成浏览器识别成注释，所以做斜杠之间添加一个a。     全写形式：   var re = new RegExp(‘a’); 特殊情况下需要写全写。比如在传参的情况下，就必须写全写方式">
   <meta property="og:updated_time" content="2017-04-09T12:45:21.117Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="JS正则表达式">
-  <meta name="twitter:description" content="正则 ： 也叫做规则，让计算机读懂人类的规则。    PS：正则都是操作字符串的;   简写形式：var re = /a/;  大部分情况下推荐简写。因双斜杠//会造成浏览器识别成注释，所以做斜杠之间添加一个a。      全写形式：var re = new RegExp(‘a’);  特殊情况下需要写全写。比如在传参的情况下，就必须写全写方式">
+  <meta name="twitter:description" content="正则 ： 也叫做规则，让计算机读懂人类的规则。    PS：正则都是操作字符串的;     简写形式：   var re = /a/; 大部分情况下推荐简写。因双斜杠//会造成浏览器识别成注释，所以做斜杠之间添加一个a。     全写形式：   var re = new RegExp(‘a’); 特殊情况下需要写全写。比如在传参的情况下，就必须写全写方式">
 
   <script type="text/javascript" id="hexo.configurations">
     var NexT = window.NexT || {};
@@ -247,7 +247,8 @@
                     </excerpt>
                   </p>
                   <p>
-                    <the rest="" of="" contents="" |="" 余下全文=""></the>
+                    <the rest="" of="" contents="" |="" 余下全文="">
+                    </the>
                   </p>
                   <h2 id="常规正则例子">
                     <a href="#常规正则例子" class="headerlink" title="常规正则例子"></a>常规正则例子</h2>
@@ -760,67 +761,90 @@ function trim(str){
                     <li class="nav-item nav-level-2">
                       <a class="nav-link" href="#常规正则例子">
                         <span class="nav-number">1.</span>
-                        <span class="nav-text">常规正则例子</span>
+                        <span class="nav-text">
+                          常规正则例子</span>
                       </a>
                     </li>
                     <li class="nav-item nav-level-2">
                       <a class="nav-link" href="#正则表达式常用方法：">
                         <span class="nav-number">2.</span>
-                        <span class="nav-text">正则表达式常用方法：</span>
+                        <span class="nav-text">
+                          正则表达式常用方法：</span>
                       </a>
                       <ol class="nav-child">
                         <li class="nav-item nav-level-3">
                           <a class="nav-link" href="#test方法">
                             <span class="nav-number">2.1.</span>
-                            <span class="nav-text">test方法</span>
+                            <span class="nav-text">
+
+                              test方法
+                            </span>
                           </a>
                         </li>
                         <li class="nav-item nav-level-3">
                           <a class="nav-link" href="#search方法">
                             <span class="nav-number">2.2.</span>
-                            <span class="nav-text">search方法</span>
+                            <span class="nav-text">
+
+                              search方法
+                            </span>
                           </a>
                         </li>
                         <li class="nav-item nav-level-3">
                           <a class="nav-link" href="#match方法">
                             <span class="nav-number">2.3.</span>
-                            <span class="nav-text">match方法</span>
+                            <span class="nav-text">
+
+                              match方法
+                            </span>
                           </a>
                         </li>
                         <li class="nav-item nav-level-3">
                           <a class="nav-link" href="#replace方法">
                             <span class="nav-number">2.4.</span>
-                            <span class="nav-text">replace方法</span>
+                            <span class="nav-text">
+
+                              replace方法
+                            </span>
                           </a>
                         </li>
                         <li class="nav-item nav-level-3">
                           <a class="nav-link" href="#正则表达式中的小括号">
                             <span class="nav-number">2.5.</span>
-                            <span class="nav-text">正则表达式中的小括号</span>
+                            <span class="nav-text">
+
+                              正则表达式中的小括号
+                            </span>
                           </a>
                         </li>
                         <li class="nav-item nav-level-3">
                           <a class="nav-link" href="#正则表达式中的字符类">
                             <span class="nav-number">2.6.</span>
-                            <span class="nav-text">正则表达式中的字符类</span>
+                            <span class="nav-text">
+
+                              正则表达式中的字符类
+                            </span>
                           </a>
                           <ol class="nav-child">
                             <li class="nav-item nav-level-4">
                               <a class="nav-link" href="#字符类">
                                 <span class="nav-number">2.6.1.</span>
-                                <span class="nav-text">字符类 :</span>
+                                <span class="nav-text">
+                                  字符类 :</span>
                               </a>
                             </li>
                             <li class="nav-item nav-level-4">
                               <a class="nav-link" href="#排除">
                                 <span class="nav-number">2.6.2.</span>
-                                <span class="nav-text">排除 : ^</span>
+                                <span class="nav-text">
+                                  排除 : ^</span>
                               </a>
                             </li>
                             <li class="nav-item nav-level-4">
                               <a class="nav-link" href="#范围">
                                 <span class="nav-number">2.6.3.</span>
-                                <span class="nav-text">范围 : -</span>
+                                <span class="nav-text">
+                                  范围 : -</span>
                               </a>
                             </li>
                           </ol>
@@ -830,13 +854,15 @@ function trim(str){
                     <li class="nav-item nav-level-2">
                       <a class="nav-link" href="#转义字符">
                         <span class="nav-number">3.</span>
-                        <span class="nav-text">转义字符</span>
+                        <span class="nav-text">
+                          转义字符</span>
                       </a>
                     </li>
                     <li class="nav-item nav-level-2">
                       <a class="nav-link" href="#量词">
                         <span class="nav-number">4.</span>
-                        <span class="nav-text">量词</span>
+                        <span class="nav-text">
+                          量词</span>
                       </a>
                     </li>
                   </ol>

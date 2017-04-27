@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/27/applet/index.html">
 <meta property="og:site_name" content="Prawns's Blog">
 <meta property="og:description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
-<meta property="og:updated_time" content="2017-04-27T10:02:42.955Z">
+<meta property="og:updated_time" content="2017-04-27T10:04:31.454Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序入门">
 <meta name="twitter:description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
@@ -378,7 +378,26 @@ wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
         &lt;image src=&quot;/image/iqiyi.png&quot;&gt;&lt;/image&gt;
     &lt;/swiper-item&gt;
 &lt;/swiper&gt;
-</code></pre><h3 id="App-json里的关于导航栏，标题的配置"><a href="#App-json里的关于导航栏，标题的配置" class="headerlink" title="App.json里的关于导航栏，标题的配置"></a>App.json里的关于导航栏，标题的配置</h3></the>
+</code></pre><h3 id="App-json里的关于导航栏，标题的配置"><a href="#App-json里的关于导航栏，标题的配置" class="headerlink" title="App.json里的关于导航栏，标题的配置"></a>App.json里的关于导航栏，标题的配置</h3><h3 id="Page页面与应用程序的生命周期"><a href="#Page页面与应用程序的生命周期" class="headerlink" title="Page页面与应用程序的生命周期"></a>Page页面与应用程序的生命周期</h3><pre><code>onLoad:function(options){
+    // 页面初始化 options为页面跳转所带来的参数
+  },
+  onReady:function(){
+    // 页面渲染完成
+    console.log(&apos;onReady&apos;)
+  },
+  onShow:function(){
+    // 页面显示
+    console.log(&apos;onShow&apos;)
+  },
+  onHide:function(){
+    // 页面隐藏
+    console.log(&apos;onHide&apos;)
+  },
+  onUnload:function(){
+    // 页面关闭
+    console.log(&apos;onUnload&apos;)
+  }
+</code></pre></the>
       
     </div>
 
@@ -557,7 +576,7 @@ wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动设备的分辨率与rpx"><span class="nav-number">1.</span> <span class="nav-text">移动设备的分辨率与rpx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是微信小程序？"><span class="nav-number">2.</span> <span class="nav-text">什么是微信小程序？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序的特点"><span class="nav-number">3.</span> <span class="nav-text">小程序的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成结构"><span class="nav-number">4.</span> <span class="nav-text">组成结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底层框架的工作原理"><span class="nav-number">5.</span> <span class="nav-text">底层框架的工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必要的文件"><span class="nav-number">6.</span> <span class="nav-text">必要的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建页面"><span class="nav-number">7.</span> <span class="nav-text">创建页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签"><span class="nav-number">8.</span> <span class="nav-text">标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#view"><span class="nav-number">8.1.</span> <span class="nav-text">view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scroll-view"><span class="nav-number">8.2.</span> <span class="nav-text">scroll-view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swiper"><span class="nav-number">8.3.</span> <span class="nav-text">swiper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text"><span class="nav-number">8.4.</span> <span class="nav-text">text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-if"><span class="nav-number">8.5.</span> <span class="nav-text">wx:if</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-for"><span class="nav-number">8.6.</span> <span class="nav-text">wx:for</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#require"><span class="nav-number">8.7.</span> <span class="nav-text">require</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#module-exports"><span class="nav-number">8.8.</span> <span class="nav-text">module.exports</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swiper组件"><span class="nav-number">9.</span> <span class="nav-text">Swiper组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#App-json里的关于导航栏，标题的配置"><span class="nav-number">10.</span> <span class="nav-text">App.json里的关于导航栏，标题的配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动设备的分辨率与rpx"><span class="nav-number">1.</span> <span class="nav-text">移动设备的分辨率与rpx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是微信小程序？"><span class="nav-number">2.</span> <span class="nav-text">什么是微信小程序？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序的特点"><span class="nav-number">3.</span> <span class="nav-text">小程序的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成结构"><span class="nav-number">4.</span> <span class="nav-text">组成结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底层框架的工作原理"><span class="nav-number">5.</span> <span class="nav-text">底层框架的工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必要的文件"><span class="nav-number">6.</span> <span class="nav-text">必要的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建页面"><span class="nav-number">7.</span> <span class="nav-text">创建页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签"><span class="nav-number">8.</span> <span class="nav-text">标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#view"><span class="nav-number">8.1.</span> <span class="nav-text">view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scroll-view"><span class="nav-number">8.2.</span> <span class="nav-text">scroll-view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swiper"><span class="nav-number">8.3.</span> <span class="nav-text">swiper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text"><span class="nav-number">8.4.</span> <span class="nav-text">text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-if"><span class="nav-number">8.5.</span> <span class="nav-text">wx:if</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-for"><span class="nav-number">8.6.</span> <span class="nav-text">wx:for</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#require"><span class="nav-number">8.7.</span> <span class="nav-text">require</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#module-exports"><span class="nav-number">8.8.</span> <span class="nav-text">module.exports</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swiper组件"><span class="nav-number">9.</span> <span class="nav-text">Swiper组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#App-json里的关于导航栏，标题的配置"><span class="nav-number">10.</span> <span class="nav-text">App.json里的关于导航栏，标题的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Page页面与应用程序的生命周期"><span class="nav-number">11.</span> <span class="nav-text">Page页面与应用程序的生命周期</span></a></li></ol></div>
             
 
           </div>

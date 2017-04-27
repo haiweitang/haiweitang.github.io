@@ -1,0 +1,1517 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JQ," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="JQ下的常用API，个人笔记，方便查询。">
+<meta name="keywords" content="JQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQ初探-常用API">
+<meta property="og:url" content="http://yoursite.com/2017/04/09/jQ-常用API/index.html">
+<meta property="og:site_name" content="Prawns's Blog">
+<meta property="og:description" content="JQ下的常用API，个人笔记，方便查询。">
+<meta property="og:updated_time" content="2017-04-09T15:20:43.634Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQ初探-常用API">
+<meta name="twitter:description" content="JQ下的常用API，个人笔记，方便查询。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/09/jQ-常用API/"/>
+
+
+
+
+
+  <title>jQ初探-常用API | Prawns's Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Prawns's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/09/jQ-常用API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prawns's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jQ初探-常用API
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-09T22:19:21+08:00">
+                2017-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记类/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记类</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>JQ下的常用API，个人笔记，方便查询。</p>
+<p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h3 id="选择元素："><a href="#选择元素：" class="headerlink" title="选择元素："></a>选择元素：</h3><p>选择ID：  </p>
+<pre><code>$(&apos;#div1&apos;).css(&apos;background&apos;,&apos;red&apos;);
+</code></pre><p>选择class：</p>
+<pre><code>$(&apos;.box&apos;).css(&apos;background&apos;,&apos;red&apos;);
+</code></pre><p>选择标签：</p>
+<pre><code>$(&apos;div&apos;).css(&apos;background&apos;,&apos;red&apos;);
+$(&apos;li:first&apos;).css(&apos;background&apos;,&apos;red&apos;);  第一个  first
+$(&apos;li:last&apos;).css(&apos;background&apos;,&apos;red&apos;);  最后一个  last
+$(&apos;li:eq(2)&apos;).css(&apos;background&apos;,&apos;red&apos;); //根据下标选择第几个的元素  eq(n)
+$(&apos;li:even&apos;).css(&apos;background&apos;,&apos;red&apos;);  //选择奇数行 even
+$(&apos;li:odd&apos;).css(&apos;background&apos;,&apos;red&apos;);  //选择偶数行  odd
+PS: 选择第几个的时候必须加“ ： ”。
+$(&apos;li.box&apos;).css(&apos;background&apos;,&apos;red&apos;);
+</code></pre><h3 id="function"><a href="#function" class="headerlink" title="$(function):"></a>$(function):</h3><p>相当于JS下的window.onload = function(){},但是比它的性能好</p>
+<p>&lt;window,onload表示全部加载完再执行，而$(function(){})则是加载完DOM就执行<br>全写形式=$(document).ready(function(){})<br>JS下DOMcontentloaded具有相同的意思<br>兼容形式 </p>
+<pre><code>if (document.addEventListener){
+    document.addEventListener(&quot;DOMContentLoaded&quot;, init, false);
+}
+</code></pre><p>方法函数化：</p>
+<pre><code>$(function(){
+    $(&apos;#div1&apos;).click(function(){
+        alert($(this).html());
+    })
+})
+</code></pre><h2 id="下的常用方法："><a href="#下的常用方法：" class="headerlink" title="$()下的常用方法："></a>$()下的常用方法：</h2><h3 id="attr"><a href="#attr" class="headerlink" title="attr():"></a>attr():</h3><p>可以进行属性的取值和赋值操作</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+ &lt;script&gt;
+    $(function(){
+        $(&apos;div&apos;).attr(&apos;title&apos;,&apos;456&apos;);  //可以经行属性操作赋值
+        $(&apos;div&apos;).attr(&apos;class&apos;,&apos;box&apos;);
+                alert($(&apos;div&apos;).attr(&apos;title&apos;));  //也可以经行属性取值
+    })
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div title=&quot;123&quot; &gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="filter"><a href="#filter" class="headerlink" title="filter():"></a>filter():</h3><p>对元素进行筛选过滤，针对当前元素<br>筛选：</p>
+<pre><code>$(&apos;li&apos;).filter(&apos;.box&apos;).css(&apos;background&apos;,&apos;green&apos;);
+</code></pre><p>筛选自定义属性：</p>
+<pre><code>$(&apos;li&apos;).filter(&apos;[title=hello]&apos;).css(&apos;background&apos;,&apos;green&apos;); //可以筛选自定义属性
+</code></pre><h3 id="not"><a href="#not" class="headerlink" title="not():"></a>not():</h3><p>filter()的反义词，针对当前元素<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+ &lt;script&gt;
+     $(function(){
+        $(&apos;div&apos;).css(&apos;background&apos;,&apos;red&apos;);  //所有div背景变红
+        $(&apos;div&apos;).filter(&apos;.box&apos;).css(&apos;background&apos;,&apos;green&apos;);  //当前元素带有.box的div变绿
+        $(&apos;div&apos;).not(&apos;.box&apos;).css(&apos;background&apos;,&apos;blue&apos;);  //当前元素不带有.box的变蓝
+     })
+ &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;box&quot;&gt;div1&lt;/div&gt;
+    &lt;div&gt;div2&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="has"><a href="#has" class="headerlink" title="has():"></a>has():</h3><p>元素是否包含，当前元素里面的东西<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  $(function(){
+    $(&apos;div&apos;).css(&apos;background&apos;,&apos;red&apos;);
+    $(&apos;div&apos;).has(&apos;span&apos;).css(&apos;background&apos;,&apos;green&apos;); //元素里面包含span的变绿
+$(&apos;div&apos;).has(&apos;.box&apos;).css(&apos;background&apos;,&apos;blue&apos;); //元素里面包含.box的变蓝
+})
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div&gt;div1&lt;span class=&quot;box&quot;&gt;span&lt;/span&gt;&lt;/div&gt;
+    &lt;div&gt;div2&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="add-组合元素"><a href="#add-组合元素" class="headerlink" title="add(): 组合元素"></a>add(): 组合元素</h3><p>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    $(function(){
+        $(&apos;span&apos;).add(&apos;div&apos;).css(&apos;background&apos;,&apos;green&apos;);
+    });       //span + div的背景都变绿
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;box&quot;&gt;
+    &lt;span&gt;span&lt;/span&gt;
+    &lt;div&gt;div&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="next"><a href="#next" class="headerlink" title="next():"></a>next():</h3><p>上一个兄弟节点</p>
+<h3 id="prev"><a href="#prev" class="headerlink" title="prev():"></a>prev():</h3><p>下一个兄弟节点<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    $(function(){
+        $(&apos;div&apos;).next().css(&apos;background&apos;,&apos;red&apos;);  //div的下一个元素变红
+        $(&apos;span&apos;).prev().css(&apos;background&apos;,&apos;green&apos;);  //span的上一个元素变绿
+    })
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div&gt;div&lt;/div&gt;
+    &lt;span&gt;span&lt;/span&gt;
+&lt;/body&gt;
+</code></pre><h3 id="siblings"><a href="#siblings" class="headerlink" title="siblings():"></a>siblings():</h3><p>获取元素所有兄弟节点，但不包括它自身，可以传入一个参数，传入的参数是你要筛选的兄弟节点<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    $(function(){
+        $(&apos;span&apos;).siblings().css(&apos;background&apos;,&apos;green&apos;);  //span的所有兄弟节点背景变绿
+        $(&apos;span&apos;).siblings(&apos;h2&apos;).css(&apos;background&apos;,&apos;red&apos;); //span的兄弟节点h2背景变红
+    });                                                        
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;box&quot;&gt;
+    &lt;div&gt;div&lt;/div&gt;
+    &lt;span&gt;span&lt;/span&gt;
+    &lt;p&gt;p&lt;/p&gt;
+    &lt;h2&gt;h2&lt;/h2&gt;
+&lt;/body&gt;
+</code></pre><h3 id="nextAll"><a href="#nextAll" class="headerlink" title="nextAll():"></a>nextAll():</h3><p>获取元素下面的所有兄弟节点，但不包括它自身和它上面的兄弟节点，<br>     可以传入一个参数，传入的参数是你要筛选的兄弟节点</p>
+<h3 id="prevAll"><a href="#prevAll" class="headerlink" title="prevAll():"></a>prevAll():</h3><p> 获取元素上面的所有兄弟节点，但不包括它自身和它下面的兄弟节点，<br>     可以传入一个参数，传入的参数是你要筛选的兄弟节点</p>
+<h3 id="nextUntil"><a href="#nextUntil" class="headerlink" title="nextUntil():"></a>nextUntil():</h3><p>获取元素下面的所有兄弟节点，但不包括它自身和它上面的兄弟节点，<br>     可以传入一个参数，传入的参数是你要截止的兄弟节点</p>
+<h3 id="prevUntil"><a href="#prevUntil" class="headerlink" title="prevUntil():"></a>prevUntil():</h3><p>获取元素上面的所有兄弟节点，但不包括它自身和它下面的兄弟节点，<br>     可以传入一个参数，传入的参数是你要截止的兄弟节点</p>
+<h3 id="find"><a href="#find" class="headerlink" title="find():"></a>find():</h3><p>查找元素里面的元素,对比$(‘div h2’),  $(‘div’).find(‘h2’)的性能更高</p>
+<h3 id="children"><a href="#children" class="headerlink" title="children():"></a>children():</h3><p>查找元素里面的所有子节点，括号里传入筛选的参数<br>$(‘ul’).children(‘li’); 只获取ul下面的li</p>
+<p>和find()的差别是：</p>
+<ol>
+<li>find()能获取元素下的子节点，孙子节点无线往下延伸。</li>
+<li>children()只能获取子节点，子节点里面的节点无法获取。</li>
+</ol>
+<h3 id="eq"><a href="#eq" class="headerlink" title="eq():"></a>eq():</h3><p>元素下标</p>
+<h3 id="index"><a href="#index" class="headerlink" title="index():"></a>index():</h3><p>元素索引<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;div&apos;).find(&apos;h2&apos;).css(&apos;background&apos;,&apos;red&apos;); // div里面的所有h2标签背景颜色变红
+$(&apos;div&apos;).find(&apos;h2&apos;).eq(2).css(&apos;background&apos;,&apos;red&apos;); // div里面的第二个h2标签背景颜色变红
+alert($(&apos;#h2&apos;).index());  //当前元素在所有兄弟节点中的位置
+})
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div&gt;
+        &lt;h3&gt;h3&lt;/h3&gt;
+        &lt;h2&gt;h2&lt;/h2&gt;
+        &lt;h3&gt;h3&lt;/h3&gt;
+        &lt;h2 id=&quot;h2&quot;&gt;h2&lt;/h2&gt;
+        &lt;h2&gt;h2&lt;/h2&gt;
+        &lt;h2&gt;h2&lt;/h2&gt;
+        &lt;h3&gt;h3&lt;/h3&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="addClass"><a href="#addClass" class="headerlink" title="addClass():"></a>addClass():</h3><p>添加class样式</p>
+<h3 id="removeClass"><a href="#removeClass" class="headerlink" title="removeClass():"></a>removeClass():</h3><p>删除class样式<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;div&apos;).addClass(&apos;box3 box4&apos;);
+    $(&apos;div&apos;).removeClass(&apos;box2 box4&apos;);
+})
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;box1 box2&quot;&gt;div&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="toggleClass"><a href="#toggleClass" class="headerlink" title="toggleClass():"></a>toggleClass():</h3><p>先判断元素有没有这个className,如果没有，就给给它添加，如果有就删除。</p>
+<p>JQ中的宽高</p>
+<h3 id="width"><a href="#width" class="headerlink" title="width():"></a>width():</h3><p>获取元素的宽度，但是没有单位      //alert($(‘div’).width());</p>
+<pre><code>赋值：$(‘div’).width(200);     //元素内容宽度变成200px
+innerWidth(): 元素的宽度+padding
+赋值：$(‘div’).innerWidth(200); //元素的总宽度是200，实际内容宽度需要减去padding值。
+</code></pre><h3 id="outerWidth"><a href="#outerWidth" class="headerlink" title="outerWidth():"></a>outerWidth():</h3><p>元素的宽度+padding+border</p>
+<pre><code>赋值：$(‘div’).outerWidth(200); //元素的总宽度是200，实际内容宽度需要减去padding值和边框的宽度。
+</code></pre><p>PS:  以上元素不带margin</p>
+<h3 id="outerWidth-true"><a href="#outerWidth-true" class="headerlink" title="outerWidth(true):"></a>outerWidth(true):</h3><p>元素的宽度+padding+border+margin  //()里面加true带margin</p>
+<pre><code>赋值：$(‘div’).outerWidth(200,true); //元素的占位宽度是200，实际内容宽度需要减去padding值和边框的宽度以及margin值。
+</code></pre><p>与原生JS的区别：和原生offsetWidth一样，但是offsetWidth无法获取到隐藏元素的宽<br>outerWidth可以获取隐藏元素的宽</p>
+<p>获取可视区的高：$(window).height();  //获取页面可视取的高度，宽度同理<br>获取页面的高：$(document).height();  //获取页面的高度，宽度同理</p>
+<h3 id="scrollTop"><a href="#scrollTop" class="headerlink" title="scrollTop():"></a>scrollTop():</h3><p>鼠标的纵向滚动距离</p>
+<h3 id="scrollLeft"><a href="#scrollLeft" class="headerlink" title="scrollLeft():"></a>scrollLeft():</h3><p>鼠标的横向滚动距离<br>括号里可以传入一个数值，单位是PX，传入的数值会让滚动条滚动到这位置。<br>示例演示：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(document).click(function(){
+        alert($(window).scrollTop());
+    })
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body style=&quot;height:2000px&quot;&gt;
+    &lt;div&gt;div&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h2 id="jQuery方法之DOM操作："><a href="#jQuery方法之DOM操作：" class="headerlink" title="jQuery方法之DOM操作："></a>jQuery方法之DOM操作：</h2><h3 id="insertBefore"><a href="#insertBefore" class="headerlink" title="insertBefore():"></a>insertBefore():</h3><p>把元素添加到指定元素的前面  </p>
+<pre><code>$(&apos;span&apos;).insertBefore(&apos;div&apos;);  //把span放到div的前面
+</code></pre><h3 id="before"><a href="#before" class="headerlink" title="before():"></a>before():</h3><p>元素的前面位置应该是某元素  </p>
+<pre><code>$(&apos;div&apos;).before(&apos;span&apos;);        //在div的前面放入span
+</code></pre><p>Ps: 这两个方法的行为是一样，但是后续的操作变了。</p>
+<h3 id="insertAfter"><a href="#insertAfter" class="headerlink" title="insertAfter():"></a>insertAfter():</h3><p>把元素添加到指定元素的后面</p>
+<pre><code>$(&apos;span&apos;).insertAfter(&apos;div&apos;);//把span放到div的后面
+</code></pre><h3 id="after"><a href="#after" class="headerlink" title="after():"></a>after():</h3><p>元素的后面是某元素  </p>
+<pre><code>$(&apos;div&apos;).after(&apos;span&apos;);  //在div的后面放入span
+</code></pre><p>Ps: 这两个方法的行为是一样，但是后续的操作变了。</p>
+<h3 id="appendTo"><a href="#appendTo" class="headerlink" title="appendTo():"></a>appendTo():</h3><p>把元素添加到指定元素的里面的最后面  </p>
+<pre><code>$(‘span’).appendTo(‘div’);  //把span放到div的里面的最后位置
+</code></pre><h3 id="append"><a href="#append" class="headerlink" title="append():"></a>append():</h3><p>元素的里面最后位置应该是某元素  </p>
+<pre><code>$(div).append(‘span’);    //div的里面的最后位置放入span
+</code></pre><h3 id="prependTo"><a href="#prependTo" class="headerlink" title="prependTo():"></a>prependTo():</h3><p>把元素放到指定元素的里面的开始位置  </p>
+<pre><code>$(‘span’).prependTo(‘div’);//把span放到div的里面的开始位置
+</code></pre><h3 id="prepend"><a href="#prepend" class="headerlink" title="prepend():"></a>prepend():</h3><p>元素的里面的开始位置应该是某元素  </p>
+<pre><code>$(‘div’).prepend(‘span’);   //div的里面的开始位置放入span
+</code></pre><p>示例演示：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    //$(&apos;span&apos;).insertBefore(&apos;div&apos;);  //把span放到div的前面
+    //$(&apos;div&apos;).insertAfter(&apos;span&apos;);    //把div放到span的后面
+    //$(&apos;div&apos;).appendTo(&apos;span&apos;);    //把div放到span里面的最后位置
+    //$(&apos;div&apos;).prependTo(&apos;span&apos;);    //把div放到span里面的开始位置
+    $(&apos;span&apos;).insertBefore(&apos;div&apos;).css(&apos;background&apos;,&apos;green&apos;);  //把span放到div的前面,然后span的背景变绿
+    $(&apos;div&apos;).before($(&apos;span&apos;)).css(&apos;background&apos;,&apos;red&apos;);  //div的前面插入sapn，然后div的背景变红
+})
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div&gt;div&lt;/div&gt;
+    &lt;span&gt;span&lt;/span&gt;
+&lt;/body&gt;
+</code></pre><h3 id="remove"><a href="#remove" class="headerlink" title="remove():"></a>remove():</h3><p>删除某元素并且删除这个元素的所有操作行为  </p>
+<pre><code>$(&apos;div&apos;).remove();  //删除div元素
+</code></pre><h3 id="detach"><a href="#detach" class="headerlink" title="detach():"></a>detach():</h3><p>删除某元素但是保留这个元素的所有操作行为  </p>
+<pre><code>$(&apos;div&apos;).detach();  //删除div元素
+</code></pre><p>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    $(function(){
+        $(&apos;#div1&apos;).click(function(){
+            alert($(&apos;#div1&apos;).html());
+        })
+        var oDiv = $(&apos;#div1&apos;).detach();  //删除之后用变量存下
+        $(&apos;body&apos;).append(oDiv);      //然后后面插入的时候还会保留它的事件操作
+    });
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&quot;&gt;
+    &lt;div id=&quot;div1&quot;&gt;div1&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="clone"><a href="#clone" class="headerlink" title="clone():"></a>clone():</h3><p>复制某个元素。可以传入一个参数，参数为true，可以复制这个元素的操作行为<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;span&apos;).click(function(){
+        alert(123);
+    })
+    $(&apos;span&apos;).clone(true).appendTo(&apos;div&apos;);  //把span复制到div里面，不删除原元素
+});                                             //clone(内容为true)的时候可以复制这个元素的操作行为            
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;box&quot;&gt;
+    &lt;div&gt;div&lt;/div&gt;
+    &lt;span&gt;span&lt;/span&gt;
+&lt;/body&gt;
+</code></pre><h3 id="parent"><a href="#parent" class="headerlink" title="parent():"></a>parent():</h3><p>获取元素的父级  等于原生JS的parentNode<br>offsetParent(): 获取有定位的父级  等于原生JS的offsetParent一样。<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;#div2&apos;).on(&apos;click&apos;,function(){
+        $(&apos;#div2&apos;).parent().css(&apos;background&apos;,&apos;green&apos;); //让div2的父级背景变成绿色
+        $(&apos;#div2&apos;).offsetParent().css(&apos;background&apos;,&apos;green&apos;);  //让div2有定位的父级变成绿色，如果没有定位就默认body
+    });
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&quot;&gt;
+&lt;div id=&quot;div1&quot;&gt;
+    &lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="parents"><a href="#parents" class="headerlink" title="parents():"></a>parents():</h3><p>获取元素的所有祖先节点。 括号内可以传入需要筛选的元素</p>
+<h3 id="parentsUntil"><a href="#parentsUntil" class="headerlink" title="parentsUntil():"></a>parentsUntil():</h3><p>获取元素的所有祖先节点。 括号内可以传入需要到截止的元素</p>
+<p>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;#div2&apos;).parents().css(&apos;background&apos;,&apos;red&apos;);           //div2的所有父级背景换成红色
+    $(&apos;#div2&apos;).parents(&apos;#div1&apos;).css(&apos;background&apos;,&apos;red&apos;);    //div2的父级只有div1变成红色
+    $(&apos;#div2&apos;).parents(&apos;body&apos;).css(&apos;background&apos;,&apos;green&apos;);   //div2的父级只有body变成绿色
+$(&apos;#div2&apos;).parentsUntil(&apos;#div&apos;).css(&apos;background&apos;,&apos;green&apos;);  //div2的父级到div1截止变成绿色
+
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&quot;&gt;
+    &lt;div id=&quot;div1&quot;&gt;aaa
+        &lt;div id=&quot;div2&quot;&gt;bbb&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="closest"><a href="#closest" class="headerlink" title="closest():"></a>closest():</h3><p>获取元素的最近的祖先节点。（包括元素自身，必须要写参数，并且只能找到一个元素）<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;#div2&apos;).closest(&apos;.box&apos;).css(&apos;background&apos;,&apos;red&apos;);
+                                //通过.box只能找到div1找不到body，因为div1是离div2最近的父级。
+                                //如果元素自身加了class=&quot;box&quot;，那么只会找到它自身
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;box&quot;&gt;
+    &lt;div id=&quot;div1&quot; class=&quot;box&quot;&gt;aaa
+        &lt;div id=&quot;div2&quot;&gt;bbb&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre><p>Ps: 实战之王，推荐使用这个。</p>
+<h3 id="val"><a href="#val" class="headerlink" title="val():"></a>val():</h3><p>获取元素的value值<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;input&apos;).on(&apos;click&apos;,function(){
+        alert($(&apos;input&apos;).val());   //弹出input的value值   获取
+        $(&apos;input&apos;).val(&apos;提交&apos;);        //改变input的value值  赋值
+    });
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&quot;&gt;
+&lt;input type=&quot;button&quot; value=&quot;点击&quot;&gt;
+&lt;/body&gt;
+</code></pre><h3 id="size"><a href="#size" class="headerlink" title="size():"></a>size():</h3><p> 获取元素的长度  像原生里的length<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;input&apos;).on(&apos;click&apos;,function(){
+        alert($(&apos;li&apos;).size());     //获取li的长度   =4
+    });
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&quot;&gt;
+&lt;input type=&quot;button&quot; value=&quot;点击&quot;&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+</code></pre><h3 id="each"><a href="#each" class="headerlink" title="each():"></a>each():</h3><p>循环，像原生里的for ， each(function(下标，当前操作的元素){})<br>each()可以添加一个回调函数，函数内可以传两个值，下标和当前操作的元素<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;li&apos;).each(function(i,li){
+    $(li).html(i);                        //给每个li添加内容，内容是下标
+if(i==3){
+return false;
+}
+
+    })
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&quot;&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+</code></pre><h3 id="关于this-："><a href="#关于this-：" class="headerlink" title="关于this ："></a>关于this ：</h3><p>在循环中，this在原生JS中是不存在的，只有在事件中才能存在，但是在JQ的each()之中，this是存在的。This相当于括号里第二个参数，指的是元素本身。this等于li。</p>
+<h3 id="关于跳出循环："><a href="#关于跳出循环：" class="headerlink" title="关于跳出循环："></a>关于跳出循环：</h3><p>原生之中，如果要跳出循环，使用的是break。JQ之中跳出循环就不能用break了，要用return false；</p>
+<h2 id="jQuery方法之事件操作："><a href="#jQuery方法之事件操作：" class="headerlink" title="jQuery方法之事件操作："></a>jQuery方法之事件操作：</h2><p>事件操作注意: 在JQ中所有的事件操作都是绑定的形式</p>
+<h3 id="on"><a href="#on" class="headerlink" title="on():"></a>on():</h3><p>执行某事件。<br>空号里两个参数，第一个表示事件，第二个表示事件执行的函数<br>可以同时填写多个事件，不用再分开写<br>并且还可以以JSON的形式，对不同事件执行不同的函数<br>示例演示：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+
+    //不同事件执行同一函数
+    $(&apos;div&apos;).on(&apos;click mouseover&apos;,function(){
+        alert(123);
+    })
+
+    //不同事件执行不同函数                                            
+    $(&apos;div&apos;).on({
+        &apos;click&apos; : function(){ alert(123); },
+        &apos;mouseover&apos; : function(){ alert(456); }
+    })
+
+})
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div&gt;div&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="off"><a href="#off" class="headerlink" title="off():"></a>off():</h3><p>关闭某事件。可以全部关闭，也可以只关闭某一件事件<br>示例演示：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;div&apos;).on(&apos;click mouseover&apos;,function(){
+        alert(123);
+        $(&apos;div&apos;).off();  //关闭所有事件
+        $(&apos;div&apos;).off(&apos;mouseover&apos;);  //只关闭mouseover事件
+    })
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div&gt;div&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="delegate-："><a href="#delegate-：" class="headerlink" title="delegate()："></a>delegate()：</h3><p>事件绑定  冒泡机制 //$(‘ul’).delegate(‘li’,’click’,function(){});</p>
+<h3 id="undelegate-："><a href="#undelegate-：" class="headerlink" title="undelegate()："></a>undelegate()：</h3><p>解除事件绑定 //针对的是dalegate(),不用能off()来解除绑定<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-3.2.0.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+    $(function(){
+        $(&apos;input&apos;).click(function(){
+            $li = $(&apos;&lt;li&gt;hello&lt;/li&gt;&apos;);       //手动创建li
+            $(&apos;ul&apos;).append($li);
+        })
+
+        $(&apos;ul&apos;).delegate(&apos;li&apos;,&apos;click&apos;,function(ev){        
+            $(this).css(&apos;background&apos;,&apos;red&apos;);  
+            $(&apos;ul&apos;).undelegate();
+        })
+        //1.this在事件委托之中，指向的是委托的对象，这里指向的是li
+        //2.如果要找到ul有两种方式：
+                                1)  $(‘ul’);   
+                                2)  ev下有一个对象，ev.delegateTarget 指向的就是ul $(ev.delegateTarget)  
+        // $(&apos;li&apos;).click(function(){
+        //           $(this).css(&apos;background&apos;,&apos;red&apos;);
+        // })
+        //
+        // 通过以上代码可以看出事件绑定的一个优势。
+        // 1.普通事件在后续添加的li面前是不能执行的，因为在后续添加的li之前，事件操作就已经加载结束了。
+        // 2.事件绑定可以实现让后续添加的li也拥有事件行为。因为事件是绑定在父级ul身上，只要父级不变，里面元素都不会受影响。
+    })
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;ul&gt;
+        &lt;li&gt;11111&lt;/li&gt;
+        &lt;li&gt;11111&lt;/li&gt;
+        &lt;li&gt;11111&lt;/li&gt;
+        &lt;li&gt;11111&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;input type=&quot;button&quot;&gt;
+&lt;/body&gt;
+</code></pre><h3 id="trigger"><a href="#trigger" class="headerlink" title="trigger():"></a>trigger():</h3><p>主动触发，表示页面一刷新就主动触发事件<br>可以触发自定义事件<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    $(function(){
+        $(&apos;div&apos;).click(function(){
+            alert($(this).html());
+        })
+        $(&apos;div&apos;).on(&apos;show&apos;,function(){
+            alert(123);
+        })
+        $(&apos;div&apos;).trigger(&apos;click&apos;);   //页面一刷新就主动触发事件
+        $(&apos;div&apos;).trigger(&apos;show&apos;);    //可以触发自定义事件
+    });
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div&gt;123213&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="JQ之创建元素"><a href="#JQ之创建元素" class="headerlink" title="JQ之创建元素:"></a>JQ之创建元素:</h3><p>$(‘<div>’)  //创建元素，记得加尖括号“&lt;”。不加就是获取元素。</div></p>
+<h2 id="jQuery方法之事件细解："><a href="#jQuery方法之事件细解：" class="headerlink" title="jQuery方法之事件细解："></a>jQuery方法之事件细解：</h2><h3 id="ev"><a href="#ev" class="headerlink" title="ev:"></a>ev:</h3><p>等于原声event对象；</p>
+<h3 id="ev-pageX"><a href="#ev-pageX" class="headerlink" title="ev.pageX"></a>ev.pageX</h3><p>(相对于整个页面的鼠标位置)</p>
+<h3 id="ev-clientX"><a href="#ev-clientX" class="headerlink" title="ev.clientX"></a>ev.clientX</h3><p>(相对于可视区的) 鼠标位置</p>
+<h3 id="ev-pageY"><a href="#ev-pageY" class="headerlink" title="ev.pageY"></a>ev.pageY</h3><p>(相对于整个页面的鼠标位置)</p>
+<h3 id="ev-clientY"><a href="#ev-clientY" class="headerlink" title="ev.clientY"></a>ev.clientY</h3><p>(相对于可视区的) 鼠标位置</p>
+<h3 id="ev-which"><a href="#ev-which" class="headerlink" title="ev.which:"></a>ev.which:</h3><p>等于原声event.keyCode，键盘键值。<br>示例：</p>
+<pre><code>$(function(){
+    $(document).keydown(function(ev){
+        alert(ev.which)                     //弹出你按下键盘的键值
+    })
+})();
+</code></pre><h3 id="ev-preventDefault"><a href="#ev-preventDefault" class="headerlink" title="ev.preventDefault:"></a>ev.preventDefault:</h3><p>阻止默认事件</p>
+<h3 id="ev-stopPropagetion"><a href="#ev-stopPropagetion" class="headerlink" title="ev.stopPropagetion:"></a>ev.stopPropagetion:</h3><p>阻止冒泡事件</p>
+<p>return false: 阻止冒泡事件 +  阻止默认事件</p>
+<h3 id="ev-data"><a href="#ev-data" class="headerlink" title="ev.data:"></a>ev.data:</h3><p>数据传参<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;div&apos;).on(&apos;click&apos;,{name:&apos;hello&apos;},function(ev){
+        alert(ev.data.name);              //传入json中name的值        //hello
+        alert(ev.target);                 //找到当前操作的事件对象是谁  //div
+        alert(ev.type);                      //找到当前操作的事件是什么类型的事件   //click
+    })
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div&gt;123213&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="one"><a href="#one" class="headerlink" title="one():"></a>one():</h3><p>事件执行一次<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;div&apos;).one(&apos;click&apos;,function(){
+        alert(123);                        //只能点击弹出一次
+    });
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&quot;&gt;
+&lt;div id=&quot;login&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="offset"><a href="#offset" class="headerlink" title="offset():"></a>offset():</h3><p>获取元素到屏幕的总距离<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    $(function(){
+        $(&apos;#div2&apos;).on(&apos;click&apos;,function(){
+            alert($(&apos;#div2&apos;).offset().left);  //获取元素到屏幕的总距离
+        });
+    });
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&quot;&gt;
+    &lt;div id=&quot;div1&quot;&gt;
+        &lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="position"><a href="#position" class="headerlink" title="position():"></a>position():</h3><p>获取到有定位的父级的距离.需要把当前元素转化为有定位的形式,因为它不认margin值<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;#div2&apos;).on(&apos;click&apos;,function(){
+        alert($(&apos;#div2&apos;).position().left);  //获取到有定位的父级的距离.
+    });
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&quot;&gt;
+&lt;div id=&quot;div1&quot;&gt;
+    &lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="offsetParent"><a href="#offsetParent" class="headerlink" title="offsetParent():"></a>offsetParent():</h3><p>获取有定位的父级  等于原生JS的offsetParent一样。<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;#div2&apos;).on(&apos;click&apos;,function(){
+        $(&apos;#div2&apos;).parent().css(&apos;background&apos;,&apos;green&apos;); //让div2的父级背景变成绿色
+        $(&apos;#div2&apos;).offsetParent().css(&apos;background&apos;,&apos;green&apos;);  //让div2有定位的父级变成绿色，如果没有定位就默认body
+    });
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&quot;&gt;
+&lt;div id=&quot;div1&quot;&gt;
+    &lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="html"><a href="#html" class="headerlink" title="html():"></a>html():</h3><p>获取元素标签内的内容  也可以赋值</p>
+<h3 id="text"><a href="#text" class="headerlink" title="text():"></a>text():</h3><p>获取元素标签内所有标签内的内容,但不包含元素内的标签。<br>也可以赋值，但是如果赋值标签，也会转化成文本。</p>
+<h3 id="get"><a href="#get" class="headerlink" title="get():"></a>get():</h3><p>把JQ转化成原声JS      下标和length属性<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    $(function(){
+        alert($(&apos;#div1&apos;).get(0).innerHTML);
+
+        //可以把$(&apos;#div1&apos;)转化成原生document.getElementById(‘div1’），
+        //实现JQ与JS共存
+        //get(0)括号里面的数字表示下标
+
+        for(var i=0; i&lt;$(&apos;li&apos;).get().length; i++){     //for循环里面可以不带get()，因为JQ文档下有一个属性叫做length
+            $(&apos;li&apos;).get(i).style.background = &apos;red&apos;;   //这条程序也可以不用[i]来代替get(i),但是有偷巧的嫌疑，推荐不太熟悉JQ的同学使用标准写法
+        }
+    });
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&quot;&gt;
+    &lt;div id=&quot;div1&quot;&gt;div1&lt;/div&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+</code></pre><h3 id="wrap"><a href="#wrap" class="headerlink" title="wrap():"></a>wrap():</h3><p>包装  给元素外部添加一个包装 ，传入包装的标签</p>
+<pre><code>比如wrap(&apos;&lt;div&gt;&apos;)
+</code></pre><h3 id="wrapAll"><a href="#wrapAll" class="headerlink" title="wrapAll():"></a>wrapAll():</h3><p>整体包装  把所有元素聚在一起，套上一个整体标签</p>
+<h3 id="wrapInner"><a href="#wrapInner" class="headerlink" title="wrapInner():"></a>wrapInner():</h3><p>内部包装  给元素内部的内容添加一个包装</p>
+<h3 id="unwrap"><a href="#unwrap" class="headerlink" title="unwrap():"></a>unwrap():</h3><p>删除元素外部包装 （删除父级，但是不包括body元素）</p>
+<p>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;span&apos;).wrap(&apos;&lt;div&gt;&apos;);        //给每个span的外面都套上一个div标签
+    $(&apos;span&apos;).wrapAll(&apos;&lt;div&gt;&apos;);     //把三个span套在一个div标签里面
+    $(&apos;span&apos;).wrapInner(&apos;&lt;div&gt;&apos;);   //给每个span里面的内容套一个div标签
+    $(&apos;span&apos;).unwrap(&apos;&lt;div&gt;&apos;);      //删除了span外面的div标签
+});            
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;box&quot;&gt;
+    &lt;span&gt;span&lt;/span&gt;
+    &lt;span&gt;span&lt;/span&gt;
+    &lt;span&gt;span&lt;/span&gt;
+&lt;/body&gt;
+</code></pre><h3 id="slice"><a href="#slice" class="headerlink" title="slice():"></a>slice():</h3><p>截取元素，括号内传入两个参数，参数是元素的下标<br>  第一个参数，开始截取元素的下标位置<br>  第二个参数，结束截取元素的下表位置+1，因为不包括结束截取的元素，所以+1位<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    $(function(){
+        $(&apos;li&apos;).slice(1,4).css(&apos;background&apos;,&apos;green&apos;);   //截取第1个li到第3个li，让他们的背景变绿
+    });                       
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;
+</code></pre><h3 id="serialize-："><a href="#serialize-：" class="headerlink" title="serialize()："></a>serialize()：</h3><p>串联化数据    字符串形式     </p>
+<h3 id="serializeArray-："><a href="#serializeArray-：" class="headerlink" title="serializeArray()："></a>serializeArray()：</h3><p>串联化数据    数组形式<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+    $(function(){
+    console.log($(&apos;form&apos;).serialize());  //string : a=1&amp;b=2&amp;c=3
+    console.log( $(&apos;form&apos;).serializeArray() );
+    [
+        { name : &apos;a&apos; , value : &apos;1&apos; },
+        { name : &apos;b&apos; , value : &apos;2&apos; },
+        { name : &apos;c&apos; , value : &apos;3&apos; }
+    ]
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form&gt;
+    &lt;input type=&quot;text&quot; name=&quot;a&quot; value=&quot;1&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;b&quot; value=&quot;2&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;c&quot; value=&quot;3&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+</code></pre><h2 id="JQ的运动"><a href="#JQ的运动" class="headerlink" title="JQ的运动"></a>JQ的运动</h2><h3 id="animate-："><a href="#animate-：" class="headerlink" title="animate()："></a>animate()：</h3><p>运动方法  可以传参数<br>第一个参数是个json，里面传入属性和属性值<br>第二个参数是时间，默认400毫秒，调节运动快慢<br>第三个参数是运动形式，有两种运动形式（默认swing(慢快慢)，linear(匀速)）<br>第四个餐宿是回调函数。</p>
+<h3 id="stop-："><a href="#stop-：" class="headerlink" title="stop()："></a>stop()：</h3><p>停止运动<br>默认阻止当前运动，不会阻止后面的运动<br>括号里写true，就可以阻止后续所有运动。 元素.stop(true);<br>括号里如果写两个true，会立即停止到当前运动的目标点，并且停止后续运动<br>元素.stop(true,ture);</p>
+<h3 id="finish-："><a href="#finish-：" class="headerlink" title="finish()："></a>finish()：</h3><p>停止运动  立即停止到你所有运动指定的目标点。 元素.finish();</p>
+<h3 id="delay-："><a href="#delay-：" class="headerlink" title="delay()："></a>delay()：</h3><p>延迟运动，括号传入参数是延迟的时间<br>示例：</p>
+<pre><code>$(this).animate({width:300},600).delay(1000).animate({height:300},600);
+</code></pre><p>综合示例：</p>
+<pre><code>&lt;style&gt;
+    #div1 { width: 100px; height: 100px; background: red; }
+    #div2 { width: 100px; height: 100px; background: red; margin-top: 10px; }
+&lt;/style&gt;
+&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;#div1&apos;).click(function(){
+        $(this).animate({width:300},600).delay(1000).animate({height:300},600);
+    });
+    $(&apos;#div2&apos;).click(function(){
+        $(&apos;#div1&apos;).stop();  //默认阻止当前运动，不会阻止后面的运动
+        $(&apos;#div1&apos;).stop(true);  // 停止后续所有运动
+        $(&apos;#div1&apos;).stop(true,true);  // 立即停止到当前运动的目标点，并且停止后续运动
+        $(&apos;#div1&apos;).finish();  //立即停止到所有运动指定的目标点
+    })
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form&gt;
+        &lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+        &lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+</code></pre><h3 id="hover"><a href="#hover" class="headerlink" title="hover():"></a>hover():</h3><p>鼠标移入移出样式发生改变。hover(function(){},function(){})<br>括号里面传入两个函数。<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;#div1&apos;).hover(function(){
+        $(&apos;#div1&apos;).css(&apos;background&apos;,&apos;green&apos;);  //第一个函数，表示鼠标移入
+    },function(){
+        $(&apos;#div1&apos;).css(&apos;background&apos;,&apos;red&apos;);    //第二个函数，表示鼠标移出
+    });
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&quot;&gt;
+&lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="hide"><a href="#hide" class="headerlink" title="hide():"></a>hide():</h3><p>元素隐藏   （1000）括号内可以传入一个时间参数   以1秒时间的动画过度隐藏</p>
+<h3 id="show"><a href="#show" class="headerlink" title="show():"></a>show():</h3><p>元素显示  （1000）括号内可以传入一个时间参数      以1秒时间的动画过度显示<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    $(function(){
+        $(&apos;#div1&apos;).hover(function(){
+            $(&apos;#div2&apos;).hide(1000);  //移入div1的时候，div2隐藏
+        },function(){
+            $(&apos;#div2&apos;).show(1000);  //移出div1的时候，div2显示
+        });
+    });
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&quot;&gt;
+    &lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="fadeIn"><a href="#fadeIn" class="headerlink" title="fadeIn():"></a>fadeIn():</h3><p>元素淡入  （1000）括号内可以传入一个时间参数   以1秒时间的动画过度淡入效果</p>
+<h3 id="fadeOut"><a href="#fadeOut" class="headerlink" title="fadeOut():"></a>fadeOut():</h3><p>元素淡出  （1000）括号内可以传入一个时间参数   以1秒时间的动画过度淡出效果<br>Ps：默认时间是400毫秒。<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+    $(&apos;#div1&apos;).hover(function(){
+        $(&apos;#div2&apos;).fadeOut(1000);  //移入div1的时候，div2淡出
+    },function(){
+        $(&apos;#div2&apos;).fadeIn(1000);    //移出div1的时候，div2淡入
+    });
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&quot;&gt;
+&lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="fadeTo"><a href="#fadeTo" class="headerlink" title="fadeTo():"></a>fadeTo():</h3><p>元素淡入淡出<br>括号里面传入两个值，第一个值传入时间，第二个值传入透明度数值。<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    $(function(){
+        $(&apos;#div1&apos;).hover(function(){
+            $(&apos;#div2&apos;).fadeTo(1000,0.3);      //移入div1的时候，div2以1秒的时间降透明度变成0.3
+        },function(){
+            $(&apos;#div2&apos;).fadeTo(2000,1);          //移出div1的时候，div2以2秒的时间降透明度变成1
+        });
+    });
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&quot;&gt;
+    &lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h3 id="slideDown"><a href="#slideDown" class="headerlink" title="slideDown():"></a>slideDown():</h3><p>元素向下展开<br>（1000）括号内可以传入一个时间参数 ，以1秒时间的动画过度向下展开效果</p>
+<h3 id="slideUp"><a href="#slideUp" class="headerlink" title="slideUp():"></a>slideUp():</h3><p>元素向上卷入<br>（1000）括号内可以传入一个时间参数 ，以1秒时间的动画过度向上卷入效果<br>Ps：默认时间是400毫秒。<br>示例：</p>
+<pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    $(function(){
+        $(&apos;#div1&apos;).hover(function(){
+            $(&apos;#div2&apos;).slideUp(1000);  //移入div1的时候，div2向上卷入
+        },function(){
+            $(&apos;#div2&apos;).slideDown(3000);    //移出div1的时候，div2向下展开
+        });
+    });
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&quot;&gt;
+    &lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre><h2 id="下的常用方法"><a href="#下的常用方法" class="headerlink" title="$下的常用方法"></a>$下的常用方法</h2><h3 id="type"><a href="#type" class="headerlink" title="$.type():"></a>$.type():</h3><p>判断元素的类型<br>和typeof一样，但比他更强大，可判断的类型更细致更多</p>
+<h3 id="trim"><a href="#trim" class="headerlink" title="$.trim():"></a>$.trim():</h3><p>去除文本的前后空格<br>示例：</p>
+<pre><code>$(function(){
+    var str = &apos;   hello   &apos;;
+    alert(&apos;(&apos;+str+&apos;)&apos;);           //弹出str的内容是带空格的。
+    alert(&apos;(&apos;+str.trim()+&apos;)&apos;);   //弹出str的内容是去除空格的。
+});
+</code></pre><h3 id="inArray"><a href="#inArray" class="headerlink" title="$.inArray():"></a>$.inArray():</h3><p>类似于indexOf，不过是返回数组的下标位置。<br>括号内传入两个值，第一个是你要查找的数组内容，第二个参数是数组的名称<br>示例：</p>
+<pre><code>$(function(){
+    var arr = [&apos;a&apos;,&apos;b&apos;,&apos;d&apos;,&apos;d&apos;];
+    alert($.inArray(&apos;b&apos;,arr));   //弹出b在数组的位置
+});
+</code></pre><h3 id="proxy"><a href="#proxy" class="headerlink" title="$.proxy():"></a>$.proxy():</h3><p>改变this指向<br>括号传入两个参数，第一个是函数的名称，第二个是需要指向谁的名称。<br>如果要调用函数，需要在后面加上();<br>示例：</p>
+<pre><code>$(function(){
+    function show(a,b){
+        alert(a+&apos;:&apos;+b)
+        alert(this);
+    }
+    //show();                          //这里的this指向是window
+    //$.proxy(show,document)();        //这里的this指向是document。
+    //$.proxy(show,document)(3,4);     //传参的参数可以写在后面的括号里
+    //$.proxy(show,document,3,4)();    //参数也可以写在开始的括号里，第三位开始可以接受参数
+    $.proxy(show,document,3)(4);       //参数还可以混着写
+});
+</code></pre><h3 id="noConflict"><a href="#noConflict" class="headerlink" title="$.noConflict():"></a>$.noConflict():</h3><p>防止$冲突 ，可以用其他单词符号替换$的作用<br>示例：</p>
+<pre><code>var miaov = $.noConflict();  //用此方法可以直接用miaov代替$在JQ中的作用
+miaov(function(){
+    miaov(&apos;body&apos;).css(&apos;background&apos;,&apos;red&apos;);
+})
+</code></pre><h3 id="parseJSON"><a href="#parseJSON" class="headerlink" title="$.parseJSON():"></a>$.parseJSON():</h3><p>把字符串转变成JSON<br>这个字符串必须是严格模式下的JSON<br>示例：</p>
+<pre><code>var str = &apos;{&quot;name&quot;:&quot;miaov&quot;}&apos;    //必须写成这样的严格模式。
+alert($.parseJSON(str).name);  //这样就可以把字符串转成可以使用的JSON
+</code></pre><h3 id="makeArray"><a href="#makeArray" class="headerlink" title="$.makeArray():"></a>$.makeArray():</h3><p>把类数组变成真正的数组<br>类数组：一种有长度和下标的元素叫做类数组<br>示例：</p>
+<pre><code>var aDiv = document.getElementsByTagName(&apos;div&apos;); //这种有长度和下标的元素叫做类数组
+//aDiv.push();              //错误的写法，必须通过下面的方法转成数组
+$.makeArray(aDiv).push();  //通过此方法可以变成真正的数组，不会报错
+</code></pre><h2 id="JQ的Ajax使用"><a href="#JQ的Ajax使用" class="headerlink" title="JQ的Ajax使用"></a>JQ的Ajax使用</h2><h3 id="ajax"><a href="#ajax" class="headerlink" title="$.ajax():"></a>$.ajax():</h3><p>JQ下的ajax使用方法</p>
+<pre><code>$.ajax({
+    url : &apos;xxx.php&apos;,                 //地址
+    data : &apos;name=hello&amp;age=20&apos;,      //数据
+    type : &apos;POST&apos;,                    //数据传输方式
+    success : function(data){        //成功之后执行的参数
+        alert(1);
+    },
+    error : function(){                 //失败之后执行的参数
+        alert(2);
+    }
+    contentType                     //请求头信息，post请求的时候需要写一下
+    dataType                        //返回的数据类型
+    cache                            //是否缓存
+    Timeout                            //是否延迟
+})
+</code></pre><h3 id="get-1"><a href="#get-1" class="headerlink" title="$.get():"></a>$.get():</h3><p>JQ下的ajax的细分方法，get方式，可传两个参数<br>第一个参数是url地址，如果需要传值可在url后面添加？+你要传的值<br>第二个参数是你成功后的回调函数。<br>示例：</p>
+<pre><code>$.get(‘url?+你要的传的值’function(){});   //两种传数据的方式
+$.get(‘url’,{name:’hello’},function(){});
+</code></pre><h3 id="post"><a href="#post" class="headerlink" title="$.post():"></a>$.post():</h3><p>JQ下的ajax的细分方法，post方式</p>
+<pre><code>示例：$.post(‘url’,function(){});
+</code></pre></the>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JQ/" rel="tag"># JQ</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/10/HTML5详解之夸文档通信/" rel="next" title="HTML5详解之跨文档通信">
+                <i class="fa fa-chevron-left"></i> HTML5详解之跨文档通信
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/08/ECMAScript6/" rel="prev" title="ECMAScript6">
+                ECMAScript6 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择元素："><span class="nav-number">1.</span> <span class="nav-text">选择元素：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#function"><span class="nav-number">2.</span> <span class="nav-text">$(function):</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下的常用方法："><span class="nav-number"></span> <span class="nav-text">$()下的常用方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#attr"><span class="nav-number">1.</span> <span class="nav-text">attr():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter"><span class="nav-number">2.</span> <span class="nav-text">filter():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#not"><span class="nav-number">3.</span> <span class="nav-text">not():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#has"><span class="nav-number">4.</span> <span class="nav-text">has():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#add-组合元素"><span class="nav-number">5.</span> <span class="nav-text">add(): 组合元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next"><span class="nav-number">6.</span> <span class="nav-text">next():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prev"><span class="nav-number">7.</span> <span class="nav-text">prev():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#siblings"><span class="nav-number">8.</span> <span class="nav-text">siblings():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nextAll"><span class="nav-number">9.</span> <span class="nav-text">nextAll():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prevAll"><span class="nav-number">10.</span> <span class="nav-text">prevAll():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nextUntil"><span class="nav-number">11.</span> <span class="nav-text">nextUntil():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prevUntil"><span class="nav-number">12.</span> <span class="nav-text">prevUntil():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#find"><span class="nav-number">13.</span> <span class="nav-text">find():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#children"><span class="nav-number">14.</span> <span class="nav-text">children():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eq"><span class="nav-number">15.</span> <span class="nav-text">eq():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#index"><span class="nav-number">16.</span> <span class="nav-text">index():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#addClass"><span class="nav-number">17.</span> <span class="nav-text">addClass():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#removeClass"><span class="nav-number">18.</span> <span class="nav-text">removeClass():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toggleClass"><span class="nav-number">19.</span> <span class="nav-text">toggleClass():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#width"><span class="nav-number">20.</span> <span class="nav-text">width():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#outerWidth"><span class="nav-number">21.</span> <span class="nav-text">outerWidth():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#outerWidth-true"><span class="nav-number">22.</span> <span class="nav-text">outerWidth(true):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scrollTop"><span class="nav-number">23.</span> <span class="nav-text">scrollTop():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scrollLeft"><span class="nav-number">24.</span> <span class="nav-text">scrollLeft():</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery方法之DOM操作："><span class="nav-number"></span> <span class="nav-text">jQuery方法之DOM操作：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#insertBefore"><span class="nav-number">1.</span> <span class="nav-text">insertBefore():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#before"><span class="nav-number">2.</span> <span class="nav-text">before():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insertAfter"><span class="nav-number">3.</span> <span class="nav-text">insertAfter():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#after"><span class="nav-number">4.</span> <span class="nav-text">after():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#appendTo"><span class="nav-number">5.</span> <span class="nav-text">appendTo():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#append"><span class="nav-number">6.</span> <span class="nav-text">append():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prependTo"><span class="nav-number">7.</span> <span class="nav-text">prependTo():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prepend"><span class="nav-number">8.</span> <span class="nav-text">prepend():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#remove"><span class="nav-number">9.</span> <span class="nav-text">remove():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#detach"><span class="nav-number">10.</span> <span class="nav-text">detach():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clone"><span class="nav-number">11.</span> <span class="nav-text">clone():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parent"><span class="nav-number">12.</span> <span class="nav-text">parent():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parents"><span class="nav-number">13.</span> <span class="nav-text">parents():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parentsUntil"><span class="nav-number">14.</span> <span class="nav-text">parentsUntil():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#closest"><span class="nav-number">15.</span> <span class="nav-text">closest():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#val"><span class="nav-number">16.</span> <span class="nav-text">val():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#size"><span class="nav-number">17.</span> <span class="nav-text">size():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#each"><span class="nav-number">18.</span> <span class="nav-text">each():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于this-："><span class="nav-number">19.</span> <span class="nav-text">关于this ：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于跳出循环："><span class="nav-number">20.</span> <span class="nav-text">关于跳出循环：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery方法之事件操作："><span class="nav-number"></span> <span class="nav-text">jQuery方法之事件操作：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#on"><span class="nav-number">1.</span> <span class="nav-text">on():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#off"><span class="nav-number">2.</span> <span class="nav-text">off():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delegate-："><span class="nav-number">3.</span> <span class="nav-text">delegate()：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undelegate-："><span class="nav-number">4.</span> <span class="nav-text">undelegate()：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#trigger"><span class="nav-number">5.</span> <span class="nav-text">trigger():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JQ之创建元素"><span class="nav-number">6.</span> <span class="nav-text">JQ之创建元素:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery方法之事件细解："><span class="nav-number"></span> <span class="nav-text">jQuery方法之事件细解：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ev"><span class="nav-number">1.</span> <span class="nav-text">ev:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ev-pageX"><span class="nav-number">2.</span> <span class="nav-text">ev.pageX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ev-clientX"><span class="nav-number">3.</span> <span class="nav-text">ev.clientX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ev-pageY"><span class="nav-number">4.</span> <span class="nav-text">ev.pageY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ev-clientY"><span class="nav-number">5.</span> <span class="nav-text">ev.clientY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ev-which"><span class="nav-number">6.</span> <span class="nav-text">ev.which:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ev-preventDefault"><span class="nav-number">7.</span> <span class="nav-text">ev.preventDefault:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ev-stopPropagetion"><span class="nav-number">8.</span> <span class="nav-text">ev.stopPropagetion:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ev-data"><span class="nav-number">9.</span> <span class="nav-text">ev.data:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#one"><span class="nav-number">10.</span> <span class="nav-text">one():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#offset"><span class="nav-number">11.</span> <span class="nav-text">offset():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#position"><span class="nav-number">12.</span> <span class="nav-text">position():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#offsetParent"><span class="nav-number">13.</span> <span class="nav-text">offsetParent():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html"><span class="nav-number">14.</span> <span class="nav-text">html():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text"><span class="nav-number">15.</span> <span class="nav-text">text():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get"><span class="nav-number">16.</span> <span class="nav-text">get():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wrap"><span class="nav-number">17.</span> <span class="nav-text">wrap():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wrapAll"><span class="nav-number">18.</span> <span class="nav-text">wrapAll():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wrapInner"><span class="nav-number">19.</span> <span class="nav-text">wrapInner():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unwrap"><span class="nav-number">20.</span> <span class="nav-text">unwrap():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice"><span class="nav-number">21.</span> <span class="nav-text">slice():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#serialize-："><span class="nav-number">22.</span> <span class="nav-text">serialize()：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#serializeArray-："><span class="nav-number">23.</span> <span class="nav-text">serializeArray()：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JQ的运动"><span class="nav-number"></span> <span class="nav-text">JQ的运动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#animate-："><span class="nav-number">1.</span> <span class="nav-text">animate()：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stop-："><span class="nav-number">2.</span> <span class="nav-text">stop()：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#finish-："><span class="nav-number">3.</span> <span class="nav-text">finish()：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delay-："><span class="nav-number">4.</span> <span class="nav-text">delay()：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hover"><span class="nav-number">5.</span> <span class="nav-text">hover():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hide"><span class="nav-number">6.</span> <span class="nav-text">hide():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#show"><span class="nav-number">7.</span> <span class="nav-text">show():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fadeIn"><span class="nav-number">8.</span> <span class="nav-text">fadeIn():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fadeOut"><span class="nav-number">9.</span> <span class="nav-text">fadeOut():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fadeTo"><span class="nav-number">10.</span> <span class="nav-text">fadeTo():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slideDown"><span class="nav-number">11.</span> <span class="nav-text">slideDown():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slideUp"><span class="nav-number">12.</span> <span class="nav-text">slideUp():</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下的常用方法"><span class="nav-number"></span> <span class="nav-text">$下的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#type"><span class="nav-number">1.</span> <span class="nav-text">$.type():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#trim"><span class="nav-number">2.</span> <span class="nav-text">$.trim():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inArray"><span class="nav-number">3.</span> <span class="nav-text">$.inArray():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proxy"><span class="nav-number">4.</span> <span class="nav-text">$.proxy():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#noConflict"><span class="nav-number">5.</span> <span class="nav-text">$.noConflict():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parseJSON"><span class="nav-number">6.</span> <span class="nav-text">$.parseJSON():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#makeArray"><span class="nav-number">7.</span> <span class="nav-text">$.makeArray():</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JQ的Ajax使用"><span class="nav-number"></span> <span class="nav-text">JQ的Ajax使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax"><span class="nav-number">1.</span> <span class="nav-text">$.ajax():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get-1"><span class="nav-number">2.</span> <span class="nav-text">$.get():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#post"><span class="nav-number">3.</span> <span class="nav-text">$.post():</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

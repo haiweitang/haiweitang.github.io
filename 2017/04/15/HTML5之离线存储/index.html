@@ -1,0 +1,707 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTML5," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="离线应用离线应用是什么？乘坐飞机、手机信号弱、去演讲的时候，可能没有网络，这个时候就可以采用离线应用。 离线存储如何工作的？客户端向服务器请求数据的时候，服务器不但向客户端发送了一份数据，还向离线应用里也发送一份数据。当客户端第二次请求数据的时候，就不会再向服务器请求，而是直接去离线应用拿数据。 离线存储的好处？没网的时候，可以正常访问快速响应页面，不必用多个HTTP占用资源带宽缓存的可以是任何文">
+<meta name="keywords" content="HTML5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5之离线存储 || workers">
+<meta property="og:url" content="http://yoursite.com/2017/04/15/HTML5之离线存储/index.html">
+<meta property="og:site_name" content="Prawns's Blog">
+<meta property="og:description" content="离线应用离线应用是什么？乘坐飞机、手机信号弱、去演讲的时候，可能没有网络，这个时候就可以采用离线应用。 离线存储如何工作的？客户端向服务器请求数据的时候，服务器不但向客户端发送了一份数据，还向离线应用里也发送一份数据。当客户端第二次请求数据的时候，就不会再向服务器请求，而是直接去离线应用拿数据。 离线存储的好处？没网的时候，可以正常访问快速响应页面，不必用多个HTTP占用资源带宽缓存的可以是任何文">
+<meta property="og:updated_time" content="2017-04-20T15:53:17.120Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5之离线存储 || workers">
+<meta name="twitter:description" content="离线应用离线应用是什么？乘坐飞机、手机信号弱、去演讲的时候，可能没有网络，这个时候就可以采用离线应用。 离线存储如何工作的？客户端向服务器请求数据的时候，服务器不但向客户端发送了一份数据，还向离线应用里也发送一份数据。当客户端第二次请求数据的时候，就不会再向服务器请求，而是直接去离线应用拿数据。 离线存储的好处？没网的时候，可以正常访问快速响应页面，不必用多个HTTP占用资源带宽缓存的可以是任何文">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/15/HTML5之离线存储/"/>
+
+
+
+
+
+  <title>HTML5之离线存储 || workers | Prawns's Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Prawns's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/HTML5之离线存储/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prawns's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTML5之离线存储 || workers
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-15T14:03:15+08:00">
+                2017-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="离线应用"><a href="#离线应用" class="headerlink" title="离线应用"></a>离线应用</h2><h3 id="离线应用是什么？"><a href="#离线应用是什么？" class="headerlink" title="离线应用是什么？"></a>离线应用是什么？</h3><p>乘坐飞机、手机信号弱、去演讲的时候，可能没有网络，这个时候就可以采用离线应用。</p>
+<h3 id="离线存储如何工作的？"><a href="#离线存储如何工作的？" class="headerlink" title="离线存储如何工作的？"></a>离线存储如何工作的？</h3><p>客户端向服务器请求数据的时候，服务器不但向客户端发送了一份数据，还向离线应用里也发送一份数据。当客户端第二次请求数据的时候，就不会再向服务器请求，而是直接去离线应用拿数据。</p>
+<h3 id="离线存储的好处？"><a href="#离线存储的好处？" class="headerlink" title="离线存储的好处？"></a>离线存储的好处？</h3><p>没网的时候，可以正常访问<br>快速响应页面，不必用多个HTTP占用资源带宽<br>缓存的可以是任何文件</p>
+<h3 id="搭建离线应用程序"><a href="#搭建离线应用程序" class="headerlink" title="搭建离线应用程序"></a>搭建离线应用程序</h3><h4 id="服务器设置头信息"><a href="#服务器设置头信息" class="headerlink" title="服务器设置头信息"></a>服务器设置头信息</h4><p>AddType text/cache-manifest.manifest<br>Apache服务器是在httpd.conf文件里添加AddType text/cache-manifest.manifest</p>
+<h4 id="html标签加"><a href="#html标签加" class="headerlink" title="html标签加"></a>html标签加</h4><p>manifest=”xxxxx.manifest”</p>
+<h4 id="写manifest文件-离线的清单列表"><a href="#写manifest文件-离线的清单列表" class="headerlink" title="写manifest文件 :  离线的清单列表"></a>写manifest文件 :  离线的清单列表</h4><p>新建manifest文件文件在里面写入代码<br>manifest文件可以写入任何东西<br>先写 :  CACHE MANIFEST<br>FALLBACK :  第一个网络地址没获取到，就走第二个缓存的<br>NETWORK ：无论缓存中存在与否，均从网络获取</p>
+<pre><code>CACHE MANIFEST
+2.png
+
+FALLBACK
+style1.css  style2.css  //第一个网络地址没获取到，就走第二个缓存的
+
+NETWORK   //无论缓存中存在与否，均从网络获取
+</code></pre><h2 id="Web-Workers"><a href="#Web-Workers" class="headerlink" title="Web Workers"></a>Web Workers</h2><h3 id="什么是worker"><a href="#什么是worker" class="headerlink" title="什么是worker"></a>什么是worker</h3><p>JS是单线程，当处理程序过多的时候，就会卡死，没出现workers的时候都用定时器来实现（放入UI队列的个数，利用定时器解决）<br>可以让web应用程序具备后台处理能力，对多线程的支持非常好</p>
+<h3 id="Worker-API"><a href="#Worker-API" class="headerlink" title="Worker API"></a>Worker API</h3><h4 id="new-Worker-‘后台处理的JS地址’"><a href="#new-Worker-‘后台处理的JS地址’" class="headerlink" title="new Worker(‘后台处理的JS地址’)"></a>new Worker(‘后台处理的JS地址’)</h4><h4 id="利用postMessage传输数据"><a href="#利用postMessage传输数据" class="headerlink" title="利用postMessage传输数据"></a>利用postMessage传输数据</h4><p>在Web Worker中有一个语法叫self，self就是new Worker()对象<br>importScrpts(‘导入其他JS文件’)</p>
+<h3 id="Worker运行环境"><a href="#Worker运行环境" class="headerlink" title="Worker运行环境"></a>Worker运行环境</h3><p>navgator  :  appName、appVersion、userAgent、platform<br>location  :   所有属性都是只读的<br>self  :  指向全局 worker 对象<br>所有的ECMA对象，Object、Array、Date等<br>XMLHttpRequest构造器<br>setTimeout和setInterval方法<br>close()方法，立刻停止worker运行<br>importScripts方法</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML5/" rel="tag"># HTML5</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/26/HTML5地理信息-本地存储-离线存储/" rel="next" title="HTML5地理信息-本地存储-离线存储">
+                <i class="fa fa-chevron-left"></i> HTML5地理信息-本地存储-离线存储
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/11/Ajax的新特性/" rel="prev" title="Ajax的新特性">
+                Ajax的新特性 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#离线应用"><span class="nav-number">1.</span> <span class="nav-text">离线应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#离线应用是什么？"><span class="nav-number">1.1.</span> <span class="nav-text">离线应用是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#离线存储如何工作的？"><span class="nav-number">1.2.</span> <span class="nav-text">离线存储如何工作的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#离线存储的好处？"><span class="nav-number">1.3.</span> <span class="nav-text">离线存储的好处？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建离线应用程序"><span class="nav-number">1.4.</span> <span class="nav-text">搭建离线应用程序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务器设置头信息"><span class="nav-number">1.4.1.</span> <span class="nav-text">服务器设置头信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html标签加"><span class="nav-number">1.4.2.</span> <span class="nav-text">html标签加</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写manifest文件-离线的清单列表"><span class="nav-number">1.4.3.</span> <span class="nav-text">写manifest文件 :  离线的清单列表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-Workers"><span class="nav-number">2.</span> <span class="nav-text">Web Workers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是worker"><span class="nav-number">2.1.</span> <span class="nav-text">什么是worker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Worker-API"><span class="nav-number">2.2.</span> <span class="nav-text">Worker API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#new-Worker-‘后台处理的JS地址’"><span class="nav-number">2.2.1.</span> <span class="nav-text">new Worker(‘后台处理的JS地址’)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用postMessage传输数据"><span class="nav-number">2.2.2.</span> <span class="nav-text">利用postMessage传输数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Worker运行环境"><span class="nav-number">2.3.</span> <span class="nav-text">Worker运行环境</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

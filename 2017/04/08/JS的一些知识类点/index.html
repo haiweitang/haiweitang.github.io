@@ -1,0 +1,917 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="记录JS常用的一些知识点，比如闭包，DOM优化，枚举算法，快速排序。。。的相关知识个人笔记，仅供参考">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS原创知识类点">
+<meta property="og:url" content="http://yoursite.com/2017/04/08/JS的一些知识类点/index.html">
+<meta property="og:site_name" content="Prawns's Blog">
+<meta property="og:description" content="记录JS常用的一些知识点，比如闭包，DOM优化，枚举算法，快速排序。。。的相关知识个人笔记，仅供参考">
+<meta property="og:updated_time" content="2017-04-08T18:02:52.149Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS原创知识类点">
+<meta name="twitter:description" content="记录JS常用的一些知识点，比如闭包，DOM优化，枚举算法，快速排序。。。的相关知识个人笔记，仅供参考">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/08/JS的一些知识类点/"/>
+
+
+
+
+
+  <title>JS原创知识类点 | Prawns's Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Prawns's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/08/JS的一些知识类点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Prawns's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JS原创知识类点
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-08T12:00:42+08:00">
+                2017-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>记录JS常用的一些知识点，比如闭包，DOM优化，枚举算法，快速排序。。。的相关知识<br>个人笔记，仅供参考</p>
+<p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h4 id="什么是闭包？"><a href="#什么是闭包？" class="headerlink" title="什么是闭包？"></a>什么是闭包？</h4><p><strong>概念：</strong></p>
+<pre><code>1. 函数嵌套函数
+2. 内部函数可以引用外部函数的参数或者是变量
+3. 函数和变量不会被垃圾回收机制所收回。
+</code></pre><p>案例1</p>
+<pre><code>function aaa(a){
+    var b = 5;
+    function bbb(){
+        alert(a);         //bbb()函数可以访问变量a  
+        alert(b);   
+    }
+}
+aaa();
+</code></pre><p>aaa函数执行完毕之后，函数中的变量a和变量b都是不会被垃圾回收机制回收的，因为变量a和变量b都还在bbb函数中被引用着。</p>
+<p>案例2</p>
+<pre><code>function aaa(){
+    var a = 5;
+    function bbb(){
+        alert(a);
+    }
+    return bbb;
+}
+var c = aaa();      //在这里aaa的函数已经被执行
+c();                //c这里代表的是bbb函数，c执行的话，其实是执行的bbb函数，也就是说bbb函数并没有被垃圾回收机制收回。
+</code></pre><h5 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h5><pre><code>function aaa(){
+    var a = 1;
+}
+aaa();       
+</code></pre><p>当aaa()函数被执行过之后，函数内的变量a就会被垃圾回收机制所收回，所以变量a就不会存在了。JS中为了节省内存，所以它是这样设计的。</p>
+<h4 id="闭包有什么好处？引用在哪里？"><a href="#闭包有什么好处？引用在哪里？" class="headerlink" title="闭包有什么好处？引用在哪里？"></a>闭包有什么好处？引用在哪里？</h4><h5 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h5><p><strong>1. 希望一个变量长期驻扎在内存当中。</strong></p>
+<p>案例3</p>
+<pre><code>var a = 1;
+function aaa(){
+    a++;
+    alert(a);
+}
+aaa();      //2
+aaa();      //3     
+alert(a);   //1      
+</code></pre><p>每调用aaa()一次，a就会被累加一次<br>这的a是全局变量，变量a在函数内部被引用累加，函数外部丝毫不受影响。<br>但是为了节约内存，我们应该尽量避免使用全局变量</p>
+<p>案例3</p>
+<pre><code>function aaa(){
+    var a = 1;
+    a++;
+    alert(a);
+}
+aaa();     //2
+aaa();     //2
+</code></pre><p>每调用aaa()一次，a就会被重新定义赋值等于1，然后被累加一次。<br>有没有办法可以做到，既让变量a是局部变量，又可以让它累加呢？<br>通过闭包我们可以做到。</p>
+<p><strong>2. 避免全局变量的污染。</strong></p>
+<p>案例3</p>
+<pre><code>function aaa(){
+    var a = 1;
+    return function (){
+        a++;
+        alert(a);
+    }
+}
+var b = aaa();      //把aaa赋给变量b
+b();        //2      变量b调用的其实是aaa的内部函数  
+b();        //3
+alert(a);   //报错    变量a不存在，所以说a是局部变量
+</code></pre><p>在这种情况下，就构成了一个函数嵌套函数的关系，变量a相对于在内部函数中是可以被找到的，而且它又不受外部函数执行完毕的影响。所以说当aaa()执行完毕的时候，这个内部函数依然可以调用到a的变量，而且每次调用的时候还能将它累加。<br>这样写显得比较麻烦，我们用函数表达式的方式重新写一遍。</p>
+<p><strong>3. 私有成员的存在</strong></p>
+<p>案例4</p>
+<pre><code>var aaa = function(){
+    var a = 1;
+    return function (){
+        a++;
+        alert(a);
+    }
+}
+aaa();    //2
+aaa();    //3
+</code></pre><p>和案例3一样的效果，我们通常把这种方法叫做代码模块化。而变量a已经变成函数的私有成员。</p>
+<h5 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h5><p><strong>1. 模块化代码</strong></p>
+<p>案例5</p>
+<pre><code>var aaa = (function(){
+    var a = 1;
+    function bbb(){
+        a++;
+        alert(a);
+    }
+
+    function ccc(){
+        a++;
+        alert(a);
+    }
+
+    return {
+        b:bbb,
+        c:ccc
+    }
+
+    })();
+
+    aaa.b();    //2
+    aaa.c();    //3
+    alert(a);   //报错 ，调用不到
+    alert(bbb); //报错 ，调用不到
+    alert(ccc); //报错 ，调用不到
+</code></pre><p>这样写，变量a就变成了aaa的私有成员，而函数bbb和函数ccc就变成了aaa的私有方法。</p>
+<p><strong>2. 在循环中直接找到对应元素的索引</strong><br>案例6</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script&gt;
+window.onload = function(){
+    var aLi = document.getElementsByTagName(&apos;li&apos;);
+    for(var i=0; i&lt;aLi.length; i++){
+
+    第一种写法：
+        (function(i){
+            aLi[i].onclick = function() {
+                alert(i);
+            }
+        })(i);
+
+    第二种写法：
+        aLi[i].onclick = (function(i) {
+                return function () {
+                    alert(i);
+                }
+            })(i);
+    }
+
+}
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;ul&gt;
+        &lt;li&gt;11111111&lt;/li&gt;
+        &lt;li&gt;222222&lt;/li&gt;
+        &lt;li&gt;3333&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;    
+</code></pre><p>通过上面的闭包写法可以将索引值直接传入进去，而不用在给元素加索引。</p>
+<h4 id="闭包需要注意的地方？"><a href="#闭包需要注意的地方？" class="headerlink" title="闭包需要注意的地方？"></a>闭包需要注意的地方？</h4><p>在IE下有可能会引发内存泄漏<br>当页面跳转的时候，变量不会被释放，会一直存在于内存之中，使你的CPU内存累加，只有在关闭浏览器的情况下，才会释放这个内存。这就是内存泄漏。</p>
+<p>案例7</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script&gt;
+window.onload = function(){
+    var oDiv = document.getElementById(&apos;div1&apos;);
+
+    oDiv.onclick = function(){
+        alert(oDiv.id);
+    }
+    这种情况下会造成IE6下的内存泄漏
+
+    解决办法一
+    window.onunload = function(){
+        oDiv.onclick = null;
+    }
+
+    解决办法二
+
+    var id = oDiv.id;
+    oDiv.onclick = function(){
+        alert(id);
+    }
+    oDiv = null;
+}
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;div1&quot;&gt;11111&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>满足内存泄漏的条件：<br>当一个是由获取DOM节点或数组对象的变量，它的一个属性去引用一个内部函数，而函数内部的这个变量又去引用外部的对象的时候，就会发生内存泄漏。<br>而闭包是不会造成内存泄漏，造成内存泄漏的原因是浏览器的BUG。</p>
+<h2 id="函数声明和函数表达式"><a href="#函数声明和函数表达式" class="headerlink" title="函数声明和函数表达式"></a>函数声明和函数表达式</h2><h4 id="函数声明："><a href="#函数声明：" class="headerlink" title="函数声明："></a>函数声明：</h4><pre><code>function aaa() {}
+</code></pre><h4 id="函数表达式："><a href="#函数表达式：" class="headerlink" title="函数表达式："></a>函数表达式：</h4><p>function 函数名（可写可不写）() {}<br>写函数名：命名函数表达式；<br>不写函数名：匿名函数表达式；</p>
+<pre><code>var a=function aaa() {}     :   命名函数表达式
+var a=function() {}         :   匿名函数表达式
+(function(){});
+~function aaa(){}
+-function aaa(){}
++function aaa(){}
+!function aaa(){}
+</code></pre><h4 id="函数声明与函数表达式的区别："><a href="#函数声明与函数表达式的区别：" class="headerlink" title="函数声明与函数表达式的区别："></a>函数声明与函数表达式的区别：</h4><p><strong>1. 函数表达式可以直接在后面加括号执行。而函数声明会报错</strong><br>例1.</p>
+<pre><code>function aaa() { alert(1); }();    //函数声明不会执行，报错
+</code></pre><p>例2.</p>
+<pre><code>var a = function aaa() { alert(1); }();  //表达式能执行。
+</code></pre><p><strong>2. 函数声明预解析，函数声明可以提前被解析出来的。</strong><br>例3.<br> if(true){<br>    function aaa() {<br>        alert(1);<br>    }<br>}<br>else{<br>    Function aaa() {<br>        alert(2);<br>    }<br>}<br>aaa();              </p>
+<p>因为函数声明会被预解析，所以if判断是发生在函数执行完之后，判断不会执行。<br>在不同浏览器下会有不同的结果。  执行结果：火狐弹出1，IE弹出2.</p>
+<p>例4.<br>    if(true){<br>        var a = function aaa() {<br>            alert(1);<br>        }<br>    }<br>    else{<br>        var a = function aaa() {<br>            alert(2);<br>        }<br>    }<br>    a();    </p>
+<p>函数表达式会在判断后执行。 执行结果：火狐弹出1，IE弹出1.   </p>
+<p><strong>结论：</strong> 所以说写程序的过程中，在写语句的时候，如果要执行不同的函数，一定不要用函数声明，一定要使用函数表达式。</p>
+<p>例5：<br>    var a = function aaa() {<br>        alert(1);<br>    }<br>    a();     //表达式在任何浏览器下都是没有问题的。<br>    aaa();   //不规范，表达式内部的命名函数在外部是找寻不到的，标准浏览器是不允许执行这种函数的。</p>
+<pre><code>//执行结果：火狐下回报错。 非标准IE下会弹出1. 原因是：IE8以下会解析错误，会解析成a(); 和aaa();两个函数。
+</code></pre><p>例6：<br>    var a = function aaa() {<br>        alert(1);<br>        alert( typeof aaa );  //在函数内部是可以被调用到的。<br>    }<br>    a();</p>
+<p><strong>结论：</strong> 在写函数表达式的时候，尽量不要写有名函数表达式。</p>
+</the>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"># JS</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/09/jQ-常用API/" rel="next" title="jQ初探-常用API">
+                <i class="fa fa-chevron-left"></i> jQ初探-常用API
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/08/ECMAScript6/" rel="prev" title="ECMAScript6">
+                ECMAScript6 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Doe" />
+          <p class="site-author-name" itemprop="name">John Doe</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是闭包？"><span class="nav-number">1.0.1.</span> <span class="nav-text">什么是闭包？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#垃圾回收机制"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">垃圾回收机制</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包有什么好处？引用在哪里？"><span class="nav-number">1.0.2.</span> <span class="nav-text">闭包有什么好处？引用在哪里？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#好处"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">好处</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#用法"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">用法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包需要注意的地方？"><span class="nav-number">1.0.3.</span> <span class="nav-text">闭包需要注意的地方？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数声明和函数表达式"><span class="nav-number">2.</span> <span class="nav-text">函数声明和函数表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数声明："><span class="nav-number">2.0.1.</span> <span class="nav-text">函数声明：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数表达式："><span class="nav-number">2.0.2.</span> <span class="nav-text">函数表达式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数声明与函数表达式的区别："><span class="nav-number">2.0.3.</span> <span class="nav-text">函数声明与函数表达式的区别：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

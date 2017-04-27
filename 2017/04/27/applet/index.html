@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/27/applet/index.html">
 <meta property="og:site_name" content="Prawns's Blog">
 <meta property="og:description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
-<meta property="og:updated_time" content="2017-04-27T09:51:51.335Z">
+<meta property="og:updated_time" content="2017-04-27T09:53:44.955Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序入门">
 <meta name="twitter:description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
@@ -328,6 +328,29 @@
 <p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
+<h3 id="移动设备的分辨率与rpx"><a href="#移动设备的分辨率与rpx" class="headerlink" title="移动设备的分辨率与rpx"></a>移动设备的分辨率与rpx</h3><ol>
+<li>pt也称为逻辑分辨率。</li>
+<li>pt的大小和屏幕尺寸有关系，简单可以理解为长度和视觉单位。</li>
+<li>px指物理分辨率，和屏幕尺寸没有关系。点能有大小吗？</li>
+<li>1个pt可以有1个px构成，也可以有2个，还可以有3个甚至更多组成。</li>
+<li>1个pt有2个px，就已经到达人类视网膜的极限，所以如果再有更多的px也不会给我们一种更清晰的感觉。</li>
+</ol>
+<p><strong>如何做不同分辨率的自适应？</strong><br>以ip6的物理像素750 x 1334为视觉稿进行设计，而在小程序中使用rpx为单位<br>Ip6下1px = 1rpx = 0.5pt；<br>使用rpx，小程序会自动在不同的分辨率下进行转换，而使用px为单位不会。</p>
+<h3 id="什么是微信小程序？"><a href="#什么是微信小程序？" class="headerlink" title="什么是微信小程序？"></a>什么是微信小程序？</h3><p>一套用来开发做微信中运行的手机app框架。<br>张小龙这样定义：</p>
+<ol>
+<li>不需要下载安装即可使用。</li>
+<li>用户“用完即走”，不用关系你是否安装太多应用。</li>
+<li>应用无处不在，随时可用。</li>
+</ol>
+<h3 id="小程序的特点"><a href="#小程序的特点" class="headerlink" title="小程序的特点"></a>小程序的特点</h3><ol>
+<li>小程序适合做简单的、用完即走的应用。</li>
+<li>小程序适合低频的应用。</li>
+<li>小程序适合性能要求不高的应用。</li>
+</ol>
+<h3 id="组成结构"><a href="#组成结构" class="headerlink" title="组成结构"></a>组成结构</h3><p>结构文件：wxml； 样式文件：wxss;   逻辑成交互文件：javascript;</p>
+<h3 id="底层框架的工作原理"><a href="#底层框架的工作原理" class="headerlink" title="底层框架的工作原理"></a>底层框架的工作原理</h3><p>这个框架是双向的数据绑定系统：用户做视图上的修改会自动同步到数据模型中去，同样的，如果数据模型中的值发生了变化，也会立刻同步到视图中去。</p>
+<h3 id="必要的文件"><a href="#必要的文件" class="headerlink" title="必要的文件"></a>必要的文件</h3><p><strong>app.js ：</strong>是小程序的脚本代码。我们可以在这个文件中监听并处理小程序的生命周期函数、声明全局变量。调用框架提供的丰富的 API。<br><strong>app.json :</strong>是对整个小程序的全局配置。我们可以在这个文件中配置小程序是由哪些页面组成，配置小程序的窗口背景色，配置导航条样式，配置默认标题。注意该文件不可添加任何注释。<br><strong>app.wxss :</strong> 是整个小程序的公共样式表。我们可以在页面组件的 class 属性上直接使用 app.wxss 中声明的样式规则。</p>
+<h3 id="创建页面"><a href="#创建页面" class="headerlink" title="创建页面"></a>创建页面</h3><p>在这个教程里，我们有两个页面，index 页面和 logs 页面，即欢迎页和小程序启动日志的展示页，他们都在 pages 目录下。微信小程序中的每一个页面的【路径+页面名】都需要写在 app.json 的 pages中，且 pages 中的第一个页面是小程序的首页。</p>
 </the>
       
     </div>
@@ -425,8 +448,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -488,6 +520,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动设备的分辨率与rpx"><span class="nav-number">1.</span> <span class="nav-text">移动设备的分辨率与rpx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是微信小程序？"><span class="nav-number">2.</span> <span class="nav-text">什么是微信小程序？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序的特点"><span class="nav-number">3.</span> <span class="nav-text">小程序的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成结构"><span class="nav-number">4.</span> <span class="nav-text">组成结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底层框架的工作原理"><span class="nav-number">5.</span> <span class="nav-text">底层框架的工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必要的文件"><span class="nav-number">6.</span> <span class="nav-text">必要的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建页面"><span class="nav-number">7.</span> <span class="nav-text">创建页面</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

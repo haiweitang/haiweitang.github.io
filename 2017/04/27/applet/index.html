@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/27/applet/index.html">
 <meta property="og:site_name" content="Prawns's Blog">
 <meta property="og:description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
-<meta property="og:updated_time" content="2017-04-27T10:01:29.809Z">
+<meta property="og:updated_time" content="2017-04-27T10:02:20.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序入门">
 <meta name="twitter:description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -287,7 +287,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-27T17:48:27+08:00">
                 2017-04-27
@@ -360,6 +360,24 @@
 <h4 id="wx-for"><a href="#wx-for" class="headerlink" title="wx:for"></a>wx:for</h4><pre><code>wx:for=&quot;{{}}&quot; 括号里传入数据的变量名，
 wx:for-item=&quot;item&quot; for循环默认子元素指代是以item来命名的。所以block标签内写不写都无所谓。item指定子元素本身
 wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
+</code></pre><h4 id="require"><a href="#require" class="headerlink" title="require"></a>require</h4><p>加载数据模块</p>
+<pre><code>var postData = require(&apos;../../data/posts-data.js&apos;)
+</code></pre><h4 id="module-exports"><a href="#module-exports" class="headerlink" title="module.exports"></a>module.exports</h4><p>导出数据模块</p>
+<pre><code>module.exports={
+    postList:local_database
+}
+</code></pre><h3 id="Swiper组件"><a href="#Swiper组件" class="headerlink" title="Swiper组件"></a>Swiper组件</h3><p>滑块视图容器。详情参考 <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/component/swiper.html" target="_blank" rel="external">https://mp.weixin.qq.com/debug/wxadoc/dev/component/swiper.html</a><br>实现自动轮播，以及划动切换页面</p>
+<pre><code>&lt;swiper indicator-dots=&quot;true&quot; autoplay=&quot;true&quot; interval=&quot;5000&quot;&gt;
+    &lt;swiper-item&gt;
+        &lt;image src=&quot;/image/wx.png&quot;&gt;&lt;/image&gt;
+    &lt;/swiper-item&gt;
+    &lt;swiper-item&gt;
+        &lt;image src=&quot;/image/vr.png&quot;&gt;&lt;/image&gt;
+    &lt;/swiper-item&gt;
+    &lt;swiper-item&gt;
+        &lt;image src=&quot;/image/iqiyi.png&quot;&gt;&lt;/image&gt;
+    &lt;/swiper-item&gt;
+&lt;/swiper&gt;
 </code></pre></the>
       
     </div>
@@ -459,10 +477,10 @@ wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -483,7 +501,7 @@ wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -494,7 +512,7 @@ wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">categories</span>
               
             </div>
           
@@ -505,7 +523,7 @@ wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -539,7 +557,7 @@ wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动设备的分辨率与rpx"><span class="nav-number">1.</span> <span class="nav-text">移动设备的分辨率与rpx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是微信小程序？"><span class="nav-number">2.</span> <span class="nav-text">什么是微信小程序？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序的特点"><span class="nav-number">3.</span> <span class="nav-text">小程序的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成结构"><span class="nav-number">4.</span> <span class="nav-text">组成结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底层框架的工作原理"><span class="nav-number">5.</span> <span class="nav-text">底层框架的工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必要的文件"><span class="nav-number">6.</span> <span class="nav-text">必要的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建页面"><span class="nav-number">7.</span> <span class="nav-text">创建页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签"><span class="nav-number">8.</span> <span class="nav-text">标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#view"><span class="nav-number">8.1.</span> <span class="nav-text">view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scroll-view"><span class="nav-number">8.2.</span> <span class="nav-text">scroll-view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swiper"><span class="nav-number">8.3.</span> <span class="nav-text">swiper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text"><span class="nav-number">8.4.</span> <span class="nav-text">text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-if"><span class="nav-number">8.5.</span> <span class="nav-text">wx:if</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-for"><span class="nav-number">8.6.</span> <span class="nav-text">wx:for</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动设备的分辨率与rpx"><span class="nav-number">1.</span> <span class="nav-text">移动设备的分辨率与rpx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是微信小程序？"><span class="nav-number">2.</span> <span class="nav-text">什么是微信小程序？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序的特点"><span class="nav-number">3.</span> <span class="nav-text">小程序的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成结构"><span class="nav-number">4.</span> <span class="nav-text">组成结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底层框架的工作原理"><span class="nav-number">5.</span> <span class="nav-text">底层框架的工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必要的文件"><span class="nav-number">6.</span> <span class="nav-text">必要的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建页面"><span class="nav-number">7.</span> <span class="nav-text">创建页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签"><span class="nav-number">8.</span> <span class="nav-text">标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#view"><span class="nav-number">8.1.</span> <span class="nav-text">view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scroll-view"><span class="nav-number">8.2.</span> <span class="nav-text">scroll-view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swiper"><span class="nav-number">8.3.</span> <span class="nav-text">swiper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text"><span class="nav-number">8.4.</span> <span class="nav-text">text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-if"><span class="nav-number">8.5.</span> <span class="nav-text">wx:if</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-for"><span class="nav-number">8.6.</span> <span class="nav-text">wx:for</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#require"><span class="nav-number">8.7.</span> <span class="nav-text">require</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#module-exports"><span class="nav-number">8.8.</span> <span class="nav-text">module.exports</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swiper组件"><span class="nav-number">9.</span> <span class="nav-text">Swiper组件</span></a></li></ol></div>
             
 
           </div>
@@ -571,7 +589,7 @@ wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

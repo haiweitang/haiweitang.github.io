@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="离线应用离线应用是什么？乘坐飞机、手机信号弱、去演讲的时候，可能没有网络，这个时候就可以采用离线应用。 离线存储如何工作的？客户端向服务器请求数据的时候，服务器不但向客户端发送了一份数据，还向离线应用里也发送一份数据。当客户端第二次请求数据的时候，就不会再向服务器请求，而是直接去离线应用拿数据。 离线存储的好处？没网的时候，可以正常访问快速响应页面，不必用多个HTTP占用资源带宽缓存的可以是任何文">
+<meta name="description" content="离线应用离线应用是什么？乘坐飞机、手机信号弱、去演讲的时候，可能没有网络，这个时候就可以采用离线应用。">
 <meta name="keywords" content="HTML5">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML5之离线存储 || workers">
 <meta property="og:url" content="http://yoursite.com/2017/04/15/HTML5之离线存储/index.html">
 <meta property="og:site_name" content="Prawns's Blog">
-<meta property="og:description" content="离线应用离线应用是什么？乘坐飞机、手机信号弱、去演讲的时候，可能没有网络，这个时候就可以采用离线应用。 离线存储如何工作的？客户端向服务器请求数据的时候，服务器不但向客户端发送了一份数据，还向离线应用里也发送一份数据。当客户端第二次请求数据的时候，就不会再向服务器请求，而是直接去离线应用拿数据。 离线存储的好处？没网的时候，可以正常访问快速响应页面，不必用多个HTTP占用资源带宽缓存的可以是任何文">
-<meta property="og:updated_time" content="2017-04-20T15:53:17.120Z">
+<meta property="og:description" content="离线应用离线应用是什么？乘坐飞机、手机信号弱、去演讲的时候，可能没有网络，这个时候就可以采用离线应用。">
+<meta property="og:updated_time" content="2017-04-27T10:13:05.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML5之离线存储 || workers">
-<meta name="twitter:description" content="离线应用离线应用是什么？乘坐飞机、手机信号弱、去演讲的时候，可能没有网络，这个时候就可以采用离线应用。 离线存储如何工作的？客户端向服务器请求数据的时候，服务器不但向客户端发送了一份数据，还向离线应用里也发送一份数据。当客户端第二次请求数据的时候，就不会再向服务器请求，而是直接去离线应用拿数据。 离线存储的好处？没网的时候，可以正常访问快速响应页面，不必用多个HTTP占用资源带宽缓存的可以是任何文">
+<meta name="twitter:description" content="离线应用离线应用是什么？乘坐飞机、手机信号弱、去演讲的时候，可能没有网络，这个时候就可以采用离线应用。">
 
 
 
@@ -108,13 +108,13 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -137,7 +137,7 @@
   <title>HTML5之离线存储 || workers | Prawns's Blog</title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -200,7 +200,17 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -210,7 +220,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -220,7 +230,17 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
           </a>
         </li>
       
@@ -287,9 +307,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-15T14:03:15+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T14:03:15+08:00">
                 2017-04-15
               </time>
             
@@ -325,6 +345,9 @@
 
       
         <h2 id="离线应用"><a href="#离线应用" class="headerlink" title="离线应用"></a>离线应用</h2><h3 id="离线应用是什么？"><a href="#离线应用是什么？" class="headerlink" title="离线应用是什么？"></a>离线应用是什么？</h3><p>乘坐飞机、手机信号弱、去演讲的时候，可能没有网络，这个时候就可以采用离线应用。</p>
+<p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
 <h3 id="离线存储如何工作的？"><a href="#离线存储如何工作的？" class="headerlink" title="离线存储如何工作的？"></a>离线存储如何工作的？</h3><p>客户端向服务器请求数据的时候，服务器不但向客户端发送了一份数据，还向离线应用里也发送一份数据。当客户端第二次请求数据的时候，就不会再向服务器请求，而是直接去离线应用拿数据。</p>
 <h3 id="离线存储的好处？"><a href="#离线存储的好处？" class="headerlink" title="离线存储的好处？"></a>离线存储的好处？</h3><p>没网的时候，可以正常访问<br>快速响应页面，不必用多个HTTP占用资源带宽<br>缓存的可以是任何文件</p>
 <h3 id="搭建离线应用程序"><a href="#搭建离线应用程序" class="headerlink" title="搭建离线应用程序"></a>搭建离线应用程序</h3><h4 id="服务器设置头信息"><a href="#服务器设置头信息" class="headerlink" title="服务器设置头信息"></a>服务器设置头信息</h4><p>AddType text/cache-manifest.manifest<br>Apache服务器是在httpd.conf文件里添加AddType text/cache-manifest.manifest</p>
@@ -340,7 +363,7 @@ NETWORK   //无论缓存中存在与否，均从网络获取
 </code></pre><h2 id="Web-Workers"><a href="#Web-Workers" class="headerlink" title="Web Workers"></a>Web Workers</h2><h3 id="什么是worker"><a href="#什么是worker" class="headerlink" title="什么是worker"></a>什么是worker</h3><p>JS是单线程，当处理程序过多的时候，就会卡死，没出现workers的时候都用定时器来实现（放入UI队列的个数，利用定时器解决）<br>可以让web应用程序具备后台处理能力，对多线程的支持非常好</p>
 <h3 id="Worker-API"><a href="#Worker-API" class="headerlink" title="Worker API"></a>Worker API</h3><h4 id="new-Worker-‘后台处理的JS地址’"><a href="#new-Worker-‘后台处理的JS地址’" class="headerlink" title="new Worker(‘后台处理的JS地址’)"></a>new Worker(‘后台处理的JS地址’)</h4><h4 id="利用postMessage传输数据"><a href="#利用postMessage传输数据" class="headerlink" title="利用postMessage传输数据"></a>利用postMessage传输数据</h4><p>在Web Worker中有一个语法叫self，self就是new Worker()对象<br>importScrpts(‘导入其他JS文件’)</p>
 <h3 id="Worker运行环境"><a href="#Worker运行环境" class="headerlink" title="Worker运行环境"></a>Worker运行环境</h3><p>navgator  :  appName、appVersion、userAgent、platform<br>location  :   所有属性都是只读的<br>self  :  指向全局 worker 对象<br>所有的ECMA对象，Object、Array、Date等<br>XMLHttpRequest构造器<br>setTimeout和setInterval方法<br>close()方法，立刻停止worker运行<br>importScripts方法</p>
-
+</the>
       
     </div>
 
@@ -443,10 +466,10 @@ NETWORK   //无论缓存中存在与否，均从网络获取
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -467,7 +490,7 @@ NETWORK   //无论缓存中存在与否，均从网络获取
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
@@ -478,7 +501,7 @@ NETWORK   //无论缓存中存在与否，均从网络获取
             <div class="site-state-item site-state-categories">
               
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">分类</span>
               
             </div>
           
@@ -489,7 +512,7 @@ NETWORK   //无论缓存中存在与否，均从网络获取
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">标签</span>
               
             </div>
           
@@ -555,13 +578,13 @@ NETWORK   //无论缓存中存在与否，均从网络获取
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Pisces
   </a>
 </div>
 
@@ -640,6 +663,13 @@ NETWORK   //无论缓存中存在与否，均从网络获取
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>

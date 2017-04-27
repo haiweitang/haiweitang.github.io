@@ -1,795 +1,811 @@
 <!doctype html>
 
-
-
-  
-
-
 <html class="theme-next pisces use-motion" lang="zh-Hans">
+
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
+  />
 
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
 
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"
+  />
 
+  <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+                                                                                  rel="stylesheet" type="text/css">
 
+  <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet"
+                                                                                  type="text/css" />
 
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
+  <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
   <meta name="keywords" content="JS," />
 
-
-
-
-
-
-
-
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
+  <meta name="description" content="JS很初级的东西，放进博客是为了方便自己忘了的时候查阅。">
+  <meta name="keywords" content="JS">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="数组、字符串、时间方法">
+  <meta property="og:url" content="http://yoursite.com/2017/04/07/JS初级/index.html">
+  <meta property="og:site_name" content="Prawns's Blog">
+  <meta property="og:description" content="JS很初级的东西，放进博客是为了方便自己忘了的时候查阅。">
+  <meta property="og:updated_time" content="2017-04-07T17:19:03.248Z">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="数组、字符串、时间方法">
+  <meta name="twitter:description" content="JS很初级的东西，放进博客是为了方便自己忘了的时候查阅。">
 
+  <script type="text/javascript" id="hexo.configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {
+      root: '/',
+      scheme: 'Pisces',
+      sidebar: {
+        "position": "left",
+        "display": "post",
+        "offset": 12,
+        "offset_float": 0,
+        "b2t": false,
+        "scrollpercent": false
+      },
+      fancybox: true,
+      motion: true,
+      duoshuo: {
+        userId: '0',
+        author: '博主'
+      },
+      algolia: {
+        applicationID: '',
+        apiKey: '',
+        indexName: '',
+        hits: {
+          "per_page": 10
+        },
+        labels: {
+          "input_placeholder": "Search for Posts",
+          "hits_empty": "We didn't find any results for the search: ${query}",
+          "hits_stats": "${hits} results found in ${time} ms"
+        }
+      }
+    };
 
+  </script>
 
-
-
-<meta name="description" content="JS很初级的东西，放进博客是为了方便自己忘了的时候查阅。">
-<meta name="keywords" content="JS">
-<meta property="og:type" content="article">
-<meta property="og:title" content="数组、字符串、时间方法">
-<meta property="og:url" content="http://yoursite.com/2017/04/07/JS初级/index.html">
-<meta property="og:site_name" content="Prawns's Blog">
-<meta property="og:description" content="JS很初级的东西，放进博客是为了方便自己忘了的时候查阅。">
-<meta property="og:updated_time" content="2017-04-07T17:19:03.248Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数组、字符串、时间方法">
-<meta name="twitter:description" content="JS很初级的东西，放进博客是为了方便自己忘了的时候查阅。">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2017/04/07/JS初级/"/>
-
-
-
-
+  <link rel="canonical" href="http://yoursite.com/2017/04/07/JS初级/" />
 
   <title>数组、字符串、时间方法 | Prawns's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
   <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
+      <div class="header-inner">
+        <div class="site-brand-wrapper">
+          <div class="site-meta ">
 
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Prawns's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
+            <div class="custom-logo-site-title">
+              <a href="/" class="brand" rel="start">
+                <span class="logo-line-before">
+                  <i></i>
+                </span>
+                <span class="site-title">Prawns's Blog</span>
+                <span class="logo-line-after">
+                  <i></i>
+                </span>
+              </a>
+            </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
+            <p class="site-subtitle"></p>
 
-<nav class="site-nav">
-  
+          </div>
 
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            公益404
-          </a>
-        </li>
-      
+          <div class="site-nav-toggle">
+            <button>
+              <span class="btn-bar"></span>
+              <span class="btn-bar"></span>
+              <span class="btn-bar"></span>
+            </button>
+          </div>
+        </div>
 
-      
-    </ul>
-  
+        <nav class="site-nav">
 
-  
-</nav>
+          <ul id="menu" class="menu">
 
+            <li class="menu-item menu-item-home">
+              <a href="/" rel="section">
 
+                <i class="menu-item-icon fa fa-fw fa-home"></i>
+                <br /> 首页
+              </a>
+            </li>
 
- </div>
+            <li class="menu-item menu-item-about">
+              <a href="/about" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-user"></i>
+                <br /> 关于
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-archives">
+              <a href="/archives" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-archive"></i>
+                <br /> 归档
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-tags">
+              <a href="/tags" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-tags"></i>
+                <br /> 标签
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-commonweal">
+              <a href="/404.html" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-heartbeat"></i>
+                <br /> 公益404
+              </a>
+            </li>
+
+          </ul>
+
+        </nav>
+
+      </div>
     </header>
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
           <div id="content" class="content">
-            
 
-  <div id="posts" class="posts-expand">
-    
+            <div id="posts" class="posts-expand">
 
-  
+              <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+                <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/07/JS初级/">
 
-  
-  
-  
+                <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                  <meta itemprop="name" content="John Doe">
+                  <meta itemprop="description" content="">
+                  <meta itemprop="image" content="/images/avatar.gif">
+                </span>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/07/JS初级/">
+                <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                  <meta itemprop="name" content="Prawns's Blog">
+                </span>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
+                <header class="post-header">
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Prawns's Blog">
-    </span>
+                  <h1 class="post-title" itemprop="name headline">
 
-    
-      <header class="post-header">
+                    数组、字符串、时间方法
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                数组、字符串、时间方法
-              
-            
-          </h1>
-        
+                  </h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-07T23:50:14+08:00">
-                2017-04-07
-              </time>
-            
+                  <div class="post-meta">
+                    <span class="post-time">
 
-            
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-calendar-o"></i>
+                      </span>
 
-            
-          </span>
+                      <span class="post-meta-item-text">发表于</span>
 
-          
+                      <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-07T23:50:14+08:00">
+                        2017-04-07
+                      </time>
 
-          
-            
-          
+                    </span>
 
-          
-          
+                  </div>
+                </header>
 
-          
+                <div class="post-body" itemprop="articleBody">
 
-          
+                  <p>JS很初级的东西，放进博客是为了方便自己忘了的时候查阅。</p>
+                  <p>
+                    <excerpt in="" index="" |="" 首页摘要="">
+                      <br>
+                      <a id="more"></a>
+                    </excerpt>
+                  </p>
+                  <the rest="" of="" contents="" |="" 余下全文="">
 
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>JS很初级的东西，放进博客是为了方便自己忘了的时候查阅。</p>
-<p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文="">
-
-
-
-
-<h3 id="字符串获取类，封装检测数字的方法"><a href="#字符串获取类，封装检测数字的方法" class="headerlink" title="字符串获取类，封装检测数字的方法"></a>字符串获取类，封装检测数字的方法</h3><h4 id="charCodeAt"><a href="#charCodeAt" class="headerlink" title="charCodeAt()"></a>charCodeAt()</h4><p>获取某个字符串的计算机编码。 0-9<48~57>   a-z<97~122>  A-Z<65~90></65~90></97~122></48~57></p>
-<h4 id="fromCharCode"><a href="#fromCharCode" class="headerlink" title="fromCharCode()"></a>fromCharCode()</h4><p>根据计算机编码返回字符串。</p>
-<h4 id="charAt-num"><a href="#charAt-num" class="headerlink" title="charAt(num)"></a>charAt(num)</h4><p>根据num数字可以获取到num位置的字符串。</p>
-<h4 id="indexOf-‘str’"><a href="#indexOf-‘str’" class="headerlink" title="indexOf(‘str’)"></a>indexOf(‘str’)</h4><p>根据string字符串中的某个字符，可以获取到它在string中的第几个位置.<br>IndexOf(),从左往右。<br> lastindexOf(),从右往左。</p>
-<pre><code>例：var str=’www.miaov.com/2013’;
+                    <h3 id="字符串获取类，封装检测数字的方法">
+                      <a href="#字符串获取类，封装检测数字的方法" class="headerlink" title="字符串获取类，封装检测数字的方法"></a>字符串获取类，封装检测数字的方法</h3>
+                    <h4 id="charCodeAt">
+                      <a href="#charCodeAt" class="headerlink" title="charCodeAt()"></a>charCodeAt()</h4>
+                    <p>获取某个字符串的计算机编码。 0-9
+                      <48~57> a-z
+                        <97~122> A-Z
+                          <65~90></65~90>
+                        </97~122>
+                      </48~57>
+                    </p>
+                    <h4 id="fromCharCode">
+                      <a href="#fromCharCode" class="headerlink" title="fromCharCode()"></a>fromCharCode()</h4>
+                    <p>根据计算机编码返回字符串。</p>
+                    <h4 id="charAt-num">
+                      <a href="#charAt-num" class="headerlink" title="charAt(num)"></a>charAt(num)</h4>
+                    <p>根据num数字可以获取到num位置的字符串。</p>
+                    <h4 id="indexOf-‘str’">
+                      <a href="#indexOf-‘str’" class="headerlink" title="indexOf(‘str’)"></a>indexOf(‘str’)</h4>
+                    <p>根据string字符串中的某个字符，可以获取到它在string中的第几个位置.
+                      <br>IndexOf(),从左往右。
+                      <br> lastindexOf(),从右往左。</p>
+                    <pre><code>例：var str=’www.miaov.com/2013’;
      alert(str.indexOf(‘m’)); 弹出4；
-</code></pre><p>如果想查找m后面的m是多少位，比如在m，后面键入一个m位置+1的数字。<br>例如m是第4位。所以应该在后面写5.  例：alert(str.indexOf(‘m’,5)); 弹出12.</p>
-<h4 id="substring"><a href="#substring" class="headerlink" title="substring()"></a>substring()</h4><p>根据数字来选择截取的位置。</p>
-<pre><code>例：str = ‘妙味课堂是一支独具特色的IT培训团队’；
+</code></pre>
+                    <p>如果想查找m后面的m是多少位，比如在m，后面键入一个m位置+1的数字。
+                      <br>例如m是第4位。所以应该在后面写5. 例：alert(str.indexOf(‘m’,5)); 弹出12.</p>
+                    <h4 id="substring">
+                      <a href="#substring" class="headerlink" title="substring()"></a>substring()</h4>
+                    <p>根据数字来选择截取的位置。</p>
+                    <pre><code>例：str = ‘妙味课堂是一支独具特色的IT培训团队’；
     alert(str.substring(4));从第四位开始数，弹出‘是一支独具特色的IT培训团队’;
     alert(str.substring(0,2)); 从0位开始读，到第2位截止。弹出‘妙味’两个字。
     alert(str.substring(2,0));默认从零开始，如果第一位比第二位大，则自动调转成0,2。弹出同上。
     alert(str.substring(-3,2));默认负数当着0处理。弹出同上。　
-</code></pre><h4 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h4><p>同substring()；一样根据数字来选择截取的位置。但有一定的区别。<br>    例：alert(str.slice(0,2));和substring一样，弹出‘妙味’连个字；<br>        alert(str.slice(2,0));这里开始出现区别，弹出空的；<br>        alert(str.slice(-4,-2));负数从后倒着数。弹出‘培训’两个字。</p>
-<h4 id="toUpperCase"><a href="#toUpperCase" class="headerlink" title="toUpperCase()"></a>toUpperCase()</h4><p>将英文字母转换成大写</p>
-<h4 id="toLowerCase"><a href="#toLowerCase" class="headerlink" title="toLowerCase()"></a>toLowerCase()</h4><p> 将英文字母转成小写。</p>
-<h4 id="split"><a href="#split" class="headerlink" title="split()"></a>split()</h4><p>把字符串拆分成数组。</p>
-<pre><code>例： var str=’www.miaov.com’; var str1=’leo’;
+</code></pre>
+                    <h4 id="slice">
+                      <a href="#slice" class="headerlink" title="slice()"></a>slice()</h4>
+                    <p>同substring()；一样根据数字来选择截取的位置。但有一定的区别。
+                      <br> 例：alert(str.slice(0,2));和substring一样，弹出‘妙味’连个字；
+                      <br> alert(str.slice(2,0));这里开始出现区别，弹出空的；
+                      <br> alert(str.slice(-4,-2));负数从后倒着数。弹出‘培训’两个字。</p>
+                    <h4 id="toUpperCase">
+                      <a href="#toUpperCase" class="headerlink" title="toUpperCase()"></a>toUpperCase()</h4>
+                    <p>将英文字母转换成大写</p>
+                    <h4 id="toLowerCase">
+                      <a href="#toLowerCase" class="headerlink" title="toLowerCase()"></a>toLowerCase()</h4>
+                    <p> 将英文字母转成小写。</p>
+                    <h4 id="split">
+                      <a href="#split" class="headerlink" title="split()"></a>split()</h4>
+                    <p>把字符串拆分成数组。</p>
+                    <pre><code>例： var str=’www.miaov.com’; var str1=’leo’;
     alert(str.split(‘.’));//[‘www’,’miaov’,’com’]加上‘.’，就是以.作为分隔符。
     alert(str1.split());  //[‘leo’];括号不加东西，就是分割成一个整体
     alert(str1.split(‘’));  //[‘l’,’e’,’o’] 加个空字符串，能把单个字母分开
     var str2=’2014-09-11-23-11’
     alert(str2.split(‘-‘,3));//[‘2014’,’09’,’11’]后面放的数字，表示第3位开始没有了。
-</code></pre><h4 id="jion"><a href="#jion" class="headerlink" title="jion();"></a>jion();</h4><p>将数组转换成字符串。</p>
-<pre><code>Var arr=[‘aa’,’bb’,’cc’];
+</code></pre>
+                    <h4 id="jion">
+                      <a href="#jion" class="headerlink" title="jion();"></a>jion();</h4>
+                    <p>将数组转换成字符串。</p>
+                    <pre><code>Var arr=[‘aa’,’bb’,’cc’];
 alert(arr.jion());      //’aa,bb,cc’;
 alert(arr.jion(‘’)); //’aabbcc’;将逗号转换成了空字符串
 alert(arr.jion(‘-‘)); //’aaq-bb-cc’;
-</code></pre><h3 id="数组的方法"><a href="#数组的方法" class="headerlink" title="数组的方法"></a>数组的方法</h3><p>arr = [‘TM’,’钟意’,’张森’,’杜鹏’];</p>
-<h4 id="arr-push"><a href="#arr-push" class="headerlink" title="arr.push()"></a>arr.push()</h4><p>往数组后面插入内容。 alert(arr.push(‘abc’))返回值是数组的长度4.</p>
-<h4 id="arr-unshift"><a href="#arr-unshift" class="headerlink" title="arr.unshift()"></a>arr.unshift()</h4><p>往数组前面插入内容。返回值同样是数组的长度，但是不支持IE6,7。</p>
-<h4 id="arr-pop"><a href="#arr-pop" class="headerlink" title="arr.pop()"></a>arr.pop()</h4><p>删除数组最后一个。返回值是最后被删除的那个内容。</p>
-<h4 id="arr-shift"><a href="#arr-shift" class="headerlink" title="arr.shift()"></a>arr.shift()</h4><p>删除数组最前面的一个。返回值同样是最前面被删除的那个内容。</p>
-<pre><code>例；arr.unshift(arr.pop());把数组最后一个放到数组最前面。
-</code></pre><h4 id="arr-splice-0-1"><a href="#arr-splice-0-1" class="headerlink" title="arr.splice(0,1)"></a>arr.splice(0,1)</h4><p>从数组第0个开始删除，删除1个。返回值是删除的内容。《删除》<br>arr,splice(0,1,’莫涛’) :删除第0个，然后替换成‘莫涛’。《替换》<br>arr.splice(1,0,’钟意媳妇儿’) : 在数组第0个后面，第一个前面，添加内容。 《添加》</p>
-<h4 id="arr-sort"><a href="#arr-sort" class="headerlink" title="arr.sort()"></a>arr.sort()</h4><p>数组排序。默认情况下根据‘字符串’在计算中的编码进行从小到大的排序。</p>
-<pre><code>arr.sort(function(a,b){        //sort比较函数，排数字。 Return a-b; 从小到大排序；
+</code></pre>
+                    <h3 id="数组的方法">
+                      <a href="#数组的方法" class="headerlink" title="数组的方法"></a>数组的方法</h3>
+                    <p>arr = [‘TM’,’钟意’,’张森’,’杜鹏’];</p>
+                    <h4 id="arr-push">
+                      <a href="#arr-push" class="headerlink" title="arr.push()"></a>arr.push()</h4>
+                    <p>往数组后面插入内容。 alert(arr.push(‘abc’))返回值是数组的长度4.</p>
+                    <h4 id="arr-unshift">
+                      <a href="#arr-unshift" class="headerlink" title="arr.unshift()"></a>arr.unshift()</h4>
+                    <p>往数组前面插入内容。返回值同样是数组的长度，但是不支持IE6,7。</p>
+                    <h4 id="arr-pop">
+                      <a href="#arr-pop" class="headerlink" title="arr.pop()"></a>arr.pop()</h4>
+                    <p>删除数组最后一个。返回值是最后被删除的那个内容。</p>
+                    <h4 id="arr-shift">
+                      <a href="#arr-shift" class="headerlink" title="arr.shift()"></a>arr.shift()</h4>
+                    <p>删除数组最前面的一个。返回值同样是最前面被删除的那个内容。</p>
+                    <pre><code>例；arr.unshift(arr.pop());把数组最后一个放到数组最前面。
+</code></pre>
+                    <h4 id="arr-splice-0-1">
+                      <a href="#arr-splice-0-1" class="headerlink" title="arr.splice(0,1)"></a>arr.splice(0,1)</h4>
+                    <p>从数组第0个开始删除，删除1个。返回值是删除的内容。《删除》
+                      <br>arr,splice(0,1,’莫涛’) :删除第0个，然后替换成‘莫涛’。《替换》
+                      <br>arr.splice(1,0,’钟意媳妇儿’) : 在数组第0个后面，第一个前面，添加内容。 《添加》</p>
+                    <h4 id="arr-sort">
+                      <a href="#arr-sort" class="headerlink" title="arr.sort()"></a>arr.sort()</h4>
+                    <p>数组排序。默认情况下根据‘字符串’在计算中的编码进行从小到大的排序。</p>
+                    <pre><code>arr.sort(function(a,b){        //sort比较函数，排数字。 Return a-b; 从小到大排序；
              return a-b;        // return b-a; 从大到小排序。        
         });
 arr.sort(function(a,b){                //随机排序，Math.random()，返回值是从0到1中间随机的一个数值。
         return Math.random()-0.5;    //运用这个原理可以做到随机排序。
         });
-</code></pre><h4 id="Math-random"><a href="#Math-random" class="headerlink" title="Math.random()"></a>Math.random()</h4><p>随机数及随机公式推理</p>
-<pre><code>Math.random();      从0到1，随机返回0到1之间的任意一个小数。
+</code></pre>
+                    <h4 id="Math-random">
+                      <a href="#Math-random" class="headerlink" title="Math.random()"></a>Math.random()</h4>
+                    <p>随机数及随机公式推理</p>
+                    <pre><code>Math.random();      从0到1，随机返回0到1之间的任意一个小数。
 Math.round();       四舍五入,Math.round(Math.random());通过此方法可以随机的返回0或1。
 Math.round(Math.random()*10);   随机返回1到10之间的任何一个整数。
 
 以此推出公式：
 从x到y之间的值 Math.round(Math.random()*(y-x)+x);随机返回x到y之间任何一个整数。
 从0到x之间的一个值： Math.round(Math.random()*x);随机返回一个0&lt;=x的整数。
-</code></pre><h4 id="Math-ceil"><a href="#Math-ceil" class="headerlink" title="Math.ceil()"></a>Math.ceil()</h4><p>向上取整。<br>从1到X之间的一个值。Math.ceil(Math.random()*x) 随机返回一个&gt;=1或&lt;=x的整数。</p>
-<h4 id="Math-floor"><a href="#Math-floor" class="headerlink" title="Math.floor()"></a>Math.floor()</h4><p>向下取整，与Math.ceil相反。</p>
-<h4 id="Math-pow"><a href="#Math-pow" class="headerlink" title="Math.pow()"></a>Math.pow()</h4><p>平方，立方。 Math.pow(3,2); 3的平方。Math.pow(9,1/3)：9的开立方</p>
-<h4 id="Math-sqrt"><a href="#Math-sqrt" class="headerlink" title="Math.sqrt()"></a>Math.sqrt()</h4><p>开平方，括号传入一个数字，就是这个数字的开方</p>
-<h4 id="Math-max"><a href="#Math-max" class="headerlink" title="Math.max()"></a>Math.max()</h4><p>两个值取其大值  Math.max(2,1)； 返回其中一个比较大的值</p>
-<h4 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h4><p>把数组复制出来，然后连接一起，形成一个新的数组。</p>
-<pre><code>例：arr=[1,2,3];arr1=[4,5,6];arr2=[7,8,9];  
+</code></pre>
+                    <h4 id="Math-ceil">
+                      <a href="#Math-ceil" class="headerlink" title="Math.ceil()"></a>Math.ceil()</h4>
+                    <p>向上取整。
+                      <br>从1到X之间的一个值。Math.ceil(Math.random()*x) 随机返回一个&gt;=1或&lt;=x的整数。</p>
+                    <h4 id="Math-floor">
+                      <a href="#Math-floor" class="headerlink" title="Math.floor()"></a>Math.floor()</h4>
+                    <p>向下取整，与Math.ceil相反。</p>
+                    <h4 id="Math-pow">
+                      <a href="#Math-pow" class="headerlink" title="Math.pow()"></a>Math.pow()</h4>
+                    <p>平方，立方。 Math.pow(3,2); 3的平方。Math.pow(9,1/3)：9的开立方</p>
+                    <h4 id="Math-sqrt">
+                      <a href="#Math-sqrt" class="headerlink" title="Math.sqrt()"></a>Math.sqrt()</h4>
+                    <p>开平方，括号传入一个数字，就是这个数字的开方</p>
+                    <h4 id="Math-max">
+                      <a href="#Math-max" class="headerlink" title="Math.max()"></a>Math.max()</h4>
+                    <p>两个值取其大值 Math.max(2,1)； 返回其中一个比较大的值</p>
+                    <h4 id="concat">
+                      <a href="#concat" class="headerlink" title="concat()"></a>concat()</h4>
+                    <p>把数组复制出来，然后连接一起，形成一个新的数组。</p>
+                    <pre><code>例：arr=[1,2,3];arr1=[4,5,6];arr2=[7,8,9];  
     arr.concat(arr1); 两个数组连接在一起。
     arr.concat(arr1,arr2);三个数组连接在一起。
-</code></pre><h4 id="reverse"><a href="#reverse" class="headerlink" title="reverse();"></a>reverse();</h4><p>把数组里的内容颠倒。</p>
-<pre><code>例：arr=[1,2,3];
+</code></pre>
+                    <h4 id="reverse">
+                      <a href="#reverse" class="headerlink" title="reverse();"></a>reverse();</h4>
+                    <p>把数组里的内容颠倒。</p>
+                    <pre><code>例：arr=[1,2,3];
    arr.revarse()
    alert(arr);弹出[3,2,1];
-</code></pre><h3 id="系统时间对象"><a href="#系统时间对象" class="headerlink" title="系统时间对象"></a>系统时间对象</h3><p>   var myTime = new Date();  获取系统时间<br>   var iYear = my Time.getFullYear();  获取年<br>   var iMonth = myTime.getMonth(); 获取月    //月份是从零开始算的，如果要得到一个正常的需要+1<br>   var iDate = myTime.getDate();  获取日<br>   var iWeek = myTime.getDay();  获取星期<br>   var iHours = myTime.getHours(); 获取几点<br>   var iMin = myTime.getMinutes(); 获取几分<br>   var iSec = myTime.getSeconds(); 获取几秒</p>
-<h4 id="未来时间"><a href="#未来时间" class="headerlink" title="未来时间"></a>未来时间</h4><p>通过new Data(),在括号内传入未来的时间，数字形式需要注意月需要-1<br><strong>数字形式：</strong> new Data(2013.04.1.9.48.12);<br><strong>字符串形式：</strong> new Data(‘June 10,2013 12:13:14’);</p>
-<p>   Math.floor();向下取整。Var t=Math.floor((iNew-iNow)/1000);<br>   天：Math.floor(t/86400);<br>   时：Math.floor(t%86400/3600);多少天多少小时<br>   分：Math.floor(t%3600/60);<br>   秒：Math.floor(t%60);</p>
-<h4 id="getTime"><a href="#getTime" class="headerlink" title="getTime()"></a>getTime()</h4><p>new Data().getTime(); 方法可返回距 1970 年 1 月 1 日之间的毫秒数。</p>
-<h4 id="setTime"><a href="#setTime" class="headerlink" title="setTime();"></a>setTime();</h4><p>使用 setTime() 向 1970/01/01 添加毫秒，并显示新的日期和时间。</p>
-<p>   // 将当前时间换成时间格式字符串<br>   var timestamp3 = 1403058804;<br>   var newDate = new Date();<br>   newDate.setTime(timestamp3 * 1000);<br>   // Wed Jun 18 2014<br>   console.log(newDate.toDateString());<br>   // Wed, 18 Jun 2014 02:33:24 GMT<br>   console.log(newDate.toGMTString());<br>   // 2014-06-18T02:33:24.000Z<br>   console.log(newDate.toISOString());<br>   // 2014-06-18T02:33:24.000Z<br>   console.log(newDate.toJSON());<br>   // 2014年6月18日<br>   console.log(newDate.toLocaleDateString());<br>   // 2014年6月18日 上午10:33:24<br>   console.log(newDate.toLocaleString());<br>   // 上午10:33:24<br>   console.log(newDate.toLocaleTimeString());<br>   // Wed Jun 18 2014 10:33:24 GMT+0800 (中国标准时间)<br>   console.log(newDate.toString());<br>   // 10:33:24 GMT+0800 (中国标准时间)<br>   console.log(newDate.toTimeString());<br>   // Wed, 18 Jun 2014 02:33:24 GMT<br>   console.log(newDate.toUTCString());</p>
-<p>西方月份单词：January,February,March,April,May,June,July,August,September,October,November,December;</p>
-</the>
-      
-    </div>
+</code></pre>
+                    <h3 id="系统时间对象">
+                      <a href="#系统时间对象" class="headerlink" title="系统时间对象"></a>系统时间对象</h3>
+                    <p> var myTime = new Date(); 获取系统时间
+                      <br> var iYear = my Time.getFullYear(); 获取年
+                      <br> var iMonth = myTime.getMonth(); 获取月 //月份是从零开始算的，如果要得到一个正常的需要+1
+                      <br> var iDate = myTime.getDate(); 获取日
+                      <br> var iWeek = myTime.getDay(); 获取星期
+                      <br> var iHours = myTime.getHours(); 获取几点
+                      <br> var iMin = myTime.getMinutes(); 获取几分
+                      <br> var iSec = myTime.getSeconds(); 获取几秒</p>
+                    <h4 id="未来时间">
+                      <a href="#未来时间" class="headerlink" title="未来时间"></a>未来时间</h4>
+                    <p>通过new Data(),在括号内传入未来的时间，数字形式需要注意月需要-1
+                      <br>
+                      <strong>数字形式：</strong> new Data(2013.04.1.9.48.12);
+                      <br>
+                      <strong>字符串形式：</strong> new Data(‘June 10,2013 12:13:14’);</p>
+                    <p> Math.floor();向下取整。Var t=Math.floor((iNew-iNow)/1000);
+                      <br> 天：Math.floor(t/86400);
+                      <br> 时：Math.floor(t%86400/3600);多少天多少小时
+                      <br> 分：Math.floor(t%3600/60);
+                      <br> 秒：Math.floor(t%60);</p>
+                    <h4 id="getTime">
+                      <a href="#getTime" class="headerlink" title="getTime()"></a>getTime()</h4>
+                    <p>new Data().getTime(); 方法可返回距 1970 年 1 月 1 日之间的毫秒数。</p>
+                    <h4 id="setTime">
+                      <a href="#setTime" class="headerlink" title="setTime();"></a>setTime();</h4>
+                    <p>使用 setTime() 向 1970/01/01 添加毫秒，并显示新的日期和时间。</p>
+                    <p> // 将当前时间换成时间格式字符串
+                      <br> var timestamp3 = 1403058804;
+                      <br> var newDate = new Date();
+                      <br> newDate.setTime(timestamp3 * 1000);
+                      <br> // Wed Jun 18 2014
+                      <br> console.log(newDate.toDateString());
+                      <br> // Wed, 18 Jun 2014 02:33:24 GMT
+                      <br> console.log(newDate.toGMTString());
+                      <br> // 2014-06-18T02:33:24.000Z
+                      <br> console.log(newDate.toISOString());
+                      <br> // 2014-06-18T02:33:24.000Z
+                      <br> console.log(newDate.toJSON());
+                      <br> // 2014年6月18日
+                      <br> console.log(newDate.toLocaleDateString());
+                      <br> // 2014年6月18日 上午10:33:24
+                      <br> console.log(newDate.toLocaleString());
+                      <br> // 上午10:33:24
+                      <br> console.log(newDate.toLocaleTimeString());
+                      <br> // Wed Jun 18 2014 10:33:24 GMT+0800 (中国标准时间)
+                      <br> console.log(newDate.toString());
+                      <br> // 10:33:24 GMT+0800 (中国标准时间)
+                      <br> console.log(newDate.toTimeString());
+                      <br> // Wed, 18 Jun 2014 02:33:24 GMT
+                      <br> console.log(newDate.toUTCString());</p>
+                    <p>西方月份单词：January,February,March,April,May,June,July,August,September,October,November,December;</p>
+                  </the>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/JS/" rel="tag"># JS</a>
-          
-        </div>
-      
+                </div>
 
-      
-        
-      
+                <footer class="post-footer">
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/04/08/ECMAScript6/" rel="next" title="ECMAScript6">
-                <i class="fa fa-chevron-left"></i> ECMAScript6
-              </a>
-            
-          </div>
+                  <div class="post-tags">
 
-          <span class="post-nav-divider"></span>
+                    <a href="/tags/JS/" rel="tag"># JS</a>
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/07/图片预加载/" rel="prev" title="图片预加载">
-                图片预加载 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
+                  </div>
 
-      
-      
-    </footer>
-  </article>
+                  <div class="post-nav">
+                    <div class="post-nav-next post-nav-item">
 
+                      <a href="/2017/04/08/ECMAScript6/" rel="next" title="ECMAScript6">
+                        <i class="fa fa-chevron-left"></i> ECMAScript6
+                      </a>
 
+                    </div>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+                    <span class="post-nav-divider"></span>
 
+                    <div class="post-nav-prev post-nav-item">
 
-          </div>
-          
+                      <a href="/2017/04/07/图片预加载/" rel="prev" title="图片预加载">
+                        图片预加载
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
 
+                    </div>
+                  </div>
 
-          
-  <div class="comments" id="comments">
-    
-  </div>
+                </footer>
+              </article>
 
+              <div class="post-spread">
 
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
+              </div>
             </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">分类</span>
-              
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">标签</span>
-              
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串获取类，封装检测数字的方法"><span class="nav-number">1.</span> <span class="nav-text">字符串获取类，封装检测数字的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#charCodeAt"><span class="nav-number">1.1.</span> <span class="nav-text">charCodeAt()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fromCharCode"><span class="nav-number">1.2.</span> <span class="nav-text">fromCharCode()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#charAt-num"><span class="nav-number">1.3.</span> <span class="nav-text">charAt(num)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#indexOf-‘str’"><span class="nav-number">1.4.</span> <span class="nav-text">indexOf(‘str’)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#substring"><span class="nav-number">1.5.</span> <span class="nav-text">substring()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#slice"><span class="nav-number">1.6.</span> <span class="nav-text">slice()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toUpperCase"><span class="nav-number">1.7.</span> <span class="nav-text">toUpperCase()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toLowerCase"><span class="nav-number">1.8.</span> <span class="nav-text">toLowerCase()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#split"><span class="nav-number">1.9.</span> <span class="nav-text">split()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jion"><span class="nav-number">1.10.</span> <span class="nav-text">jion();</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的方法"><span class="nav-number">2.</span> <span class="nav-text">数组的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#arr-push"><span class="nav-number">2.1.</span> <span class="nav-text">arr.push()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#arr-unshift"><span class="nav-number">2.2.</span> <span class="nav-text">arr.unshift()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#arr-pop"><span class="nav-number">2.3.</span> <span class="nav-text">arr.pop()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#arr-shift"><span class="nav-number">2.4.</span> <span class="nav-text">arr.shift()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#arr-splice-0-1"><span class="nav-number">2.5.</span> <span class="nav-text">arr.splice(0,1)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#arr-sort"><span class="nav-number">2.6.</span> <span class="nav-text">arr.sort()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Math-random"><span class="nav-number">2.7.</span> <span class="nav-text">Math.random()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Math-ceil"><span class="nav-number">2.8.</span> <span class="nav-text">Math.ceil()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Math-floor"><span class="nav-number">2.9.</span> <span class="nav-text">Math.floor()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Math-pow"><span class="nav-number">2.10.</span> <span class="nav-text">Math.pow()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Math-sqrt"><span class="nav-number">2.11.</span> <span class="nav-text">Math.sqrt()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Math-max"><span class="nav-number">2.12.</span> <span class="nav-text">Math.max()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#concat"><span class="nav-number">2.13.</span> <span class="nav-text">concat()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reverse"><span class="nav-number">2.14.</span> <span class="nav-text">reverse();</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统时间对象"><span class="nav-number">3.</span> <span class="nav-text">系统时间对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#未来时间"><span class="nav-number">3.1.</span> <span class="nav-text">未来时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#getTime"><span class="nav-number">3.2.</span> <span class="nav-text">getTime()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setTime"><span class="nav-number">3.3.</span> <span class="nav-text">setTime();</span></a></li></ol></li></ol></div>
-            
 
           </div>
-        </section>
-      <!--/noindex-->
-      
 
-      
+          <div class="comments" id="comments">
 
-    </div>
-  </aside>
+          </div>
 
+        </div>
 
-        
+        <div class="sidebar-toggle">
+          <div class="sidebar-toggle-line-wrap">
+            <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+            <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+            <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+          </div>
+        </div>
+
+        <aside id="sidebar" class="sidebar">
+          <div class="sidebar-inner">
+
+            <ul class="sidebar-nav motion-element">
+              <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+                文章目录
+              </li>
+              <li class="sidebar-nav-overview" data-target="site-overview">
+                站点概览
+              </li>
+            </ul>
+
+            <section class="site-overview sidebar-panel">
+              <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="John Doe"
+                />
+                <p class="site-author-name" itemprop="name">John Doe</p>
+
+                <p class="site-description motion-element" itemprop="description"></p>
+
+              </div>
+              <nav class="site-state motion-element">
+
+                <div class="site-state-item site-state-posts">
+                  <a href="/archives">
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+
+                <div class="site-state-item site-state-categories">
+
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+
+                </div>
+
+                <div class="site-state-item site-state-tags">
+
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+
+                </div>
+
+              </nav>
+
+              <div class="links-of-author motion-element">
+
+              </div>
+
+            </section>
+
+            <!--noindex-->
+            <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+              <div class="post-toc">
+
+                <div class="post-toc-content">
+                  <ol class="nav">
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#字符串获取类，封装检测数字的方法">
+                        <span class="nav-number">1.</span>
+                        <span class="nav-text">字符串获取类，封装检测数字的方法</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#charCodeAt">
+                            <span class="nav-number">1.1.</span>
+                            <span class="nav-text">charCodeAt()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#fromCharCode">
+                            <span class="nav-number">1.2.</span>
+                            <span class="nav-text">fromCharCode()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#charAt-num">
+                            <span class="nav-number">1.3.</span>
+                            <span class="nav-text">charAt(num)</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#indexOf-‘str’">
+                            <span class="nav-number">1.4.</span>
+                            <span class="nav-text">indexOf(‘str’)</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#substring">
+                            <span class="nav-number">1.5.</span>
+                            <span class="nav-text">substring()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#slice">
+                            <span class="nav-number">1.6.</span>
+                            <span class="nav-text">slice()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#toUpperCase">
+                            <span class="nav-number">1.7.</span>
+                            <span class="nav-text">toUpperCase()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#toLowerCase">
+                            <span class="nav-number">1.8.</span>
+                            <span class="nav-text">toLowerCase()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#split">
+                            <span class="nav-number">1.9.</span>
+                            <span class="nav-text">split()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#jion">
+                            <span class="nav-number">1.10.</span>
+                            <span class="nav-text">jion();</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#数组的方法">
+                        <span class="nav-number">2.</span>
+                        <span class="nav-text">数组的方法</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#arr-push">
+                            <span class="nav-number">2.1.</span>
+                            <span class="nav-text">arr.push()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#arr-unshift">
+                            <span class="nav-number">2.2.</span>
+                            <span class="nav-text">arr.unshift()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#arr-pop">
+                            <span class="nav-number">2.3.</span>
+                            <span class="nav-text">arr.pop()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#arr-shift">
+                            <span class="nav-number">2.4.</span>
+                            <span class="nav-text">arr.shift()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#arr-splice-0-1">
+                            <span class="nav-number">2.5.</span>
+                            <span class="nav-text">arr.splice(0,1)</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#arr-sort">
+                            <span class="nav-number">2.6.</span>
+                            <span class="nav-text">arr.sort()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#Math-random">
+                            <span class="nav-number">2.7.</span>
+                            <span class="nav-text">Math.random()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#Math-ceil">
+                            <span class="nav-number">2.8.</span>
+                            <span class="nav-text">Math.ceil()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#Math-floor">
+                            <span class="nav-number">2.9.</span>
+                            <span class="nav-text">Math.floor()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#Math-pow">
+                            <span class="nav-number">2.10.</span>
+                            <span class="nav-text">Math.pow()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#Math-sqrt">
+                            <span class="nav-number">2.11.</span>
+                            <span class="nav-text">Math.sqrt()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#Math-max">
+                            <span class="nav-number">2.12.</span>
+                            <span class="nav-text">Math.max()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#concat">
+                            <span class="nav-number">2.13.</span>
+                            <span class="nav-text">concat()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#reverse">
+                            <span class="nav-number">2.14.</span>
+                            <span class="nav-text">reverse();</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#系统时间对象">
+                        <span class="nav-number">3.</span>
+                        <span class="nav-text">系统时间对象</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#未来时间">
+                            <span class="nav-number">3.1.</span>
+                            <span class="nav-text">未来时间</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#getTime">
+                            <span class="nav-number">3.2.</span>
+                            <span class="nav-text">getTime()</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#setTime">
+                            <span class="nav-number">3.3.</span>
+                            <span class="nav-text">setTime();</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                  </ol>
+                </div>
+
+              </div>
+            </section>
+            <!--/noindex-->
+
+          </div>
+        </aside>
+
       </div>
     </main>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
-</div>
+        <div class="copyright">
 
+          &copy;
+          <span itemprop="copyrightYear">2017</span>
+          <span class="with-love">
+            <i class="fa fa-heart"></i>
+          </span>
+          <span class="author" itemprop="copyrightHolder">John Doe</span>
+        </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+        <div class="powered-by">
+          由
+          <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+        </div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+        <div class="theme-info">
+          主题 -
+          <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+            NexT.Pisces
+          </a>
+        </div>
 
-
-        
-
-        
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+
+    </div>
 
   </div>
 
-  
+  <script type="text/javascript">
+    if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+      window.Promise = null;
+    }
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
+  </script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  
   <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-  
   <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  
   <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
-  
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
 
   <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
 
-
-
-  
-  
-
-
   <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
 
-
-
-  
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
-
-
-  
-
+  <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
 
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
 </body>
+
 </html>

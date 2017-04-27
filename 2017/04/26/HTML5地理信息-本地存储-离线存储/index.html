@@ -1,355 +1,267 @@
 <!doctype html>
 
-
-
-  
-
-
 <html class="theme-next pisces use-motion" lang="zh-Hans">
+
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
+  />
 
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
 
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"
+  />
 
+  <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+                                                                                  rel="stylesheet" type="text/css">
 
+  <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet"
+                                                                                  type="text/css" />
 
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
+  <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
   <meta name="keywords" content="HTML5," />
 
-
-
-
-
-
-
-
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
+  <meta name="keywords" content="HTML5">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="HTML5地理信息-本地存储-离线存储">
+  <meta property="og:url" content="http://yoursite.com/2017/04/26/HTML5地理信息-本地存储-离线存储/index.html">
+  <meta property="og:site_name" content="Prawns's Blog">
+  <meta property="og:updated_time" content="2017-04-27T10:09:10.900Z">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="HTML5地理信息-本地存储-离线存储">
 
+  <script type="text/javascript" id="hexo.configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {
+      root: '/',
+      scheme: 'Pisces',
+      sidebar: {
+        "position": "left",
+        "display": "post",
+        "offset": 12,
+        "offset_float": 0,
+        "b2t": false,
+        "scrollpercent": false
+      },
+      fancybox: true,
+      motion: true,
+      duoshuo: {
+        userId: '0',
+        author: '博主'
+      },
+      algolia: {
+        applicationID: '',
+        apiKey: '',
+        indexName: '',
+        hits: {
+          "per_page": 10
+        },
+        labels: {
+          "input_placeholder": "Search for Posts",
+          "hits_empty": "We didn't find any results for the search: ${query}",
+          "hits_stats": "${hits} results found in ${time} ms"
+        }
+      }
+    };
 
+  </script>
 
-
-
-<meta name="keywords" content="HTML5">
-<meta property="og:type" content="article">
-<meta property="og:title" content="HTML5地理信息-本地存储-离线存储">
-<meta property="og:url" content="http://yoursite.com/2017/04/26/HTML5地理信息-本地存储-离线存储/index.html">
-<meta property="og:site_name" content="Prawns's Blog">
-<meta property="og:updated_time" content="2017-04-27T10:09:10.900Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML5地理信息-本地存储-离线存储">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2017/04/26/HTML5地理信息-本地存储-离线存储/"/>
-
-
-
-
+  <link rel="canonical" href="http://yoursite.com/2017/04/26/HTML5地理信息-本地存储-离线存储/"
+  />
 
   <title>HTML5地理信息-本地存储-离线存储 | Prawns's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
   <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
+      <div class="header-inner">
+        <div class="site-brand-wrapper">
+          <div class="site-meta ">
 
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Prawns's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
+            <div class="custom-logo-site-title">
+              <a href="/" class="brand" rel="start">
+                <span class="logo-line-before">
+                  <i></i>
+                </span>
+                <span class="site-title">Prawns's Blog</span>
+                <span class="logo-line-after">
+                  <i></i>
+                </span>
+              </a>
+            </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
+            <p class="site-subtitle"></p>
 
-<nav class="site-nav">
-  
+          </div>
 
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            公益404
-          </a>
-        </li>
-      
+          <div class="site-nav-toggle">
+            <button>
+              <span class="btn-bar"></span>
+              <span class="btn-bar"></span>
+              <span class="btn-bar"></span>
+            </button>
+          </div>
+        </div>
 
-      
-    </ul>
-  
+        <nav class="site-nav">
 
-  
-</nav>
+          <ul id="menu" class="menu">
 
+            <li class="menu-item menu-item-home">
+              <a href="/" rel="section">
 
+                <i class="menu-item-icon fa fa-fw fa-home"></i>
+                <br /> 首页
+              </a>
+            </li>
 
- </div>
+            <li class="menu-item menu-item-about">
+              <a href="/about" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-user"></i>
+                <br /> 关于
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-archives">
+              <a href="/archives" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-archive"></i>
+                <br /> 归档
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-tags">
+              <a href="/tags" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-tags"></i>
+                <br /> 标签
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-commonweal">
+              <a href="/404.html" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-heartbeat"></i>
+                <br /> 公益404
+              </a>
+            </li>
+
+          </ul>
+
+        </nav>
+
+      </div>
     </header>
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
           <div id="content" class="content">
-            
 
-  <div id="posts" class="posts-expand">
-    
+            <div id="posts" class="posts-expand">
 
-  
+              <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+                <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/HTML5地理信息-本地存储-离线存储/">
 
-  
-  
-  
+                <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                  <meta itemprop="name" content="John Doe">
+                  <meta itemprop="description" content="">
+                  <meta itemprop="image" content="/images/avatar.gif">
+                </span>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/HTML5地理信息-本地存储-离线存储/">
+                <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                  <meta itemprop="name" content="Prawns's Blog">
+                </span>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
+                <header class="post-header">
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Prawns's Blog">
-    </span>
+                  <h1 class="post-title" itemprop="name headline">
 
-    
-      <header class="post-header">
+                    HTML5地理信息-本地存储-离线存储
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                HTML5地理信息-本地存储-离线存储
-              
-            
-          </h1>
-        
+                  </h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T15:46:06+08:00">
-                2017-04-26
-              </time>
-            
+                  <div class="post-meta">
+                    <span class="post-time">
 
-            
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-calendar-o"></i>
+                      </span>
 
-            
-          </span>
+                      <span class="post-meta-item-text">发表于</span>
 
-          
+                      <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T15:46:06+08:00">
+                        2017-04-26
+                      </time>
 
-          
-            
-          
+                    </span>
 
-          
-          
+                  </div>
+                </header>
 
-          
+                <div class="post-body" itemprop="articleBody">
 
-          
+                  <p>
+                    <excerpt in="" index="" |="" 首页摘要="">
+                      <br>
+                      <a id="more"></a>
+                    </excerpt>
+                  </p>
+                  <the rest="" of="" contents="" |="" 余下全文="">
 
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文="">
-
-<p><strong>地理位置</strong><br>经度  :   南北极的连接线<br>纬度  :   东西连接的线</p>
-<p><strong>位置信息从何而来</strong><br>IP地址<br>GPS全球定位系统<br>Wi-Fi无线网络<br>基站</p>
-<h3 id="地理位置对象"><a href="#地理位置对象" class="headerlink" title="地理位置对象"></a>地理位置对象</h3><p><strong>navigator.geolocation</strong></p>
-<h4 id="单次定位请求"><a href="#单次定位请求" class="headerlink" title="单次定位请求"></a>单次定位请求</h4><p><strong>getCurrentPosition(请求成功，请求失败，数据收集方式)</strong><br>括号里传入三个参数，分别是请求成功的回调，请求失败的回调，收据收集的方式<br><strong>请求成功函数</strong><br>经度 :  coords.longitude<br>纬度 :  coords.latitude<br>准确度 :  coords.accuracy<br>海拔 :  coords.altitude<br>海拔准确度 :  coords.altitudeAcuracy<br>行进方向 :  coords.heading<br>地面速度 :  coords.speed<br>时间戳 : new Date(position.timestamp)</p>
-<p><strong>请求失败函数</strong><br>失败编号  ：code<br>0  :  不包括其他错误编号中的错误<br>1  :  用户拒绝浏览器获取位置信息<br>2  :  尝试获取用户信息，但失败了<br>3  :   设置了timeout值，获取位置超时了<br>数据收集 :  json的形式<br>enableHighAcuracy  :  更精确的查找，默认false<br>timeout  :  获取位置允许最长时间，默认infinity<br>maximumAge :  位置可以缓存的最大时间，默认0<br>代码：</p>
-<pre><code>oInput.onclick = function(){
+                    <p>
+                      <strong>地理位置</strong>
+                      <br>经度 : 南北极的连接线
+                      <br>纬度 : 东西连接的线</p>
+                    <p>
+                      <strong>位置信息从何而来</strong>
+                      <br>IP地址
+                      <br>GPS全球定位系统
+                      <br>Wi-Fi无线网络
+                      <br>基站</p>
+                    <h3 id="地理位置对象">
+                      <a href="#地理位置对象" class="headerlink" title="地理位置对象"></a>地理位置对象</h3>
+                    <p>
+                      <strong>navigator.geolocation</strong>
+                    </p>
+                    <h4 id="单次定位请求">
+                      <a href="#单次定位请求" class="headerlink" title="单次定位请求"></a>单次定位请求</h4>
+                    <p>
+                      <strong>getCurrentPosition(请求成功，请求失败，数据收集方式)</strong>
+                      <br>括号里传入三个参数，分别是请求成功的回调，请求失败的回调，收据收集的方式
+                      <br>
+                      <strong>请求成功函数</strong>
+                      <br>经度 : coords.longitude
+                      <br>纬度 : coords.latitude
+                      <br>准确度 : coords.accuracy
+                      <br>海拔 : coords.altitude
+                      <br>海拔准确度 : coords.altitudeAcuracy
+                      <br>行进方向 : coords.heading
+                      <br>地面速度 : coords.speed
+                      <br>时间戳 : new Date(position.timestamp)</p>
+                    <p>
+                      <strong>请求失败函数</strong>
+                      <br>失败编号 ：code
+                      <br>0 : 不包括其他错误编号中的错误
+                      <br>1 : 用户拒绝浏览器获取位置信息
+                      <br>2 : 尝试获取用户信息，但失败了
+                      <br>3 : 设置了timeout值，获取位置超时了
+                      <br>数据收集 : json的形式
+                      <br>enableHighAcuracy : 更精确的查找，默认false
+                      <br>timeout : 获取位置允许最长时间，默认infinity
+                      <br>maximumAge : 位置可以缓存的最大时间，默认0
+                      <br>代码：</p>
+                    <pre><code>oInput.onclick = function(){
         navigator.geolocation.getCurrentPosition(function(position){
             oT.value += &apos;经度：&apos; + position.coords.longitude + &apos;\n&apos;;
             oT.value += &apos;维度：&apos; + position.coords.latitude + &apos;\n&apos;;
@@ -367,9 +279,16 @@
             maximumAge : 5000           //位置可以缓存的最大时间，默认0
         });
     }
-</code></pre><h4 id="多次定位请求"><a href="#多次定位请求" class="headerlink" title="多次定位请求"></a>多次定位请求</h4><p><strong>watchPosition(像setInterval)</strong><br>移动设备有用，位置改变才会触发<br>配置参数：frequency 更新的频率</p>
-<p>关闭更新请求  :  clearWatch(像clearInterval)<br>多次请求代码：</p>
-<pre><code>oInput.onclick = function(){
+</code></pre>
+                    <h4 id="多次定位请求">
+                      <a href="#多次定位请求" class="headerlink" title="多次定位请求"></a>多次定位请求</h4>
+                    <p>
+                      <strong>watchPosition(像setInterval)</strong>
+                      <br>移动设备有用，位置改变才会触发
+                      <br>配置参数：frequency 更新的频率</p>
+                    <p>关闭更新请求 : clearWatch(像clearInterval)
+                      <br>多次请求代码：</p>
+                    <pre><code>oInput.onclick = function(){
         timer=navigator.geolocation.watchPosition(function(position){
             oT.value += &apos;经度：&apos; + position.coords.longitude + &apos;\n&apos;;
             oT.value += &apos;维度：&apos; + position.coords.latitude + &apos;\n&apos;;
@@ -389,26 +308,48 @@
             frequency : 1000            //更新的频率，
         });
     }
-</code></pre><h3 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h3><h4 id="cookie-存储数据"><a href="#cookie-存储数据" class="headerlink" title="cookie :  存储数据"></a>cookie :  存储数据</h4><p> 当用户访问某个网站的时候，我们就可以通过cookie来向访问者的电脑上存            储数据。<br>1.不同的浏览器存放的cookie位置不一样，也是不能通用的。<br>2.cookie的存储是以域名形式进行区分的。<br>3.cookie的数据可以设置名字。<br>4.一个域名下存放的cookie的个数是有限制的，不同的浏览器存放的个数不一样。每个域名100个cookie,每组值大小4KB<br>5.每个cookie存放的内容大小也是有限制的，不同的浏览器存放的大小是不一样的。</p>
-<pre><code>document.cookie = &apos;username=tang&apos;;
-</code></pre><p>我们通过document.cookie来获取当前网站下的cookie的时候，得到的是字符串形式的值，它包含了当前网站下所有的cookie。他会把所有的cookie通过分号 + 空格的形式链接起来。<br>chorme下是不可以操作本地cookie，不过我们做网站一般也不会用在本地，所以不用担心</p>
-<p>如果我们想长时间存放一个cookie。需要在设置这个cookie的时候同时设定一个过期的时间。</p>
-<pre><code>var oDate = new Date();
+</code></pre>
+                    <h3 id="本地存储">
+                      <a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h3>
+                    <h4 id="cookie-存储数据">
+                      <a href="#cookie-存储数据" class="headerlink" title="cookie :  存储数据"></a>cookie : 存储数据</h4>
+                    <p> 当用户访问某个网站的时候，我们就可以通过cookie来向访问者的电脑上存 储数据。
+                      <br>1.不同的浏览器存放的cookie位置不一样，也是不能通用的。
+                      <br>2.cookie的存储是以域名形式进行区分的。
+                      <br>3.cookie的数据可以设置名字。
+                      <br>4.一个域名下存放的cookie的个数是有限制的，不同的浏览器存放的个数不一样。每个域名100个cookie,每组值大小4KB
+                      <br>5.每个cookie存放的内容大小也是有限制的，不同的浏览器存放的大小是不一样的。</p>
+                    <pre><code>document.cookie = &apos;username=tang&apos;;
+</code></pre>
+                    <p>我们通过document.cookie来获取当前网站下的cookie的时候，得到的是字符串形式的值，它包含了当前网站下所有的cookie。他会把所有的cookie通过分号
+                      + 空格的形式链接起来。
+                      <br>chorme下是不可以操作本地cookie，不过我们做网站一般也不会用在本地，所以不用担心</p>
+                    <p>如果我们想长时间存放一个cookie。需要在设置这个cookie的时候同时设定一个过期的时间。</p>
+                    <pre><code>var oDate = new Date();
 oDate.setDate(oDate.getDate()+5);
 document.cookie = &apos;username=tang;expires=&apos; + oDate ;
 //这样就能将cookie值保存到5天以后。
-</code></pre><p>上面的代码在IE下回出现错误，我们还需要将时间转成字符串的形式，才能兼容IE。<br>Document.cookie = ‘名称=值;expires=’ + 字符串形式的时间; </p>
-<pre><code>Var oDate = new Date();
+</code></pre>
+                    <p>上面的代码在IE下回出现错误，我们还需要将时间转成字符串的形式，才能兼容IE。
+                      <br>Document.cookie = ‘名称=值;expires=’ + 字符串形式的时间; </p>
+                    <pre><code>Var oDate = new Date();
 oDate.setDate(oDate.getDate() + 5); 表示保存的时间是 当前获取的时间 + 5天
 //oDate.toGMTString();  将时间转成字符串独有的写法。
 Document.cookie = ‘username=leo;expires=’ + oDate.toGMTString(); //
 正确的书写示例。
-</code></pre><p>当我们将中文汉字等一些特殊字符存放成cookie的时候，需要使用encodeURI将特殊字符转换整计算机字符编码。<br>encodeURI() : 编码。<br>decodeURI() : 解码。<br>比如</p>
-<pre><code>Document.cookie = &apos;username=leo\n你好;expires=&apos; + oDate.toGMTString();是错误的写法。
-</code></pre><p>正确</p>
-<pre><code>document.cookie =&apos;username =&apos;  + encodeURI(&apos;leo\n你好&apos;) + &apos;;expires=&apos; + oDate.toGMTString();
-</code></pre><p>如果我们想要通过cookie的key值获取对应的value值，就需要自己封装一个函数。<br>代码</p>
-<pre><code>var oDate = new Date();
+</code></pre>
+                    <p>当我们将中文汉字等一些特殊字符存放成cookie的时候，需要使用encodeURI将特殊字符转换整计算机字符编码。
+                      <br>encodeURI() : 编码。
+                      <br>decodeURI() : 解码。
+                      <br>比如</p>
+                    <pre><code>Document.cookie = &apos;username=leo\n你好;expires=&apos; + oDate.toGMTString();是错误的写法。
+</code></pre>
+                    <p>正确</p>
+                    <pre><code>document.cookie =&apos;username =&apos;  + encodeURI(&apos;leo\n你好&apos;) + &apos;;expires=&apos; + oDate.toGMTString();
+</code></pre>
+                    <p>如果我们想要通过cookie的key值获取对应的value值，就需要自己封装一个函数。
+                      <br>代码</p>
+                    <pre><code>var oDate = new Date();
     oDate.setDate(oDate.getDate()+5);
     document.cookie = &apos;username=tang;expires=&apos; + oDate.toGMTString() ;
     document.cookie = &apos;age=30&apos;;
@@ -439,17 +380,40 @@ Document.cookie = ‘username=leo;expires=’ + oDate.toGMTString(); //
     function removeCookie(key){
         setCookie(key,&apos;&apos;,-1);
     }
-</code></pre><h4 id="Storage"><a href="#Storage" class="headerlink" title="Storage"></a>Storage</h4><p>storage和cookie差不多一样，不过cookie的设置，获取，删除等方法，需要我们自己去封装函数来实现，而storage自带了这些方法。</p>
-<ol>
-<li>存储量限制 ( 5M )</li>
-<li>客户端完成，不会请求服务器处理</li>
-<li>sessionStorage数据是不共享、仅针对当前窗口。</li>
-<li>localStorage共享</li>
-</ol>
-<p><strong>sessionStorage</strong><br>session临时回话，从页面打开到页面关闭的时间段<br>窗口的临时存储，页面关闭，本地存储消失</p>
-<p><strong>localStorage</strong><br>永久存储（可以手动删除数据）</p>
-<h5 id="Storage-API"><a href="#Storage-API" class="headerlink" title="Storage API"></a>Storage API</h5><p><strong>setItem():</strong><br>设置数据，key\value类型，类型都是字符串<br>可以用获取属性的形式操作<br><strong>getItem():</strong><br>获取数据，通过key来获取到相应的value<br><strong>removeItem():</strong><br>删除数据，通过key来删除相应的value<br><strong>clear():</strong><br>删除全部存储的值<br>示例代码</p>
-<pre><code>&lt;head&gt;
+</code></pre>
+                    <h4 id="Storage">
+                      <a href="#Storage" class="headerlink" title="Storage"></a>Storage</h4>
+                    <p>storage和cookie差不多一样，不过cookie的设置，获取，删除等方法，需要我们自己去封装函数来实现，而storage自带了这些方法。</p>
+                    <ol>
+                      <li>存储量限制 ( 5M )</li>
+                      <li>客户端完成，不会请求服务器处理</li>
+                      <li>sessionStorage数据是不共享、仅针对当前窗口。</li>
+                      <li>localStorage共享</li>
+                    </ol>
+                    <p>
+                      <strong>sessionStorage</strong>
+                      <br>session临时回话，从页面打开到页面关闭的时间段
+                      <br>窗口的临时存储，页面关闭，本地存储消失</p>
+                    <p>
+                      <strong>localStorage</strong>
+                      <br>永久存储（可以手动删除数据）</p>
+                    <h5 id="Storage-API">
+                      <a href="#Storage-API" class="headerlink" title="Storage API"></a>Storage API</h5>
+                    <p>
+                      <strong>setItem():</strong>
+                      <br>设置数据，key\value类型，类型都是字符串
+                      <br>可以用获取属性的形式操作
+                      <br>
+                      <strong>getItem():</strong>
+                      <br>获取数据，通过key来获取到相应的value
+                      <br>
+                      <strong>removeItem():</strong>
+                      <br>删除数据，通过key来删除相应的value
+                      <br>
+                      <strong>clear():</strong>
+                      <br>删除全部存储的值
+                      <br>示例代码</p>
+                    <pre><code>&lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;本地存储&lt;/title&gt;
     &lt;script&gt;
@@ -475,8 +439,9 @@ window.onload = function(){
     &lt;input type=&quot;button&quot; value=&quot;删除&quot;&gt;
     &lt;input type=&quot;text&quot;&gt;
 &lt;/body&gt;
-</code></pre><p>利用本地存储做了一个小demo，关闭页面之后存储输入的信息，重新打开页面之后恢复之前存储的信息。</p>
-<pre><code>&lt;!DOCTYPE html&gt;
+</code></pre>
+                    <p>利用本地存储做了一个小demo，关闭页面之后存储输入的信息，重新打开页面之后恢复之前存储的信息。</p>
+                    <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -529,376 +494,276 @@ window.onload = function(){
     内容：&lt;textarea name=&quot;content&quot; id=&quot;t1&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><h5 id="存储事件"><a href="#存储事件" class="headerlink" title="存储事件"></a>存储事件</h5><p>当数据有修改或删除的情况下，就会触发storage事件,但是在对数据进行改变的窗口对象上是不会触发的<br>Key : 修改或删除的key值，如果调用clear(),key为null<br>newValue  :  新设置的值，如果调用removeStorage(),key为null<br>oldValue :  调用改变前的value值<br>storageArea : 当前的storage对象<br>url :  触发该脚本变化的文档的url<br>注：session同窗口才可以,例子：iframe操作</p>
-</the>
-      
-    </div>
+</code></pre>
+                    <h5 id="存储事件">
+                      <a href="#存储事件" class="headerlink" title="存储事件"></a>存储事件</h5>
+                    <p>当数据有修改或删除的情况下，就会触发storage事件,但是在对数据进行改变的窗口对象上是不会触发的
+                      <br>Key : 修改或删除的key值，如果调用clear(),key为null
+                      <br>newValue : 新设置的值，如果调用removeStorage(),key为null
+                      <br>oldValue : 调用改变前的value值
+                      <br>storageArea : 当前的storage对象
+                      <br>url : 触发该脚本变化的文档的url
+                      <br>注：session同窗口才可以,例子：iframe操作</p>
+                  </the>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/HTML5/" rel="tag"># HTML5</a>
-          
-        </div>
-      
+                </div>
 
-      
-        
-      
+                <footer class="post-footer">
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/04/27/applet/" rel="next" title="微信小程序入门">
-                <i class="fa fa-chevron-left"></i> 微信小程序入门
-              </a>
-            
-          </div>
+                  <div class="post-tags">
 
-          <span class="post-nav-divider"></span>
+                    <a href="/tags/HTML5/" rel="tag"># HTML5</a>
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/26/离线存储/" rel="prev" title="离线存储">
-                离线存储 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
+                  </div>
 
-      
-      
-    </footer>
-  </article>
+                  <div class="post-nav">
+                    <div class="post-nav-next post-nav-item">
 
+                      <a href="/2017/04/27/applet/" rel="next" title="微信小程序入门">
+                        <i class="fa fa-chevron-left"></i> 微信小程序入门
+                      </a>
 
+                    </div>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+                    <span class="post-nav-divider"></span>
 
+                    <div class="post-nav-prev post-nav-item">
 
-          </div>
-          
+                      <a href="/2017/04/26/离线存储/" rel="prev" title="离线存储">
+                        离线存储
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
 
+                    </div>
+                  </div>
 
-          
-  <div class="comments" id="comments">
-    
-  </div>
+                </footer>
+              </article>
 
+              <div class="post-spread">
 
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
+              </div>
             </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">分类</span>
-              
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">标签</span>
-              
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#地理位置对象"><span class="nav-number">1.</span> <span class="nav-text">地理位置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单次定位请求"><span class="nav-number">1.1.</span> <span class="nav-text">单次定位请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多次定位请求"><span class="nav-number">1.2.</span> <span class="nav-text">多次定位请求</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地存储"><span class="nav-number">2.</span> <span class="nav-text">本地存储</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie-存储数据"><span class="nav-number">2.1.</span> <span class="nav-text">cookie :  存储数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Storage"><span class="nav-number">2.2.</span> <span class="nav-text">Storage</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Storage-API"><span class="nav-number">2.2.1.</span> <span class="nav-text">Storage API</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储事件"><span class="nav-number">2.2.2.</span> <span class="nav-text">存储事件</span></a></li></ol></li></ol></li></ol></div>
-            
 
           </div>
-        </section>
-      <!--/noindex-->
-      
 
-      
+          <div class="comments" id="comments">
 
-    </div>
-  </aside>
+          </div>
 
+        </div>
 
-        
+        <div class="sidebar-toggle">
+          <div class="sidebar-toggle-line-wrap">
+            <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+            <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+            <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+          </div>
+        </div>
+
+        <aside id="sidebar" class="sidebar">
+          <div class="sidebar-inner">
+
+            <ul class="sidebar-nav motion-element">
+              <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+                文章目录
+              </li>
+              <li class="sidebar-nav-overview" data-target="site-overview">
+                站点概览
+              </li>
+            </ul>
+
+            <section class="site-overview sidebar-panel">
+              <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="John Doe"
+                />
+                <p class="site-author-name" itemprop="name">John Doe</p>
+
+                <p class="site-description motion-element" itemprop="description"></p>
+
+              </div>
+              <nav class="site-state motion-element">
+
+                <div class="site-state-item site-state-posts">
+                  <a href="/archives">
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+
+                <div class="site-state-item site-state-categories">
+
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+
+                </div>
+
+                <div class="site-state-item site-state-tags">
+
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+
+                </div>
+
+              </nav>
+
+              <div class="links-of-author motion-element">
+
+              </div>
+
+            </section>
+
+            <!--noindex-->
+            <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+              <div class="post-toc">
+
+                <div class="post-toc-content">
+                  <ol class="nav">
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#地理位置对象">
+                        <span class="nav-number">1.</span>
+                        <span class="nav-text">地理位置对象</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#单次定位请求">
+                            <span class="nav-number">1.1.</span>
+                            <span class="nav-text">单次定位请求</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#多次定位请求">
+                            <span class="nav-number">1.2.</span>
+                            <span class="nav-text">多次定位请求</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#本地存储">
+                        <span class="nav-number">2.</span>
+                        <span class="nav-text">本地存储</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#cookie-存储数据">
+                            <span class="nav-number">2.1.</span>
+                            <span class="nav-text">cookie : 存储数据</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#Storage">
+                            <span class="nav-number">2.2.</span>
+                            <span class="nav-text">Storage</span>
+                          </a>
+                          <ol class="nav-child">
+                            <li class="nav-item nav-level-5">
+                              <a class="nav-link" href="#Storage-API">
+                                <span class="nav-number">2.2.1.</span>
+                                <span class="nav-text">Storage API</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-5">
+                              <a class="nav-link" href="#存储事件">
+                                <span class="nav-number">2.2.2.</span>
+                                <span class="nav-text">存储事件</span>
+                              </a>
+                            </li>
+                          </ol>
+                        </li>
+                      </ol>
+                    </li>
+                  </ol>
+                </div>
+
+              </div>
+            </section>
+            <!--/noindex-->
+
+          </div>
+        </aside>
+
       </div>
     </main>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
-</div>
+        <div class="copyright">
 
+          &copy;
+          <span itemprop="copyrightYear">2017</span>
+          <span class="with-love">
+            <i class="fa fa-heart"></i>
+          </span>
+          <span class="author" itemprop="copyrightHolder">John Doe</span>
+        </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+        <div class="powered-by">
+          由
+          <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+        </div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+        <div class="theme-info">
+          主题 -
+          <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+            NexT.Pisces
+          </a>
+        </div>
 
-
-        
-
-        
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+
+    </div>
 
   </div>
 
-  
+  <script type="text/javascript">
+    if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+      window.Promise = null;
+    }
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
+  </script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  
   <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-  
   <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  
   <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
-  
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
 
   <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
 
-
-
-  
-  
-
-
   <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
 
-
-
-  
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
-
-
-  
-
+  <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
 
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
 </body>
+
 </html>

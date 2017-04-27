@@ -1,363 +1,246 @@
 <!doctype html>
 
-
-
-  
-
-
 <html class="theme-next pisces use-motion" lang="zh-Hans">
+
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
+  />
 
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
 
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"
+  />
 
+  <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+                                                                                  rel="stylesheet" type="text/css">
 
+  <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet"
+                                                                                  type="text/css" />
 
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
+  <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
   <meta name="keywords" content="HTML5," />
 
-
-
-
-
-
-
-
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
+  <meta name="description" content="在不同域名下的通信访问，需要配置服务器，服务器的配置略过，以下笔记太过啰嗦仅供作者本人参考。">
+  <meta name="keywords" content="HTML5">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="HTML5详解之跨文档通信">
+  <meta property="og:url" content="http://yoursite.com/2017/04/10/HTML5详解之夸文档通信/index.html">
+  <meta property="og:site_name" content="Prawns's Blog">
+  <meta property="og:description" content="在不同域名下的通信访问，需要配置服务器，服务器的配置略过，以下笔记太过啰嗦仅供作者本人参考。">
+  <meta property="og:updated_time" content="2017-04-10T17:01:38.949Z">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="HTML5详解之跨文档通信">
+  <meta name="twitter:description" content="在不同域名下的通信访问，需要配置服务器，服务器的配置略过，以下笔记太过啰嗦仅供作者本人参考。">
 
+  <script type="text/javascript" id="hexo.configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {
+      root: '/',
+      scheme: 'Pisces',
+      sidebar: {
+        "position": "left",
+        "display": "post",
+        "offset": 12,
+        "offset_float": 0,
+        "b2t": false,
+        "scrollpercent": false
+      },
+      fancybox: true,
+      motion: true,
+      duoshuo: {
+        userId: '0',
+        author: '博主'
+      },
+      algolia: {
+        applicationID: '',
+        apiKey: '',
+        indexName: '',
+        hits: {
+          "per_page": 10
+        },
+        labels: {
+          "input_placeholder": "Search for Posts",
+          "hits_empty": "We didn't find any results for the search: ${query}",
+          "hits_stats": "${hits} results found in ${time} ms"
+        }
+      }
+    };
 
+  </script>
 
-
-
-<meta name="description" content="在不同域名下的通信访问，需要配置服务器，服务器的配置略过，以下笔记太过啰嗦仅供作者本人参考。">
-<meta name="keywords" content="HTML5">
-<meta property="og:type" content="article">
-<meta property="og:title" content="HTML5详解之跨文档通信">
-<meta property="og:url" content="http://yoursite.com/2017/04/10/HTML5详解之夸文档通信/index.html">
-<meta property="og:site_name" content="Prawns's Blog">
-<meta property="og:description" content="在不同域名下的通信访问，需要配置服务器，服务器的配置略过，以下笔记太过啰嗦仅供作者本人参考。">
-<meta property="og:updated_time" content="2017-04-10T17:01:38.949Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML5详解之跨文档通信">
-<meta name="twitter:description" content="在不同域名下的通信访问，需要配置服务器，服务器的配置略过，以下笔记太过啰嗦仅供作者本人参考。">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2017/04/10/HTML5详解之夸文档通信/"/>
-
-
-
-
+  <link rel="canonical" href="http://yoursite.com/2017/04/10/HTML5详解之夸文档通信/" />
 
   <title>HTML5详解之跨文档通信 | Prawns's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
   <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
+      <div class="header-inner">
+        <div class="site-brand-wrapper">
+          <div class="site-meta ">
 
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Prawns's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
+            <div class="custom-logo-site-title">
+              <a href="/" class="brand" rel="start">
+                <span class="logo-line-before">
+                  <i></i>
+                </span>
+                <span class="site-title">Prawns's Blog</span>
+                <span class="logo-line-after">
+                  <i></i>
+                </span>
+              </a>
+            </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
+            <p class="site-subtitle"></p>
 
-<nav class="site-nav">
-  
+          </div>
 
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            公益404
-          </a>
-        </li>
-      
+          <div class="site-nav-toggle">
+            <button>
+              <span class="btn-bar"></span>
+              <span class="btn-bar"></span>
+              <span class="btn-bar"></span>
+            </button>
+          </div>
+        </div>
 
-      
-    </ul>
-  
+        <nav class="site-nav">
 
-  
-</nav>
+          <ul id="menu" class="menu">
 
+            <li class="menu-item menu-item-home">
+              <a href="/" rel="section">
 
+                <i class="menu-item-icon fa fa-fw fa-home"></i>
+                <br /> 首页
+              </a>
+            </li>
 
- </div>
+            <li class="menu-item menu-item-about">
+              <a href="/about" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-user"></i>
+                <br /> 关于
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-archives">
+              <a href="/archives" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-archive"></i>
+                <br /> 归档
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-tags">
+              <a href="/tags" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-tags"></i>
+                <br /> 标签
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-commonweal">
+              <a href="/404.html" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-heartbeat"></i>
+                <br /> 公益404
+              </a>
+            </li>
+
+          </ul>
+
+        </nav>
+
+      </div>
     </header>
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
           <div id="content" class="content">
-            
 
-  <div id="posts" class="posts-expand">
-    
+            <div id="posts" class="posts-expand">
 
-  
+              <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+                <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/10/HTML5详解之夸文档通信/">
 
-  
-  
-  
+                <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                  <meta itemprop="name" content="John Doe">
+                  <meta itemprop="description" content="">
+                  <meta itemprop="image" content="/images/avatar.gif">
+                </span>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/10/HTML5详解之夸文档通信/">
+                <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                  <meta itemprop="name" content="Prawns's Blog">
+                </span>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
+                <header class="post-header">
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Prawns's Blog">
-    </span>
+                  <h1 class="post-title" itemprop="name headline">
 
-    
-      <header class="post-header">
+                    HTML5详解之跨文档通信
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                HTML5详解之跨文档通信
-              
-            
-          </h1>
-        
+                  </h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T20:24:54+08:00">
-                2017-04-10
-              </time>
-            
+                  <div class="post-meta">
+                    <span class="post-time">
 
-            
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-calendar-o"></i>
+                      </span>
 
-            
-          </span>
+                      <span class="post-meta-item-text">发表于</span>
 
-          
+                      <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T20:24:54+08:00">
+                        2017-04-10
+                      </time>
 
-          
-            
-          
+                    </span>
 
-          
-          
+                  </div>
+                </header>
 
-          
+                <div class="post-body" itemprop="articleBody">
 
-          
+                  <p>在不同域名下的通信访问，需要配置服务器，服务器的配置略过，以下笔记太过啰嗦仅供作者本人参考。</p>
+                  <p>
+                    <excerpt in="" index="" |="" 首页摘要="">
+                      <br>
+                      <a id="more"></a>
+                    </excerpt>
+                  </p>
+                  <the rest="" of="" contents="" |="" 余下全文="">
 
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>在不同域名下的通信访问，需要配置服务器，服务器的配置略过，以下笔记太过啰嗦仅供作者本人参考。</p>
-<p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文="">
-
-
-<h2 id="同域下的通信方式"><a href="#同域下的通信方式" class="headerlink" title="同域下的通信方式"></a>同域下的通信方式</h2><h3 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h3><p> 嵌入另一个文档</p>
-<pre><code>&lt;a href=&quot;index.html&quot; target=&quot;in&quot;&gt;index&lt;/a&gt; |
+                    <h2 id="同域下的通信方式">
+                      <a href="#同域下的通信方式" class="headerlink" title="同域下的通信方式"></a>同域下的通信方式</h2>
+                    <h3 id="iframe">
+                      <a href="#iframe" class="headerlink" title="iframe"></a>iframe</h3>
+                    <p> 嵌入另一个文档</p>
+                    <pre><code>&lt;a href=&quot;index.html&quot; target=&quot;in&quot;&gt;index&lt;/a&gt; |
 &lt;a href=&quot;http://www.baidu.com&quot; target=&quot;in&quot;&gt;百度&lt;/a&gt;
 &lt;iframe src=&quot;http://www.ycku.com&quot; width=&quot;600&quot; height=&quot;500&quot;name=&quot;in&quot;&gt;&lt;iframe&gt;
-</code></pre><p><strong>解释：</strong> <code>&lt;iframe</code>&gt;表示内嵌一个 HTML 文档。其下的 src属性表示初始化时显示的页面，<br>width 和 height 表示内嵌文档的长度和高度，name 表示用于 target 的名称。</p>
-<p>我们可以通过js去访问被iframe包含页面的DOM元素</p>
-<h4 id="contentWindow方法"><a href="#contentWindow方法" class="headerlink" title="contentWindow方法"></a>contentWindow方法</h4><p>找到被iframe包含的页面的window对象，通过这个方法，我们可以去操控这个被iframe包含的页面。</p>
-<p>示例：</p>
-<pre><code>&lt;script&gt;
+</code></pre>
+                    <p>
+                      <strong>解释：</strong>
+                      <code>&lt;iframe</code>&gt;表示内嵌一个 HTML 文档。其下的 src属性表示初始化时显示的页面，
+                      <br>width 和 height 表示内嵌文档的长度和高度，name 表示用于 target 的名称。</p>
+                    <p>我们可以通过js去访问被iframe包含页面的DOM元素</p>
+                    <h4 id="contentWindow方法">
+                      <a href="#contentWindow方法" class="headerlink" title="contentWindow方法"></a>contentWindow方法</h4>
+                    <p>找到被iframe包含的页面的window对象，通过这个方法，我们可以去操控这个被iframe包含的页面。</p>
+                    <p>示例：</p>
+                    <pre><code>&lt;script&gt;
 window.onload = function() {
     var oBtn = document.getElementById(&apos;btn&apos;);
     var oMyIframe = document.getElementById(&apos;myframe&apos;);
@@ -377,8 +260,13 @@ window.onload = function() {
     &lt;input type=&quot;button&quot; value=&quot;点击我，改变2.iframe.html的背景色&quot; id=&quot;btn&quot; /&gt;
     &lt;iframe id=&quot;myframe&quot; src=&quot;2.iframe.html&quot;&gt;&lt;/iframe&gt;
 &lt;/body&gt;
-</code></pre><h3 id="window-open"><a href="#window-open" class="headerlink" title="window.open"></a>window.open</h3><p>当window.open打开一个写页面的时候，会返回一个值，这个值就是被打开的窗口的window对象<br>通过这个返回的对象，我们可以在父页面直接操控这个返回window对象的页面<br>示例：</p>
-<pre><code>&lt;script&gt;
+</code></pre>
+                    <h3 id="window-open">
+                      <a href="#window-open" class="headerlink" title="window.open"></a>window.open</h3>
+                    <p>当window.open打开一个写页面的时候，会返回一个值，这个值就是被打开的窗口的window对象
+                      <br>通过这个返回的对象，我们可以在父页面直接操控这个返回window对象的页面
+                      <br>示例：</p>
+                    <pre><code>&lt;script&gt;
     window.onload = function() {
         var oBtn = document.getElementById(&apos;btn&apos;);
         var oBtn2 = document.getElementById(&apos;btn2&apos;);
@@ -400,8 +288,12 @@ window.onload = function() {
     &lt;input type=&quot;button&quot; value=&quot;点击我，开启一个新的窗口打开4.window.open.html页面&quot; id=&quot;btn&quot; /&gt;
     &lt;input type=&quot;button&quot; value=&quot;点击我，改变4.window.open.html页面的背景色&quot; id=&quot;btn2&quot; /&gt;
 &lt;/body&gt;
-</code></pre><h2 id="跨域的通信方式"><a href="#跨域的通信方式" class="headerlink" title="跨域的通信方式"></a>跨域的通信方式</h2><p>当本页面和包含页面不在同一个域名下的时候，这样操作就会有跨域操作安全限制的问题。<br>示例：</p>
-<pre><code>&lt;script&gt;
+</code></pre>
+                    <h2 id="跨域的通信方式">
+                      <a href="#跨域的通信方式" class="headerlink" title="跨域的通信方式"></a>跨域的通信方式</h2>
+                    <p>当本页面和包含页面不在同一个域名下的时候，这样操作就会有跨域操作安全限制的问题。
+                      <br>示例：</p>
+                    <pre><code>&lt;script&gt;
     window.onload = function() {
         var oBtn = document.getElementById(&apos;btn&apos;);
         var oMyIframe = document.getElementById(&apos;myframe&apos;);
@@ -416,15 +308,26 @@ window.onload = function() {
     &lt;input type=&quot;button&quot; value=&quot;点击我，改变2.iframe.html的背景色&quot; id=&quot;btn&quot; /&gt;
     &lt;iframe id=&quot;myframe&quot; src=&quot;http://www.b.com/2.iframe.html&quot;&gt;&lt;/iframe&gt;
 &lt;/body&gt;
-</code></pre><p>那么如果做到跨域的通信呢，其他的解决方法暂不表诉，我们这次只运用HTML5的新方法来解决。</p>
-<h3 id="postMessage"><a href="#postMessage" class="headerlink" title="postMessage"></a>postMessage</h3><p>作用：可以通过这个方法给另外一个窗口发送信息<br>写法：接受消息的窗口的windo对象.postMessage();<br>括号有两个参数：第一个参数是发送的数据；第二个参数是接受的域(需带上协议http://)</p>
-<h4 id="message"><a href="#message" class="headerlink" title="message"></a>message</h4><p>当窗口接受到通过postMessage发送过来的数据的时候触发<br>message事件下的event对象会保存了发送过来的内容<br>ev.data ：就是发送过来的数据<br>ev.origin : 就是发送数据来源的域</p>
-<p>用postMessage发送消息和我们前面直接去操作DOM有很大区别，在跨域的时候，我们是不能直接去操作另一个与域名下页面的DOM，必须通过postMessage去发送一个口令，另一个域名下的页面利用message接受到这个口令之后，就会去做一些它相关处理好的一些事情。</p>
-<p>由于有的时候我们不会只发送一个口令，所以需要判断在不同口令下做不同的事情。</p>
-<p>还要考虑安全性方面的问题，为了识别只有a.com发来的口令才会执行，我们需要利用ev.origin来判断是否是由a.com发送，具体怎样操作请看下面的两个示例。</p>
-<p>我们用两个不同的域名（a.com和b.com）模拟一下，下面分别给出两个不同域名下的页面代码</p>
-<p>示例：<br>这是a.com下的页面</p>
-<pre><code>&lt;script&gt;
+</code></pre>
+                    <p>那么如果做到跨域的通信呢，其他的解决方法暂不表诉，我们这次只运用HTML5的新方法来解决。</p>
+                    <h3 id="postMessage">
+                      <a href="#postMessage" class="headerlink" title="postMessage"></a>postMessage</h3>
+                    <p>作用：可以通过这个方法给另外一个窗口发送信息
+                      <br>写法：接受消息的窗口的windo对象.postMessage();
+                      <br>括号有两个参数：第一个参数是发送的数据；第二个参数是接受的域(需带上协议http://)</p>
+                    <h4 id="message">
+                      <a href="#message" class="headerlink" title="message"></a>message</h4>
+                    <p>当窗口接受到通过postMessage发送过来的数据的时候触发
+                      <br>message事件下的event对象会保存了发送过来的内容
+                      <br>ev.data ：就是发送过来的数据
+                      <br>ev.origin : 就是发送数据来源的域</p>
+                    <p>用postMessage发送消息和我们前面直接去操作DOM有很大区别，在跨域的时候，我们是不能直接去操作另一个与域名下页面的DOM，必须通过postMessage去发送一个口令，另一个域名下的页面利用message接受到这个口令之后，就会去做一些它相关处理好的一些事情。</p>
+                    <p>由于有的时候我们不会只发送一个口令，所以需要判断在不同口令下做不同的事情。</p>
+                    <p>还要考虑安全性方面的问题，为了识别只有a.com发来的口令才会执行，我们需要利用ev.origin来判断是否是由a.com发送，具体怎样操作请看下面的两个示例。</p>
+                    <p>我们用两个不同的域名（a.com和b.com）模拟一下，下面分别给出两个不同域名下的页面代码</p>
+                    <p>示例：
+                      <br>这是a.com下的页面</p>
+                    <pre><code>&lt;script&gt;
 window.onload = function() {
     var oBtn = document.getElementById(&apos;btn&apos;);
     var oMyIframe = document.getElementById(&apos;myframe&apos;);
@@ -446,8 +349,9 @@ window.onload = function() {
     &lt;input type=&quot;button&quot; value=&quot;点击我，改变2.iframe.html的背景色&quot; id=&quot;btn&quot; /&gt;
     &lt;iframe id=&quot;myframe&quot; src=&quot;http://www.b.com/3.postMessage.html&quot;&gt;&lt;/iframe&gt;
 &lt;/body&gt;
-</code></pre><p>这是b.com下的页面</p>
-<pre><code>&lt;script&gt;
+</code></pre>
+                    <p>这是b.com下的页面</p>
+                    <pre><code>&lt;script&gt;
 window.onload = function() {
     //message : 当窗口接收到通过postMessage发送过来的数据的时候触发
     //通过addEventListener来绑定message，使它被触发的时候操作需要发生的事件
@@ -483,9 +387,16 @@ window.onload = function() {
     这是b.com的postMessage.html页面
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><h2 id="同域下的交互方式"><a href="#同域下的交互方式" class="headerlink" title="同域下的交互方式"></a>同域下的交互方式</h2><p>上面的内容都是父页面操控子页面，其实子页面也能操控父页面。</p>
-<h3 id="parent"><a href="#parent" class="headerlink" title="parent"></a>parent</h3><p>parent = window<br>如果当前页面是顶级，没有被其他页面所包含，那么parent就是当前页面的window对象，那么如果被包含了，则parent就是包含当前页面的父级页面的window对象，通过parent我们可以让同域下子页面操控父页面。<br>示例：</p>
-<pre><code>&lt;script&gt;
+</code></pre>
+                    <h2 id="同域下的交互方式">
+                      <a href="#同域下的交互方式" class="headerlink" title="同域下的交互方式"></a>同域下的交互方式</h2>
+                    <p>上面的内容都是父页面操控子页面，其实子页面也能操控父页面。</p>
+                    <h3 id="parent">
+                      <a href="#parent" class="headerlink" title="parent"></a>parent</h3>
+                    <p>parent = window
+                      <br>如果当前页面是顶级，没有被其他页面所包含，那么parent就是当前页面的window对象，那么如果被包含了，则parent就是包含当前页面的父级页面的window对象，通过parent我们可以让同域下子页面操控父页面。
+                      <br>示例：</p>
+                    <pre><code>&lt;script&gt;
     window.onload = function() {
         var oBtn = document.getElementById(&apos;btn&apos;);
         oBtn.onclick = function(){
@@ -500,12 +411,23 @@ window.onload = function() {
     &lt;input type=&quot;button&quot; value=&quot;点击我，改a.com页面的背景色&quot; id=&quot;btn&quot; /&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><h3 id="iframe下"><a href="#iframe下" class="headerlink" title="iframe下"></a>iframe下</h3><p>被iframe包含的页面我们暂且称呼它为子页面，<br>存放iframe标签的页面我们暂且称呼它为父页面。</p>
-<p>父页面 ：父页面用contentWindow –&gt; 找到被iframe包含的页面(子页面)的window对象<br>子页面 ：子页面用window.top –&gt; 找到被包含页面(子页面)的最顶层的父页面的window对象</p>
-<h3 id="windo-open-窗口页"><a href="#windo-open-窗口页" class="headerlink" title="windo.open 窗口页"></a>windo.open 窗口页</h3><p>使用window.open()方法的页面我们暂且称呼它为父页面，<br>被window.open打开的页面我们暂且称呼它为子页面。</p>
-<p>父页面 ：父页面用window.open –&gt; 打开的新页面(子页面)，并且返回这个新页面的window对象<br>子页面 ：子页面用window.opener –&gt; 找到用window.open方法打开当前页面的父页面的window对象。</p>
-<p>示例：（<strong>Ps:</strong> iframe的操作方式和它差不多，我们就不做表述。）<br>用来打开新页面的页面</p>
-<pre><code>&lt;script&gt;
+</code></pre>
+                    <h3 id="iframe下">
+                      <a href="#iframe下" class="headerlink" title="iframe下"></a>iframe下</h3>
+                    <p>被iframe包含的页面我们暂且称呼它为子页面，
+                      <br>存放iframe标签的页面我们暂且称呼它为父页面。</p>
+                    <p>父页面 ：父页面用contentWindow –&gt; 找到被iframe包含的页面(子页面)的window对象
+                      <br>子页面 ：子页面用window.top –&gt; 找到被包含页面(子页面)的最顶层的父页面的window对象</p>
+                    <h3 id="windo-open-窗口页">
+                      <a href="#windo-open-窗口页" class="headerlink" title="windo.open 窗口页"></a>windo.open 窗口页</h3>
+                    <p>使用window.open()方法的页面我们暂且称呼它为父页面，
+                      <br>被window.open打开的页面我们暂且称呼它为子页面。</p>
+                    <p>父页面 ：父页面用window.open –&gt; 打开的新页面(子页面)，并且返回这个新页面的window对象
+                      <br>子页面 ：子页面用window.opener –&gt; 找到用window.open方法打开当前页面的父页面的window对象。</p>
+                    <p>示例：（
+                      <strong>Ps:</strong> iframe的操作方式和它差不多，我们就不做表述。）
+                      <br>用来打开新页面的页面</p>
+                    <pre><code>&lt;script&gt;
 window.onload = function() {
     var oBtn = document.getElementById(&apos;btn&apos;);
     var oBtn2 = document.getElementById(&apos;btn2&apos;);
@@ -527,8 +449,9 @@ window.onload = function() {
     &lt;input type=&quot;button&quot; value=&quot;点击我，开启一个新的窗口打开4.window.open.html页面&quot; id=&quot;btn&quot; /&gt;
     &lt;input type=&quot;button&quot; value=&quot;点击我，改变4.window.open.html页面的背景色&quot; id=&quot;btn2&quot; /&gt;
 &lt;/body&gt;
-</code></pre><p>被打开的页面</p>
-<pre><code>&lt;script&gt;
+</code></pre>
+                    <p>被打开的页面</p>
+                    <pre><code>&lt;script&gt;
 window.onload = function() {
     var oBtn = document.getElementById(&apos;btn&apos;);
     oBtn.onclick = function() {
@@ -543,375 +466,289 @@ window.onload = function() {
     这是a.com下的4.window.open.html页面
     &lt;input type=&quot;button&quot; value=&quot;点击我，改变3.window.open.html页面的背景色&quot; id=&quot;btn&quot; /&gt;
 &lt;/body&gt;
-</code></pre></the>
-      
-    </div>
+</code></pre>
+                  </the>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/HTML5/" rel="tag"># HTML5</a>
-          
-        </div>
-      
+                </div>
 
-      
-        
-      
+                <footer class="post-footer">
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/04/11/Ajax的新特性/" rel="next" title="Ajax的新特性">
-                <i class="fa fa-chevron-left"></i> Ajax的新特性
-              </a>
-            
-          </div>
+                  <div class="post-tags">
 
-          <span class="post-nav-divider"></span>
+                    <a href="/tags/HTML5/" rel="tag"># HTML5</a>
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/09/jQ-常用API/" rel="prev" title="jQ初探-常用API">
-                jQ初探-常用API <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
+                  </div>
 
-      
-      
-    </footer>
-  </article>
+                  <div class="post-nav">
+                    <div class="post-nav-next post-nav-item">
 
+                      <a href="/2017/04/11/Ajax的新特性/" rel="next" title="Ajax的新特性">
+                        <i class="fa fa-chevron-left"></i> Ajax的新特性
+                      </a>
 
+                    </div>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+                    <span class="post-nav-divider"></span>
 
+                    <div class="post-nav-prev post-nav-item">
 
-          </div>
-          
+                      <a href="/2017/04/09/jQ-常用API/" rel="prev" title="jQ初探-常用API">
+                        jQ初探-常用API
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
 
+                    </div>
+                  </div>
 
-          
-  <div class="comments" id="comments">
-    
-  </div>
+                </footer>
+              </article>
 
+              <div class="post-spread">
 
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
+              </div>
             </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">分类</span>
-              
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">标签</span>
-              
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#同域下的通信方式"><span class="nav-number">1.</span> <span class="nav-text">同域下的通信方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#iframe"><span class="nav-number">1.1.</span> <span class="nav-text">iframe</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#contentWindow方法"><span class="nav-number">1.1.1.</span> <span class="nav-text">contentWindow方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#window-open"><span class="nav-number">1.2.</span> <span class="nav-text">window.open</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域的通信方式"><span class="nav-number">2.</span> <span class="nav-text">跨域的通信方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#postMessage"><span class="nav-number">2.1.</span> <span class="nav-text">postMessage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#message"><span class="nav-number">2.1.1.</span> <span class="nav-text">message</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同域下的交互方式"><span class="nav-number">3.</span> <span class="nav-text">同域下的交互方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#parent"><span class="nav-number">3.1.</span> <span class="nav-text">parent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iframe下"><span class="nav-number">3.2.</span> <span class="nav-text">iframe下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windo-open-窗口页"><span class="nav-number">3.3.</span> <span class="nav-text">windo.open 窗口页</span></a></li></ol></li></ol></div>
-            
 
           </div>
-        </section>
-      <!--/noindex-->
-      
 
-      
+          <div class="comments" id="comments">
 
-    </div>
-  </aside>
+          </div>
 
+        </div>
 
-        
+        <div class="sidebar-toggle">
+          <div class="sidebar-toggle-line-wrap">
+            <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+            <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+            <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+          </div>
+        </div>
+
+        <aside id="sidebar" class="sidebar">
+          <div class="sidebar-inner">
+
+            <ul class="sidebar-nav motion-element">
+              <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+                文章目录
+              </li>
+              <li class="sidebar-nav-overview" data-target="site-overview">
+                站点概览
+              </li>
+            </ul>
+
+            <section class="site-overview sidebar-panel">
+              <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="John Doe"
+                />
+                <p class="site-author-name" itemprop="name">John Doe</p>
+
+                <p class="site-description motion-element" itemprop="description"></p>
+
+              </div>
+              <nav class="site-state motion-element">
+
+                <div class="site-state-item site-state-posts">
+                  <a href="/archives">
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+
+                <div class="site-state-item site-state-categories">
+
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+
+                </div>
+
+                <div class="site-state-item site-state-tags">
+
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+
+                </div>
+
+              </nav>
+
+              <div class="links-of-author motion-element">
+
+              </div>
+
+            </section>
+
+            <!--noindex-->
+            <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+              <div class="post-toc">
+
+                <div class="post-toc-content">
+                  <ol class="nav">
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#同域下的通信方式">
+                        <span class="nav-number">1.</span>
+                        <span class="nav-text">同域下的通信方式</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#iframe">
+                            <span class="nav-number">1.1.</span>
+                            <span class="nav-text">iframe</span>
+                          </a>
+                          <ol class="nav-child">
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#contentWindow方法">
+                                <span class="nav-number">1.1.1.</span>
+                                <span class="nav-text">contentWindow方法</span>
+                              </a>
+                            </li>
+                          </ol>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#window-open">
+                            <span class="nav-number">1.2.</span>
+                            <span class="nav-text">window.open</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#跨域的通信方式">
+                        <span class="nav-number">2.</span>
+                        <span class="nav-text">跨域的通信方式</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#postMessage">
+                            <span class="nav-number">2.1.</span>
+                            <span class="nav-text">postMessage</span>
+                          </a>
+                          <ol class="nav-child">
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#message">
+                                <span class="nav-number">2.1.1.</span>
+                                <span class="nav-text">message</span>
+                              </a>
+                            </li>
+                          </ol>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#同域下的交互方式">
+                        <span class="nav-number">3.</span>
+                        <span class="nav-text">同域下的交互方式</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#parent">
+                            <span class="nav-number">3.1.</span>
+                            <span class="nav-text">parent</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#iframe下">
+                            <span class="nav-number">3.2.</span>
+                            <span class="nav-text">iframe下</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#windo-open-窗口页">
+                            <span class="nav-number">3.3.</span>
+                            <span class="nav-text">windo.open 窗口页</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                  </ol>
+                </div>
+
+              </div>
+            </section>
+            <!--/noindex-->
+
+          </div>
+        </aside>
+
       </div>
     </main>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
-</div>
+        <div class="copyright">
 
+          &copy;
+          <span itemprop="copyrightYear">2017</span>
+          <span class="with-love">
+            <i class="fa fa-heart"></i>
+          </span>
+          <span class="author" itemprop="copyrightHolder">John Doe</span>
+        </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+        <div class="powered-by">
+          由
+          <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+        </div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+        <div class="theme-info">
+          主题 -
+          <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+            NexT.Pisces
+          </a>
+        </div>
 
-
-        
-
-        
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+
+    </div>
 
   </div>
 
-  
+  <script type="text/javascript">
+    if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+      window.Promise = null;
+    }
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
+  </script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  
   <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-  
   <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  
   <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
-  
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
 
   <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
 
-
-
-  
-  
-
-
   <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
 
-
-
-  
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
-
-
-  
-
+  <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
 
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
 </body>
+
 </html>

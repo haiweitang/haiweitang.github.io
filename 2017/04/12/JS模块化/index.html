@@ -1,399 +1,333 @@
 <!doctype html>
 
-
-
-  
-
-
 <html class="theme-next pisces use-motion" lang="zh-Hans">
+
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
+  />
 
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
 
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"
+  />
 
+  <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+                                                                                  rel="stylesheet" type="text/css">
 
+  <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet"
+                                                                                  type="text/css" />
 
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
+  <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
   <meta name="keywords" content="JS," />
 
-
-
-
-
-
-
-
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
+  <meta name="description" content="关于浏览器JS的模块化目前有两个比较受关注的阵营。AMD规范（http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition）requireJS库（http://requirejs.org/)CMD规范Seajs采用的 http://seajs.org 服务器端模块化规范commonJS规范（http://www.commonjs.org/">
+  <meta name="keywords" content="JS">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="JS模块化">
+  <meta property="og:url" content="http://yoursite.com/2017/04/12/JS模块化/index.html">
+  <meta property="og:site_name" content="Prawns's Blog">
+  <meta property="og:description" content="关于浏览器JS的模块化目前有两个比较受关注的阵营。AMD规范（http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition）requireJS库（http://requirejs.org/)CMD规范Seajs采用的 http://seajs.org 服务器端模块化规范commonJS规范（http://www.commonjs.org/">
+  <meta property="og:updated_time" content="2017-04-27T05:43:14.054Z">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="JS模块化">
+  <meta name="twitter:description" content="关于浏览器JS的模块化目前有两个比较受关注的阵营。AMD规范（http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition）requireJS库（http://requirejs.org/)CMD规范Seajs采用的 http://seajs.org 服务器端模块化规范commonJS规范（http://www.commonjs.org/">
 
+  <script type="text/javascript" id="hexo.configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {
+      root: '/',
+      scheme: 'Pisces',
+      sidebar: {
+        "position": "left",
+        "display": "post",
+        "offset": 12,
+        "offset_float": 0,
+        "b2t": false,
+        "scrollpercent": false
+      },
+      fancybox: true,
+      motion: true,
+      duoshuo: {
+        userId: '0',
+        author: '博主'
+      },
+      algolia: {
+        applicationID: '',
+        apiKey: '',
+        indexName: '',
+        hits: {
+          "per_page": 10
+        },
+        labels: {
+          "input_placeholder": "Search for Posts",
+          "hits_empty": "We didn't find any results for the search: ${query}",
+          "hits_stats": "${hits} results found in ${time} ms"
+        }
+      }
+    };
 
+  </script>
 
-
-
-<meta name="description" content="关于浏览器JS的模块化目前有两个比较受关注的阵营。AMD规范（http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition）requireJS库（http://requirejs.org/)CMD规范Seajs采用的 http://seajs.org 服务器端模块化规范commonJS规范（http://www.commonjs.org/">
-<meta name="keywords" content="JS">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JS模块化">
-<meta property="og:url" content="http://yoursite.com/2017/04/12/JS模块化/index.html">
-<meta property="og:site_name" content="Prawns's Blog">
-<meta property="og:description" content="关于浏览器JS的模块化目前有两个比较受关注的阵营。AMD规范（http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition）requireJS库（http://requirejs.org/)CMD规范Seajs采用的 http://seajs.org 服务器端模块化规范commonJS规范（http://www.commonjs.org/">
-<meta property="og:updated_time" content="2017-04-27T05:43:14.054Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS模块化">
-<meta name="twitter:description" content="关于浏览器JS的模块化目前有两个比较受关注的阵营。AMD规范（http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition）requireJS库（http://requirejs.org/)CMD规范Seajs采用的 http://seajs.org 服务器端模块化规范commonJS规范（http://www.commonjs.org/">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2017/04/12/JS模块化/"/>
-
-
-
-
+  <link rel="canonical" href="http://yoursite.com/2017/04/12/JS模块化/" />
 
   <title>JS模块化 | Prawns's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
   <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
+      <div class="header-inner">
+        <div class="site-brand-wrapper">
+          <div class="site-meta ">
 
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Prawns's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
+            <div class="custom-logo-site-title">
+              <a href="/" class="brand" rel="start">
+                <span class="logo-line-before">
+                  <i></i>
+                </span>
+                <span class="site-title">Prawns's Blog</span>
+                <span class="logo-line-after">
+                  <i></i>
+                </span>
+              </a>
+            </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
+            <p class="site-subtitle"></p>
 
-<nav class="site-nav">
-  
+          </div>
 
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            公益404
-          </a>
-        </li>
-      
+          <div class="site-nav-toggle">
+            <button>
+              <span class="btn-bar"></span>
+              <span class="btn-bar"></span>
+              <span class="btn-bar"></span>
+            </button>
+          </div>
+        </div>
 
-      
-    </ul>
-  
+        <nav class="site-nav">
 
-  
-</nav>
+          <ul id="menu" class="menu">
 
+            <li class="menu-item menu-item-home">
+              <a href="/" rel="section">
 
+                <i class="menu-item-icon fa fa-fw fa-home"></i>
+                <br /> 首页
+              </a>
+            </li>
 
- </div>
+            <li class="menu-item menu-item-about">
+              <a href="/about" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-user"></i>
+                <br /> 关于
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-archives">
+              <a href="/archives" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-archive"></i>
+                <br /> 归档
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-tags">
+              <a href="/tags" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-tags"></i>
+                <br /> 标签
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-commonweal">
+              <a href="/404.html" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-heartbeat"></i>
+                <br /> 公益404
+              </a>
+            </li>
+
+          </ul>
+
+        </nav>
+
+      </div>
     </header>
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
           <div id="content" class="content">
-            
 
-  <div id="posts" class="posts-expand">
-    
+            <div id="posts" class="posts-expand">
 
-  
+              <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+                <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/12/JS模块化/">
 
-  
-  
-  
+                <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                  <meta itemprop="name" content="John Doe">
+                  <meta itemprop="description" content="">
+                  <meta itemprop="image" content="/images/avatar.gif">
+                </span>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/12/JS模块化/">
+                <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                  <meta itemprop="name" content="Prawns's Blog">
+                </span>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
+                <header class="post-header">
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Prawns's Blog">
-    </span>
+                  <h1 class="post-title" itemprop="name headline">
 
-    
-      <header class="post-header">
+                    JS模块化
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                JS模块化
-              
-            
-          </h1>
-        
+                  </h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-12T16:27:28+08:00">
-                2017-04-12
-              </time>
-            
+                  <div class="post-meta">
+                    <span class="post-time">
 
-            
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-calendar-o"></i>
+                      </span>
 
-            
-          </span>
+                      <span class="post-meta-item-text">发表于</span>
 
-          
+                      <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-12T16:27:28+08:00">
+                        2017-04-12
+                      </time>
 
-          
-            
-          
+                    </span>
 
-          
-          
+                  </div>
+                </header>
 
-          
+                <div class="post-body" itemprop="articleBody">
 
-          
+                  <p>
+                    <strong>关于浏览器JS的模块化目前有两个比较受关注的阵营。</strong>
+                    <br>
+                    <strong>AMD规范</strong>（
+                    <a href="http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition）"
+                                                                                                    target="_blank" rel="external">http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition）</a>
+                    <br>requireJS库（
+                    <a href="http://requirejs.org/" target="_blank" rel="external">http://requirejs.org/</a>)
+                    <br>
+                    <strong>CMD规范</strong>
+                    <br>Seajs采用的
+                    <a href="http://seajs.org" target="_blank" rel="external">http://seajs.org</a>
+                  </p>
+                  <p>
+                    <strong>服务器端模块化规范</strong>
+                    <br>commonJS规范（
+                    <a href="http://www.commonjs.org/）" target="_blank"
+                                                                                                    rel="external">http://www.commonjs.org/）</a>
+                  </p>
+                  <p>
+                    <excerpt in="" index="" |="" 首页摘要="">
+                      <br>
+                      <a id="more"></a>
+                    </excerpt>
+                  </p>
+                  <the rest="" of="" contents="" |="" 余下全文="">
 
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p><strong>关于浏览器JS的模块化目前有两个比较受关注的阵营。</strong><br><strong>AMD规范</strong>（<a href="http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition）" target="_blank" rel="external">http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition）</a><br>requireJS库（<a href="http://requirejs.org/" target="_blank" rel="external">http://requirejs.org/</a>)<br><strong>CMD规范</strong><br>Seajs采用的 <a href="http://seajs.org" target="_blank" rel="external">http://seajs.org</a></p>
-<p><strong>服务器端模块化规范</strong><br>commonJS规范（<a href="http://www.commonjs.org/）" target="_blank" rel="external">http://www.commonjs.org/）</a></p>
-<p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文="">
-
-<h3 id="冲突"><a href="#冲突" class="headerlink" title="冲突"></a>冲突</h3><p>命名空间是为了避免多人协作开发的时候冲突<br>不足：1. 名字比较长，如果变成三层四层，每次调用命名空间的函数，都会写很长名字。</p>
-<pre><code>2. 命名空间只能降低冲突，不能完全避免。
-</code></pre><h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p>在实际的开发中，会有很多js模块文件相互依赖，如果不实现避免，那么后面的开发将会越来越负载，变得不可维护，最后只有推到重来。</p>
-<h3 id="Seajs库"><a href="#Seajs库" class="headerlink" title="Seajs库"></a>Seajs库</h3><p>seajs库就是用来避免实际开放中的相互冲突和依赖。</p>
-<p>seajs如何解决?</p>
-<h4 id="1-引入sea-js的库"><a href="#1-引入sea-js的库" class="headerlink" title="1.引入sea.js的库"></a>1.引入sea.js的库</h4><p>创建一个hmtl文件，在文件里引入sea.js.</p>
-<pre><code>&lt;script src=&quot;sea/sea.js&quot;&gt;&lt;/script&gt;
-</code></pre><h4 id="2-如何变成模块？"><a href="#2-如何变成模块？" class="headerlink" title="2.如何变成模块？"></a>2.如何变成模块？</h4><p>创建一个module.js文件，在文件里写入以下代码</p>
-<pre><code>function show(){
+                    <h3 id="冲突">
+                      <a href="#冲突" class="headerlink" title="冲突"></a>冲突</h3>
+                    <p>命名空间是为了避免多人协作开发的时候冲突
+                      <br>不足：1. 名字比较长，如果变成三层四层，每次调用命名空间的函数，都会写很长名字。</p>
+                    <pre><code>2. 命名空间只能降低冲突，不能完全避免。
+</code></pre>
+                    <h3 id="依赖">
+                      <a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3>
+                    <p>在实际的开发中，会有很多js模块文件相互依赖，如果不实现避免，那么后面的开发将会越来越负载，变得不可维护，最后只有推到重来。</p>
+                    <h3 id="Seajs库">
+                      <a href="#Seajs库" class="headerlink" title="Seajs库"></a>Seajs库</h3>
+                    <p>seajs库就是用来避免实际开放中的相互冲突和依赖。</p>
+                    <p>seajs如何解决?</p>
+                    <h4 id="1-引入sea-js的库">
+                      <a href="#1-引入sea-js的库" class="headerlink" title="1.引入sea.js的库"></a>1.引入sea.js的库</h4>
+                    <p>创建一个hmtl文件，在文件里引入sea.js.</p>
+                    <pre><code>&lt;script src=&quot;sea/sea.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+                    <h4 id="2-如何变成模块？">
+                      <a href="#2-如何变成模块？" class="headerlink" title="2.如何变成模块？"></a>2.如何变成模块？</h4>
+                    <p>创建一个module.js文件，在文件里写入以下代码</p>
+                    <pre><code>function show(){
     alert(1);
 }
 function show(){
     alert(2);
 }
-</code></pre><p>上面代码中的两个show方法，会出现冲突，我们用seajs来解决这个冲突<br>首先需要调用seajs下的define()方法，define()括号里传入一个回调函数define(function(){}); 在这个回调函数的括号里需要传入三个参数，reauire,exports,moudle。<br>这三个参数是不允许修改的，可以都写，也可以都不写，或者是只写前两个，或者只写前一个。建议都带上。<br><strong>require:</strong> 依赖的接口<br><strong>exports:</strong> 对外提供访问的接口<br><strong>module:</strong> 当前模块的相应信息<br>这三个接口我们会在后面的内容中详细描述</p>
-<pre><code>define(function(require,exports,moudle){
+</code></pre>
+                    <p>上面代码中的两个show方法，会出现冲突，我们用seajs来解决这个冲突
+                      <br>首先需要调用seajs下的define()方法，define()括号里传入一个回调函数define(function(){});
+                      在这个回调函数的括号里需要传入三个参数，reauire,exports,moudle。
+                      <br>这三个参数是不允许修改的，可以都写，也可以都不写，或者是只写前两个，或者只写前一个。建议都带上。
+                      <br>
+                      <strong>require:</strong> 依赖的接口
+                      <br>
+                      <strong>exports:</strong> 对外提供访问的接口
+                      <br>
+                      <strong>module:</strong> 当前模块的相应信息
+                      <br>这三个接口我们会在后面的内容中详细描述</p>
+                    <pre><code>define(function(require,exports,moudle){
     function show(){
         alert(1);
     }
 });
-</code></pre><h4 id="3-如何调用模块？"><a href="#3-如何调用模块？" class="headerlink" title="3.如何调用模块？"></a>3.如何调用模块？</h4><p><strong>exports：*</strong> 对外提供接口的对象<br>让这个函数编程exports下面的一个属性，然后就可以外面调用到这个函数。</p>
-<pre><code>define(function(require,exports,moudle){
+</code></pre>
+                    <h4 id="3-如何调用模块？">
+                      <a href="#3-如何调用模块？" class="headerlink" title="3.如何调用模块？"></a>3.如何调用模块？</h4>
+                    <p>
+                      <strong>exports：*</strong> 对外提供接口的对象
+                      <br>让这个函数编程exports下面的一个属性，然后就可以外面调用到这个函数。</p>
+                    <pre><code>define(function(require,exports,moudle){
     function show(){
         alert(1);
     }
     exports.show = show;   //让上面的show函数变成exports下面的一个属性
 });
 exports.show();   //想在外面调用到exports.show()函数，还需要使用seaja.use()来完成调用
-</code></pre><p>我们不能再html文件里直接通过script标签来引入module.js文件，这样并不能让让exports.show()执行，需要用seajs库的seajs.use()方法来调用。</p>
-<p><strong>seajs.use():</strong> 通过它才能调用到define里面的函数方法。<br>seajs.use()括号里传入两个参数，</p>
-<p>第一个参数：模块的地址。</p>
-<pre><code>seajs.use(&apos;js/module1.js&apos;); //这个时候去调用会报错
+</code></pre>
+                    <p>我们不能再html文件里直接通过script标签来引入module.js文件，这样并不能让让exports.show()执行，需要用seajs库的seajs.use()方法来调用。</p>
+                    <p>
+                      <strong>seajs.use():</strong> 通过它才能调用到define里面的函数方法。
+                      <br>seajs.use()括号里传入两个参数，</p>
+                    <p>第一个参数：模块的地址。</p>
+                    <pre><code>seajs.use(&apos;js/module1.js&apos;); //这个时候去调用会报错
 //错误信息：&quot;NetworkError: 404 Not Found - http://localhost/sea/sea/js/module1.js&quot;
-</code></pre><p>这个地址被解析成sea/sea/js/module1.js。因为使用seajs.use的时候，我们的更目录并不是以当前页面为更目录的，而是以sea.js这个文件为根目录。<br>那么如果我们想以当前页面为根目录的话，需要使用相对路径</p>
-<pre><code>seajs.use(&apos;./js/module1.js&apos;); //这样就不会报错了，并且module.js的路径也找到了
-</code></pre><p>第二个参数：就是加载好的回调函数<br>这个回调函数括号内可以接受一个参数，参数的名字我们随便取。这个参数就代表module.js模块中的exports。现在我们就可以调用到show()函数了。<br>使用seajs只有通过这样的形式才能调用到模块中的方法</p>
-<pre><code>seajs.use(&apos;./js/module1.js&apos;,function(ex){ 
+</code></pre>
+                    <p>这个地址被解析成sea/sea/js/module1.js。因为使用seajs.use的时候，我们的更目录并不是以当前页面为更目录的，而是以sea.js这个文件为根目录。
+                      <br>那么如果我们想以当前页面为根目录的话，需要使用相对路径</p>
+                    <pre><code>seajs.use(&apos;./js/module1.js&apos;); //这样就不会报错了，并且module.js的路径也找到了
+</code></pre>
+                    <p>第二个参数：就是加载好的回调函数
+                      <br>这个回调函数括号内可以接受一个参数，参数的名字我们随便取。这个参数就代表module.js模块中的exports。现在我们就可以调用到show()函数了。
+                      <br>使用seajs只有通过这样的形式才能调用到模块中的方法</p>
+                    <pre><code>seajs.use(&apos;./js/module1.js&apos;,function(ex){ 
             ex.show();
         });
-</code></pre><p>通过define和seajs.use我们就可以很容易的解决掉了模块中冲突的问题。<br>假如另一个同事，在module2.js模块中也写了这样一个方法，那么这个时候模块路径就会起到分辨的作用。不会和module1.js起冲突</p>
-<pre><code>seajs.use(&apos;./js/module2.js&apos;,function(ex){ 
+</code></pre>
+                    <p>通过define和seajs.use我们就可以很容易的解决掉了模块中冲突的问题。
+                      <br>假如另一个同事，在module2.js模块中也写了这样一个方法，那么这个时候模块路径就会起到分辨的作用。不会和module1.js起冲突</p>
+                    <pre><code>seajs.use(&apos;./js/module2.js&apos;,function(ex){ 
                 ex.show();
             });
-</code></pre><h3 id="4-如何依赖模块？"><a href="#4-如何依赖模块？" class="headerlink" title="4. 如何依赖模块？"></a>4. 如何依赖模块？</h3><p>require:模块之间依赖的接口<br>require(‘./module2.js’);括号内传入需要依赖的文件的相对地址。</p>
-<pre><code>define(function(require,exports,moudle){
+</code></pre>
+                    <h3 id="4-如何依赖模块？">
+                      <a href="#4-如何依赖模块？" class="headerlink" title="4. 如何依赖模块？"></a>4. 如何依赖模块？</h3>
+                    <p>require:模块之间依赖的接口
+                      <br>require(‘./module2.js’);括号内传入需要依赖的文件的相对地址。</p>
+                    <pre><code>define(function(require,exports,moudle){
 
     require(&apos;../js/module2.js&apos;);
     var a = require(&apos;../js/module2.js&apos;).a;  //当引入的是sea下面的模块的时候，那么require执行完的结果就是exports
@@ -403,11 +337,23 @@ exports.show();   //想在外面调用到exports.show()函数，还需要使用s
     }
     exports.show = show;
 });
-</code></pre><h3 id="构建工具"><a href="#构建工具" class="headerlink" title="构建工具"></a>构建工具</h3><p>我们的开发文件传到网上到时候，会先经行压缩和合并以及一些其他的处理，<br>当有很多个文件的时候，用手动来压缩或合并会浪费很多时间，而且过程中还会出错误，这个时候就需要用到构建工具。<br>目前比较流行的线上线下构建工具gruntjs（ <a href="http://gruntjs.com/" target="_blank" rel="external">http://gruntjs.com/</a> ）</p>
-<p>一下是部分流程，更多详细功能请参考gruntjs官网。</p>
-<h4 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h4><p>先安装nodejs和npm(包管理工具)<br>npm install -g grunt-cli<br>npm install grunt –save-dev<br>grunt –version      //测试grunt版本</p>
-<p>新建一个package.json文件，文件内写入代码</p>
-<pre><code>{
+</code></pre>
+                    <h3 id="构建工具">
+                      <a href="#构建工具" class="headerlink" title="构建工具"></a>构建工具</h3>
+                    <p>我们的开发文件传到网上到时候，会先经行压缩和合并以及一些其他的处理，
+                      <br>当有很多个文件的时候，用手动来压缩或合并会浪费很多时间，而且过程中还会出错误，这个时候就需要用到构建工具。
+                      <br>目前比较流行的线上线下构建工具gruntjs（
+                      <a href="http://gruntjs.com/" target="_blank"
+                                                                                                      rel="external">http://gruntjs.com/</a> ）</p>
+                    <p>一下是部分流程，更多详细功能请参考gruntjs官网。</p>
+                    <h4 id="安装流程">
+                      <a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h4>
+                    <p>先安装nodejs和npm(包管理工具)
+                      <br>npm install -g grunt-cli
+                      <br>npm install grunt –save-dev
+                      <br>grunt –version //测试grunt版本</p>
+                    <p>新建一个package.json文件，文件内写入代码</p>
+                    <pre><code>{
   &quot;name&quot;: &quot;webqq&quot;,          //项目名字
   &quot;version&quot;: &quot;0.1.0&quot;,        //你的版本号
   &quot;devDependencies&quot;: {
@@ -418,9 +364,11 @@ exports.show();   //想在外面调用到exports.show()函数，还需要使用s
   }
 }
 //需要用到什么插件，就可以在package.json文件里写上什么插件的名字以及版本好。
-</code></pre><p>配置好package.json文件之后，在命令行输入npm install，回车。<br>然后就会在你的目录下面下载node_modules文件夹，里面就有package.json文件里的grunt-contrib-concat插件。</p>
-<p>再新建一个Gruntfile.js文件，配置内容</p>
-<pre><code>module.exports = function(grunt) {
+</code></pre>
+                    <p>配置好package.json文件之后，在命令行输入npm install，回车。
+                      <br>然后就会在你的目录下面下载node_modules文件夹，里面就有package.json文件里的grunt-contrib-concat插件。</p>
+                    <p>再新建一个Gruntfile.js文件，配置内容</p>
+                    <pre><code>module.exports = function(grunt) {
     // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON(&apos;package.json&apos;),   //括号内传入package.json配置文件
@@ -444,11 +392,21 @@ exports.show();   //想在外面调用到exports.show()函数，还需要使用s
   grunt.loadNpmTasks(&apos;grunt-contrib-uglify&apos;);   //加载uglify插件
   grunt.registerTask(&apos;default&apos;, [&apos;concat&apos;,&apos;uglify&apos;]);   //运行插件
 };
-</code></pre><p>命令行输入grunt,回车，执行这个任务。<br>经过上面这一系列流程，就能把main.js,drag.js,scale.js,range.js这四个文件里的内容合并到一个新文件main.js里面去。<br>把新生成的main.js文件压缩之后放入main.min.js文件中。</p>
-<h3 id="seajs构建的问题"><a href="#seajs构建的问题" class="headerlink" title="seajs构建的问题"></a>seajs构建的问题</h3><p>在上面我们学习了gruntjs的两个小方法,实现了代码的合并和压缩。<br>但是我们合并用seajs模块化的时候就出现了问题，require()依赖的地址再无法找到。<br>现在通过下面的学习，我们实现seajs的合并。</p>
-<p>在上线的版本，比如合并操作的时候，define要多出两个参数：<br>第一个参数 ：当前模块的ID<br>第二个参数 ：依赖模块的数组<br>通过这样的方式，将模块的地址转化成模块的ID的形式调用依赖，就能实现seajs的合并。</p>
-<p>这是main.js的代码</p>
-<pre><code>define(&apos;./main.js&apos;,[&apos;./drag.js&apos;,&apos;./scale.js&apos;],function(   //数组里传入我们要调用依赖的模块
+</code></pre>
+                    <p>命令行输入grunt,回车，执行这个任务。
+                      <br>经过上面这一系列流程，就能把main.js,drag.js,scale.js,range.js这四个文件里的内容合并到一个新文件main.js里面去。
+                      <br>把新生成的main.js文件压缩之后放入main.min.js文件中。</p>
+                    <h3 id="seajs构建的问题">
+                      <a href="#seajs构建的问题" class="headerlink" title="seajs构建的问题"></a>seajs构建的问题</h3>
+                    <p>在上面我们学习了gruntjs的两个小方法,实现了代码的合并和压缩。
+                      <br>但是我们合并用seajs模块化的时候就出现了问题，require()依赖的地址再无法找到。
+                      <br>现在通过下面的学习，我们实现seajs的合并。</p>
+                    <p>在上线的版本，比如合并操作的时候，define要多出两个参数：
+                      <br>第一个参数 ：当前模块的ID
+                      <br>第二个参数 ：依赖模块的数组
+                      <br>通过这样的方式，将模块的地址转化成模块的ID的形式调用依赖，就能实现seajs的合并。</p>
+                    <p>这是main.js的代码</p>
+                    <pre><code>define(&apos;./main.js&apos;,[&apos;./drag.js&apos;,&apos;./scale.js&apos;],function(   //数组里传入我们要调用依赖的模块
     require,exports,module){
     var oInput = document.getElementById(&apos;input1&apos;);
     var oDiv1 = document.getElementById(&apos;div1&apos;);
@@ -528,8 +486,9 @@ define(&apos;./range.js&apos;,[],function(require,exports,module){
     }
     exports.range = range;
 });
-</code></pre><p>在html中调用上面的js代码</p>
-<pre><code>&lt;!DOCTYPE html&gt;
+</code></pre>
+                    <p>在html中调用上面的js代码</p>
+                    <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -551,9 +510,12 @@ define(&apos;./range.js&apos;,[],function(require,exports,module){
 &lt;div id=&quot;div3&quot;&gt;&lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><h4 id="seajs和gruntjs结合开发"><a href="#seajs和gruntjs结合开发" class="headerlink" title="seajs和gruntjs结合开发"></a>seajs和gruntjs结合开发</h4><p>gruntjs提供了一些插件，可以直接实现seajs的合并,不再用上面手动的方法修改。</p>
-<p>在安装插件之前，还是需要配置package.js和Gruntfile.js，所以我们还是要新建这两个文件。</p>
-<pre><code>{
+</code></pre>
+                    <h4 id="seajs和gruntjs结合开发">
+                      <a href="#seajs和gruntjs结合开发" class="headerlink" title="seajs和gruntjs结合开发"></a>seajs和gruntjs结合开发</h4>
+                    <p>gruntjs提供了一些插件，可以直接实现seajs的合并,不再用上面手动的方法修改。</p>
+                    <p>在安装插件之前，还是需要配置package.js和Gruntfile.js，所以我们还是要新建这两个文件。</p>
+                    <pre><code>{
   &quot;name&quot;: &quot;webqq&quot;,
   &quot;version&quot;: &quot;0.1.0&quot;,
   &quot;devDependencies&quot;: {
@@ -563,11 +525,17 @@ define(&apos;./range.js&apos;,[],function(require,exports,module){
         &quot;grunt-contrib-uglify&quot; : &quot;~0.3.2&quot;
   }
 }
-</code></pre><p><strong>插件安装</strong></p>
-<pre><code>grunt-cmd-transport  //提取依赖
+</code></pre>
+                    <p>
+                      <strong>插件安装</strong>
+                    </p>
+                    <pre><code>grunt-cmd-transport  //提取依赖
 grunt-cmd-concat        //合并
-</code></pre><p>接下来的流程和上面的流程一样，只是插件不同而已。这里不再赘述，只是要注意一定就是有的版本号可能不稳定。</p>
-<h3 id="seajs的配置信息"><a href="#seajs的配置信息" class="headerlink" title="seajs的配置信息"></a>seajs的配置信息</h3><pre><code>seajs.config({
+</code></pre>
+                    <p>接下来的流程和上面的流程一样，只是插件不同而已。这里不再赘述，只是要注意一定就是有的版本号可能不稳定。</p>
+                    <h3 id="seajs的配置信息">
+                      <a href="#seajs的配置信息" class="headerlink" title="seajs的配置信息"></a>seajs的配置信息</h3>
+                    <pre><code>seajs.config({
 
   // 别名配置
   alias: {
@@ -606,8 +574,9 @@ grunt-cmd-concat        //合并
   // 文件编码
   charset: &apos;utf-8&apos;
 });
-</code></pre><p>配置信息主要是为了来方便开发，比如别名路径很长的时候，就可以在config里做一个变量赋值，然后再use()调用这个变量。</p>
-<pre><code>seajs.config({
+</code></pre>
+                    <p>配置信息主要是为了来方便开发，比如别名路径很长的时候，就可以在config里做一个变量赋值，然后再use()调用这个变量。</p>
+                    <pre><code>seajs.config({
     alias : {
         m3 : &apos;./js/module3.js&apos;
     }
@@ -615,9 +584,19 @@ grunt-cmd-concat        //合并
 seajs.use(&apos;m3&apos;,function(ex){
     alert(ex.a);
 });
-</code></pre><p>更多详细内容，请点击 <a href="https://github.com/seajs/seajs/issues/262" target="_blank" rel="external">https://github.com/seajs/seajs/issues/262</a> 了解</p>
-<h3 id="exports和module-exports的异同"><a href="#exports和module-exports的异同" class="headerlink" title="exports和module.exports的异同"></a>exports和module.exports的异同</h3><h4 id="module"><a href="#module" class="headerlink" title="module"></a>module</h4><p>id  :  模块唯一标识<br>uri  :  模块绝对路径<br>dependencies  :  当前模块依赖<br>exports  :  当前模块对外接口</p>
-<pre><code>define(function(require,exports,module){
+</code></pre>
+                    <p>更多详细内容，请点击
+                      <a href="https://github.com/seajs/seajs/issues/262"
+                                                                                                      target="_blank" rel="external">https://github.com/seajs/seajs/issues/262</a> 了解</p>
+                    <h3 id="exports和module-exports的异同">
+                      <a href="#exports和module-exports的异同" class="headerlink" title="exports和module.exports的异同"></a>exports和module.exports的异同</h3>
+                    <h4 id="module">
+                      <a href="#module" class="headerlink" title="module"></a>module</h4>
+                    <p>id : 模块唯一标识
+                      <br>uri : 模块绝对路径
+                      <br>dependencies : 当前模块依赖
+                      <br>exports : 当前模块对外接口</p>
+                    <pre><code>define(function(require,exports,module){
 
     alert(module.id);
     alert(module.uri);   //uri和id的结果是一样的，因为我们都是把路径当成ID来命名
@@ -631,381 +610,313 @@ seajs.use(&apos;m3&apos;,function(ex){
 exports.show = show;
 
 });
-</code></pre><p>require.async<br>异步加载模块</p>
-<pre><code>require(&apos;.js/module2.js&apos;)     //同步
+</code></pre>
+                    <p>require.async
+                      <br>异步加载模块</p>
+                    <pre><code>require(&apos;.js/module2.js&apos;)     //同步
 
 require.async(&apos;.js/module2.js&apos;,function(){
         alert(&apos;模块加载完的回调&apos;);              //异步
     })
-</code></pre></the>
-      
-    </div>
+</code></pre>
+                  </the>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/JS/" rel="tag"># JS</a>
-          
-        </div>
-      
+                </div>
 
-      
-        
-      
+                <footer class="post-footer">
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/04/12/websocket服务器搭建与应用/" rel="next" title="websocket服务器搭建与应用">
-                <i class="fa fa-chevron-left"></i> websocket服务器搭建与应用
-              </a>
-            
-          </div>
+                  <div class="post-tags">
 
-          <span class="post-nav-divider"></span>
+                    <a href="/tags/JS/" rel="tag"># JS</a>
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/11/Ajax的新特性/" rel="prev" title="Ajax的新特性">
-                Ajax的新特性 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
+                  </div>
 
-      
-      
-    </footer>
-  </article>
+                  <div class="post-nav">
+                    <div class="post-nav-next post-nav-item">
 
+                      <a href="/2017/04/12/websocket服务器搭建与应用/" rel="next" title="websocket服务器搭建与应用">
+                        <i class="fa fa-chevron-left"></i> websocket服务器搭建与应用
+                      </a>
 
+                    </div>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+                    <span class="post-nav-divider"></span>
 
+                    <div class="post-nav-prev post-nav-item">
 
-          </div>
-          
+                      <a href="/2017/04/11/Ajax的新特性/" rel="prev" title="Ajax的新特性">
+                        Ajax的新特性
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
 
+                    </div>
+                  </div>
 
-          
-  <div class="comments" id="comments">
-    
-  </div>
+                </footer>
+              </article>
 
+              <div class="post-spread">
 
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
+              </div>
             </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">分类</span>
-              
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">标签</span>
-              
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#冲突"><span class="nav-number">1.</span> <span class="nav-text">冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖"><span class="nav-number">2.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Seajs库"><span class="nav-number">3.</span> <span class="nav-text">Seajs库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-引入sea-js的库"><span class="nav-number">3.1.</span> <span class="nav-text">1.引入sea.js的库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-如何变成模块？"><span class="nav-number">3.2.</span> <span class="nav-text">2.如何变成模块？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-如何调用模块？"><span class="nav-number">3.3.</span> <span class="nav-text">3.如何调用模块？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-如何依赖模块？"><span class="nav-number">4.</span> <span class="nav-text">4. 如何依赖模块？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建工具"><span class="nav-number">5.</span> <span class="nav-text">构建工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装流程"><span class="nav-number">5.1.</span> <span class="nav-text">安装流程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#seajs构建的问题"><span class="nav-number">6.</span> <span class="nav-text">seajs构建的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#seajs和gruntjs结合开发"><span class="nav-number">6.1.</span> <span class="nav-text">seajs和gruntjs结合开发</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#seajs的配置信息"><span class="nav-number">7.</span> <span class="nav-text">seajs的配置信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exports和module-exports的异同"><span class="nav-number">8.</span> <span class="nav-text">exports和module.exports的异同</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#module"><span class="nav-number">8.1.</span> <span class="nav-text">module</span></a></li></ol></li></ol></div>
-            
 
           </div>
-        </section>
-      <!--/noindex-->
-      
 
-      
+          <div class="comments" id="comments">
 
-    </div>
-  </aside>
+          </div>
 
+        </div>
 
-        
+        <div class="sidebar-toggle">
+          <div class="sidebar-toggle-line-wrap">
+            <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+            <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+            <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+          </div>
+        </div>
+
+        <aside id="sidebar" class="sidebar">
+          <div class="sidebar-inner">
+
+            <ul class="sidebar-nav motion-element">
+              <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+                文章目录
+              </li>
+              <li class="sidebar-nav-overview" data-target="site-overview">
+                站点概览
+              </li>
+            </ul>
+
+            <section class="site-overview sidebar-panel">
+              <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="John Doe"
+                />
+                <p class="site-author-name" itemprop="name">John Doe</p>
+
+                <p class="site-description motion-element" itemprop="description"></p>
+
+              </div>
+              <nav class="site-state motion-element">
+
+                <div class="site-state-item site-state-posts">
+                  <a href="/archives">
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+
+                <div class="site-state-item site-state-categories">
+
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+
+                </div>
+
+                <div class="site-state-item site-state-tags">
+
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+
+                </div>
+
+              </nav>
+
+              <div class="links-of-author motion-element">
+
+              </div>
+
+            </section>
+
+            <!--noindex-->
+            <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+              <div class="post-toc">
+
+                <div class="post-toc-content">
+                  <ol class="nav">
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#冲突">
+                        <span class="nav-number">1.</span>
+                        <span class="nav-text">冲突</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#依赖">
+                        <span class="nav-number">2.</span>
+                        <span class="nav-text">依赖</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#Seajs库">
+                        <span class="nav-number">3.</span>
+                        <span class="nav-text">Seajs库</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#1-引入sea-js的库">
+                            <span class="nav-number">3.1.</span>
+                            <span class="nav-text">1.引入sea.js的库</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#2-如何变成模块？">
+                            <span class="nav-number">3.2.</span>
+                            <span class="nav-text">2.如何变成模块？</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#3-如何调用模块？">
+                            <span class="nav-number">3.3.</span>
+                            <span class="nav-text">3.如何调用模块？</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#4-如何依赖模块？">
+                        <span class="nav-number">4.</span>
+                        <span class="nav-text">4. 如何依赖模块？</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#构建工具">
+                        <span class="nav-number">5.</span>
+                        <span class="nav-text">构建工具</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#安装流程">
+                            <span class="nav-number">5.1.</span>
+                            <span class="nav-text">安装流程</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#seajs构建的问题">
+                        <span class="nav-number">6.</span>
+                        <span class="nav-text">seajs构建的问题</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#seajs和gruntjs结合开发">
+                            <span class="nav-number">6.1.</span>
+                            <span class="nav-text">seajs和gruntjs结合开发</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#seajs的配置信息">
+                        <span class="nav-number">7.</span>
+                        <span class="nav-text">seajs的配置信息</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#exports和module-exports的异同">
+                        <span class="nav-number">8.</span>
+                        <span class="nav-text">exports和module.exports的异同</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#module">
+                            <span class="nav-number">8.1.</span>
+                            <span class="nav-text">module</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                  </ol>
+                </div>
+
+              </div>
+            </section>
+            <!--/noindex-->
+
+          </div>
+        </aside>
+
       </div>
     </main>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
-</div>
+        <div class="copyright">
 
+          &copy;
+          <span itemprop="copyrightYear">2017</span>
+          <span class="with-love">
+            <i class="fa fa-heart"></i>
+          </span>
+          <span class="author" itemprop="copyrightHolder">John Doe</span>
+        </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+        <div class="powered-by">
+          由
+          <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+        </div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+        <div class="theme-info">
+          主题 -
+          <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+            NexT.Pisces
+          </a>
+        </div>
 
-
-        
-
-        
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+
+    </div>
 
   </div>
 
-  
+  <script type="text/javascript">
+    if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+      window.Promise = null;
+    }
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
+  </script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  
   <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-  
   <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  
   <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
-  
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
 
   <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
 
-
-
-  
-  
-
-
   <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
 
-
-
-  
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
-
-
-  
-
+  <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
 
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
 </body>
+
 </html>

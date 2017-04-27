@@ -1,357 +1,256 @@
 <!doctype html>
 
-
-
-  
-
-
 <html class="theme-next pisces use-motion" lang="zh-Hans">
+
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
+  />
 
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
 
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"
+  />
 
+  <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+                                                                                  rel="stylesheet" type="text/css">
 
+  <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet"
+                                                                                  type="text/css" />
 
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
+  <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
   <meta name="keywords" content="JS笔记," />
 
-
-
-
-
-
-
-
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
+  <meta name="description" content="本篇文章只记录自己平时学习时候的笔记，方便随时查看，写得很零碎，仅供参考包括面向对象基础以以及组件开发">
+  <meta name="keywords" content="JS笔记">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="面向对象编程">
+  <meta property="og:url" content="http://yoursite.com/2017/03/23/面向对象编程/index.html">
+  <meta property="og:site_name" content="Prawns's Blog">
+  <meta property="og:description" content="本篇文章只记录自己平时学习时候的笔记，方便随时查看，写得很零碎，仅供参考包括面向对象基础以以及组件开发">
+  <meta property="og:updated_time" content="2017-03-26T13:07:05.823Z">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="面向对象编程">
+  <meta name="twitter:description" content="本篇文章只记录自己平时学习时候的笔记，方便随时查看，写得很零碎，仅供参考包括面向对象基础以以及组件开发">
 
+  <script type="text/javascript" id="hexo.configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {
+      root: '/',
+      scheme: 'Pisces',
+      sidebar: {
+        "position": "left",
+        "display": "post",
+        "offset": 12,
+        "offset_float": 0,
+        "b2t": false,
+        "scrollpercent": false
+      },
+      fancybox: true,
+      motion: true,
+      duoshuo: {
+        userId: '0',
+        author: '博主'
+      },
+      algolia: {
+        applicationID: '',
+        apiKey: '',
+        indexName: '',
+        hits: {
+          "per_page": 10
+        },
+        labels: {
+          "input_placeholder": "Search for Posts",
+          "hits_empty": "We didn't find any results for the search: ${query}",
+          "hits_stats": "${hits} results found in ${time} ms"
+        }
+      }
+    };
 
+  </script>
 
-
-
-<meta name="description" content="本篇文章只记录自己平时学习时候的笔记，方便随时查看，写得很零碎，仅供参考包括面向对象基础以以及组件开发">
-<meta name="keywords" content="JS笔记">
-<meta property="og:type" content="article">
-<meta property="og:title" content="面向对象编程">
-<meta property="og:url" content="http://yoursite.com/2017/03/23/面向对象编程/index.html">
-<meta property="og:site_name" content="Prawns's Blog">
-<meta property="og:description" content="本篇文章只记录自己平时学习时候的笔记，方便随时查看，写得很零碎，仅供参考包括面向对象基础以以及组件开发">
-<meta property="og:updated_time" content="2017-03-26T13:07:05.823Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面向对象编程">
-<meta name="twitter:description" content="本篇文章只记录自己平时学习时候的笔记，方便随时查看，写得很零碎，仅供参考包括面向对象基础以以及组件开发">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2017/03/23/面向对象编程/"/>
-
-
-
-
+  <link rel="canonical" href="http://yoursite.com/2017/03/23/面向对象编程/" />
 
   <title>面向对象编程 | Prawns's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
   <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
+      <div class="header-inner">
+        <div class="site-brand-wrapper">
+          <div class="site-meta ">
 
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Prawns's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
+            <div class="custom-logo-site-title">
+              <a href="/" class="brand" rel="start">
+                <span class="logo-line-before">
+                  <i></i>
+                </span>
+                <span class="site-title">Prawns's Blog</span>
+                <span class="logo-line-after">
+                  <i></i>
+                </span>
+              </a>
+            </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
+            <p class="site-subtitle"></p>
 
-<nav class="site-nav">
-  
+          </div>
 
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            公益404
-          </a>
-        </li>
-      
+          <div class="site-nav-toggle">
+            <button>
+              <span class="btn-bar"></span>
+              <span class="btn-bar"></span>
+              <span class="btn-bar"></span>
+            </button>
+          </div>
+        </div>
 
-      
-    </ul>
-  
+        <nav class="site-nav">
 
-  
-</nav>
+          <ul id="menu" class="menu">
 
+            <li class="menu-item menu-item-home">
+              <a href="/" rel="section">
 
+                <i class="menu-item-icon fa fa-fw fa-home"></i>
+                <br /> 首页
+              </a>
+            </li>
 
- </div>
+            <li class="menu-item menu-item-about">
+              <a href="/about" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-user"></i>
+                <br /> 关于
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-archives">
+              <a href="/archives" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-archive"></i>
+                <br /> 归档
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-tags">
+              <a href="/tags" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-tags"></i>
+                <br /> 标签
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-commonweal">
+              <a href="/404.html" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-heartbeat"></i>
+                <br /> 公益404
+              </a>
+            </li>
+
+          </ul>
+
+        </nav>
+
+      </div>
     </header>
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
           <div id="content" class="content">
-            
 
-  <div id="posts" class="posts-expand">
-    
+            <div id="posts" class="posts-expand">
 
-  
+              <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+                <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/23/面向对象编程/">
 
-  
-  
-  
+                <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                  <meta itemprop="name" content="John Doe">
+                  <meta itemprop="description" content="">
+                  <meta itemprop="image" content="/images/avatar.gif">
+                </span>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/23/面向对象编程/">
+                <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                  <meta itemprop="name" content="Prawns's Blog">
+                </span>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
+                <header class="post-header">
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Prawns's Blog">
-    </span>
+                  <h1 class="post-title" itemprop="name headline">
 
-    
-      <header class="post-header">
+                    面向对象编程
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                面向对象编程
-              
-            
-          </h1>
-        
+                  </h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-23T00:26:00+08:00">
-                2017-03-23
-              </time>
-            
+                  <div class="post-meta">
+                    <span class="post-time">
 
-            
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-calendar-o"></i>
+                      </span>
 
-            
-          </span>
+                      <span class="post-meta-item-text">发表于</span>
 
-          
+                      <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-23T00:26:00+08:00">
+                        2017-03-23
+                      </time>
 
-          
-            
-          
+                    </span>
 
-          
-          
+                  </div>
+                </header>
 
-          
+                <div class="post-body" itemprop="articleBody">
 
-          
+                  <p>本篇文章只记录自己平时学习时候的笔记，方便随时查看，写得很零碎，仅供参考
+                    <br>包括面向对象基础以以及组件开发</p>
+                  <p>
+                    <excerpt in="" index="" |="" 首页摘要="">
+                      <br>
+                      <a id="more"></a>
+                    </excerpt>
+                  </p>
+                  <the rest="" of="" contents="" |="" 余下全文="">
 
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>本篇文章只记录自己平时学习时候的笔记，方便随时查看，写得很零碎，仅供参考<br>包括面向对象基础以以及组件开发</p>
-<p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文="">
-
-<h2 id="面向对象基础"><a href="#面向对象基础" class="headerlink" title="面向对象基础"></a><strong>面向对象基础</strong></h2><hr>
-<h3 id="包装对象："><a href="#包装对象：" class="headerlink" title="包装对象："></a><font color="red">包装对象：</font></h3><p>基本类型都有自己对应的包装对象。<br>基本类型会找到对应的包装类型，然后包装对象把所有的属性和方法给了基本类型，然后包装对象消失。</p>
-<h3 id="系统对象："><a href="#系统对象：" class="headerlink" title="系统对象："></a><font color="red">系统对象：</font></h3><p>我们把系统自带的对象，叫做系统对象。<br>&emsp;&emsp;&emsp;&emsp;&emsp;<strong>1. 本地对象</strong>：String  Number  Boolean  Object Function Array Date Error RegExp  (非静态对象，需要实例化)<br>&emsp;&emsp;&emsp;&emsp;&emsp;<strong>2. 内置对象</strong>：Global Math  (静态对象，不需要实例化)<br>&emsp;&emsp;&emsp;&emsp;&emsp;<strong>3. 宿主对象</strong>： DOM BOM (由浏览器提供的对象,随着运行的环境不同会有一定的变化)  </p>
-<h3 id="面向对象："><a href="#面向对象：" class="headerlink" title="面向对象："></a><font color="red">面向对象：</font></h3><pre><code>    1. 抽象：抓住核心问题
+                    <h2 id="面向对象基础">
+                      <a href="#面向对象基础" class="headerlink" title="面向对象基础"></a>
+                      <strong>面向对象基础</strong>
+                    </h2>
+                    <hr>
+                    <h3 id="包装对象：">
+                      <a href="#包装对象：" class="headerlink" title="包装对象："></a>
+                      <font color="red">包装对象：</font>
+                    </h3>
+                    <p>基本类型都有自己对应的包装对象。
+                      <br>基本类型会找到对应的包装类型，然后包装对象把所有的属性和方法给了基本类型，然后包装对象消失。</p>
+                    <h3 id="系统对象：">
+                      <a href="#系统对象：" class="headerlink" title="系统对象："></a>
+                      <font color="red">系统对象：</font>
+                    </h3>
+                    <p>我们把系统自带的对象，叫做系统对象。
+                      <br>&emsp;&emsp;&emsp;&emsp;&emsp;
+                      <strong>1. 本地对象</strong>：String Number Boolean Object Function Array
+                      Date Error RegExp (非静态对象，需要实例化)
+                      <br>&emsp;&emsp;&emsp;&emsp;&emsp;
+                      <strong>2. 内置对象</strong>：Global Math (静态对象，不需要实例化)
+                      <br>&emsp;&emsp;&emsp;&emsp;&emsp;
+                      <strong>3. 宿主对象</strong>： DOM BOM (由浏览器提供的对象,随着运行的环境不同会有一定的变化) </p>
+                    <h3 id="面向对象：">
+                      <a href="#面向对象：" class="headerlink" title="面向对象："></a>
+                      <font color="red">面向对象：</font>
+                    </h3>
+                    <pre><code>    1. 抽象：抓住核心问题
     2. 封装：只能通过对象来访问方法
     3. 继承：从已有对象上继承出新的对象
     4. 多台：多对象的不同形态
@@ -359,10 +258,22 @@
 对象的组成 ：方法（操作，行为）——对象下面的函数，叫做对象的方法
     属性  : 对象下面的变量，我们叫做属性。
     状态  : 静态的
-</code></pre><h3 id="关于new："><a href="#关于new：" class="headerlink" title="关于new："></a><font color="red">关于new：</font></h3><p>当new去调用一个函数，这个时候函数中的this就是创建出来的对象，而且函数的返回值直接就是this了（隐式返回）。<br>而new后面的函数，就叫做构造函数。</p>
-<h3 id="关于原型："><a href="#关于原型：" class="headerlink" title="关于原型："></a><font color="red"><strong>关于原型</strong>：</font></h3><p>去改写对象下面公用的方法或者属性，让同样公用的方法或者属性在内存中只存在一份（提高性能）；</p>
-<p><strong>prototype</strong> : 要写在构造函数的下面</p>
-<pre><code>Array.prototype.sum = function() {
+</code></pre>
+                    <h3 id="关于new：">
+                      <a href="#关于new：" class="headerlink" title="关于new："></a>
+                      <font color="red">关于new：</font>
+                    </h3>
+                    <p>当new去调用一个函数，这个时候函数中的this就是创建出来的对象，而且函数的返回值直接就是this了（隐式返回）。
+                      <br>而new后面的函数，就叫做构造函数。</p>
+                    <h3 id="关于原型：">
+                      <a href="#关于原型：" class="headerlink" title="关于原型："></a>
+                      <font color="red">
+                        <strong>关于原型</strong>：</font>
+                    </h3>
+                    <p>去改写对象下面公用的方法或者属性，让同样公用的方法或者属性在内存中只存在一份（提高性能）；</p>
+                    <p>
+                      <strong>prototype</strong> : 要写在构造函数的下面</p>
+                    <pre><code>Array.prototype.sum = function() {
             var result =0;
             for(var i=0; i&lt;this.length; i++){
                 result += this[i];
@@ -372,10 +283,20 @@
 
         var arr = [1,8,6,2,7];
         alert(arr.sum());
-</code></pre><h3 id="面向对象的写法："><a href="#面向对象的写法：" class="headerlink" title="面向对象的写法："></a><font color="red"><strong>面向对象的写法</strong>：</font></h3><p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;function 构造函数() {<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 对象，属性<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;}  </p>
-<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;构造函数.原型.方法 = function(){}</p>
-<p><strong>面向对象的使用</strong>：var  对象 = new 构造函数();<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;对象.方法();</p>
-<pre><code>function CreatePerson(name){  
+</code></pre>
+                    <h3 id="面向对象的写法：">
+                      <a href="#面向对象的写法：" class="headerlink" title="面向对象的写法："></a>
+                      <font color="red">
+                        <strong>面向对象的写法</strong>：</font>
+                    </h3>
+                    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;function 构造函数() {
+                      <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 对象，属性
+                      <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;} </p>
+                    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;构造函数.原型.方法 = function(){}</p>
+                    <p>
+                      <strong>面向对象的使用</strong>：var 对象 = new 构造函数();
+                      <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;对象.方法();</p>
+                    <pre><code>function CreatePerson(name){  
     this.name = name;     //创建构造函数下面的属性
 }
 CreatePerson.prototype.showName = function(){
@@ -386,14 +307,16 @@ obj.showName();                //new一个新对象，调用原型方法
 
 var obj2 = new CreatePerson(&apos;daxiang&apos;);
 obj2.showName();            //new一个新对象，调用原型方法
-</code></pre><p><strong>普通写法转面向对象写法</strong>：</p>
-<ol>
-<li>先变形</li>
-<li>尽量不要出现函数嵌套函数</li>
-<li>可以有全局变量</li>
-<li>把onload中不是赋值的语句放到单独函数中  </li>
-</ol>
-<pre><code>var oParent = null;
+</code></pre>
+                    <p>
+                      <strong>普通写法转面向对象写法</strong>：</p>
+                    <ol>
+                      <li>先变形</li>
+                      <li>尽量不要出现函数嵌套函数</li>
+                      <li>可以有全局变量</li>
+                      <li>把onload中不是赋值的语句放到单独函数中 </li>
+                    </ol>
+                    <pre><code>var oParent = null;
 var aBtn = null;
 var aDiv = null;
 
@@ -419,14 +342,17 @@ function change (){
     this.className = &apos;active&apos;;
     aDiv[this.index].style.display = &apos;block&apos;;
 }
-</code></pre><p><strong>改成面向对象</strong></p>
-<ol>
-<li>全局变量就是属性</li>
-<li>函数就是方法</li>
-<li>Onload中创建对象</li>
-<li>改this指向问题：在事件或定时器的时候容易出问题，尽量让面向对象的this指向对象</li>
-</ol>
-<pre><code>window.onload = function(){
+</code></pre>
+                    <p>
+                      <strong>改成面向对象</strong>
+                    </p>
+                    <ol>
+                      <li>全局变量就是属性</li>
+                      <li>函数就是方法</li>
+                      <li>Onload中创建对象</li>
+                      <li>改this指向问题：在事件或定时器的时候容易出问题，尽量让面向对象的this指向对象</li>
+                    </ol>
+                    <pre><code>window.onload = function(){
     var t1 = new Tab(&apos;div1&apos;);
     t1.init();
     var t2 = new Tab(&apos;div2&apos;);
@@ -477,11 +403,23 @@ Tab.prototype.change = function(obj){
         &lt;div&gt;333333&lt;/div&gt;
     &lt;/div&gt;
 &lt;/body&gt;
-</code></pre><hr>
-<h2 id="面向对象之组件开发"><a href="#面向对象之组件开发" class="headerlink" title="面向对象之组件开发"></a><strong>面向对象之组件开发</strong></h2><hr>
-<h3 id="原型链："><a href="#原型链：" class="headerlink" title="原型链："></a><font color="red">原型链：</font></h3><p>实例对象与原型之间的连接，叫做原型链<br>原型链的链接我们是看不见的，但是在Friebug下是可以查看到的，它的英文名字叫着<strong>_proto_</strong>(隐式链接)</p>
-<p>原型链的查找是由内而外的<br>原型链的最外层 : Object.prototype  </p>
-<pre><code>function Aaa(){
+</code></pre>
+                    <hr>
+                    <h2 id="面向对象之组件开发">
+                      <a href="#面向对象之组件开发" class="headerlink" title="面向对象之组件开发"></a>
+                      <strong>面向对象之组件开发</strong>
+                    </h2>
+                    <hr>
+                    <h3 id="原型链：">
+                      <a href="#原型链：" class="headerlink" title="原型链："></a>
+                      <font color="red">原型链：</font>
+                    </h3>
+                    <p>实例对象与原型之间的连接，叫做原型链
+                      <br>原型链的链接我们是看不见的，但是在Friebug下是可以查看到的，它的英文名字叫着
+                      <strong>_proto_</strong>(隐式链接)</p>
+                    <p>原型链的查找是由内而外的
+                      <br>原型链的最外层 : Object.prototype </p>
+                    <pre><code>function Aaa(){
     //this.num = 20;        //优先弹出内部的属性
 }
 //Aaa.prototype.num = 10;    //其次是构造函数下面原型的属性
@@ -489,22 +427,36 @@ Object.prototype.num = 30;    //最后弹出最外层Object的属性
 
 var a1 = new Aaa();            
 alert(a1.num);
-</code></pre><h3 id="面向对象的属性和方法"><a href="#面向对象的属性和方法" class="headerlink" title="面向对象的属性和方法:"></a><font color="red">面向对象的属性和方法:</font></h3><h4 id="hasOwnProperty-NaN"><a href="#hasOwnProperty-NaN" class="headerlink" title=" hasOwnProperty() :"></a><font color="#f60"> hasOwnProperty()</font> :</h4><p>看是不是对象自身下面的属性</p>
-<pre><code>var arr = [];
+</code></pre>
+                    <h3 id="面向对象的属性和方法">
+                      <a href="#面向对象的属性和方法" class="headerlink" title="面向对象的属性和方法:"></a>
+                      <font color="red">面向对象的属性和方法:</font>
+                    </h3>
+                    <h4 id="hasOwnProperty-NaN">
+                      <a href="#hasOwnProperty-NaN" class="headerlink" title=" hasOwnProperty() :"></a>
+                      <font color="#f60"> hasOwnProperty()</font> :</h4>
+                    <p>看是不是对象自身下面的属性</p>
+                    <pre><code>var arr = [];
 Arr.num = 10;
 Array.prototype.num2 = 20;
 alert(arr.hasOwnProperty(‘num’));   //true  证明num是arr对象下独有的属性
 alert(arr.hasOwnProperty(‘num2’));  //flase  证明num2不是arr对象下独有的属性，所有的数组的原型下都有这个属性
-</code></pre><h4 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor  :"></a><font color="#f60">constructor</font>  :</h4><p>查看对象的构造函数  </p>
-<pre><code>function Aaa(){}
+</code></pre>
+                    <h4 id="constructor-NaN">
+                      <a href="#constructor-NaN" class="headerlink" title="constructor  :"></a>
+                      <font color="#f60">constructor</font> :</h4>
+                    <p>查看对象的构造函数 </p>
+                    <pre><code>function Aaa(){}
     var a1 = new Aaa();
     alert(a1.constructor);   //function Aaa(){};  弹出了a1下面的构造函数
-</code></pre><p>同理，我们新建一个数组，查看它的构造函数是谁？</p>
-<pre><code>var arr = [];
+</code></pre>
+                    <p>同理，我们新建一个数组，查看它的构造函数是谁？</p>
+                    <pre><code>var arr = [];
 console.log(arr.constructor);   // function Array() { [native code] }  弹出数组的构造函数
 console.log(arr.constructor == Array);  // true    可以运用这个属性来做判断
-</code></pre><p>当我们写完一个函数的时候，不管是系统自带的函数，还是我们写的函数，都是一样的。</p>
-<pre><code>function Aaa(){}
+</code></pre>
+                    <p>当我们写完一个函数的时候，不管是系统自带的函数，还是我们写的函数，都是一样的。</p>
+                    <pre><code>function Aaa(){}
 Aaa.prototype.constructor == Aaa; //每一个函数，程序会自动的帮我们生成这句话
 var a1 = new Aaa();
 alert(a1.constructor);     //然后我们就可以通过constructor找到它的构造函数 function Aaa(){}
@@ -514,19 +466,27 @@ function Aaa(){}
 Aaa.prototype.constructor == Array; //可以手动修改
 var a1 = new Aaa();
 alert(a1.constructor);     //这个时候它的构造函数就会变成 function Array() { [native code] }
-</code></pre><h4 id="instanceof-运算符"><a href="#instanceof-运算符" class="headerlink" title="instanceof : 运算符"></a><font color="#f60">instanceof</font> : 运算符</h4><p> 对象与构造函数在原型链上是否有关系   &lt;可做类型基本类型判断&gt;</p>
-<pre><code>function Aaa(){ }
+</code></pre>
+                    <h4 id="instanceof-运算符">
+                      <a href="#instanceof-运算符" class="headerlink" title="instanceof : 运算符"></a>
+                      <font color="#f60">instanceof</font> : 运算符</h4>
+                    <p> 对象与构造函数在原型链上是否有关系 &lt;可做类型基本类型判断&gt;</p>
+                    <pre><code>function Aaa(){ }
 var a1 = new Aaa();
 alert(a1 instanceof Aaa);   // true  如果对象与构造函数是在同一个原型链上就会返回真
 
 alert(a1 instanceof Array);  //false  不在同一原型链上，弹出假
 
 alert(a1 instanceof Object);  //true   因为每个对象都是从他的最外层Object prototype对象，继承过来的
-</code></pre><h4 id="toString-Object上的方法"><a href="#toString-Object上的方法" class="headerlink" title="toString : Object上的方法"></a><font color="#f60">toString</font> : Object上的方法</h4><ol>
-<li>把对象转成字符串</li>
-<li>系统对象下面都是自带的，而自己写的对象都是通过原型链prototype找Object下面的</li>
-</ol>
-<pre><code>    var arr = [];
+</code></pre>
+                    <h4 id="toString-Object上的方法">
+                      <a href="#toString-Object上的方法" class="headerlink" title="toString : Object上的方法"></a>
+                      <font color="#f60">toString</font> : Object上的方法</h4>
+                    <ol>
+                      <li>把对象转成字符串</li>
+                      <li>系统对象下面都是自带的，而自己写的对象都是通过原型链prototype找Object下面的</li>
+                    </ol>
+                    <pre><code>    var arr = [];
     alert(arr.toString == Object.prototype.toString);  //false
     alert(typeof arr.toString);                        //string    
 
@@ -553,8 +513,11 @@ alert(a1 instanceof Object);  //true   因为每个对象都是从他的最外�
 
     var arr = new RegExp;
     alert(Object.prototype.toString.call(arr)); // object RegExp
-</code></pre><p><strong>以上3种方法都可以做判断，但我们推荐使用toString方法。</strong><br>        测试：我们创建一个iframe，在这个iframe下面再创建一个数组，然后new一个实例，判断这个实例是不是数组。</p>
-<pre><code>var oF = document.createElement(&apos;iframe&apos;);
+</code></pre>
+                    <p>
+                      <strong>以上3种方法都可以做判断，但我们推荐使用toString方法。</strong>
+                      <br> 测试：我们创建一个iframe，在这个iframe下面再创建一个数组，然后new一个实例，判断这个实例是不是数组。</p>
+                    <pre><code>var oF = document.createElement(&apos;iframe&apos;);
 document.body.appendChild(oF);
 var ifArray = window.frames[0].Array;
 var arr = new ifArray();
@@ -564,20 +527,30 @@ alert(arr.constructor == Array);  //false
 alert(arr instanceof Array);         //flase
 
 alert(Object.prototype.toString.call(arr) == &apos;[object Array]&apos;);  //true
-</code></pre><p>结论：通过以上方法的测试，最终只有toString判断的结论是正确的，不管我们在哪里创建的数组，它始终是个数组，所以他的结果只能为真。</p>
-<h3 id="继承："><a href="#继承：" class="headerlink" title="继承："></a><font color="red">继承：</font></h3><p>什么是继承：</p>
-<pre><code>1. 在原有对象的基础上，略作修改，得到一个新的对象 (子类不影响父类，子类可以继承父类的一些功能，做到代码复用)
+</code></pre>
+                    <p>结论：通过以上方法的测试，最终只有toString判断的结论是正确的，不管我们在哪里创建的数组，它始终是个数组，所以他的结果只能为真。</p>
+                    <h3 id="继承：">
+                      <a href="#继承：" class="headerlink" title="继承："></a>
+                      <font color="red">继承：</font>
+                    </h3>
+                    <p>什么是继承：</p>
+                    <pre><code>1. 在原有对象的基础上，略作修改，得到一个新的对象 (子类不影响父类，子类可以继承父类的一些功能，做到代码复用)
 2. 不影响原有对象的功能
-</code></pre><h4 id="拷贝继承"><a href="#拷贝继承" class="headerlink" title="拷贝继承 :"></a><font color="#f60">拷贝继承</font> :</h4><p>如何添加继承  </p>
-<pre><code>1. 属性：call  
+</code></pre>
+                    <h4 id="拷贝继承">
+                      <a href="#拷贝继承" class="headerlink" title="拷贝继承 :"></a>
+                      <font color="#f60">拷贝继承</font> :</h4>
+                    <p>如何添加继承 </p>
+                    <pre><code>1. 属性：call  
 2. 方法：for in   (拷贝继承)
-</code></pre><p>步骤</p>
-<ol>
-<li>先执行父级的构造函数，然后再添加子集的属性。  </li>
-<li>调用父级的构造函数。  </li>
-<li>通过原型链来继承父级的方法。</li>
-</ol>
-<pre><code>function Person (name,sex){
+</code></pre>
+                    <p>步骤</p>
+                    <ol>
+                      <li>先执行父级的构造函数，然后再添加子集的属性。 </li>
+                      <li>调用父级的构造函数。 </li>
+                      <li>通过原型链来继承父级的方法。</li>
+                    </ol>
+                    <pre><code>function Person (name,sex){
         this.name = name;
         this.sex = sex;
     }
@@ -591,9 +564,10 @@ alert(Object.prototype.toString.call(arr) == &apos;[object Array]&apos;);  //tru
 
     var Person = new Person(&apos;tang&apos;,&apos;28&apos;);
     Person.showName();
-</code></pre><hr>
-<p>写一个新的子类，继承父类Person的属性和方法</p>
-<pre><code>function Worker (name,sex,job){        
+</code></pre>
+                    <hr>
+                    <p>写一个新的子类，继承父类Person的属性和方法</p>
+                    <pre><code>function Worker (name,sex,job){        
 
     Person.call(this,name,sex); //调用父级的构造函数继承它的属性
                                 //关于this——&gt;指向的是new出来的Worker对象
@@ -616,9 +590,13 @@ w1.showJob();                  //弹出 coder，Worker自有的方法
 alert(Person.prototype.showJob);  
         //弹出function(){ alert(this.job); }
         //Worker与Person属于引用关系，增加Worker原型下的方法同样会赋值给Person的原型
-</code></pre><p>引用关系会将子类Worker的方法同样赋值给Person<br>我们并不希望，出现这类的引用关系，这个时候我们可以用for in循环将Person原型下的方法一个一个复制给Worker，这个时候Worker原型下的方法就不会影响到Person。</p>
-<p><strong>正确完美的版本</strong></p>
-<pre><code>function Person (name,sex){
+</code></pre>
+                    <p>引用关系会将子类Worker的方法同样赋值给Person
+                      <br>我们并不希望，出现这类的引用关系，这个时候我们可以用for in循环将Person原型下的方法一个一个复制给Worker，这个时候Worker原型下的方法就不会影响到Person。</p>
+                    <p>
+                      <strong>正确完美的版本</strong>
+                    </p>
+                    <pre><code>function Person (name,sex){
         this.name = name;
         this.sex = sex;
     }
@@ -655,19 +633,30 @@ alert(Person.prototype.showJob);
     P1.showName();     //daxia
 
     alert(Person.prototype.showJob);  //undefined
-</code></pre><p><strong>通过以上代码，我们用了两个方法实现了子类的继承</strong></p>
-<ol>
-<li>用构造函数伪装，继承了父级的属性</li>
-<li>用原型链继承了父级的方法</li>
-<li>参考示例<a href="http://htmlpreview.github.io/?https://github.com/haiweitang/note/blob/master/drag-inheritance.html" target="_blank" rel="external">拖拽继承</a></li>
-</ol>
-<h4 id="类似继承"><a href="#类似继承" class="headerlink" title="类似继承 :"></a><font color="#f60">类似继承</font> :</h4><p>什么是类似继承</p>
-<pre><code>利用构造函数(类)继承的方式
-</code></pre><p>类：</p>
-<pre><code>1. JS中是没有类的这种概念，但是我们可以把构造函数看成是类。
+</code></pre>
+                    <p>
+                      <strong>通过以上代码，我们用了两个方法实现了子类的继承</strong>
+                    </p>
+                    <ol>
+                      <li>用构造函数伪装，继承了父级的属性</li>
+                      <li>用原型链继承了父级的方法</li>
+                      <li>参考示例
+                        <a href="http://htmlpreview.github.io/?https://github.com/haiweitang/note/blob/master/drag-inheritance.html"
+                                                                                                        target="_blank" rel="external">拖拽继承</a>
+                      </li>
+                    </ol>
+                    <h4 id="类似继承">
+                      <a href="#类似继承" class="headerlink" title="类似继承 :"></a>
+                      <font color="#f60">类似继承</font> :</h4>
+                    <p>什么是类似继承</p>
+                    <pre><code>利用构造函数(类)继承的方式
+</code></pre>
+                    <p>类：</p>
+                    <pre><code>1. JS中是没有类的这种概念，但是我们可以把构造函数看成是类。
 2. 要做属性和方法继承的时候，要分开继承
-</code></pre><p>示例代码1：</p>
-<pre><code>function Aaa (){
+</code></pre>
+                    <p>示例代码1：</p>
+                    <pre><code>function Aaa (){
     this.name = &apos;tang&apos;;
 }
 Aaa.prototype.showName =function(){
@@ -684,9 +673,10 @@ alert(b1.constructor);  //所以弹出的是Aaa的构造函数function Aaa (){th
 Bbb.prototype.constructor = Bbb;   //重新将Bbb的构造函数指向Bbb
 
 alert(b1.constructor);  //弹出的是Bbb的构造函数function Bbb (){}
-</code></pre><p>*代码1要做到类似继承依然不完善，我们会在 示例代码2 中说明问题</p>
-<p>示例代码2</p>
-<pre><code>function Aaa (){
+</code></pre>
+                    <p>*代码1要做到类似继承依然不完善，我们会在 示例代码2 中说明问题</p>
+                    <p>示例代码2</p>
+                    <pre><code>function Aaa (){
     this.name = [1,2,3]    //将Aaa的name等于数组
 }
 Aaa.prototype.showName =function(){
@@ -701,9 +691,11 @@ var b1 = new Bbb();
 b1.name.push(4);    //b1在那么里push一个4
 var b2 = new Bbb();  //新new一个b2
 alert(b2.name);        //b2弹出1,2,3,4。 这里就出问题了，b1.name.push之后，会影响到b2的name。
-</code></pre><p>*通过代码2的证明，发现代码1 不符合面向对象继承的规则&lt;不影响原有对象的功能&gt;<br>我们通过代码3来修改</p>
-<p>示例代码3</p>
-<pre><code>function Aaa (){
+</code></pre>
+                    <p>*通过代码2的证明，发现代码1 不符合面向对象继承的规则&lt;不影响原有对象的功能&gt;
+                      <br>我们通过代码3来修改</p>
+                    <p>示例代码3</p>
+                    <pre><code>function Aaa (){
     this.name = [1,2,3]    //将Aaa的name等于数组
 }
 Aaa.prototype.showName =function(){
@@ -725,10 +717,15 @@ var b1 = new Bbb();
 b1.name.push(4);    //b1在那么里push一个4
 var b2 = new Bbb();  //新new一个b2
 alert(b2.name);        //b2弹出1,2,3    不会再影响到父类和b1
-</code></pre><p>代码3已经完美解决类似继承的问题</p>
-<p><strong>总结</strong>：真正的类似继承需要用到4句话， F的作用是用来作为方法的继承，而避免属性的继承。属性的继承还是需要用call来改变this指向继承，</p>
-<h4 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承 :"></a><font color="#f60">原型继承</font> :</h4><p>借助原型来实现对象继承对象</p>
-<pre><code>var a = {
+</code></pre>
+                    <p>代码3已经完美解决类似继承的问题</p>
+                    <p>
+                      <strong>总结</strong>：真正的类似继承需要用到4句话， F的作用是用来作为方法的继承，而避免属性的继承。属性的继承还是需要用call来改变this指向继承，</p>
+                    <h4 id="原型继承">
+                      <a href="#原型继承" class="headerlink" title="原型继承 :"></a>
+                      <font color="#f60">原型继承</font> :</h4>
+                    <p>借助原型来实现对象继承对象</p>
+                    <pre><code>var a = {
     name : &apos;小明&apos;
 };
 
@@ -744,20 +741,30 @@ function cloneObj(obj){
     F.prototype = obj;
     return new F();
 }
-</code></pre><h4 id="关于三大继承的总结"><a href="#关于三大继承的总结" class="headerlink" title="关于三大继承的总结"></a>关于三大继承的总结</h4><p>拷贝继承:  通用型的  有new或无new的时候都可以</p>
-<p>类式继承:  new构造函数</p>
-<p>原型继承:  无new的对象</p>
-<h3 id="组件开发："><a href="#组件开发：" class="headerlink" title="组件开发："></a><font color="red">组件开发：</font></h3><p>组件开发是什么  </p>
-<pre><code>多组对象，像兄弟之间的关系 (代码复用的一种形式)
+</code></pre>
+                    <h4 id="关于三大继承的总结">
+                      <a href="#关于三大继承的总结" class="headerlink" title="关于三大继承的总结"></a>关于三大继承的总结</h4>
+                    <p>拷贝继承: 通用型的 有new或无new的时候都可以</p>
+                    <p>类式继承: new构造函数</p>
+                    <p>原型继承: 无new的对象</p>
+                    <h3 id="组件开发：">
+                      <a href="#组件开发：" class="headerlink" title="组件开发："></a>
+                      <font color="red">组件开发：</font>
+                    </h3>
+                    <p>组件开发是什么 </p>
+                    <pre><code>多组对象，像兄弟之间的关系 (代码复用的一种形式)
 将配置参数、方法、事件，三者经行分离
-</code></pre><p>组件开发中出现的问题</p>
-<pre><code>1. 当参数不写的时候会报错  
+</code></pre>
+                    <p>组件开发中出现的问题</p>
+                    <pre><code>1. 当参数不写的时候会报错  
         解决办法：利用配置参数去替换默认参数的方法，如果配置参数没有，就走默认参数。
 
 2. 当参数特别多的情况下，会出现参数顺序的问题    
         解决办法：利用json解决，把所有参数放在一个json里面
-</code></pre><p>接下来用一个示例来说明<br>        拖拽的在按下和抬起的时候title的变化，没有实际意义，只是用简单的理论方便我们理解</p>
-<pre><code>window.onload = function(){
+</code></pre>
+                    <p>接下来用一个示例来说明
+                      <br> 拖拽的在按下和抬起的时候title的变化，没有实际意义，只是用简单的理论方便我们理解</p>
+                    <pre><code>window.onload = function(){
     var d1 = new Drag();
     d1.go({ id : &apos;div1&apos; });
 
@@ -821,9 +828,13 @@ Drag.prototype.fnUp = function(){
     document.onmousemove = null;
 
 }
-</code></pre><h4 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h4><p>自定义事件：主要是跟函数有关系，就是让函数能够具备事件的某些特性<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;有利于多人协作开发代码</p>
-<p>拖拽自定义事件示例：</p>
-<pre><code>&lt;script&gt;
+</code></pre>
+                    <h4 id="自定义事件">
+                      <a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h4>
+                    <p>自定义事件：主要是跟函数有关系，就是让函数能够具备事件的某些特性
+                      <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;有利于多人协作开发代码</p>
+                    <p>拖拽自定义事件示例：</p>
+                    <pre><code>&lt;script&gt;
 window.onload = function(){
     var d1 = new Drag();
     d1.go({ id : &apos;div1&apos; });
@@ -926,372 +937,347 @@ function fireEvent(obj,events){  //主动触发自定义事件
     &lt;div id=&quot;div3&quot;&gt;&lt;/div&gt;
     &lt;div id=&quot;div4&quot;&gt;&lt;/div&gt;
 &lt;/body&gt;
-</code></pre><p>参考代码：基于<a href="http://htmlpreview.github.io/?https://github.com/haiweitang/note/blob/master/4.%E9%80%89%E9%A1%B9%E5%8D%A1%E7%BB%84%E4%BB%B6%E5%8D%A1%E5%8F%91.html" target="_blank" rel="external">jQ的选项卡组件</a>开发实例</p>
-</the>
-      
-    </div>
+</code></pre>
+                    <p>参考代码：基于
+                      <a href="http://htmlpreview.github.io/?https://github.com/haiweitang/note/blob/master/4.%E9%80%89%E9%A1%B9%E5%8D%A1%E7%BB%84%E4%BB%B6%E5%8D%A1%E5%8F%91.html"
+                                                                                                      target="_blank" rel="external">jQ的选项卡组件</a>开发实例</p>
+                  </the>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/JS笔记/" rel="tag"># JS笔记</a>
-          
-        </div>
-      
+                </div>
 
-      
-        
-      
+                <footer class="post-footer">
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/03/29/时间版运动/" rel="next" title="时间版运动">
-                <i class="fa fa-chevron-left"></i> 时间版运动
-              </a>
-            
-          </div>
+                  <div class="post-tags">
 
-          <span class="post-nav-divider"></span>
+                    <a href="/tags/JS笔记/" rel="tag"># JS笔记</a>
 
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
+                  </div>
 
-      
-      
-    </footer>
-  </article>
+                  <div class="post-nav">
+                    <div class="post-nav-next post-nav-item">
 
+                      <a href="/2017/03/29/时间版运动/" rel="next" title="时间版运动">
+                        <i class="fa fa-chevron-left"></i> 时间版运动
+                      </a>
 
+                    </div>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+                    <span class="post-nav-divider"></span>
 
+                    <div class="post-nav-prev post-nav-item">
 
-          </div>
-          
+                    </div>
+                  </div>
 
+                </footer>
+              </article>
 
-          
-  <div class="comments" id="comments">
-    
-  </div>
+              <div class="post-spread">
 
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
+              </div>
             </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">分类</span>
-              
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">标签</span>
-              
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象基础"><span class="nav-number">1.</span> <span class="nav-text">面向对象基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#包装对象："><span class="nav-number">1.1.</span> <span class="nav-text">包装对象：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统对象："><span class="nav-number">1.2.</span> <span class="nav-text">系统对象：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象："><span class="nav-number">1.3.</span> <span class="nav-text">面向对象：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于new："><span class="nav-number">1.4.</span> <span class="nav-text">关于new：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于原型："><span class="nav-number">1.5.</span> <span class="nav-text">关于原型：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象的写法："><span class="nav-number">1.6.</span> <span class="nav-text">面向对象的写法：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象之组件开发"><span class="nav-number">2.</span> <span class="nav-text">面向对象之组件开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链："><span class="nav-number">2.1.</span> <span class="nav-text">原型链：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象的属性和方法"><span class="nav-number">2.2.</span> <span class="nav-text">面向对象的属性和方法:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hasOwnProperty-NaN"><span class="nav-number">2.2.1.</span> <span class="nav-text"> hasOwnProperty() :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#constructor-NaN"><span class="nav-number">2.2.2.</span> <span class="nav-text">constructor  :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#instanceof-运算符"><span class="nav-number">2.2.3.</span> <span class="nav-text">instanceof : 运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toString-Object上的方法"><span class="nav-number">2.2.4.</span> <span class="nav-text">toString : Object上的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承："><span class="nav-number">2.3.</span> <span class="nav-text">继承：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拷贝继承"><span class="nav-number">2.3.1.</span> <span class="nav-text">拷贝继承 :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类似继承"><span class="nav-number">2.3.2.</span> <span class="nav-text">类似继承 :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型继承"><span class="nav-number">2.3.3.</span> <span class="nav-text">原型继承 :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于三大继承的总结"><span class="nav-number">2.3.4.</span> <span class="nav-text">关于三大继承的总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件开发："><span class="nav-number">2.4.</span> <span class="nav-text">组件开发：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义事件"><span class="nav-number">2.4.1.</span> <span class="nav-text">自定义事件</span></a></li></ol></li></ol></li></ol></div>
-            
 
           </div>
-        </section>
-      <!--/noindex-->
-      
 
-      
+          <div class="comments" id="comments">
 
-    </div>
-  </aside>
+          </div>
 
+        </div>
 
-        
+        <div class="sidebar-toggle">
+          <div class="sidebar-toggle-line-wrap">
+            <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+            <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+            <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+          </div>
+        </div>
+
+        <aside id="sidebar" class="sidebar">
+          <div class="sidebar-inner">
+
+            <ul class="sidebar-nav motion-element">
+              <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+                文章目录
+              </li>
+              <li class="sidebar-nav-overview" data-target="site-overview">
+                站点概览
+              </li>
+            </ul>
+
+            <section class="site-overview sidebar-panel">
+              <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="John Doe"
+                />
+                <p class="site-author-name" itemprop="name">John Doe</p>
+
+                <p class="site-description motion-element" itemprop="description"></p>
+
+              </div>
+              <nav class="site-state motion-element">
+
+                <div class="site-state-item site-state-posts">
+                  <a href="/archives">
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+
+                <div class="site-state-item site-state-categories">
+
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+
+                </div>
+
+                <div class="site-state-item site-state-tags">
+
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+
+                </div>
+
+              </nav>
+
+              <div class="links-of-author motion-element">
+
+              </div>
+
+            </section>
+
+            <!--noindex-->
+            <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+              <div class="post-toc">
+
+                <div class="post-toc-content">
+                  <ol class="nav">
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#面向对象基础">
+                        <span class="nav-number">1.</span>
+                        <span class="nav-text">面向对象基础</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#包装对象：">
+                            <span class="nav-number">1.1.</span>
+                            <span class="nav-text">包装对象：</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#系统对象：">
+                            <span class="nav-number">1.2.</span>
+                            <span class="nav-text">系统对象：</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#面向对象：">
+                            <span class="nav-number">1.3.</span>
+                            <span class="nav-text">面向对象：</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#关于new：">
+                            <span class="nav-number">1.4.</span>
+                            <span class="nav-text">关于new：</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#关于原型：">
+                            <span class="nav-number">1.5.</span>
+                            <span class="nav-text">关于原型：</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#面向对象的写法：">
+                            <span class="nav-number">1.6.</span>
+                            <span class="nav-text">面向对象的写法：</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#面向对象之组件开发">
+                        <span class="nav-number">2.</span>
+                        <span class="nav-text">面向对象之组件开发</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#原型链：">
+                            <span class="nav-number">2.1.</span>
+                            <span class="nav-text">原型链：</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#面向对象的属性和方法">
+                            <span class="nav-number">2.2.</span>
+                            <span class="nav-text">面向对象的属性和方法:</span>
+                          </a>
+                          <ol class="nav-child">
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#hasOwnProperty-NaN">
+                                <span class="nav-number">2.2.1.</span>
+                                <span class="nav-text"> hasOwnProperty() :</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#constructor-NaN">
+                                <span class="nav-number">2.2.2.</span>
+                                <span class="nav-text">constructor :</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#instanceof-运算符">
+                                <span class="nav-number">2.2.3.</span>
+                                <span class="nav-text">instanceof : 运算符</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#toString-Object上的方法">
+                                <span class="nav-number">2.2.4.</span>
+                                <span class="nav-text">toString : Object上的方法</span>
+                              </a>
+                            </li>
+                          </ol>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#继承：">
+                            <span class="nav-number">2.3.</span>
+                            <span class="nav-text">继承：</span>
+                          </a>
+                          <ol class="nav-child">
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#拷贝继承">
+                                <span class="nav-number">2.3.1.</span>
+                                <span class="nav-text">拷贝继承 :</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#类似继承">
+                                <span class="nav-number">2.3.2.</span>
+                                <span class="nav-text">类似继承 :</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#原型继承">
+                                <span class="nav-number">2.3.3.</span>
+                                <span class="nav-text">原型继承 :</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#关于三大继承的总结">
+                                <span class="nav-number">2.3.4.</span>
+                                <span class="nav-text">关于三大继承的总结</span>
+                              </a>
+                            </li>
+                          </ol>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#组件开发：">
+                            <span class="nav-number">2.4.</span>
+                            <span class="nav-text">组件开发：</span>
+                          </a>
+                          <ol class="nav-child">
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#自定义事件">
+                                <span class="nav-number">2.4.1.</span>
+                                <span class="nav-text">自定义事件</span>
+                              </a>
+                            </li>
+                          </ol>
+                        </li>
+                      </ol>
+                    </li>
+                  </ol>
+                </div>
+
+              </div>
+            </section>
+            <!--/noindex-->
+
+          </div>
+        </aside>
+
       </div>
     </main>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
-</div>
+        <div class="copyright">
 
+          &copy;
+          <span itemprop="copyrightYear">2017</span>
+          <span class="with-love">
+            <i class="fa fa-heart"></i>
+          </span>
+          <span class="author" itemprop="copyrightHolder">John Doe</span>
+        </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+        <div class="powered-by">
+          由
+          <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+        </div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+        <div class="theme-info">
+          主题 -
+          <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+            NexT.Pisces
+          </a>
+        </div>
 
-
-        
-
-        
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+
+    </div>
 
   </div>
 
-  
+  <script type="text/javascript">
+    if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+      window.Promise = null;
+    }
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
+  </script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  
   <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-  
   <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  
   <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
-  
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
 
   <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
 
-
-
-  
-  
-
-
   <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
 
-
-
-  
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
-
-
-  
-
+  <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
 
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
 </body>
+
 </html>

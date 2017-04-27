@@ -1,393 +1,340 @@
 <!doctype html>
 
-
-
-  
-
-
 <html class="theme-next pisces use-motion" lang="zh-Hans">
+
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
+  />
 
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
 
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"
+  />
 
+  <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+                                                                                  rel="stylesheet" type="text/css">
 
+  <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet"
+                                                                                  type="text/css" />
 
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
+  <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
   <meta name="keywords" content="Applet," />
 
-
-
-
-
-
-
-
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
+  <meta name="description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
+  <meta name="keywords" content="Applet">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="微信小程序入门">
+  <meta property="og:url" content="http://yoursite.com/2017/04/27/applet/index.html">
+  <meta property="og:site_name" content="Prawns's Blog">
+  <meta property="og:description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
+  <meta property="og:updated_time" content="2017-04-27T10:07:17.275Z">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="微信小程序入门">
+  <meta name="twitter:description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
 
+  <script type="text/javascript" id="hexo.configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {
+      root: '/',
+      scheme: 'Pisces',
+      sidebar: {
+        "position": "left",
+        "display": "post",
+        "offset": 12,
+        "offset_float": 0,
+        "b2t": false,
+        "scrollpercent": false
+      },
+      fancybox: true,
+      motion: true,
+      duoshuo: {
+        userId: '0',
+        author: '博主'
+      },
+      algolia: {
+        applicationID: '',
+        apiKey: '',
+        indexName: '',
+        hits: {
+          "per_page": 10
+        },
+        labels: {
+          "input_placeholder": "Search for Posts",
+          "hits_empty": "We didn't find any results for the search: ${query}",
+          "hits_stats": "${hits} results found in ${time} ms"
+        }
+      }
+    };
 
+  </script>
 
-
-
-<meta name="description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
-<meta name="keywords" content="Applet">
-<meta property="og:type" content="article">
-<meta property="og:title" content="微信小程序入门">
-<meta property="og:url" content="http://yoursite.com/2017/04/27/applet/index.html">
-<meta property="og:site_name" content="Prawns's Blog">
-<meta property="og:description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
-<meta property="og:updated_time" content="2017-04-27T10:07:17.275Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微信小程序入门">
-<meta name="twitter:description" content="微信小程序开发文档 https://mp.weixin.qq.com/debug/wxadoc/dev/笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2017/04/27/applet/"/>
-
-
-
-
+  <link rel="canonical" href="http://yoursite.com/2017/04/27/applet/" />
 
   <title>微信小程序入门 | Prawns's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
   <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
+      <div class="header-inner">
+        <div class="site-brand-wrapper">
+          <div class="site-meta ">
 
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Prawns's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
+            <div class="custom-logo-site-title">
+              <a href="/" class="brand" rel="start">
+                <span class="logo-line-before">
+                  <i></i>
+                </span>
+                <span class="site-title">Prawns's Blog</span>
+                <span class="logo-line-after">
+                  <i></i>
+                </span>
+              </a>
+            </div>
 
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
+            <p class="site-subtitle"></p>
 
-<nav class="site-nav">
-  
+          </div>
 
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
-            
-            公益404
-          </a>
-        </li>
-      
+          <div class="site-nav-toggle">
+            <button>
+              <span class="btn-bar"></span>
+              <span class="btn-bar"></span>
+              <span class="btn-bar"></span>
+            </button>
+          </div>
+        </div>
 
-      
-    </ul>
-  
+        <nav class="site-nav">
 
-  
-</nav>
+          <ul id="menu" class="menu">
 
+            <li class="menu-item menu-item-home">
+              <a href="/" rel="section">
 
+                <i class="menu-item-icon fa fa-fw fa-home"></i>
+                <br /> 首页
+              </a>
+            </li>
 
- </div>
+            <li class="menu-item menu-item-about">
+              <a href="/about" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-user"></i>
+                <br /> 关于
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-archives">
+              <a href="/archives" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-archive"></i>
+                <br /> 归档
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-tags">
+              <a href="/tags" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-tags"></i>
+                <br /> 标签
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-commonweal">
+              <a href="/404.html" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-heartbeat"></i>
+                <br /> 公益404
+              </a>
+            </li>
+
+          </ul>
+
+        </nav>
+
+      </div>
     </header>
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
           <div id="content" class="content">
-            
 
-  <div id="posts" class="posts-expand">
-    
+            <div id="posts" class="posts-expand">
 
-  
+              <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+                <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/27/applet/">
 
-  
-  
-  
+                <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                  <meta itemprop="name" content="John Doe">
+                  <meta itemprop="description" content="">
+                  <meta itemprop="image" content="/images/avatar.gif">
+                </span>
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/27/applet/">
+                <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                  <meta itemprop="name" content="Prawns's Blog">
+                </span>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
+                <header class="post-header">
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Prawns's Blog">
-    </span>
+                  <h1 class="post-title" itemprop="name headline">
 
-    
-      <header class="post-header">
+                    微信小程序入门
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                微信小程序入门
-              
-            
-          </h1>
-        
+                  </h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-27T17:48:27+08:00">
-                2017-04-27
-              </time>
-            
+                  <div class="post-meta">
+                    <span class="post-time">
 
-            
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-calendar-o"></i>
+                      </span>
 
-            
-          </span>
+                      <span class="post-meta-item-text">发表于</span>
 
-          
+                      <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-27T17:48:27+08:00">
+                        2017-04-27
+                      </time>
 
-          
-            
-          
+                    </span>
 
-          
-          
+                  </div>
+                </header>
 
-          
+                <div class="post-body" itemprop="articleBody">
 
-          
+                  <p>微信小程序开发文档
+                    <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/"
+                                                                                                    target="_blank" rel="external">https://mp.weixin.qq.com/debug/wxadoc/dev/</a>
+                    <br>笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。</p>
+                  <p>
+                    <excerpt in="" index="" |="" 首页摘要="">
+                      <br>
+                      <a id="more"></a>
+                    </excerpt>
+                  </p>
+                  <the rest="" of="" contents="" |="" 余下全文="">
 
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>微信小程序开发文档 <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/" target="_blank" rel="external">https://mp.weixin.qq.com/debug/wxadoc/dev/</a><br>笔记是参考自己写的项目做的，所以只有我看的懂，其他人仅供参考。</p>
-<p><excerpt in="" index="" |="" 首页摘要=""><br><a id="more"></a></excerpt></p>
-<the rest="" of="" contents="" |="" 余下全文="">
-
-<h3 id="移动设备的分辨率与rpx"><a href="#移动设备的分辨率与rpx" class="headerlink" title="移动设备的分辨率与rpx"></a>移动设备的分辨率与rpx</h3><ol>
-<li>pt也称为逻辑分辨率。</li>
-<li>pt的大小和屏幕尺寸有关系，简单可以理解为长度和视觉单位。</li>
-<li>px指物理分辨率，和屏幕尺寸没有关系。点能有大小吗？</li>
-<li>1个pt可以有1个px构成，也可以有2个，还可以有3个甚至更多组成。</li>
-<li>1个pt有2个px，就已经到达人类视网膜的极限，所以如果再有更多的px也不会给我们一种更清晰的感觉。</li>
-</ol>
-<p><strong>如何做不同分辨率的自适应？</strong><br>以ip6的物理像素750 x 1334为视觉稿进行设计，而在小程序中使用rpx为单位<br>Ip6下1px = 1rpx = 0.5pt；<br>使用rpx，小程序会自动在不同的分辨率下进行转换，而使用px为单位不会。</p>
-<h3 id="什么是微信小程序？"><a href="#什么是微信小程序？" class="headerlink" title="什么是微信小程序？"></a>什么是微信小程序？</h3><p>一套用来开发做微信中运行的手机app框架。<br>张小龙这样定义：</p>
-<ol>
-<li>不需要下载安装即可使用。</li>
-<li>用户“用完即走”，不用关系你是否安装太多应用。</li>
-<li>应用无处不在，随时可用。</li>
-</ol>
-<h3 id="小程序的特点"><a href="#小程序的特点" class="headerlink" title="小程序的特点"></a>小程序的特点</h3><ol>
-<li>小程序适合做简单的、用完即走的应用。</li>
-<li>小程序适合低频的应用。</li>
-<li>小程序适合性能要求不高的应用。</li>
-</ol>
-<h3 id="组成结构"><a href="#组成结构" class="headerlink" title="组成结构"></a>组成结构</h3><p>结构文件：wxml； 样式文件：wxss;   逻辑成交互文件：javascript;</p>
-<h3 id="底层框架的工作原理"><a href="#底层框架的工作原理" class="headerlink" title="底层框架的工作原理"></a>底层框架的工作原理</h3><p>这个框架是双向的数据绑定系统：用户做视图上的修改会自动同步到数据模型中去，同样的，如果数据模型中的值发生了变化，也会立刻同步到视图中去。</p>
-<h3 id="必要的文件"><a href="#必要的文件" class="headerlink" title="必要的文件"></a>必要的文件</h3><p><strong>app.js ：</strong>是小程序的脚本代码。我们可以在这个文件中监听并处理小程序的生命周期函数、声明全局变量。调用框架提供的丰富的 API。<br><strong>app.json :</strong>是对整个小程序的全局配置。我们可以在这个文件中配置小程序是由哪些页面组成，配置小程序的窗口背景色，配置导航条样式，配置默认标题。注意该文件不可添加任何注释。<br><strong>app.wxss :</strong> 是整个小程序的公共样式表。我们可以在页面组件的 class 属性上直接使用 app.wxss 中声明的样式规则。</p>
-<h3 id="创建页面"><a href="#创建页面" class="headerlink" title="创建页面"></a>创建页面</h3><p>在这个教程里，我们有两个页面，index 页面和 logs 页面，即欢迎页和小程序启动日志的展示页，他们都在 pages 目录下。微信小程序中的每一个页面的【路径+页面名】都需要写在 app.json 的 pages中，且 pages 中的第一个页面是小程序的首页。</p>
-<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><h4 id="view"><a href="#view" class="headerlink" title="view"></a>view</h4><p>视图容器，类似于html5中的div</p>
-<h4 id="scroll-view"><a href="#scroll-view" class="headerlink" title="scroll-view"></a>scroll-view</h4><p>类似于html5中自带overflow:hidden的div</p>
-<h4 id="swiper"><a href="#swiper" class="headerlink" title="swiper"></a>swiper</h4><p>滑块视图容器。<br>其中只可放置<code>&lt;swiper-item/</code>&gt;组件，否则会导致未定义的行为。<br>宽高只能设置到swiper，swiper-item不能设置宽高。<br>添加属性vertical=”true”,可以纵向滚动，官方API里没有说明<br><strong>swiper-item</strong><br>仅可放置在<swiper>组件中，宽高自动设置为100%。</swiper></p>
-<h4 id="text"><a href="#text" class="headerlink" title="text"></a>text</h4><p>在小程序中，text类似于html5中的p。文本<br>支持转义符”\”。</p>
-<p><text> 组件内只支持 <text> 嵌套。<br>除了文本节点以外的其他节点都无法长按选中。</text></text></p>
-<h4 id="wx-if"><a href="#wx-if" class="headerlink" title="wx:if"></a>wx:if</h4><p>wx:if=”false“<br>逻辑判断<br>在任何标签里传入wx:if=”false“，就能阻止掉当前标签的显示。如果双大括号里天true，就能显示该标签</p>
-<h4 id="wx-for"><a href="#wx-for" class="headerlink" title="wx:for"></a>wx:for</h4><pre><code>wx:for=&quot;{{}}&quot; 括号里传入数据的变量名，
+                    <h3 id="移动设备的分辨率与rpx">
+                      <a href="#移动设备的分辨率与rpx" class="headerlink" title="移动设备的分辨率与rpx"></a>移动设备的分辨率与rpx</h3>
+                    <ol>
+                      <li>pt也称为逻辑分辨率。</li>
+                      <li>pt的大小和屏幕尺寸有关系，简单可以理解为长度和视觉单位。</li>
+                      <li>px指物理分辨率，和屏幕尺寸没有关系。点能有大小吗？</li>
+                      <li>1个pt可以有1个px构成，也可以有2个，还可以有3个甚至更多组成。</li>
+                      <li>1个pt有2个px，就已经到达人类视网膜的极限，所以如果再有更多的px也不会给我们一种更清晰的感觉。</li>
+                    </ol>
+                    <p>
+                      <strong>如何做不同分辨率的自适应？</strong>
+                      <br>以ip6的物理像素750 x 1334为视觉稿进行设计，而在小程序中使用rpx为单位
+                      <br>Ip6下1px = 1rpx = 0.5pt；
+                      <br>使用rpx，小程序会自动在不同的分辨率下进行转换，而使用px为单位不会。</p>
+                    <h3 id="什么是微信小程序？">
+                      <a href="#什么是微信小程序？" class="headerlink" title="什么是微信小程序？"></a>什么是微信小程序？</h3>
+                    <p>一套用来开发做微信中运行的手机app框架。
+                      <br>张小龙这样定义：</p>
+                    <ol>
+                      <li>不需要下载安装即可使用。</li>
+                      <li>用户“用完即走”，不用关系你是否安装太多应用。</li>
+                      <li>应用无处不在，随时可用。</li>
+                    </ol>
+                    <h3 id="小程序的特点">
+                      <a href="#小程序的特点" class="headerlink" title="小程序的特点"></a>小程序的特点</h3>
+                    <ol>
+                      <li>小程序适合做简单的、用完即走的应用。</li>
+                      <li>小程序适合低频的应用。</li>
+                      <li>小程序适合性能要求不高的应用。</li>
+                    </ol>
+                    <h3 id="组成结构">
+                      <a href="#组成结构" class="headerlink" title="组成结构"></a>组成结构</h3>
+                    <p>结构文件：wxml； 样式文件：wxss; 逻辑成交互文件：javascript;</p>
+                    <h3 id="底层框架的工作原理">
+                      <a href="#底层框架的工作原理" class="headerlink" title="底层框架的工作原理"></a>底层框架的工作原理</h3>
+                    <p>这个框架是双向的数据绑定系统：用户做视图上的修改会自动同步到数据模型中去，同样的，如果数据模型中的值发生了变化，也会立刻同步到视图中去。</p>
+                    <h3 id="必要的文件">
+                      <a href="#必要的文件" class="headerlink" title="必要的文件"></a>必要的文件</h3>
+                    <p>
+                      <strong>app.js ：</strong>是小程序的脚本代码。我们可以在这个文件中监听并处理小程序的生命周期函数、声明全局变量。调用框架提供的丰富的
+                      API。
+                      <br>
+                      <strong>app.json :</strong>是对整个小程序的全局配置。我们可以在这个文件中配置小程序是由哪些页面组成，配置小程序的窗口背景色，配置导航条样式，配置默认标题。注意该文件不可添加任何注释。
+                      <br>
+                      <strong>app.wxss :</strong> 是整个小程序的公共样式表。我们可以在页面组件的 class 属性上直接使用 app.wxss
+                      中声明的样式规则。</p>
+                    <h3 id="创建页面">
+                      <a href="#创建页面" class="headerlink" title="创建页面"></a>创建页面</h3>
+                    <p>在这个教程里，我们有两个页面，index 页面和 logs 页面，即欢迎页和小程序启动日志的展示页，他们都在 pages
+                      目录下。微信小程序中的每一个页面的【路径+页面名】都需要写在 app.json 的 pages中，且 pages 中的第一个页面是小程序的首页。</p>
+                    <h3 id="标签">
+                      <a href="#标签" class="headerlink" title="标签"></a>标签</h3>
+                    <h4 id="view">
+                      <a href="#view" class="headerlink" title="view"></a>view</h4>
+                    <p>视图容器，类似于html5中的div</p>
+                    <h4 id="scroll-view">
+                      <a href="#scroll-view" class="headerlink" title="scroll-view"></a>scroll-view</h4>
+                    <p>类似于html5中自带overflow:hidden的div</p>
+                    <h4 id="swiper">
+                      <a href="#swiper" class="headerlink" title="swiper"></a>swiper</h4>
+                    <p>滑块视图容器。
+                      <br>其中只可放置
+                      <code>&lt;swiper-item/</code>&gt;组件，否则会导致未定义的行为。
+                      <br>宽高只能设置到swiper，swiper-item不能设置宽高。
+                      <br>添加属性vertical=”true”,可以纵向滚动，官方API里没有说明
+                      <br>
+                      <strong>swiper-item</strong>
+                      <br>仅可放置在
+                      <swiper>组件中，宽高自动设置为100%。</swiper>
+                    </p>
+                    <h4 id="text">
+                      <a href="#text" class="headerlink" title="text"></a>text</h4>
+                    <p>在小程序中，text类似于html5中的p。文本
+                      <br>支持转义符”\”。</p>
+                    <p>
+                      <text> 组件内只支持
+                        <text> 嵌套。
+                          <br>除了文本节点以外的其他节点都无法长按选中。</text>
+                      </text>
+                    </p>
+                    <h4 id="wx-if">
+                      <a href="#wx-if" class="headerlink" title="wx:if"></a>wx:if</h4>
+                    <p>wx:if=”false“
+                      <br>逻辑判断
+                      <br>在任何标签里传入wx:if=”false“，就能阻止掉当前标签的显示。如果双大括号里天true，就能显示该标签</p>
+                    <h4 id="wx-for">
+                      <a href="#wx-for" class="headerlink" title="wx:for"></a>wx:for</h4>
+                    <pre><code>wx:for=&quot;{{}}&quot; 括号里传入数据的变量名，
 wx:for-item=&quot;item&quot; for循环默认子元素指代是以item来命名的。所以block标签内写不写都无所谓。item指定子元素本身
 wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
-</code></pre><h4 id="require"><a href="#require" class="headerlink" title="require"></a>require</h4><p>加载数据模块</p>
-<pre><code>var postData = require(&apos;../../data/posts-data.js&apos;)
-</code></pre><h4 id="module-exports"><a href="#module-exports" class="headerlink" title="module.exports"></a>module.exports</h4><p>导出数据模块</p>
-<pre><code>module.exports={
+</code></pre>
+                    <h4 id="require">
+                      <a href="#require" class="headerlink" title="require"></a>require</h4>
+                    <p>加载数据模块</p>
+                    <pre><code>var postData = require(&apos;../../data/posts-data.js&apos;)
+</code></pre>
+                    <h4 id="module-exports">
+                      <a href="#module-exports" class="headerlink" title="module.exports"></a>module.exports</h4>
+                    <p>导出数据模块</p>
+                    <pre><code>module.exports={
     postList:local_database
 }
-</code></pre><h3 id="Swiper组件"><a href="#Swiper组件" class="headerlink" title="Swiper组件"></a>Swiper组件</h3><p>滑块视图容器。详情参考 <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/component/swiper.html" target="_blank" rel="external">https://mp.weixin.qq.com/debug/wxadoc/dev/component/swiper.html</a><br>实现自动轮播，以及划动切换页面</p>
-<pre><code>&lt;swiper indicator-dots=&quot;true&quot; autoplay=&quot;true&quot; interval=&quot;5000&quot;&gt;
+</code></pre>
+                    <h3 id="Swiper组件">
+                      <a href="#Swiper组件" class="headerlink" title="Swiper组件"></a>Swiper组件</h3>
+                    <p>滑块视图容器。详情参考
+                      <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/component/swiper.html"
+                                                                                                      target="_blank" rel="external">https://mp.weixin.qq.com/debug/wxadoc/dev/component/swiper.html</a>
+                      <br>实现自动轮播，以及划动切换页面</p>
+                    <pre><code>&lt;swiper indicator-dots=&quot;true&quot; autoplay=&quot;true&quot; interval=&quot;5000&quot;&gt;
     &lt;swiper-item&gt;
         &lt;image src=&quot;/image/wx.png&quot;&gt;&lt;/image&gt;
     &lt;/swiper-item&gt;
@@ -398,7 +345,12 @@ wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
         &lt;image src=&quot;/image/iqiyi.png&quot;&gt;&lt;/image&gt;
     &lt;/swiper-item&gt;
 &lt;/swiper&gt;
-</code></pre><h3 id="App-json里的关于导航栏，标题的配置"><a href="#App-json里的关于导航栏，标题的配置" class="headerlink" title="App.json里的关于导航栏，标题的配置"></a>App.json里的关于导航栏，标题的配置</h3><h3 id="Page页面与应用程序的生命周期"><a href="#Page页面与应用程序的生命周期" class="headerlink" title="Page页面与应用程序的生命周期"></a>Page页面与应用程序的生命周期</h3><pre><code>onLoad:function(options){
+</code></pre>
+                    <h3 id="App-json里的关于导航栏，标题的配置">
+                      <a href="#App-json里的关于导航栏，标题的配置" class="headerlink" title="App.json里的关于导航栏，标题的配置"></a>App.json里的关于导航栏，标题的配置</h3>
+                    <h3 id="Page页面与应用程序的生命周期">
+                      <a href="#Page页面与应用程序的生命周期" class="headerlink" title="Page页面与应用程序的生命周期"></a>Page页面与应用程序的生命周期</h3>
+                    <pre><code>onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
   },
   onReady:function(){
@@ -417,8 +369,11 @@ wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
     // 页面关闭
     console.log(&apos;onUnload&apos;)
   }
-</code></pre><h3 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h3><p>我们可以自己写入数据</p>
-<pre><code> var post_contentl={
+</code></pre>
+                    <h3 id="数据绑定">
+                      <a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h3>
+                    <p>我们可以自己写入数据</p>
+                    <pre><code> var post_contentl={
       date:&quot;sep 18 2017&quot;,
       title:&quot;正是虾肥蟹壮时&quot;,
       img:{
@@ -433,11 +388,30 @@ wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
 
 把数据放入上面的生命周期函数里，只要通过this.setData(post_contentl)，括号内传入json变量，就可以直接把数据添加到Data{}中。
 而后在wxml中用{{}}把数据传进去。
-</code></pre><h3 id="数据绑定的运算与逻辑"><a href="#数据绑定的运算与逻辑" class="headerlink" title="数据绑定的运算与逻辑"></a>数据绑定的运算与逻辑</h3><h3 id="AppData区域"><a href="#AppData区域" class="headerlink" title="AppData区域"></a>AppData区域</h3><h3 id="事件与事件对象"><a href="#事件与事件对象" class="headerlink" title="事件与事件对象"></a>事件与事件对象</h3><p>在小程序中，任何事件都要在前面加上bind(冒泡)或catch(非冒泡)，一般bind使用比较多。</p>
-<h4 id="tap"><a href="#tap" class="headerlink" title="tap"></a>tap</h4><p>类似于js中的onclick，但是默认是冒泡的，如果不想它冒泡，可以用catchtap。微信小程序中的事件是卸载行间的。</p>
-<h4 id="wx-navigateTo-OBJECT"><a href="#wx-navigateTo-OBJECT" class="headerlink" title="wx.navigateTo(OBJECT)"></a>wx.navigateTo(OBJECT)</h4><p>保留当前页面，跳转到应用内的某个页面，使用wx.navigateBack可以返回到原页面。</p>
-<h4 id="wx-redirectTo-OBJECT"><a href="#wx-redirectTo-OBJECT" class="headerlink" title="wx.redirectTo(OBJECT)"></a>wx.redirectTo(OBJECT)</h4><p>关闭当前页面，跳转到应用内的某个页面。</p>
-<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><h3 id="列表渲染-核心知识"><a href="#列表渲染-核心知识" class="headerlink" title="列表渲染(核心知识)"></a>列表渲染(核心知识)</h3><h3 id="Template模板的使用-核心知识"><a href="#Template模板的使用-核心知识" class="headerlink" title="Template模板的使用(核心知识)"></a>Template模板的使用(核心知识)</h3><pre><code>&lt;block wx:for=&quot;{{posts_key}}&quot; wx:for-item=&quot;item&quot;&gt;
+</code></pre>
+                    <h3 id="数据绑定的运算与逻辑">
+                      <a href="#数据绑定的运算与逻辑" class="headerlink" title="数据绑定的运算与逻辑"></a>数据绑定的运算与逻辑</h3>
+                    <h3 id="AppData区域">
+                      <a href="#AppData区域" class="headerlink" title="AppData区域"></a>AppData区域</h3>
+                    <h3 id="事件与事件对象">
+                      <a href="#事件与事件对象" class="headerlink" title="事件与事件对象"></a>事件与事件对象</h3>
+                    <p>在小程序中，任何事件都要在前面加上bind(冒泡)或catch(非冒泡)，一般bind使用比较多。</p>
+                    <h4 id="tap">
+                      <a href="#tap" class="headerlink" title="tap"></a>tap</h4>
+                    <p>类似于js中的onclick，但是默认是冒泡的，如果不想它冒泡，可以用catchtap。微信小程序中的事件是卸载行间的。</p>
+                    <h4 id="wx-navigateTo-OBJECT">
+                      <a href="#wx-navigateTo-OBJECT" class="headerlink" title="wx.navigateTo(OBJECT)"></a>wx.navigateTo(OBJECT)</h4>
+                    <p>保留当前页面，跳转到应用内的某个页面，使用wx.navigateBack可以返回到原页面。</p>
+                    <h4 id="wx-redirectTo-OBJECT">
+                      <a href="#wx-redirectTo-OBJECT" class="headerlink" title="wx.redirectTo(OBJECT)"></a>wx.redirectTo(OBJECT)</h4>
+                    <p>关闭当前页面，跳转到应用内的某个页面。</p>
+                    <h3 id="缓存">
+                      <a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3>
+                    <h3 id="列表渲染-核心知识">
+                      <a href="#列表渲染-核心知识" class="headerlink" title="列表渲染(核心知识)"></a>列表渲染(核心知识)</h3>
+                    <h3 id="Template模板的使用-核心知识">
+                      <a href="#Template模板的使用-核心知识" class="headerlink" title="Template模板的使用(核心知识)"></a>Template模板的使用(核心知识)</h3>
+                    <pre><code>&lt;block wx:for=&quot;{{posts_key}}&quot; wx:for-item=&quot;item&quot;&gt;
     &lt;view class=&quot;post-container&quot;&gt;
         &lt;view class=&quot;post-author-date&quot;&gt;
             &lt;image class=&quot;post-author&quot; src=&quot;{{item.avatar}}&quot;&gt;&lt;/image&gt;
@@ -454,8 +428,15 @@ wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
         &lt;/view&gt;
     &lt;/view&gt;
 &lt;/block&gt;
-</code></pre><p>通过上面的代码，我们看到wx:for里面有很多代码，那么可以把它里面的代码放到其他文件专门存储起来吗，微信给我们提供了一个template模板来实现夸页面来获取这段数据<br>如果wx:for想跨页面获取数据,就必须用templat模板来获取。<br>新建一个目录文件夹，再分别新建一个template.wxml和template.wxss。<br>因为template是一个模板而不是一个模块，所以创建js文件也是不会被运行的。<br>在template.wxml文件里写一个<code>&lt;template name=&quot;postItem&quot;</code>&gt;<code>&lt;/template</code>&gt;标签，需要指定一个name名字，然后把wx:for里面的内容放入这个标签里</p>
-<pre><code>&lt;template  name=&quot;postItem&quot;&gt;
+</code></pre>
+                    <p>通过上面的代码，我们看到wx:for里面有很多代码，那么可以把它里面的代码放到其他文件专门存储起来吗，微信给我们提供了一个template模板来实现夸页面来获取这段数据
+                      <br>如果wx:for想跨页面获取数据,就必须用templat模板来获取。
+                      <br>新建一个目录文件夹，再分别新建一个template.wxml和template.wxss。
+                      <br>因为template是一个模板而不是一个模块，所以创建js文件也是不会被运行的。
+                      <br>在template.wxml文件里写一个
+                      <code>&lt;template name=&quot;postItem&quot;</code>&gt;
+                      <code>&lt;/template</code>&gt;标签，需要指定一个name名字，然后把wx:for里面的内容放入这个标签里</p>
+                    <pre><code>&lt;template  name=&quot;postItem&quot;&gt;
      &lt;view class=&quot;post-container&quot;&gt;
         &lt;view class=&quot;post-author-date&quot;&gt;
             &lt;image class=&quot;post-author&quot; src=&quot;{{item.avatar}}&quot;&gt;&lt;/image&gt;
@@ -472,380 +453,405 @@ wx:for-index=&quot;idx&quot; 可以用idx来指定子元素序号
         &lt;/view&gt;
     &lt;/view&gt;
 &lt;/template&gt;
-</code></pre><p>然后要在wx:for所在的文件里引用这个templa模板，需要在文件顶部写入代码引用。<br>wxml文件</p>
-<pre><code>&lt;import src=&quot;post-item/post-item-template.wxml&quot;/&gt;       //src是template模板的路径
-</code></pre><p>wxss文件</p>
-<pre><code>@import &quot;post-item/post-item-template.wxml&quot;;     //src是template模板的路径
-</code></pre><p>继续在wx:for所在的标签下，写一个<code>&lt;template is=&quot;postItem&quot; data=&quot;&quot;/</code>&gt;<br>用这个标签来获取template模板下的数据。</p>
-<pre><code>&lt;block wx:for=&quot;{{posts_key}}&quot; wx:for-item=&quot;item&quot;&gt;
+</code></pre>
+                    <p>然后要在wx:for所在的文件里引用这个templa模板，需要在文件顶部写入代码引用。
+                      <br>wxml文件</p>
+                    <pre><code>&lt;import src=&quot;post-item/post-item-template.wxml&quot;/&gt;       //src是template模板的路径
+</code></pre>
+                    <p>wxss文件</p>
+                    <pre><code>@import &quot;post-item/post-item-template.wxml&quot;;     //src是template模板的路径
+</code></pre>
+                    <p>继续在wx:for所在的标签下，写一个
+                      <code>&lt;template is=&quot;postItem&quot; data=&quot;&quot;/</code>&gt;
+                      <br>用这个标签来获取template模板下的数据。</p>
+                    <pre><code>&lt;block wx:for=&quot;{{posts_key}}&quot; wx:for-item=&quot;item&quot;&gt;
     &lt;template is=&quot;postItem&quot; data=&quot;{{item}}&quot;&gt;&lt;/template&gt;
 &lt;/block&gt;
-</code></pre><p>is是获取template模板name的名字<br>由于templata获取的是for循环列表里的一个，如果有要获取所有数据，需要再指定一个变量，就像是js for循环中的i一样。所以data就是用来传入这个变量的。<br>通过这样的方式，我们就可以精简掉wx:for循环代码。<br>template模板的好处，不仅限于精简掉当前页面的代码，我们可以在多个页面通过这样一句代码，引入这个模板里的数据。实现多页面复用。</p>
-</the>
-      
-    </div>
+</code></pre>
+                    <p>is是获取template模板name的名字
+                      <br>由于templata获取的是for循环列表里的一个，如果有要获取所有数据，需要再指定一个变量，就像是js for循环中的i一样。所以data就是用来传入这个变量的。
+                      <br>通过这样的方式，我们就可以精简掉wx:for循环代码。
+                      <br>template模板的好处，不仅限于精简掉当前页面的代码，我们可以在多个页面通过这样一句代码，引入这个模板里的数据。实现多页面复用。</p>
+                  </the>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <div>
-      
-        
+                </div>
 
-      
-    </div>
+                <div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Applet/" rel="tag"># Applet</a>
-          
-        </div>
-      
+                </div>
 
-      
-        
-      
+                <footer class="post-footer">
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
+                  <div class="post-tags">
 
-          <span class="post-nav-divider"></span>
+                    <a href="/tags/Applet/" rel="tag"># Applet</a>
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/26/HTML5地理信息-本地存储-离线存储/" rel="prev" title="HTML5地理信息-本地存储-离线存储">
-                HTML5地理信息-本地存储-离线存储 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
+                  </div>
 
-      
-      
-    </footer>
-  </article>
+                  <div class="post-nav">
+                    <div class="post-nav-next post-nav-item">
 
+                    </div>
 
+                    <span class="post-nav-divider"></span>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+                    <div class="post-nav-prev post-nav-item">
 
+                      <a href="/2017/04/26/HTML5地理信息-本地存储-离线存储/" rel="prev" title="HTML5地理信息-本地存储-离线存储">
+                        HTML5地理信息-本地存储-离线存储
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
 
-          </div>
-          
+                    </div>
+                  </div>
 
+                </footer>
+              </article>
 
-          
-  <div class="comments" id="comments">
-    
-  </div>
+              <div class="post-spread">
 
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="John Doe" />
-          <p class="site-author-name" itemprop="name">John Doe</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
+              </div>
             </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">分类</span>
-              
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">标签</span>
-              
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动设备的分辨率与rpx"><span class="nav-number">1.</span> <span class="nav-text">移动设备的分辨率与rpx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是微信小程序？"><span class="nav-number">2.</span> <span class="nav-text">什么是微信小程序？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序的特点"><span class="nav-number">3.</span> <span class="nav-text">小程序的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成结构"><span class="nav-number">4.</span> <span class="nav-text">组成结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底层框架的工作原理"><span class="nav-number">5.</span> <span class="nav-text">底层框架的工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必要的文件"><span class="nav-number">6.</span> <span class="nav-text">必要的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建页面"><span class="nav-number">7.</span> <span class="nav-text">创建页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标签"><span class="nav-number">8.</span> <span class="nav-text">标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#view"><span class="nav-number">8.1.</span> <span class="nav-text">view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scroll-view"><span class="nav-number">8.2.</span> <span class="nav-text">scroll-view</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swiper"><span class="nav-number">8.3.</span> <span class="nav-text">swiper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text"><span class="nav-number">8.4.</span> <span class="nav-text">text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-if"><span class="nav-number">8.5.</span> <span class="nav-text">wx:if</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-for"><span class="nav-number">8.6.</span> <span class="nav-text">wx:for</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#require"><span class="nav-number">8.7.</span> <span class="nav-text">require</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#module-exports"><span class="nav-number">8.8.</span> <span class="nav-text">module.exports</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swiper组件"><span class="nav-number">9.</span> <span class="nav-text">Swiper组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#App-json里的关于导航栏，标题的配置"><span class="nav-number">10.</span> <span class="nav-text">App.json里的关于导航栏，标题的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Page页面与应用程序的生命周期"><span class="nav-number">11.</span> <span class="nav-text">Page页面与应用程序的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据绑定"><span class="nav-number">12.</span> <span class="nav-text">数据绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据绑定的运算与逻辑"><span class="nav-number">13.</span> <span class="nav-text">数据绑定的运算与逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AppData区域"><span class="nav-number">14.</span> <span class="nav-text">AppData区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件与事件对象"><span class="nav-number">15.</span> <span class="nav-text">事件与事件对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tap"><span class="nav-number">15.1.</span> <span class="nav-text">tap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-navigateTo-OBJECT"><span class="nav-number">15.2.</span> <span class="nav-text">wx.navigateTo(OBJECT)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wx-redirectTo-OBJECT"><span class="nav-number">15.3.</span> <span class="nav-text">wx.redirectTo(OBJECT)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存"><span class="nav-number">16.</span> <span class="nav-text">缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表渲染-核心知识"><span class="nav-number">17.</span> <span class="nav-text">列表渲染(核心知识)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Template模板的使用-核心知识"><span class="nav-number">18.</span> <span class="nav-text">Template模板的使用(核心知识)</span></a></li></ol></div>
-            
 
           </div>
-        </section>
-      <!--/noindex-->
-      
 
-      
+          <div class="comments" id="comments">
 
-    </div>
-  </aside>
+          </div>
 
+        </div>
 
-        
+        <div class="sidebar-toggle">
+          <div class="sidebar-toggle-line-wrap">
+            <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+            <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+            <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+          </div>
+        </div>
+
+        <aside id="sidebar" class="sidebar">
+          <div class="sidebar-inner">
+
+            <ul class="sidebar-nav motion-element">
+              <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+                文章目录
+              </li>
+              <li class="sidebar-nav-overview" data-target="site-overview">
+                站点概览
+              </li>
+            </ul>
+
+            <section class="site-overview sidebar-panel">
+              <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="John Doe"
+                />
+                <p class="site-author-name" itemprop="name">John Doe</p>
+
+                <p class="site-description motion-element" itemprop="description"></p>
+
+              </div>
+              <nav class="site-state motion-element">
+
+                <div class="site-state-item site-state-posts">
+                  <a href="/archives">
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+
+                <div class="site-state-item site-state-categories">
+
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+
+                </div>
+
+                <div class="site-state-item site-state-tags">
+
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+
+                </div>
+
+              </nav>
+
+              <div class="links-of-author motion-element">
+
+              </div>
+
+            </section>
+
+            <!--noindex-->
+            <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+              <div class="post-toc">
+
+                <div class="post-toc-content">
+                  <ol class="nav">
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#移动设备的分辨率与rpx">
+                        <span class="nav-number">1.</span>
+                        <span class="nav-text">移动设备的分辨率与rpx</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#什么是微信小程序？">
+                        <span class="nav-number">2.</span>
+                        <span class="nav-text">什么是微信小程序？</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#小程序的特点">
+                        <span class="nav-number">3.</span>
+                        <span class="nav-text">小程序的特点</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#组成结构">
+                        <span class="nav-number">4.</span>
+                        <span class="nav-text">组成结构</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#底层框架的工作原理">
+                        <span class="nav-number">5.</span>
+                        <span class="nav-text">底层框架的工作原理</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#必要的文件">
+                        <span class="nav-number">6.</span>
+                        <span class="nav-text">必要的文件</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#创建页面">
+                        <span class="nav-number">7.</span>
+                        <span class="nav-text">创建页面</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#标签">
+                        <span class="nav-number">8.</span>
+                        <span class="nav-text">标签</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#view">
+                            <span class="nav-number">8.1.</span>
+                            <span class="nav-text">view</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#scroll-view">
+                            <span class="nav-number">8.2.</span>
+                            <span class="nav-text">scroll-view</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#swiper">
+                            <span class="nav-number">8.3.</span>
+                            <span class="nav-text">swiper</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#text">
+                            <span class="nav-number">8.4.</span>
+                            <span class="nav-text">text</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#wx-if">
+                            <span class="nav-number">8.5.</span>
+                            <span class="nav-text">wx:if</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#wx-for">
+                            <span class="nav-number">8.6.</span>
+                            <span class="nav-text">wx:for</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#require">
+                            <span class="nav-number">8.7.</span>
+                            <span class="nav-text">require</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#module-exports">
+                            <span class="nav-number">8.8.</span>
+                            <span class="nav-text">module.exports</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#Swiper组件">
+                        <span class="nav-number">9.</span>
+                        <span class="nav-text">Swiper组件</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#App-json里的关于导航栏，标题的配置">
+                        <span class="nav-number">10.</span>
+                        <span class="nav-text">App.json里的关于导航栏，标题的配置</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#Page页面与应用程序的生命周期">
+                        <span class="nav-number">11.</span>
+                        <span class="nav-text">Page页面与应用程序的生命周期</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#数据绑定">
+                        <span class="nav-number">12.</span>
+                        <span class="nav-text">数据绑定</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#数据绑定的运算与逻辑">
+                        <span class="nav-number">13.</span>
+                        <span class="nav-text">数据绑定的运算与逻辑</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#AppData区域">
+                        <span class="nav-number">14.</span>
+                        <span class="nav-text">AppData区域</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#事件与事件对象">
+                        <span class="nav-number">15.</span>
+                        <span class="nav-text">事件与事件对象</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#tap">
+                            <span class="nav-number">15.1.</span>
+                            <span class="nav-text">tap</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#wx-navigateTo-OBJECT">
+                            <span class="nav-number">15.2.</span>
+                            <span class="nav-text">wx.navigateTo(OBJECT)</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#wx-redirectTo-OBJECT">
+                            <span class="nav-number">15.3.</span>
+                            <span class="nav-text">wx.redirectTo(OBJECT)</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#缓存">
+                        <span class="nav-number">16.</span>
+                        <span class="nav-text">缓存</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#列表渲染-核心知识">
+                        <span class="nav-number">17.</span>
+                        <span class="nav-text">列表渲染(核心知识)</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#Template模板的使用-核心知识">
+                        <span class="nav-number">18.</span>
+                        <span class="nav-text">Template模板的使用(核心知识)</span>
+                      </a>
+                    </li>
+                  </ol>
+                </div>
+
+              </div>
+            </section>
+            <!--/noindex-->
+
+          </div>
+        </aside>
+
       </div>
     </main>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
-</div>
+        <div class="copyright">
 
+          &copy;
+          <span itemprop="copyrightYear">2017</span>
+          <span class="with-love">
+            <i class="fa fa-heart"></i>
+          </span>
+          <span class="author" itemprop="copyrightHolder">John Doe</span>
+        </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+        <div class="powered-by">
+          由
+          <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+        </div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+        <div class="theme-info">
+          主题 -
+          <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+            NexT.Pisces
+          </a>
+        </div>
 
-
-        
-
-        
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+
+    </div>
 
   </div>
 
-  
+  <script type="text/javascript">
+    if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+      window.Promise = null;
+    }
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
+  </script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  
   <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-  
   <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  
   <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
-  
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
 
   <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
 
-
-
-  
-  
-
-
   <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
 
-
-
-  
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
-
-
-  
-
+  <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
 
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
 </body>
+
 </html>

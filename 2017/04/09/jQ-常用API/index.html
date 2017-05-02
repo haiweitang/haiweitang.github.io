@@ -34,7 +34,7 @@
   <meta property="og:url" content="http://yoursite.com/2017/04/09/jQ-常用API/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
   <meta property="og:description" content="JQ下的常用API，个人笔记，方便查询。">
-  <meta property="og:updated_time" content="2017-04-09T15:20:43.634Z">
+  <meta property="og:updated_time" content="2017-05-02T16:13:00.051Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="jQ初探-常用API">
   <meta name="twitter:description" content="JQ下的常用API，个人笔记，方便查询。">
@@ -305,7 +305,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        6,140
+                        6,116
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -336,8 +336,8 @@
                   </p>
                   <the rest="" of="" contents="" |="" 余下全文="">
 
-                    <h3 id="选择元素：">
-                      <a href="#选择元素：" class="headerlink" title="选择元素："></a>选择元素：</h3>
+                    <h2 id="选择元素：">
+                      <a href="#选择元素：" class="headerlink" title="选择元素："></a>选择元素：</h2>
                     <p>选择ID： </p>
                     <pre><code>$(&apos;#div1&apos;).css(&apos;background&apos;,&apos;red&apos;);
 </code></pre>
@@ -909,10 +909,12 @@ $(function(){
 </code></pre>
                     <h3 id="delegate-：">
                       <a href="#delegate-：" class="headerlink" title="delegate()："></a>delegate()：</h3>
-                    <p>事件绑定 冒泡机制 //$(‘ul’).delegate(‘li’,’click’,function(){});</p>
+                    <p>事件委托 冒泡机制</p>
+                    <pre><code>$(&apos;ul&apos;).delegate(&apos;li&apos;,&apos;click&apos;,function(){});
+</code></pre>
                     <h3 id="undelegate-：">
                       <a href="#undelegate-：" class="headerlink" title="undelegate()："></a>undelegate()：</h3>
-                    <p>解除事件绑定 //针对的是dalegate(),不用能off()来解除绑定
+                    <p>解除事件委托,针对的是dalegate(),不用能off()来解除绑定
                       <br>示例：</p>
                     <pre><code>&lt;script src=&quot;jquery-3.2.0.js&quot;&gt;&lt;/script&gt;
     &lt;script&gt;
@@ -974,11 +976,6 @@ $(function(){
     &lt;div&gt;123213&lt;/div&gt;
 &lt;/body&gt;
 </code></pre>
-                    <h3 id="JQ之创建元素">
-                      <a href="#JQ之创建元素" class="headerlink" title="JQ之创建元素:"></a>JQ之创建元素:</h3>
-                    <p>$(‘
-                      <div>’) //创建元素，记得加尖括号“&lt;”。不加就是获取元素。</div>
-                    </p>
                     <h2 id="jQuery方法之事件细解：">
                       <a href="#jQuery方法之事件细解：" class="headerlink" title="jQuery方法之事件细解："></a>jQuery方法之事件细解：</h2>
                     <h3 id="ev">
@@ -1621,7 +1618,7 @@ $.get(‘url’,{name:’hello’},function(){});
 
                 <div class="site-state-item site-state-posts">
                   <a href="/archives">
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1635,7 +1632,7 @@ $.get(‘url’,{name:’hello’},function(){});
 
                 <div class="site-state-item site-state-tags">
 
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
 
                 </div>
@@ -1673,7 +1670,7 @@ $.get(‘url’,{name:’hello’},function(){});
                 </span>
 
                 <span class="links-of-author-item">
-                  <a href="haiweithw@163.com" target="_blank" title="邮箱">
+                  <a href="mailto:haiweithw@163.com" target="_blank" title="邮箱">
 
                     <i class="fa fa-fw fa-haiweithw@163.com"></i>
 
@@ -1705,749 +1702,744 @@ $.get(‘url’,{name:’hello’},function(){});
 
                 <div class="post-toc-content">
                   <ol class="nav">
-                    <li class="nav-item nav-level-3">
+                    <li class="nav-item nav-level-2">
                       <a class="nav-link" href="#选择元素：">
                         <span class="nav-number">1.</span>
                         <span class="nav-text">
                           选择元素：</span>
                       </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#function">
+                            <span class="nav-number">1.1.</span>
+                            <span class="nav-text">
+                              $(function):</span>
+                          </a>
+                        </li>
+                      </ol>
                     </li>
-                    <li class="nav-item nav-level-3">
-                      <a class="nav-link" href="#function">
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#下的常用方法：">
                         <span class="nav-number">2.</span>
                         <span class="nav-text">
-                          $(function):</span>
+                          $()下的常用方法：</span>
                       </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#attr">
+                            <span class="nav-number">2.1.</span>
+                            <span class="nav-text">
+                              attr():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#filter">
+                            <span class="nav-number">2.2.</span>
+                            <span class="nav-text">
+                              filter():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#not">
+                            <span class="nav-number">2.3.</span>
+                            <span class="nav-text">
+                              not():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#has">
+                            <span class="nav-number">2.4.</span>
+                            <span class="nav-text">
+                              has():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#add-组合元素">
+                            <span class="nav-number">2.5.</span>
+                            <span class="nav-text">
+                              add(): 组合元素</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#next">
+                            <span class="nav-number">2.6.</span>
+                            <span class="nav-text">
+                              next():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#prev">
+                            <span class="nav-number">2.7.</span>
+                            <span class="nav-text">
+                              prev():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#siblings">
+                            <span class="nav-number">2.8.</span>
+                            <span class="nav-text">
+                              siblings():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#nextAll">
+                            <span class="nav-number">2.9.</span>
+                            <span class="nav-text">
+                              nextAll():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#prevAll">
+                            <span class="nav-number">2.10.</span>
+                            <span class="nav-text">
+                              prevAll():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#nextUntil">
+                            <span class="nav-number">2.11.</span>
+                            <span class="nav-text">
+                              nextUntil():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#prevUntil">
+                            <span class="nav-number">2.12.</span>
+                            <span class="nav-text">
+                              prevUntil():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#find">
+                            <span class="nav-number">2.13.</span>
+                            <span class="nav-text">
+                              find():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#children">
+                            <span class="nav-number">2.14.</span>
+                            <span class="nav-text">
+                              children():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#eq">
+                            <span class="nav-number">2.15.</span>
+                            <span class="nav-text">
+                              eq():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#index">
+                            <span class="nav-number">2.16.</span>
+                            <span class="nav-text">
+                              index():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#addClass">
+                            <span class="nav-number">2.17.</span>
+                            <span class="nav-text">
+                              addClass():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#removeClass">
+                            <span class="nav-number">2.18.</span>
+                            <span class="nav-text">
+                              removeClass():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#toggleClass">
+                            <span class="nav-number">2.19.</span>
+                            <span class="nav-text">
+                              toggleClass():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#width">
+                            <span class="nav-number">2.20.</span>
+                            <span class="nav-text">
+                              width():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#outerWidth">
+                            <span class="nav-number">2.21.</span>
+                            <span class="nav-text">
+                              outerWidth():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#outerWidth-true">
+                            <span class="nav-number">2.22.</span>
+                            <span class="nav-text">
+                              outerWidth(true):</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#scrollTop">
+                            <span class="nav-number">2.23.</span>
+                            <span class="nav-text">
+                              scrollTop():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#scrollLeft">
+                            <span class="nav-number">2.24.</span>
+                            <span class="nav-text">
+                              scrollLeft():</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#jQuery方法之DOM操作：">
+                        <span class="nav-number">3.</span>
+                        <span class="nav-text">
+                          jQuery方法之DOM操作：</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#insertBefore">
+                            <span class="nav-number">3.1.</span>
+                            <span class="nav-text">
+                              insertBefore():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#before">
+                            <span class="nav-number">3.2.</span>
+                            <span class="nav-text">
+                              before():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#insertAfter">
+                            <span class="nav-number">3.3.</span>
+                            <span class="nav-text">
+                              insertAfter():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#after">
+                            <span class="nav-number">3.4.</span>
+                            <span class="nav-text">
+                              after():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#appendTo">
+                            <span class="nav-number">3.5.</span>
+                            <span class="nav-text">
+                              appendTo():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#append">
+                            <span class="nav-number">3.6.</span>
+                            <span class="nav-text">
+                              append():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#prependTo">
+                            <span class="nav-number">3.7.</span>
+                            <span class="nav-text">
+                              prependTo():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#prepend">
+                            <span class="nav-number">3.8.</span>
+                            <span class="nav-text">
+                              prepend():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#remove">
+                            <span class="nav-number">3.9.</span>
+                            <span class="nav-text">
+                              remove():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#detach">
+                            <span class="nav-number">3.10.</span>
+                            <span class="nav-text">
+                              detach():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#clone">
+                            <span class="nav-number">3.11.</span>
+                            <span class="nav-text">
+                              clone():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#parent">
+                            <span class="nav-number">3.12.</span>
+                            <span class="nav-text">
+                              parent():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#parents">
+                            <span class="nav-number">3.13.</span>
+                            <span class="nav-text">
+                              parents():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#parentsUntil">
+                            <span class="nav-number">3.14.</span>
+                            <span class="nav-text">
+                              parentsUntil():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#closest">
+                            <span class="nav-number">3.15.</span>
+                            <span class="nav-text">
+                              closest():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#val">
+                            <span class="nav-number">3.16.</span>
+                            <span class="nav-text">
+                              val():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#size">
+                            <span class="nav-number">3.17.</span>
+                            <span class="nav-text">
+                              size():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#each">
+                            <span class="nav-number">3.18.</span>
+                            <span class="nav-text">
+                              each():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#关于this-：">
+                            <span class="nav-number">3.19.</span>
+                            <span class="nav-text">
+                              关于this ：</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#关于跳出循环：">
+                            <span class="nav-number">3.20.</span>
+                            <span class="nav-text">
+                              关于跳出循环：</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#jQuery方法之事件操作：">
+                        <span class="nav-number">4.</span>
+                        <span class="nav-text">
+                          jQuery方法之事件操作：</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#on">
+                            <span class="nav-number">4.1.</span>
+                            <span class="nav-text">
+                              on():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#off">
+                            <span class="nav-number">4.2.</span>
+                            <span class="nav-text">
+                              off():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#delegate-：">
+                            <span class="nav-number">4.3.</span>
+                            <span class="nav-text">
+                              delegate()：</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#undelegate-：">
+                            <span class="nav-number">4.4.</span>
+                            <span class="nav-text">
+                              undelegate()：</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#trigger">
+                            <span class="nav-number">4.5.</span>
+                            <span class="nav-text">
+                              trigger():</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#jQuery方法之事件细解：">
+                        <span class="nav-number">5.</span>
+                        <span class="nav-text">
+                          jQuery方法之事件细解：</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#ev">
+                            <span class="nav-number">5.1.</span>
+                            <span class="nav-text">
+                              ev:</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#ev-pageX">
+                            <span class="nav-number">5.2.</span>
+                            <span class="nav-text">
+                              ev.pageX</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#ev-clientX">
+                            <span class="nav-number">5.3.</span>
+                            <span class="nav-text">
+                              ev.clientX</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#ev-pageY">
+                            <span class="nav-number">5.4.</span>
+                            <span class="nav-text">
+                              ev.pageY</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#ev-clientY">
+                            <span class="nav-number">5.5.</span>
+                            <span class="nav-text">
+                              ev.clientY</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#ev-which">
+                            <span class="nav-number">5.6.</span>
+                            <span class="nav-text">
+                              ev.which:</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#ev-preventDefault">
+                            <span class="nav-number">5.7.</span>
+                            <span class="nav-text">
+                              ev.preventDefault:</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#ev-stopPropagetion">
+                            <span class="nav-number">5.8.</span>
+                            <span class="nav-text">
+                              ev.stopPropagetion:</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#ev-data">
+                            <span class="nav-number">5.9.</span>
+                            <span class="nav-text">
+                              ev.data:</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#one">
+                            <span class="nav-number">5.10.</span>
+                            <span class="nav-text">
+                              one():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#offset">
+                            <span class="nav-number">5.11.</span>
+                            <span class="nav-text">
+                              offset():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#position">
+                            <span class="nav-number">5.12.</span>
+                            <span class="nav-text">
+                              position():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#offsetParent">
+                            <span class="nav-number">5.13.</span>
+                            <span class="nav-text">
+                              offsetParent():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#html">
+                            <span class="nav-number">5.14.</span>
+                            <span class="nav-text">
+                              html():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#text">
+                            <span class="nav-number">5.15.</span>
+                            <span class="nav-text">
+                              text():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#get">
+                            <span class="nav-number">5.16.</span>
+                            <span class="nav-text">
+                              get():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#wrap">
+                            <span class="nav-number">5.17.</span>
+                            <span class="nav-text">
+                              wrap():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#wrapAll">
+                            <span class="nav-number">5.18.</span>
+                            <span class="nav-text">
+                              wrapAll():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#wrapInner">
+                            <span class="nav-number">5.19.</span>
+                            <span class="nav-text">
+                              wrapInner():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#unwrap">
+                            <span class="nav-number">5.20.</span>
+                            <span class="nav-text">
+                              unwrap():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#slice">
+                            <span class="nav-number">5.21.</span>
+                            <span class="nav-text">
+                              slice():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#serialize-：">
+                            <span class="nav-number">5.22.</span>
+                            <span class="nav-text">
+                              serialize()：</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#serializeArray-：">
+                            <span class="nav-number">5.23.</span>
+                            <span class="nav-text">
+                              serializeArray()：</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#JQ的运动">
+                        <span class="nav-number">6.</span>
+                        <span class="nav-text">
+                          JQ的运动</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#animate-：">
+                            <span class="nav-number">6.1.</span>
+                            <span class="nav-text">
+                              animate()：</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#stop-：">
+                            <span class="nav-number">6.2.</span>
+                            <span class="nav-text">
+                              stop()：</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#finish-：">
+                            <span class="nav-number">6.3.</span>
+                            <span class="nav-text">
+                              finish()：</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#delay-：">
+                            <span class="nav-number">6.4.</span>
+                            <span class="nav-text">
+                              delay()：</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#hover">
+                            <span class="nav-number">6.5.</span>
+                            <span class="nav-text">
+                              hover():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#hide">
+                            <span class="nav-number">6.6.</span>
+                            <span class="nav-text">
+                              hide():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#show">
+                            <span class="nav-number">6.7.</span>
+                            <span class="nav-text">
+                              show():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#fadeIn">
+                            <span class="nav-number">6.8.</span>
+                            <span class="nav-text">
+                              fadeIn():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#fadeOut">
+                            <span class="nav-number">6.9.</span>
+                            <span class="nav-text">
+                              fadeOut():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#fadeTo">
+                            <span class="nav-number">6.10.</span>
+                            <span class="nav-text">
+                              fadeTo():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#slideDown">
+                            <span class="nav-number">6.11.</span>
+                            <span class="nav-text">
+                              slideDown():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#slideUp">
+                            <span class="nav-number">6.12.</span>
+                            <span class="nav-text">
+                              slideUp():</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#下的常用方法">
+                        <span class="nav-number">7.</span>
+                        <span class="nav-text">
+                          $下的常用方法</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#type">
+                            <span class="nav-number">7.1.</span>
+                            <span class="nav-text">
+                              $.type():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#trim">
+                            <span class="nav-number">7.2.</span>
+                            <span class="nav-text">
+                              $.trim():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#inArray">
+                            <span class="nav-number">7.3.</span>
+                            <span class="nav-text">
+                              $.inArray():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#proxy">
+                            <span class="nav-number">7.4.</span>
+                            <span class="nav-text">
+                              $.proxy():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#noConflict">
+                            <span class="nav-number">7.5.</span>
+                            <span class="nav-text">
+                              $.noConflict():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#parseJSON">
+                            <span class="nav-number">7.6.</span>
+                            <span class="nav-text">
+                              $.parseJSON():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#makeArray">
+                            <span class="nav-number">7.7.</span>
+                            <span class="nav-text">
+                              $.makeArray():</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#JQ的Ajax使用">
+                        <span class="nav-number">8.</span>
+                        <span class="nav-text">
+                          JQ的Ajax使用</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#ajax">
+                            <span class="nav-number">8.1.</span>
+                            <span class="nav-text">
+                              $.ajax():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#get-1">
+                            <span class="nav-number">8.2.</span>
+                            <span class="nav-text">
+                              $.get():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#post">
+                            <span class="nav-number">8.3.</span>
+                            <span class="nav-text">
+                              $.post():</span>
+                          </a>
+                        </li>
+                      </ol>
                     </li>
                   </ol>
-                  </li>
-                  <li class="nav-item nav-level-2">
-                    <a class="nav-link" href="#下的常用方法：">
-                      <span class="nav-number"></span>
-                      <span class="nav-text">
-                        $()下的常用方法：</span>
-                    </a>
-                    <ol class="nav-child">
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#attr">
-                          <span class="nav-number">1.</span>
-                          <span class="nav-text">
-                            attr():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#filter">
-                          <span class="nav-number">2.</span>
-                          <span class="nav-text">
-                            filter():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#not">
-                          <span class="nav-number">3.</span>
-                          <span class="nav-text">
-                            not():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#has">
-                          <span class="nav-number">4.</span>
-                          <span class="nav-text">
-                            has():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#add-组合元素">
-                          <span class="nav-number">5.</span>
-                          <span class="nav-text">
-                            add(): 组合元素</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#next">
-                          <span class="nav-number">6.</span>
-                          <span class="nav-text">
-                            next():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#prev">
-                          <span class="nav-number">7.</span>
-                          <span class="nav-text">
-                            prev():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#siblings">
-                          <span class="nav-number">8.</span>
-                          <span class="nav-text">
-                            siblings():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#nextAll">
-                          <span class="nav-number">9.</span>
-                          <span class="nav-text">
-                            nextAll():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#prevAll">
-                          <span class="nav-number">10.</span>
-                          <span class="nav-text">
-                            prevAll():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#nextUntil">
-                          <span class="nav-number">11.</span>
-                          <span class="nav-text">
-                            nextUntil():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#prevUntil">
-                          <span class="nav-number">12.</span>
-                          <span class="nav-text">
-                            prevUntil():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#find">
-                          <span class="nav-number">13.</span>
-                          <span class="nav-text">
-                            find():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#children">
-                          <span class="nav-number">14.</span>
-                          <span class="nav-text">
-                            children():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#eq">
-                          <span class="nav-number">15.</span>
-                          <span class="nav-text">
-                            eq():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#index">
-                          <span class="nav-number">16.</span>
-                          <span class="nav-text">
-                            index():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#addClass">
-                          <span class="nav-number">17.</span>
-                          <span class="nav-text">
-                            addClass():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#removeClass">
-                          <span class="nav-number">18.</span>
-                          <span class="nav-text">
-                            removeClass():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#toggleClass">
-                          <span class="nav-number">19.</span>
-                          <span class="nav-text">
-                            toggleClass():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#width">
-                          <span class="nav-number">20.</span>
-                          <span class="nav-text">
-                            width():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#outerWidth">
-                          <span class="nav-number">21.</span>
-                          <span class="nav-text">
-                            outerWidth():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#outerWidth-true">
-                          <span class="nav-number">22.</span>
-                          <span class="nav-text">
-                            outerWidth(true):</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#scrollTop">
-                          <span class="nav-number">23.</span>
-                          <span class="nav-text">
-                            scrollTop():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#scrollLeft">
-                          <span class="nav-number">24.</span>
-                          <span class="nav-text">
-                            scrollLeft():</span>
-                        </a>
-                      </li>
-                    </ol>
-                  </li>
-                  <li class="nav-item nav-level-2">
-                    <a class="nav-link" href="#jQuery方法之DOM操作：">
-                      <span class="nav-number"></span>
-                      <span class="nav-text">
-                        jQuery方法之DOM操作：</span>
-                    </a>
-                    <ol class="nav-child">
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#insertBefore">
-                          <span class="nav-number">1.</span>
-                          <span class="nav-text">
-                            insertBefore():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#before">
-                          <span class="nav-number">2.</span>
-                          <span class="nav-text">
-                            before():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#insertAfter">
-                          <span class="nav-number">3.</span>
-                          <span class="nav-text">
-                            insertAfter():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#after">
-                          <span class="nav-number">4.</span>
-                          <span class="nav-text">
-                            after():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#appendTo">
-                          <span class="nav-number">5.</span>
-                          <span class="nav-text">
-                            appendTo():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#append">
-                          <span class="nav-number">6.</span>
-                          <span class="nav-text">
-                            append():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#prependTo">
-                          <span class="nav-number">7.</span>
-                          <span class="nav-text">
-                            prependTo():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#prepend">
-                          <span class="nav-number">8.</span>
-                          <span class="nav-text">
-                            prepend():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#remove">
-                          <span class="nav-number">9.</span>
-                          <span class="nav-text">
-                            remove():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#detach">
-                          <span class="nav-number">10.</span>
-                          <span class="nav-text">
-                            detach():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#clone">
-                          <span class="nav-number">11.</span>
-                          <span class="nav-text">
-                            clone():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#parent">
-                          <span class="nav-number">12.</span>
-                          <span class="nav-text">
-                            parent():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#parents">
-                          <span class="nav-number">13.</span>
-                          <span class="nav-text">
-                            parents():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#parentsUntil">
-                          <span class="nav-number">14.</span>
-                          <span class="nav-text">
-                            parentsUntil():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#closest">
-                          <span class="nav-number">15.</span>
-                          <span class="nav-text">
-                            closest():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#val">
-                          <span class="nav-number">16.</span>
-                          <span class="nav-text">
-                            val():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#size">
-                          <span class="nav-number">17.</span>
-                          <span class="nav-text">
-                            size():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#each">
-                          <span class="nav-number">18.</span>
-                          <span class="nav-text">
-                            each():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#关于this-：">
-                          <span class="nav-number">19.</span>
-                          <span class="nav-text">
-                            关于this ：</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#关于跳出循环：">
-                          <span class="nav-number">20.</span>
-                          <span class="nav-text">
-                            关于跳出循环：</span>
-                        </a>
-                      </li>
-                    </ol>
-                  </li>
-                  <li class="nav-item nav-level-2">
-                    <a class="nav-link" href="#jQuery方法之事件操作：">
-                      <span class="nav-number"></span>
-                      <span class="nav-text">
-                        jQuery方法之事件操作：</span>
-                    </a>
-                    <ol class="nav-child">
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#on">
-                          <span class="nav-number">1.</span>
-                          <span class="nav-text">
-                            on():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#off">
-                          <span class="nav-number">2.</span>
-                          <span class="nav-text">
-                            off():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#delegate-：">
-                          <span class="nav-number">3.</span>
-                          <span class="nav-text">
-                            delegate()：</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#undelegate-：">
-                          <span class="nav-number">4.</span>
-                          <span class="nav-text">
-                            undelegate()：</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#trigger">
-                          <span class="nav-number">5.</span>
-                          <span class="nav-text">
-                            trigger():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#JQ之创建元素">
-                          <span class="nav-number">6.</span>
-                          <span class="nav-text">
-                            JQ之创建元素:</span>
-                        </a>
-                      </li>
-                    </ol>
-                  </li>
-                  <li class="nav-item nav-level-2">
-                    <a class="nav-link" href="#jQuery方法之事件细解：">
-                      <span class="nav-number"></span>
-                      <span class="nav-text">
-                        jQuery方法之事件细解：</span>
-                    </a>
-                    <ol class="nav-child">
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#ev">
-                          <span class="nav-number">1.</span>
-                          <span class="nav-text">
-                            ev:</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#ev-pageX">
-                          <span class="nav-number">2.</span>
-                          <span class="nav-text">
-                            ev.pageX</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#ev-clientX">
-                          <span class="nav-number">3.</span>
-                          <span class="nav-text">
-                            ev.clientX</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#ev-pageY">
-                          <span class="nav-number">4.</span>
-                          <span class="nav-text">
-                            ev.pageY</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#ev-clientY">
-                          <span class="nav-number">5.</span>
-                          <span class="nav-text">
-                            ev.clientY</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#ev-which">
-                          <span class="nav-number">6.</span>
-                          <span class="nav-text">
-                            ev.which:</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#ev-preventDefault">
-                          <span class="nav-number">7.</span>
-                          <span class="nav-text">
-                            ev.preventDefault:</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#ev-stopPropagetion">
-                          <span class="nav-number">8.</span>
-                          <span class="nav-text">
-                            ev.stopPropagetion:</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#ev-data">
-                          <span class="nav-number">9.</span>
-                          <span class="nav-text">
-                            ev.data:</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#one">
-                          <span class="nav-number">10.</span>
-                          <span class="nav-text">
-                            one():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#offset">
-                          <span class="nav-number">11.</span>
-                          <span class="nav-text">
-                            offset():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#position">
-                          <span class="nav-number">12.</span>
-                          <span class="nav-text">
-                            position():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#offsetParent">
-                          <span class="nav-number">13.</span>
-                          <span class="nav-text">
-                            offsetParent():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#html">
-                          <span class="nav-number">14.</span>
-                          <span class="nav-text">
-                            html():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#text">
-                          <span class="nav-number">15.</span>
-                          <span class="nav-text">
-                            text():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#get">
-                          <span class="nav-number">16.</span>
-                          <span class="nav-text">
-                            get():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#wrap">
-                          <span class="nav-number">17.</span>
-                          <span class="nav-text">
-                            wrap():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#wrapAll">
-                          <span class="nav-number">18.</span>
-                          <span class="nav-text">
-                            wrapAll():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#wrapInner">
-                          <span class="nav-number">19.</span>
-                          <span class="nav-text">
-                            wrapInner():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#unwrap">
-                          <span class="nav-number">20.</span>
-                          <span class="nav-text">
-                            unwrap():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#slice">
-                          <span class="nav-number">21.</span>
-                          <span class="nav-text">
-                            slice():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#serialize-：">
-                          <span class="nav-number">22.</span>
-                          <span class="nav-text">
-                            serialize()：</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#serializeArray-：">
-                          <span class="nav-number">23.</span>
-                          <span class="nav-text">
-                            serializeArray()：</span>
-                        </a>
-                      </li>
-                    </ol>
-                  </li>
-                  <li class="nav-item nav-level-2">
-                    <a class="nav-link" href="#JQ的运动">
-                      <span class="nav-number"></span>
-                      <span class="nav-text">
-                        JQ的运动</span>
-                    </a>
-                    <ol class="nav-child">
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#animate-：">
-                          <span class="nav-number">1.</span>
-                          <span class="nav-text">
-                            animate()：</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#stop-：">
-                          <span class="nav-number">2.</span>
-                          <span class="nav-text">
-                            stop()：</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#finish-：">
-                          <span class="nav-number">3.</span>
-                          <span class="nav-text">
-                            finish()：</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#delay-：">
-                          <span class="nav-number">4.</span>
-                          <span class="nav-text">
-                            delay()：</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#hover">
-                          <span class="nav-number">5.</span>
-                          <span class="nav-text">
-                            hover():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#hide">
-                          <span class="nav-number">6.</span>
-                          <span class="nav-text">
-                            hide():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#show">
-                          <span class="nav-number">7.</span>
-                          <span class="nav-text">
-                            show():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#fadeIn">
-                          <span class="nav-number">8.</span>
-                          <span class="nav-text">
-                            fadeIn():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#fadeOut">
-                          <span class="nav-number">9.</span>
-                          <span class="nav-text">
-                            fadeOut():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#fadeTo">
-                          <span class="nav-number">10.</span>
-                          <span class="nav-text">
-                            fadeTo():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#slideDown">
-                          <span class="nav-number">11.</span>
-                          <span class="nav-text">
-                            slideDown():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#slideUp">
-                          <span class="nav-number">12.</span>
-                          <span class="nav-text">
-                            slideUp():</span>
-                        </a>
-                      </li>
-                    </ol>
-                  </li>
-                  <li class="nav-item nav-level-2">
-                    <a class="nav-link" href="#下的常用方法">
-                      <span class="nav-number"></span>
-                      <span class="nav-text">
-                        $下的常用方法</span>
-                    </a>
-                    <ol class="nav-child">
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#type">
-                          <span class="nav-number">1.</span>
-                          <span class="nav-text">
-                            $.type():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#trim">
-                          <span class="nav-number">2.</span>
-                          <span class="nav-text">
-                            $.trim():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#inArray">
-                          <span class="nav-number">3.</span>
-                          <span class="nav-text">
-                            $.inArray():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#proxy">
-                          <span class="nav-number">4.</span>
-                          <span class="nav-text">
-                            $.proxy():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#noConflict">
-                          <span class="nav-number">5.</span>
-                          <span class="nav-text">
-                            $.noConflict():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#parseJSON">
-                          <span class="nav-number">6.</span>
-                          <span class="nav-text">
-                            $.parseJSON():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#makeArray">
-                          <span class="nav-number">7.</span>
-                          <span class="nav-text">
-                            $.makeArray():</span>
-                        </a>
-                      </li>
-                    </ol>
-                  </li>
-                  <li class="nav-item nav-level-2">
-                    <a class="nav-link" href="#JQ的Ajax使用">
-                      <span class="nav-number"></span>
-                      <span class="nav-text">
-                        JQ的Ajax使用</span>
-                    </a>
-                    <ol class="nav-child">
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#ajax">
-                          <span class="nav-number">1.</span>
-                          <span class="nav-text">
-                            $.ajax():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#get-1">
-                          <span class="nav-number">2.</span>
-                          <span class="nav-text">
-                            $.get():</span>
-                        </a>
-                      </li>
-                      <li class="nav-item nav-level-3">
-                        <a class="nav-link" href="#post">
-                          <span class="nav-number">3.</span>
-                          <span class="nav-text">
-                            $.post():</span>
-                        </a>
-                      </li>
-                    </ol>
                 </div>
 
               </div>

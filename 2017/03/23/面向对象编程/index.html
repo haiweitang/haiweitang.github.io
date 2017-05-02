@@ -27,17 +27,17 @@
   <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1"
   />
 
-  <meta name="description" content="本篇文章只记录自己平时学习时候的笔记，方便随时查看，写得很零碎，仅供参考   包括面向对象基础以以及组件开发">
+  <meta name="description" content="面向对象程序设计（Object-oriented porgramming,OOP)是一种程序设计范型，同时也是一种程序开发的方法，对象指的是类的实例。它将对象作为程序的基本单元，将程序和数据封装其中，以提高软件的重要性，灵活性和扩展性。">
   <meta name="keywords" content="JS笔记">
   <meta property="og:type" content="article">
   <meta property="og:title" content="面向对象编程">
   <meta property="og:url" content="http://yoursite.com/2017/03/23/面向对象编程/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
-  <meta property="og:description" content="本篇文章只记录自己平时学习时候的笔记，方便随时查看，写得很零碎，仅供参考   包括面向对象基础以以及组件开发">
-  <meta property="og:updated_time" content="2017-03-26T13:07:05.823Z">
+  <meta property="og:description" content="面向对象程序设计（Object-oriented porgramming,OOP)是一种程序设计范型，同时也是一种程序开发的方法，对象指的是类的实例。它将对象作为程序的基本单元，将程序和数据封装其中，以提高软件的重要性，灵活性和扩展性。">
+  <meta property="og:updated_time" content="2017-04-29T09:50:54.525Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="面向对象编程">
-  <meta name="twitter:description" content="本篇文章只记录自己平时学习时候的笔记，方便随时查看，写得很零碎，仅供参考   包括面向对象基础以以及组件开发">
+  <meta name="twitter:description" content="面向对象程序设计（Object-oriented porgramming,OOP)是一种程序设计范型，同时也是一种程序开发的方法，对象指的是类的实例。它将对象作为程序的基本单元，将程序和数据封装其中，以提高软件的重要性，灵活性和扩展性。">
 
   <script type="text/javascript" id="hexo.configurations">
     var NexT = window.NexT || {};
@@ -287,7 +287,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        4,304
+                        4,358
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -309,8 +309,7 @@
 
                 <div class="post-body" itemprop="articleBody">
 
-                  <p>本篇文章只记录自己平时学习时候的笔记，方便随时查看，写得很零碎，仅供参考
-                    <br>包括面向对象基础以以及组件开发</p>
+                  <p>面向对象程序设计（Object-oriented porgramming,OOP)是一种程序设计范型，同时也是一种程序开发的方法，对象指的是类的实例。它将对象作为程序的基本单元，将程序和数据封装其中，以提高软件的重要性，灵活性和扩展性。</p>
                   <p>
                     <excerpt in="" index="" |="" 首页摘要="">
                       <br>
@@ -714,6 +713,7 @@ alert(Person.prototype.showJob);
         Worker.prototype[i] = Person.prototype[i];
     }
 
+
     //将Worker.prototype = Person.prototype
     //替换成for in循环
 
@@ -804,9 +804,15 @@ function Bbb(){
 }
 
 //方法继承
+方法一：
 var F = function(){};      //新声明一个F函数
 F.prototype = Aaa.prototype;    //将Aaa原型下面的方法赋值给F的原型，但是Aaa的属性不会赋值给F
 Bbb.prototype = new F();      //F下面没有属性，所以Bbb接受F的时候，是不会接受到它的属性，只会接受到它的方法，关于Bbb的属性我们在上面已经通过call来继承了Aaa的属性
+
+方法二：
+Bbb.prototype = Object.create(Aaa.prototype); //通过Object.create也能实现 
+
+
 Bbb.prototype.constructor = Bbb;   
 
 var b1 = new Bbb();
@@ -1156,7 +1162,7 @@ function fireEvent(obj,events){  //主动触发自定义事件
 
                 <div class="site-state-item site-state-posts">
                   <a href="/archives">
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1170,7 +1176,7 @@ function fireEvent(obj,events){  //主动触发自定义事件
 
                 <div class="site-state-item site-state-tags">
 
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
 
                 </div>
@@ -1208,7 +1214,7 @@ function fireEvent(obj,events){  //主动触发自定义事件
                 </span>
 
                 <span class="links-of-author-item">
-                  <a href="haiweithw@163.com" target="_blank" title="邮箱">
+                  <a href="mailto:haiweithw@163.com" target="_blank" title="邮箱">
 
                     <i class="fa fa-fw fa-haiweithw@163.com"></i>
 

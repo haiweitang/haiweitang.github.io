@@ -32,7 +32,7 @@
   <meta property="og:title" content="HTML5地理信息-本地存储-离线存储">
   <meta property="og:url" content="http://yoursite.com/2017/04/26/HTML5地理信息-本地存储-离线存储/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
-  <meta property="og:updated_time" content="2017-04-27T10:09:10.900Z">
+  <meta property="og:updated_time" content="2017-04-28T08:19:08.382Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="HTML5地理信息-本地存储-离线存储">
 
@@ -286,7 +286,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        1,863
+                        2,047
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -298,7 +298,7 @@
                       <span class="post-meta-item-text">阅读时长</span>
 
                       <span title="阅读时长">
-                        8
+                        9
                       </span>
 
                     </div>
@@ -326,13 +326,13 @@
                       <br>GPS全球定位系统
                       <br>Wi-Fi无线网络
                       <br>基站</p>
-                    <h3 id="地理位置对象">
-                      <a href="#地理位置对象" class="headerlink" title="地理位置对象"></a>地理位置对象</h3>
+                    <h2 id="地理位置对象">
+                      <a href="#地理位置对象" class="headerlink" title="地理位置对象"></a>地理位置对象</h2>
                     <p>
                       <strong>navigator.geolocation</strong>
                     </p>
-                    <h4 id="单次定位请求">
-                      <a href="#单次定位请求" class="headerlink" title="单次定位请求"></a>单次定位请求</h4>
+                    <h3 id="单次定位请求">
+                      <a href="#单次定位请求" class="headerlink" title="单次定位请求"></a>单次定位请求</h3>
                     <p>
                       <strong>getCurrentPosition(请求成功，请求失败，数据收集方式)</strong>
                       <br>括号里传入三个参数，分别是请求成功的回调，请求失败的回调，收据收集的方式
@@ -377,8 +377,8 @@
         });
     }
 </code></pre>
-                    <h4 id="多次定位请求">
-                      <a href="#多次定位请求" class="headerlink" title="多次定位请求"></a>多次定位请求</h4>
+                    <h3 id="多次定位请求">
+                      <a href="#多次定位请求" class="headerlink" title="多次定位请求"></a>多次定位请求</h3>
                     <p>
                       <strong>watchPosition(像setInterval)</strong>
                       <br>移动设备有用，位置改变才会触发
@@ -406,10 +406,10 @@
         });
     }
 </code></pre>
-                    <h3 id="本地存储">
-                      <a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h3>
-                    <h4 id="cookie-存储数据">
-                      <a href="#cookie-存储数据" class="headerlink" title="cookie :  存储数据"></a>cookie : 存储数据</h4>
+                    <h2 id="本地存储">
+                      <a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h2>
+                    <h3 id="cookie-存储数据">
+                      <a href="#cookie-存储数据" class="headerlink" title="cookie :  存储数据"></a>cookie : 存储数据</h3>
                     <p> 当用户访问某个网站的时候，我们就可以通过cookie来向访问者的电脑上存 储数据。
                       <br>1.不同的浏览器存放的cookie位置不一样，也是不能通用的。
                       <br>2.cookie的存储是以域名形式进行区分的。
@@ -478,8 +478,8 @@ Document.cookie = ‘username=leo;expires=’ + oDate.toGMTString(); //
         setCookie(key,&apos;&apos;,-1);
     }
 </code></pre>
-                    <h4 id="Storage">
-                      <a href="#Storage" class="headerlink" title="Storage"></a>Storage</h4>
+                    <h3 id="Storage">
+                      <a href="#Storage" class="headerlink" title="Storage"></a>Storage</h3>
                     <p>storage和cookie差不多一样，不过cookie的设置，获取，删除等方法，需要我们自己去封装函数来实现，而storage自带了这些方法。</p>
                     <ol>
                       <li>存储量限制 ( 5M )</li>
@@ -488,26 +488,38 @@ Document.cookie = ‘username=leo;expires=’ + oDate.toGMTString(); //
                       <li>localStorage共享</li>
                     </ol>
                     <p>
-                      <strong>sessionStorage</strong>
+                      <strong>
+                        <font style="color:#f60; font-size: 16px">sessionStorage</font>
+                      </strong>
                       <br>session临时回话，从页面打开到页面关闭的时间段
                       <br>窗口的临时存储，页面关闭，本地存储消失</p>
                     <p>
-                      <strong>localStorage</strong>
+                      <strong>
+                        <font style="color:#f60; font-size: 16px">localStorage</font>
+                      </strong>
                       <br>永久存储（可以手动删除数据）</p>
-                    <h5 id="Storage-API">
-                      <a href="#Storage-API" class="headerlink" title="Storage API"></a>Storage API</h5>
+                    <h4 id="Storage-API">
+                      <a href="#Storage-API" class="headerlink" title="Storage API"></a>Storage API</h4>
                     <p>
-                      <strong>setItem():</strong>
+                      <strong>
+                        <font style="color:#f60; font-size: 16px">setItem():</font>
+                      </strong>
                       <br>设置数据，key\value类型，类型都是字符串
                       <br>可以用获取属性的形式操作
                       <br>
-                      <strong>getItem():</strong>
+                      <strong>
+                        <font style="color:#f60; font-size: 16px">getItem():</font>
+                      </strong>
                       <br>获取数据，通过key来获取到相应的value
                       <br>
-                      <strong>removeItem():</strong>
+                      <strong>
+                        <font style="color:#f60; font-size: 16px">removeItem():</font>
+                      </strong>
                       <br>删除数据，通过key来删除相应的value
                       <br>
-                      <strong>clear():</strong>
+                      <strong>
+                        <font style="color:#f60; font-size: 16px">clear():</font>
+                      </strong>
                       <br>删除全部存储的值
                       <br>示例代码</p>
                     <pre><code>&lt;head&gt;
@@ -548,31 +560,31 @@ window.onload = function(){
     var aInput = document.getElementsByTagName(&apos;input&apos;);
     var oT = document.getElementById(&apos;t1&apos;);
 
-    if(window.sessionStorage.getItem(&apos;name&apos;)){
-        aInput[0].value = window.sessionStorage.getItem(&apos;name&apos;);
+    if(window.localStorage.getItem(&apos;name&apos;)){
+        aInput[0].value = window.localStorage.getItem(&apos;name&apos;);
     }
-    if(window.sessionStorage.getItem(&apos;sex&apos;)){
+    if(window.localStorage.getItem(&apos;sex&apos;)){
         for(var i=1; i&lt;aInput.length; i++){
-            if(aInput[i].value == window.sessionStorage.getItem(&apos;sex&apos;)){
+            if(aInput[i].value == window.localStorage.getItem(&apos;sex&apos;)){
                 aInput[i].checked = true;
             }
         }
     }
-    if(window.sessionStorage.getItem(&apos;content&apos;)){
-        oT.value = window.sessionStorage.getItem(&apos;content&apos;);
+    if(window.localStorage.getItem(&apos;content&apos;)){
+        oT.value = window.localStorage.getItem(&apos;content&apos;);
     }
 
     window.onunload = function(){
         if(aInput[0].value){
-            window.sessionStorage.setItem(&apos;name&apos;,aInput[0].value);
+            window.localStorage.setItem(&apos;name&apos;,aInput[0].value);
         }
         for(var i=1; i&lt;aInput.length; i++){
             if(aInput[i].checked == true){
-                window.sessionStorage.setItem(&apos;sex&apos;,aInput[i].value);
+                window.localStorage.setItem(&apos;sex&apos;,aInput[i].value);
             }
         }
         if(oT.value){
-            window.sessionStorage.setItem(&apos;content&apos;,oT.value);
+            window.localStorage.setItem(&apos;content&apos;,oT.value);
         }
     }
 
@@ -592,15 +604,68 @@ window.onload = function(){
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-                    <h5 id="存储事件">
-                      <a href="#存储事件" class="headerlink" title="存储事件"></a>存储事件</h5>
+                    <h4 id="存储事件">
+                      <a href="#存储事件" class="headerlink" title="存储事件"></a>存储事件</h4>
                     <p>当数据有修改或删除的情况下，就会触发storage事件,但是在对数据进行改变的窗口对象上是不会触发的
-                      <br>Key : 修改或删除的key值，如果调用clear(),key为null
-                      <br>newValue : 新设置的值，如果调用removeStorage(),key为null
-                      <br>oldValue : 调用改变前的value值
-                      <br>storageArea : 当前的storage对象
-                      <br>url : 触发该脚本变化的文档的url
-                      <br>注：session同窗口才可以,例子：iframe操作</p>
+                      <br>
+                      <strong>Key :</strong> 修改或删除的key值，如果调用clear(),key为null
+                      <br>
+                      <strong>newValue :</strong> 新设置的值，如果调用removeStorage(),key为null
+                      <br>
+                      <strong>oldValue :</strong> 调用改变前的value值
+                      <br>
+                      <strong>storageArea :</strong> 当前的storage对象
+                      <br>
+                      <strong>url :</strong> 触发该脚本变化的文档的url</p>
+                    <p>注意：只有localStorage才能在不同窗口下执行storage事件</p>
+                    <p>例子：同步购物车
+                      <br>在一个页面选中一件商品的时候，另一个页面也会同步更新选中这个商品</p>
+                    <pre><code>&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;同步购物车&lt;/title&gt;
+    &lt;script&gt;
+window.onload = function(){
+    var aInput = document.getElementsByTagName(&apos;input&apos;);
+
+    for(var i=0; i&lt;aInput.length; i++){
+        aInput[i].onclick = function(){
+            if(this.checked){
+                window.localStorage.setItem(&apos;sel&apos;,this.value);
+            }
+            else{
+                window.localStorage.setItem(&apos;onsel&apos;,this.value);
+            }
+        }
+
+    }
+
+    window.addEventListener(&apos;storage&apos;,function(ev){
+        if(ev.key == &apos;sel&apos;){
+            for( var i=0; i&lt;aInput.length; i++){
+                if(ev.newValue == aInput[i].value){
+                    aInput[i].checked = true;
+                }
+            }
+        }
+        else if(ev.key == &apos;onsel&apos;){
+            for( var i=0; i&lt;aInput.length; i++){
+                if(ev.newValue == aInput[i].value){
+                    aInput[i].checked = false;
+                }
+            }
+        }
+    },false)
+}
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;input type=&quot;checkbox&quot; value=&quot;香蕉&quot;&gt;香蕉&lt;br&gt;
+    &lt;input type=&quot;checkbox&quot; value=&quot;平果&quot;&gt;平果&lt;br&gt;
+    &lt;input type=&quot;checkbox&quot; value=&quot;西瓜&quot;&gt;西瓜&lt;br&gt;
+    &lt;input type=&quot;checkbox&quot; value=&quot;哈密瓜&quot;&gt;哈密瓜&lt;br&gt;
+&lt;/body&gt;
+</code></pre>
                   </the>
 
                 </div>
@@ -725,7 +790,7 @@ window.onload = function(){
 
                 <div class="site-state-item site-state-posts">
                   <a href="/archives">
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -739,7 +804,7 @@ window.onload = function(){
 
                 <div class="site-state-item site-state-tags">
 
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
 
                 </div>
@@ -777,7 +842,7 @@ window.onload = function(){
                 </span>
 
                 <span class="links-of-author-item">
-                  <a href="haiweithw@163.com" target="_blank" title="邮箱">
+                  <a href="mailto:haiweithw@163.com" target="_blank" title="邮箱">
 
                     <i class="fa fa-fw fa-haiweithw@163.com"></i>
 
@@ -809,21 +874,21 @@ window.onload = function(){
 
                 <div class="post-toc-content">
                   <ol class="nav">
-                    <li class="nav-item nav-level-3">
+                    <li class="nav-item nav-level-2">
                       <a class="nav-link" href="#地理位置对象">
                         <span class="nav-number">1.</span>
                         <span class="nav-text">
                           地理位置对象</span>
                       </a>
                       <ol class="nav-child">
-                        <li class="nav-item nav-level-4">
+                        <li class="nav-item nav-level-3">
                           <a class="nav-link" href="#单次定位请求">
                             <span class="nav-number">1.1.</span>
                             <span class="nav-text">
                               单次定位请求</span>
                           </a>
                         </li>
-                        <li class="nav-item nav-level-4">
+                        <li class="nav-item nav-level-3">
                           <a class="nav-link" href="#多次定位请求">
                             <span class="nav-number">1.2.</span>
                             <span class="nav-text">
@@ -832,35 +897,35 @@ window.onload = function(){
                         </li>
                       </ol>
                     </li>
-                    <li class="nav-item nav-level-3">
+                    <li class="nav-item nav-level-2">
                       <a class="nav-link" href="#本地存储">
                         <span class="nav-number">2.</span>
                         <span class="nav-text">
                           本地存储</span>
                       </a>
                       <ol class="nav-child">
-                        <li class="nav-item nav-level-4">
+                        <li class="nav-item nav-level-3">
                           <a class="nav-link" href="#cookie-存储数据">
                             <span class="nav-number">2.1.</span>
                             <span class="nav-text">
                               cookie : 存储数据</span>
                           </a>
                         </li>
-                        <li class="nav-item nav-level-4">
+                        <li class="nav-item nav-level-3">
                           <a class="nav-link" href="#Storage">
                             <span class="nav-number">2.2.</span>
                             <span class="nav-text">
                               Storage</span>
                           </a>
                           <ol class="nav-child">
-                            <li class="nav-item nav-level-5">
+                            <li class="nav-item nav-level-4">
                               <a class="nav-link" href="#Storage-API">
                                 <span class="nav-number">2.2.1.</span>
                                 <span class="nav-text">
                                   Storage API</span>
                               </a>
                             </li>
-                            <li class="nav-item nav-level-5">
+                            <li class="nav-item nav-level-4">
                               <a class="nav-link" href="#存储事件">
                                 <span class="nav-number">2.2.2.</span>
                                 <span class="nav-text">

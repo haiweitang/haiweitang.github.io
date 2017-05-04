@@ -27,17 +27,19 @@
   <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1"
   />
 
-  <meta name="description" content="Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和   Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。">
+  <meta name="description" content="vue概念 Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和   Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。">
   <meta name="keywords">
   <meta property="og:type" content="article">
   <meta property="og:title" content="vuejs初探">
   <meta property="og:url" content="http://yoursite.com/2017/04/30/vuejs初探/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
-  <meta property="og:description" content="Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和   Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。">
-  <meta property="og:updated_time" content="2017-04-30T15:10:03.055Z">
+  <meta property="og:description" content="vue概念 Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和   Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。">
+  <meta property="og:image" content="http://op5e32hmc.bkt.clouddn.com/%E8%99%9A%E6%8B%9FDOM%E7%A4%BA%E6%84%8F%E5%9B%BE1.png">
+  <meta property="og:updated_time" content="2017-05-04T12:09:50.548Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="vuejs初探">
-  <meta name="twitter:description" content="Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和   Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。">
+  <meta name="twitter:description" content="vue概念 Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和   Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。">
+  <meta name="twitter:image" content="http://op5e32hmc.bkt.clouddn.com/%E8%99%9A%E6%8B%9FDOM%E7%A4%BA%E6%84%8F%E5%9B%BE1.png">
 
   <script type="text/javascript" id="hexo.configurations">
     var NexT = window.NexT || {};
@@ -287,7 +289,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        129
+                        2,362
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -299,7 +301,7 @@
                       <span class="post-meta-item-text">阅读时长</span>
 
                       <span title="阅读时长">
-                        1
+                        10
                       </span>
 
                     </div>
@@ -309,6 +311,8 @@
 
                 <div class="post-body" itemprop="articleBody">
 
+                  <h2 id="vue概念">
+                    <a href="#vue概念" class="headerlink" title="vue概念"></a>vue概念</h2>
                   <p>Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue
                     的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和 Vue 生态系统支持的库结合使用时，Vue
                     也完全能够为复杂的单页应用程序提供驱动。</p>
@@ -319,6 +323,478 @@
                     </excerpt>
                   </p>
                   <the rest="" of="" contents="" |="" 余下全文="">
+
+                    <h3 id="vue中的两个核心点">
+                      <a href="#vue中的两个核心点" class="headerlink" title="vue中的两个核心点"></a>vue中的两个核心点</h3>
+                    <h4 id="响应的数据绑定">
+                      <a href="#响应的数据绑定" class="headerlink" title="响应的数据绑定"></a>响应的数据绑定</h4>
+                    <p>当数据发生改变–&gt; 自动更新视图
+                      <br>利用Object.definedProperty中的setter/getter代理数据，监控对数据的操作</p>
+                    <h4 id="组合的视图组件">
+                      <a href="#组合的视图组件" class="headerlink" title="组合的视图组件"></a>组合的视图组件</h4>
+                    <p>ui页面映射为组件树
+                      <br>划分组件可维护，可重用，可测试</p>
+                    <h3 id="虚拟DOM">
+                      <a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h3>
+                    <p>javascript运行js的速度是很快的，大量的操作DOM就会很慢，时常在更新数据后重新渲染页面，这样造成在没有改变数据的地方也重新渲染了DOM节点，这样就造成了很大程度上的资源浪费。
+                      <br>
+                      <strong>概念</strong>
+                      <br>利用在内存中生成与真实DOM与之对应的数据结构，这个在内存中生成的结构称之为虚拟DOM。
+                      <br>当数据发生变化时，能够智能的计算出重新渲染组件的最小代价并应用到DOM操作上。
+                      <br>
+                      <img src="http://op5e32hmc.bkt.clouddn.com/%E8%99%9A%E6%8B%9FDOM%E7%A4%BA%E6%84%8F%E5%9B%BE1.png"
+                                                                                                      alt="img">
+                    </p>
+                    <h2 id="基础语法">
+                      <a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2>
+                    <h3 id="vue实例">
+                      <a href="#vue实例" class="headerlink" title="vue实例"></a>vue实例</h3>
+                    <p>每一个应用都是通过Vue这个构造函数创建根实例(root instance)启动new Vue(选项对象)
+                      <br>需要传入选项对象，对象包含挂载元素，数据，模板，方法等。</p>
+                    <pre><code>el: 挂载元素选择器          String | HtmlElement
+data: 代理数据              Object | function
+methods: 定义方法           Object
+</code></pre>
+                    <h4 id="v-on">
+                      <a href="#v-on" class="headerlink" title="v-on"></a>v-on</h4>
+                    <p>v-on:事件名=函数名
+                      <br>当我们往methods里传入事件函数的时候，需要在需要绑定事件的元素上添加 v-on:事件名=函数名，以便完成事件绑定。</p>
+                    <font color="green">示例代码</font>
+
+                    <pre><code>&lt;body&gt;
+&lt;script src=&quot;vue.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;demo&quot;&gt;
+    &lt;span v-on:click=&quot;clickHandle&quot;&gt;{{message}}&lt;/span&gt;
+&lt;/div&gt;
+    &lt;script&gt;
+        let obj = {
+            message: &apos;hello,vue!&apos;
+        }
+        new Vue({
+            el: &apos;#demo&apos;,
+            data: obj,          //传入数据对象，也可以直接写数据message: &apos;hello,vue!&apos;
+            methods: {
+                clickHandle(){
+                    alert(&apos;click&apos;);
+                }
+            }
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+                    <h3 id="vue代理data数据">
+                      <a href="#vue代理data数据" class="headerlink" title="vue代理data数据"></a>vue代理data数据</h3>
+                    <p>每个Vue实例都会代理其data对象里所有的属性，这些被代理的属性是响应的。新添加的属性不具备响应功能，改变后不会更新视图。</p>
+                    <h3 id="vue实例自身属性和方法">
+                      <a href="#vue实例自身属性和方法" class="headerlink" title="vue实例自身属性和方法"></a>vue实例自身属性和方法</h3>
+                    <p>暴露自身的属性和方法，以$开头，例如：$el $data…..</p>
+                    <font color="green">示例代码</font>
+
+                    <pre><code>&lt;script&gt;
+    let obj = {
+        message: &apos;hello,vue!&apos;
+    }
+    var vm = new Vue({
+        el: &apos;#demo&apos;,
+        data: obj,          //传入数据对象，也可以直接写数据message: &apos;hello,vue!&apos;
+        methods: {
+            clickHandle(){
+                alert(&apos;click&apos;);
+            }
+        }
+    });
+    close.log(vm.$data)     //通过这种方法可以拿到数据
+&lt;/script&gt;
+</code></pre>
+                    <h3 id="声明式渲染">
+                      <a href="#声明式渲染" class="headerlink" title="声明式渲染"></a>声明式渲染</h3>
+                    <p>Vue.js 的核心是一个允许采用简洁的模板语法来声明式的将数据渲染进 DOM：</p>
+                    <h4 id="声明式">
+                      <a href="#声明式" class="headerlink" title="声明式"></a>声明式</h4>
+                    <p>只需要声明在哪里(where)做什么(what),而无须关心如何实现(how)</p>
+                    <h4 id="命令式">
+                      <a href="#命令式" class="headerlink" title="命令式"></a>命令式</h4>
+                    <p>需要一具体代码表达在哪里(where)做什么(what),如何实现(how)
+                      <br>例子：求数组中每一项的倍数</p>
+                    <font color="green">命令式</font>
+
+                    <pre><code>使用for循环拿出每一项，然后求职完成后，在放入另一数组中
+&lt;script&gt;
+        var arr = [1,2,3,4,5];
+        var newArr = [];
+        for(var i=0; i&lt;arr.length; i++){
+            newArr.push(arr[i]*2);
+        }
+        alert(newArr);
+    &lt;/script&gt;
+</code></pre>
+                    <font color="green">声明式</font>
+
+                    <pre><code>使用map方法，关注如何求职
+var arr = [1,2,3,4,5];
+    var newArr = arr.map(function(item){
+        return item*2;
+    })
+    alert(newArr);
+</code></pre>
+                    <h4 id="vue声明式渲染">
+                      <a href="#vue声明式渲染" class="headerlink" title="vue声明式渲染"></a>vue声明式渲染</h4>
+                    <p>初始化根示例，vue自动将数据绑定在DOM模板上</p>
+                    <font color="green">示例代码</font>
+
+                    <pre><code>&lt;div id=&quot;app-2&quot;&gt;
+  &lt;span v-bind:title=&quot;message&quot;&gt;
+    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+  &lt;/span&gt;
+&lt;/div&gt;
+
+var app2 = new Vue({
+  el: &apos;#app-2&apos;,
+  data: {
+    message: &apos;页面加载于 &apos; + new Date()
+  }
+})
+</code></pre>
+                    <h3 id="指令（vue中的内置指令）">
+                      <a href="#指令（vue中的内置指令）" class="headerlink" title="指令（vue中的内置指令）"></a>指令（vue中的内置指令）</h3>
+                    <p>什么是指令？
+                      <br>是一种特殊的自定义行间属性
+                      <br>指令的职责就是当其表达式的值发生改变时相应地将某些行为应用到DOM上
+                      <br>在Vue中，指令以v-开头</p>
+                    <h4 id="v-bind">
+                      <a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h4>
+                    <p>动态的绑定数据，简写为 ：</p>
+                    <font color="green">示例代码</font>
+
+                    <pre><code>&lt;body&gt;
+&lt;script src=&quot;vue.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;demo&quot;&gt;
+    &lt;span :cutomId=&apos;id&apos;&gt;{{message}}&lt;/span&gt;   //绑定动态数据
+&lt;/div&gt;
+    &lt;script&gt;
+        let obj = {
+            message: &apos;hello,vue!&apos;,
+            id: &apos;user&apos;
+
+        }
+        new Vue({
+            el: &apos;#demo&apos;,
+            data: obj
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+                    <h4 id="v-on-1">
+                      <a href="#v-on-1" class="headerlink" title="v-on"></a>v-on</h4>
+                    <p>绑定事件监听器，简写为 @</p>
+                    <font color="green">示例代码</font>
+
+                    <pre><code>&lt;body&gt;
+&lt;script src=&quot;vue.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;demo&quot;&gt;
+    &lt;span @click=&quot;clickHandle&quot;&gt;{{message}}&lt;/span&gt;  //绑定事件
+&lt;/div&gt;
+    &lt;script&gt;
+        let obj = {
+            message: &apos;hello,vue!&apos;
+        }
+        new Vue({
+            el: &apos;#demo&apos;,
+            data: obj,
+            methods: {
+                clickHandle(){
+                    alert(&apos;click&apos;);
+                }
+            }
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+                    <h4 id="v-text">
+                      <a href="#v-text" class="headerlink" title="v-text"></a>v-text</h4>
+                    <p>更新数据，会覆盖已有结构</p>
+                    <h4 id="v-html">
+                      <a href="#v-html" class="headerlink" title="v-html"></a>v-html</h4>
+                    <p>可以解析数据中的html结构</p>
+                    <h4 id="v-show">
+                      <a href="#v-show" class="headerlink" title="v-show"></a>v-show</h4>
+                    <p>更具值的真假，切换元素的display属性</p>
+                    <h4 id="v-if">
+                      <a href="#v-if" class="headerlink" title="v-if"></a>v-if</h4>
+                    <p>根据值的真假，切换元素会被销毁，重建</p>
+                    <h4 id="v-else-if">
+                      <a href="#v-else-if" class="headerlink" title="v-else-if"></a>v-else-if</h4>
+                    <p>多条件判断，为真则渲染</p>
+                    <h4 id="v-else">
+                      <a href="#v-else" class="headerlink" title="v-else"></a>v-else</h4>
+                    <p>条件都不符合渲染</p>
+                    <h4 id="v-for">
+                      <a href="#v-for" class="headerlink" title="v-for"></a>v-for</h4>
+                    <p>基于源数据多次渲染元素或模板块</p>
+                    <h4 id="v-model">
+                      <a href="#v-model" class="headerlink" title="v-model"></a>v-model</h4>
+                    <p>在表单空间元素上创建双向数据绑定</p>
+                    <h4 id="v-pr">
+                      <a href="#v-pr" class="headerlink" title="v-pr"></a>v-pr</h4>
+                    <p>调过元素和子元素的编译过程</p>
+                    <h4 id="v-once">
+                      <a href="#v-once" class="headerlink" title="v-once"></a>v-once</h4>
+                    <p>值渲染一次，随后数据更新不重新渲染</p>
+                    <h4 id="v-cloak">
+                      <a href="#v-cloak" class="headerlink" title="v-cloak"></a>v-cloak</h4>
+                    <p>隐藏为编译的Mustache语法，css中设置[v-cloak]{display:none}</p>
+                    <h3 id="模板">
+                      <a href="#模板" class="headerlink" title="模板"></a>模板</h3>
+                    <p>vue中有三种模板</p>
+                    <h4 id="html模板">
+                      <a href="#html模板" class="headerlink" title="html模板"></a>html模板</h4>
+                    <p>基于DOM的模板。模板都是可解析的有效的HTML</p>
+                    <h5 id="插值">
+                      <a href="#插值" class="headerlink" title="插值"></a>插值</h5>
+                    <font color="#f60">文本：</font> 使用”Mustache”语法（双大括号）
+                    <br>作用：替换实例上的属性值，当值改变时，插值内容处会自动更新
+                    <br>
+                    <font color="green">示例代码</font>
+
+                    <pre><code>&lt;div id=&quot;demo&quot;&gt;
+    &lt;span&gt;{{message}}&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+                    <font color="#f60">原生的html：</font> 双大括号输出的是文本，不会解析html。
+                    <br>
+                    <font color="green">示例代码</font>
+
+                    <pre><code>&lt;body&gt;
+&lt;script src=&quot;vue.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;demo&quot;&gt;
+    &lt;span&gt;{{html}}&lt;/span&gt;    //html输出出来的是&quot;&lt;div&gt;hello,daxia&lt;/div&gt;&quot;
+&lt;/div&gt;
+    &lt;script&gt;
+        let obj = {
+            html:&quot;&lt;div&gt;hello,daxia&lt;/div&gt;&quot;
+        }
+        new Vue({
+            el: &apos;#demo&apos;,
+            data: obj
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+                    <p>可用指令
+                      <strong>v-html:html</strong>来解决原生html不会解析的问题</p>
+                    <font color="green">示例代码</font>
+
+                    <pre><code>&lt;body&gt;
+&lt;script src=&quot;vue.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;demo&quot;&gt;
+    &lt;div v-html=&quot;html&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+    &lt;script&gt;
+        let obj = {
+            html:&quot;&lt;div&gt;hello,daxia&lt;/div&gt;&quot;
+        }
+        new Vue({
+            el: &apos;#demo&apos;,
+            data: obj
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+                    <font color="#f60">属性：</font> 使用v-bind进行绑定，可以响应变化
+                    <br>
+                    <font color="#f60">使用javascript表达式：</font> 写简单的表达式
+                    <br>模板里可以写加减乘除运算，也可以写三目运算，但不推挤写在这里面，最好只把它用来单纯的渲染数据
+                    <br>
+                    <font color="green">示例代码</font>
+
+                    <pre><code>&lt;div id=&quot;demo&quot;&gt;
+    {{true ? "yes" : "no"}}     //模板里可以写加减乘除运算，也可以写三目运算，但不推挤写在这里面，最好只把它用来单纯的渲染数据
+    &lt;div v-html=&quot;html&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                    <h4 id="字符串模板">
+                      <a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h4>
+                    <h5 id="template字符串">
+                      <a href="#template字符串" class="headerlink" title="template字符串"></a>template字符串</h5>
+                    <p>
+                      <strong>template</strong>选项对象的属性</p>
+                    <font color="red">1.</font> 模板将会
+                    <strong>替换</strong>挂载的元素，挂载元素的内容都将被忽略
+                    <br>
+                    <font color="red">2.</font> 根节点只有一个
+                    <br>
+                    <font color="green">示例代码</font>
+
+                    <pre><code>&lt;body&gt;
+&lt;script src=&quot;vue.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;demo&quot;&gt;
+    &lt;span&gt;str&lt;/span&gt;
+&lt;/div&gt;
+    &lt;script&gt;
+        let obj = {
+            abc: 1
+        }
+        var str=&quot;&lt;div&gt;hello,&lt;span&gt;daxia&lt;/span&gt;&lt;/div&gt;&quot;   //根节点只有一个，不能写兄弟节点，但是可以在内部写子孙节点
+        new Vue({
+            el: &apos;#demo&apos;,
+            data: obj,
+            template: str       //通过template来挂载str字符串。并且会替换掉#demo里面的所有内容
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+关于字符串拼接：
+在ECMAScript3中，字符串只用单引号或双引号来拼接，这种拼接方式有个缺点,就是不能换行。
+在ECMAScript6中提过一个新方法 `` ,通过``来拼接字符串可以随意换行。
+</code></pre>
+                    <font color="red">3.</font> 将html结构写在一对script标签中，设置type=”x-template”，并且加上一个id，然后在vue的配置项里用template挂载这个id。
+                    <br>这种方法不能跨页面来调用，只能在本页面有效。
+                    <br>
+                    <font color="green">示例代码</font>
+
+                    <pre><code>&lt;body&gt;
+&lt;script src=&quot;vue.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;demo&quot;&gt;
+    &lt;span&gt;str&lt;/span&gt;
+&lt;/div&gt;
+&lt;script type=&quot;x-template&quot; id=&quot;temp&quot;&gt;
+    &lt;div&gt;
+        hello,
+        &lt;span&gt;daxia&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/script&gt;
+    &lt;script&gt;
+        let obj = {
+            abc: 1
+        }
+        new Vue({
+            el: &apos;#demo&apos;,
+            data: obj,
+            template: &quot;#temp&quot;
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+                    <h4 id="模板-render函数">
+                      <a href="#模板-render函数" class="headerlink" title="模板-render函数"></a>模板-render函数</h4>
+                    <h5 id="render函数">
+                      <a href="#render函数" class="headerlink" title="render函数"></a>render函数</h5>
+                    <p>通过render函数来手写代码,
+                      <font color="red">render (cleateElement) {}</font>
+                      <br>
+                      <strong>render</strong> 选项对象的属性
+                      <br>
+                      <strong>cleateElement</strong>(标签名,[数据对象,子元素]); 子元素为文本或数组
+                      <br>render函数更接近vue编译器，很强大，一般写组件的时候会用到。</p>
+                    <h5 id="数据对象属性">
+                      <a href="#数据对象属性" class="headerlink" title="数据对象属性"></a>数据对象属性</h5>
+                    <p>class:{} //绑定class，和v-bind:class 一样的API
+                      <br>style:{} //绑定样式，和v-bind:style 一样的API
+                      <br>attrs:{} //添加行间属性
+                      <br>domProps:{} //DOM元素属性
+                      <br>on:{} //绑定事件</p>
+                    <p>nativeOn:{} //监听原生事件
+                      <br>directives:{} //自定义指令
+                      <br>scopedSlots:{} //slot作用域
+                      <br>slot:{} //定义slot名称
+                      <br>key:”key” //给元素添加唯一表示
+                      <br>ref:”ref” //引用信息</p>
+                    <font color="green">示例代码</font>
+
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;vue实例&lt;/title&gt;
+    &lt;style&gt;
+        .bg {
+            background: green; color: #fff;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script src=&quot;vue.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;demo&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        let obj = {
+            abc: 1
+        }
+        new Vue({
+            el: &apos;#demo&apos;,
+            data: obj,
+            render(createElement){
+                return createElement(
+                        &quot;ul&quot;,
+                        {
+                            class: {
+                                bg: true        //添加class
+                            },
+                            style: {
+                                fontSize: &apos;20px&apos;    //添加行间style
+                            },
+                            attrs: {
+                                user: &apos;daxia&apos;       //添加自定义属性
+                            },
+                            domProps: {
+                                innerHTML: &apos;&lt;li&gt;我是html&lt;/li&gt;&apos;
+                                //给ul里面添加内容，会覆盖掉下面数组中的内容，因为它的优先级会高一些
+                            },
+                            on: {
+                                click: function(){
+                                    alert(123);         //添加事件
+                                }
+                            }
+                        },
+                        [
+                            createElement(&quot;li&quot;,4),
+                            createElement(&quot;li&quot;,2),
+                            createElement(&quot;li&quot;,3)
+                        ]
+                    );
+            }
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+                    <h5 id="vue中的class绑定">
+                      <a href="#vue中的class绑定" class="headerlink" title="vue中的class绑定"></a>vue中的class绑定</h5>
+                    <font color="green">示例代码</font>
+
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;class绑定&lt;/title&gt;
+    &lt;style&gt;
+        .red { color: red; }
+        .fontSize { font-size: 20px; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script src=&quot;vue.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;demo&quot;&gt;
+    &lt;span class=&quot;fontSize&quot; :class=&apos;{red:addClass}&apos;&gt;hello,daxia&lt;/span&gt;
+    1. 原生书写的class和vue中绑定的class可以共存
+    2. 通过v-bind来绑定，v-bind会解析字符串中的代码，所以可以做判断
+    3. 判断，如果addClass为true，就添加.red这个class
+    4. vue中一起以数据为先
+&lt;/div&gt;
+    &lt;script&gt;
+        let obj = {
+            addClass: true
+        }
+        new Vue({
+            el: &apos;#demo&apos;,
+            data: obj
+
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+                    <p>
+
+                    </p>
                   </the>
 
                 </div>
@@ -415,7 +891,16 @@
         <aside id="sidebar" class="sidebar">
           <div class="sidebar-inner">
 
-            <section class="site-overview sidebar-panel sidebar-panel-active">
+            <ul class="sidebar-nav motion-element">
+              <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+                文章目录
+              </li>
+              <li class="sidebar-nav-overview" data-target="site-overview">
+                站点概览
+              </li>
+            </ul>
+
+            <section class="site-overview sidebar-panel">
               <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
                 <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="唐大虾"
                 />
@@ -442,7 +927,7 @@
 
                 <div class="site-state-item site-state-tags">
 
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
 
                 </div>
@@ -505,6 +990,298 @@
               </div>
 
             </section>
+
+            <!--noindex-->
+            <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+              <div class="post-toc">
+
+                <div class="post-toc-content">
+                  <ol class="nav">
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#vue概念">
+                        <span class="nav-number">1.</span>
+                        <span class="nav-text">
+                          vue概念</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#vue中的两个核心点">
+                            <span class="nav-number">1.1.</span>
+                            <span class="nav-text">
+                              vue中的两个核心点</span>
+                          </a>
+                          <ol class="nav-child">
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#响应的数据绑定">
+                                <span class="nav-number">1.1.1.</span>
+                                <span class="nav-text">
+                                  响应的数据绑定</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#组合的视图组件">
+                                <span class="nav-number">1.1.2.</span>
+                                <span class="nav-text">
+                                  组合的视图组件</span>
+                              </a>
+                            </li>
+                          </ol>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#虚拟DOM">
+                            <span class="nav-number">1.2.</span>
+                            <span class="nav-text">
+                              虚拟DOM</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#基础语法">
+                        <span class="nav-number">2.</span>
+                        <span class="nav-text">
+                          基础语法</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#vue实例">
+                            <span class="nav-number">2.1.</span>
+                            <span class="nav-text">
+                              vue实例</span>
+                          </a>
+                          <ol class="nav-child">
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#v-on">
+                                <span class="nav-number">2.1.1.</span>
+                                <span class="nav-text">
+                                  v-on</span>
+                              </a>
+                            </li>
+                          </ol>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#vue代理data数据">
+                            <span class="nav-number">2.2.</span>
+                            <span class="nav-text">
+                              vue代理data数据</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#vue实例自身属性和方法">
+                            <span class="nav-number">2.3.</span>
+                            <span class="nav-text">
+                              vue实例自身属性和方法</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#声明式渲染">
+                            <span class="nav-number">2.4.</span>
+                            <span class="nav-text">
+                              声明式渲染</span>
+                          </a>
+                          <ol class="nav-child">
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#声明式">
+                                <span class="nav-number">2.4.1.</span>
+                                <span class="nav-text">
+                                  声明式</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#命令式">
+                                <span class="nav-number">2.4.2.</span>
+                                <span class="nav-text">
+                                  命令式</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#vue声明式渲染">
+                                <span class="nav-number">2.4.3.</span>
+                                <span class="nav-text">
+                                  vue声明式渲染</span>
+                              </a>
+                            </li>
+                          </ol>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#指令（vue中的内置指令）">
+                            <span class="nav-number">2.5.</span>
+                            <span class="nav-text">
+                              指令（vue中的内置指令）</span>
+                          </a>
+                          <ol class="nav-child">
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#v-bind">
+                                <span class="nav-number">2.5.1.</span>
+                                <span class="nav-text">
+                                  v-bind</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#v-on-1">
+                                <span class="nav-number">2.5.2.</span>
+                                <span class="nav-text">
+                                  v-on</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#v-text">
+                                <span class="nav-number">2.5.3.</span>
+                                <span class="nav-text">
+                                  v-text</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#v-html">
+                                <span class="nav-number">2.5.4.</span>
+                                <span class="nav-text">
+                                  v-html</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#v-show">
+                                <span class="nav-number">2.5.5.</span>
+                                <span class="nav-text">
+                                  v-show</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#v-if">
+                                <span class="nav-number">2.5.6.</span>
+                                <span class="nav-text">
+                                  v-if</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#v-else-if">
+                                <span class="nav-number">2.5.7.</span>
+                                <span class="nav-text">
+                                  v-else-if</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#v-else">
+                                <span class="nav-number">2.5.8.</span>
+                                <span class="nav-text">
+                                  v-else</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#v-for">
+                                <span class="nav-number">2.5.9.</span>
+                                <span class="nav-text">
+                                  v-for</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#v-model">
+                                <span class="nav-number">2.5.10.</span>
+                                <span class="nav-text">
+                                  v-model</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#v-pr">
+                                <span class="nav-number">2.5.11.</span>
+                                <span class="nav-text">
+                                  v-pr</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#v-once">
+                                <span class="nav-number">2.5.12.</span>
+                                <span class="nav-text">
+                                  v-once</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#v-cloak">
+                                <span class="nav-number">2.5.13.</span>
+                                <span class="nav-text">
+                                  v-cloak</span>
+                              </a>
+                            </li>
+                          </ol>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#模板">
+                            <span class="nav-number">2.6.</span>
+                            <span class="nav-text">
+                              模板</span>
+                          </a>
+                          <ol class="nav-child">
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#html模板">
+                                <span class="nav-number">2.6.1.</span>
+                                <span class="nav-text">
+                                  html模板</span>
+                              </a>
+                              <ol class="nav-child">
+                                <li class="nav-item nav-level-5">
+                                  <a class="nav-link" href="#插值">
+                                    <span class="nav-number">2.6.1.1.</span>
+                                    <span class="nav-text">
+                                      插值</span>
+                                  </a>
+                                </li>
+                              </ol>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#字符串模板">
+                                <span class="nav-number">2.6.2.</span>
+                                <span class="nav-text">
+                                  字符串模板</span>
+                              </a>
+                              <ol class="nav-child">
+                                <li class="nav-item nav-level-5">
+                                  <a class="nav-link" href="#template字符串">
+                                    <span class="nav-number">2.6.2.1.</span>
+                                    <span class="nav-text">
+                                      template字符串</span>
+                                  </a>
+                                </li>
+                              </ol>
+                            </li>
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#模板-render函数">
+                                <span class="nav-number">2.6.3.</span>
+                                <span class="nav-text">
+                                  模板-render函数</span>
+                              </a>
+                              <ol class="nav-child">
+                                <li class="nav-item nav-level-5">
+                                  <a class="nav-link" href="#render函数">
+                                    <span class="nav-number">2.6.3.1.</span>
+                                    <span class="nav-text">
+                                      render函数</span>
+                                  </a>
+                                </li>
+                                <li class="nav-item nav-level-5">
+                                  <a class="nav-link" href="#数据对象属性">
+                                    <span class="nav-number">2.6.3.2.</span>
+                                    <span class="nav-text">
+                                      数据对象属性</span>
+                                  </a>
+                                </li>
+                                <li class="nav-item nav-level-5">
+                                  <a class="nav-link" href="#vue中的class绑定">
+                                    <span class="nav-number">2.6.3.3.</span>
+                                    <span class="nav-text">
+                                      vue中的class绑定</span>
+                                  </a>
+                                </li>
+                              </ol>
+                            </li>
+                          </ol>
+                        </li>
+                      </ol>
+                    </li>
+                  </ol>
+                </div>
+
+              </div>
+            </section>
+            <!--/noindex-->
 
           </div>
         </aside>

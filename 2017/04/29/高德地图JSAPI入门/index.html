@@ -35,7 +35,7 @@
   <meta property="og:site_name" content="Prawns's Blog">
   <meta property="og:description" content="JS-API页面地址：   http://lbs.amap.com/api/javascript-api/summary-3/      轻捷的架构   API文件极小，简单易用   模块化地图功能，各模块按需加载      灵活开放的接口设计   支持用户自定义点标记、信息窗口等的样式   支持用户自定义插件工具，灵活的进行地图操作      丰富的可视化效果   地图拖拽、缩放平滑流畅   点">
   <meta property="og:image" content="http://yoursite.com/2017/04/29/高德地图JSAPI入门/API">
-  <meta property="og:updated_time" content="2017-04-29T07:51:04.925Z">
+  <meta property="og:updated_time" content="2017-05-03T15:09:12.439Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="高德地图JSAPI入门">
   <meta name="twitter:description" content="JS-API页面地址：   http://lbs.amap.com/api/javascript-api/summary-3/      轻捷的架构   API文件极小，简单易用   模块化地图功能，各模块按需加载      灵活开放的接口设计   支持用户自定义点标记、信息窗口等的样式   支持用户自定义插件工具，灵活的进行地图操作      丰富的可视化效果   地图拖拽、缩放平滑流畅   点">
@@ -289,7 +289,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        578
+                        638
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -314,7 +314,7 @@
                   <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
 
                     <div class="post-gallery-row">
-                      <a class="post-gallery-img fancybox" href="/API" rel="gallery_cj25v6eix001hjonp99ptrial"
+                      <a class="post-gallery-img fancybox" href="/API" rel="gallery_cj29r2rbk001l5wnpbflkh0be"
                                                                                                       itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                         <img src="/API" itemprop="contentUrl" />
                       </a>
@@ -434,6 +434,20 @@ map.plugin([&apos;AMap.ToolBar&apos;],function(){
     map: map,
     position: [113.8199286,22.8907069]
 });
+
+var center = new AMap.LngLat(116.397428,39.90923);
+for (var j = 0; j &lt;1000; j += 1) {
+       var lnglat = new AMap.LngLat(center.getLng() + Math.random()*0.1, center.getLat() +  Math.random()*0.1);
+    var marker = new AMap.Marker({
+        position: lnglat,
+        draggable: true,
+        raiseOnDrag:true,
+        opacity:1,
+        icon:&apos;http://webapi.amap.com/theme/v1.2/0.png&apos;
+
+    });
+    marker.setMap(map);
+}
 </code></pre>
                     <h3 id="Polyline">
                       <a href="#Polyline" class="headerlink" title="Polyline"></a>Polyline</h3>
@@ -588,7 +602,7 @@ map.plugin([&apos;AMap.ToolBar&apos;],function(){
 
                 <div class="site-state-item site-state-tags">
 
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
 
                 </div>

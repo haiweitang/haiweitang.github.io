@@ -1,0 +1,2382 @@
+<!doctype html>
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
+  />
+
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"
+  />
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+                                                                                  rel="stylesheet" type="text/css">
+
+  <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet"
+                                                                                  type="text/css" />
+
+  <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+  <meta name="keywords" content="DOM,JS," />
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1"
+  />
+
+  <meta name="description" content="个人笔记，仅供参考。">
+  <meta name="keywords" content="DOM,JS">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="DOM,BOM详解">
+  <meta property="og:url" content="http://yoursite.com/2017/05/03/DOM-BOM详解/index.html">
+  <meta property="og:site_name" content="Prawns's Blog">
+  <meta property="og:description" content="个人笔记，仅供参考。">
+  <meta property="og:updated_time" content="2017-05-04T05:08:38.959Z">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DOM,BOM详解">
+  <meta name="twitter:description" content="个人笔记，仅供参考。">
+
+  <script type="text/javascript" id="hexo.configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {
+      root: '/',
+      scheme: 'Pisces',
+      sidebar: {
+        "position": "right",
+        "display": "post",
+        "offset": 12,
+        "offset_float": 0,
+        "b2t": false,
+        "scrollpercent": false
+      },
+      fancybox: true,
+      motion: true,
+      duoshuo: {
+        userId: '0',
+        author: '博主'
+      },
+      algolia: {
+        applicationID: '',
+        apiKey: '',
+        indexName: '',
+        hits: {
+          "per_page": 10
+        },
+        labels: {
+          "input_placeholder": "Search for Posts",
+          "hits_empty": "We didn't find any results for the search: ${query}",
+          "hits_stats": "${hits} results found in ${time} ms"
+        }
+      }
+    };
+
+  </script>
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/03/DOM-BOM详解/" />
+
+  <title>DOM,BOM详解 | Prawns's Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+  <a href="https://github.com/haiweitang">
+    <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67"
+                                                                                    alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png">
+  </a>
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b1943308084b073171575bbbd752b19";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+
+  </script>
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner">
+        <div class="site-brand-wrapper">
+          <div class="site-meta ">
+
+            <div class="custom-logo-site-title">
+              <a href="/" class="brand" rel="start">
+                <span class="logo-line-before">
+                  <i></i>
+                </span>
+                <span class="site-title">Prawns's Blog</span>
+                <span class="logo-line-after">
+                  <i></i>
+                </span>
+              </a>
+            </div>
+
+            <p class="site-subtitle"></p>
+
+          </div>
+
+          <div class="site-nav-toggle">
+            <button>
+              <span class="btn-bar"></span>
+              <span class="btn-bar"></span>
+              <span class="btn-bar"></span>
+            </button>
+          </div>
+        </div>
+
+        <nav class="site-nav">
+
+          <ul id="menu" class="menu">
+
+            <li class="menu-item menu-item-home">
+              <a href="/" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-home"></i>
+                <br /> 首页
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-about">
+              <a href="/about" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-user"></i>
+                <br /> 关于
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-archives">
+              <a href="/archives" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-archive"></i>
+                <br /> 归档
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-tags">
+              <a href="/tags" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-tags"></i>
+                <br /> 标签
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-commonweal">
+              <a href="/404.html" rel="section">
+
+                <i class="menu-item-icon fa fa-fw fa-heartbeat"></i>
+                <br /> 公益404
+              </a>
+            </li>
+
+            <li class="menu-item menu-item-search">
+
+              <a href="javascript:;" class="popup-trigger">
+
+                <i class="menu-item-icon fa fa-search fa-fw"></i>
+                <br /> 搜索
+              </a>
+            </li>
+
+          </ul>
+
+          <div class="site-search">
+
+            <div class="popup search-popup local-search-popup">
+              <div class="local-search-header clearfix">
+                <span class="search-icon">
+                  <i class="fa fa-search"></i>
+                </span>
+                <span class="popup-btn-close">
+                  <i class="fa fa-times-circle"></i>
+                </span>
+                <div class="local-search-input-wrapper">
+                  <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..."
+                                                                                                  spellcheck="false" type="text" id="local-search-input">
+                </div>
+              </div>
+              <div id="local-search-result"></div>
+            </div>
+
+          </div>
+
+        </nav>
+
+      </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+
+            <div id="posts" class="posts-expand">
+
+              <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+                <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/03/DOM-BOM详解/">
+
+                <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                  <meta itemprop="name" content="唐大虾">
+                  <meta itemprop="description" content="">
+                  <meta itemprop="image" content="/images/avatar.jpeg">
+                </span>
+
+                <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                  <meta itemprop="name" content="Prawns's Blog">
+                </span>
+
+                <header class="post-header">
+
+                  <h1 class="post-title" itemprop="name headline">
+
+                    DOM,BOM详解
+
+                  </h1>
+
+                  <div class="post-meta">
+                    <span class="post-time">
+
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-calendar-o"></i>
+                      </span>
+
+                      <span class="post-meta-item-text">发表于</span>
+
+                      <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-03T23:09:00+08:00">
+                        2017-05-03
+                      </time>
+
+                    </span>
+
+                    <span class="post-comments-count">
+                      <span class="post-meta-divider">|</span>
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-comment-o"></i>
+                      </span>
+                      <a class="cloud-tie-join-count" href="/2017/05/03/DOM-BOM详解/#comments" itemprop="discussionUrl">
+                        <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                      </a>
+                    </span>
+
+                    <span id="/2017/05/03/DOM-BOM详解/" class="leancloud_visitors" data-flag-title="DOM,BOM详解">
+                      <span class="post-meta-divider">|</span>
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-eye"></i>
+                      </span>
+
+                      <span class="post-meta-item-text">阅读次数 </span>
+
+                      <span class="leancloud-visitors-count"></span>
+                    </span>
+
+                    <div class="post-wordcount">
+
+                      <span class="post-meta-divider">|</span>
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-file-word-o"></i>
+                      </span>
+
+                      <span class="post-meta-item-text">字数统计</span>
+
+                      <span title="字数统计">
+                        4,521
+                      </span>
+
+                      <span class="post-meta-divider">|</span>
+
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-clock-o"></i>
+                      </span>
+
+                      <span class="post-meta-item-text">阅读时长</span>
+
+                      <span title="阅读时长">
+                        18
+                      </span>
+
+                    </div>
+
+                  </div>
+                </header>
+
+                <div class="post-body" itemprop="articleBody">
+
+                  <p>个人笔记，仅供参考。</p>
+                  <p>
+                    <excerpt in="" index="" |="" 首页摘要="">
+                      <br>
+                      <a id="more"></a>
+                    </excerpt>
+                  </p>
+                  <the rest="" of="" contents="" |="" 余下全文="">
+
+                    <h3 id="DOM的概念及子节点类型">
+                      <a href="#DOM的概念及子节点类型" class="headerlink" title="DOM的概念及子节点类型"></a>DOM的概念及子节点类型</h3>
+                    <h4 id="childNodes">
+                      <a href="#childNodes" class="headerlink" title="childNodes:"></a>
+                      <font color="#f60">childNodes:</font>
+                    </h4>
+                    <p>元素.childNodes&lt;只读，属性，子节点列表集合&gt;</p>
+                    <pre><code>alert(oUl.childNodes.length)
+</code></pre>
+                    <p>
+                      <strong>标准浏览器下：</strong>
+                      <br>1.包含了文本和元素类型的节点。（会将换行符算成一个文本节点）
+                      <br>2.也会包含非法嵌套的子节点。</p>
+                    <p>
+                      <strong>非标准浏览器下(IE6/7/8):</strong>
+                      <br>1.只包含了元素类型的节点。
+                      <br>2.IE7一下不会包含非法嵌套的子节点。
+                      <br>childNodes只包含一级子节点，不包含后辈孙子级子节点。
+                      <br>DOM节点的类型有很种，W3C标准的有12中类型。
+                      <br>
+                      <strong>注意：</strong>(childNodes有兼容性问题，不推荐使用)</p>
+                    <h4 id="children">
+                      <a href="#children" class="headerlink" title="children:"></a>
+                      <font color="#f60">children:</font>
+                    </h4>
+                    <p>元素.children &lt;只读，属性，子节点列表集合&gt;
+                      <br>
+                      <strong>标准浏览器下：</strong>
+                      <br>1.只包含了元素类型的节点。
+                      <br>2.也会包含非法嵌套的子节点。
+                      <br>
+                      <strong>非标准浏览器下(IE6/7/8):</strong>
+                      <br>1.只包含了元素类型的节点。
+                      <br>2.IE7一下不会包含非法嵌套的子节点。但会把非法嵌套的节点放入合法节点的里面。
+                      <br>children只包含一级子节点，不包含后辈孙子级子节点。
+                      <br>
+                      <strong>注意：</strong>(children 兼容良好，推荐使用)</p>
+                    <h4 id="nodeType">
+                      <a href="#nodeType" class="headerlink" title="nodeType"></a>
+                      <font color="#f60">nodeType</font>
+                    </h4>
+                    <p>节点类型。 alert(oUl.childNodes[i].nodeType).
+                      <br>弹出(1) = 文本节点, (2) =属性节点, (3) =元素节点,最常用的就的这3种。</p>
+                    <h4 id="attributes">
+                      <a href="#attributes" class="headerlink" title="attributes:"></a>
+                      <font color="#f60">attributes:</font>
+                    </h4>
+                    <p>属性。 元素.attributes : 只读 属性 属性列表的集合。</p>
+                    <pre><code>alert(oul.attributes.length) 弹出oUl的属性个数。 // 2
+alert(oUl.attributes[0]) 弹出第零个属性。 //object.attr  属性对象
+alert(oUl.attributes[0].name) 弹出第零个属性的名称。 // id
+alert(oUl.attributes[0].value) 弹出第零个属性的属性值。   // ul1
+alert(oUl.attributes[0].nodeType) 弹出第零个属性的节点类型。 // 2
+</code></pre>
+                    <h4 id="以上内容的示例演示：">
+                      <a href="#以上内容的示例演示：" class="headerlink" title="以上内容的示例演示："></a>以上内容的示例演示：</h4>
+                    <pre><code>&lt;script&gt;
+window.onload=function(){
+    var oUl = document.getElementById(&apos;ul1&apos;);
+    for(var i=0; i&lt;oUl.childNodes.length; i++){
+        // if(oUl.childNodes[i].nodeType == 1){
+        //  oUl.childNodes[i].style.background = &apos;green&apos;;
+        // }
+        oUl.children[i].style.background = &apos;green&apos;;
+    }
+}
+&lt;/script&gt;
+&lt;body&gt;
+    &lt;ul id=&quot;ul1&quot; style=&quot;border: 1px solid red&quot;&gt;
+        &lt;li&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+</code></pre>
+                    <h3 id="子节点及兄弟节点-父节点的操作">
+                      <a href="#子节点及兄弟节点-父节点的操作" class="headerlink" title="子节点及兄弟节点/父节点的操作"></a>子节点及兄弟节点/父节点的操作</h3>
+                    <h4 id="firstChild">
+                      <a href="#firstChild" class="headerlink" title="firstChild:"></a>
+                      <font color="#f60">firstChild:</font>
+                    </h4>
+                    <p>元素.firstChlid &lt;只读，属性，第一个子节点&gt;
+                      <br>
+                      <strong>标准下：</strong> firstChild会包含文本类型的节点。
+                      <br>
+                      <strong>非标准下：</strong>只包含元素类型的节点。</p>
+                    <h4 id="firstElementChild">
+                      <a href="#firstElementChild" class="headerlink" title="firstElementChild"></a>
+                      <font color="#f60">firstElementChild</font>
+                    </h4>
+                    <p>元素.firstElementChild; 只读 属性 标准下获取第一个元素类型的子节点
+                      <br>示例：</p>
+                    <pre><code>var oFirst = oUl.firstElementChild || oUl.firstChild;
+oFirst.style.background = &apos;red&apos;;
+</code></pre>
+                    <p>元素.lastChild || 元素.lastElementChild //最后一个子节点</p>
+                    <pre><code>var oLast = oUl.lastElementChild || oUl.lastChild;
+oLast.style.background = &apos;yellow&apos;;
+</code></pre>
+                    <p>元素.nextSibling || 元素.nextElementSibling //下一个兄弟节点</p>
+                    <pre><code>var oNext = oFirst.nextElementSibling || oFirst.nextSibling;
+oNext.style.background = &apos;blue&apos;;
+</code></pre>
+                    <p>元素.previousSibling || 元素.previousElementSibling //上一个兄弟节点</p>
+                    <pre><code>var oPrev = oLast.previousElementSibling || oLast.previousSibling;
+oPrev.style.background = &apos;orange&apos;;
+</code></pre>
+                    <p>
+                      <strong>注意</strong>
+                      <br>以上节点操作方式会出现问题。如果oUl下没有子节点会出现BUG
+                      <br>推荐使用 oUl.children[0].style.background = ‘red’;</p>
+                    <h4 id="parentNode">
+                      <a href="#parentNode" class="headerlink" title="parentNode:"></a>
+                      <font color="#f60">parentNode:</font>
+                    </h4>
+                    <p>元素.parentNode &lt;只读，属性，当前元素的父级节点&gt;
+                      <br>木有什么兼容性问题，可放心大胆的使用。</p>
+                    <h4 id="offsetParent">
+                      <a href="#offsetParent" class="headerlink" title="offsetParent"></a>
+                      <font color="#f60">offsetParent</font>
+                    </h4>
+                    <p>元素.offsetParent &lt;只读，属性，离当前节点最近的有定位的父级节点&gt;
+                      <br> 如果没有定位，默认获取body。
+                      <br> IE7以下，如果没有定位，默认获取body，有定位则是HTML。
+                      <br> IE7以下，如果当前元素的某个父级出发了layout,那么offsetParent就会被指向到这个出 发了layout的父节点上。</p>
+                    <h3 id="元素的各种位置-尺寸-宽高">
+                      <a href="#元素的各种位置-尺寸-宽高" class="headerlink" title="元素的各种位置/尺寸/宽高"></a>元素的各种位置/尺寸/宽高</h3>
+                    <h4 id="offsetLeft-Top">
+                      <a href="#offsetLeft-Top" class="headerlink" title="offsetLeft[Top]"></a>
+                      <font color="#f60">offsetLeft[Top]</font>
+                    </h4>
+                    <p>元素.offsetLeft &lt;只读，属性，
+                      <br>当前元素到定位父级的距离(偏移值)-(当前元素.offsetParent的距离)
+                      <br>IE7以下：当前元素如果自己没有定位，那么offsetLeft[Top]是到body的距离。
+                      <br> 如果有定位，offsetLeft[Top]就是到定位父级的距离。</p>
+                    <h4 id="clientWidth-Height">
+                      <a href="#clientWidth-Height" class="headerlink" title="clientWidth[Height]"></a>
+                      <font color="#f60">clientWidth[Height]</font>
+                    </h4>
+                    <p>元素.clientWidth[Height]
+                      <code>&lt;只读，属性，当前元素的可视宽高</code>&gt;
+                      <br>style.width = 样式宽
+                      <br>clientWidth = 样式宽 + padding。</p>
+                    <h4 id="offsetWidth-Height">
+                      <a href="#offsetWidth-Height" class="headerlink" title="offsetWidth[Height]"></a>
+                      <font color="#f60">offsetWidth[Height]</font>
+                    </h4>
+                    <p>元素offsetWidth[Height] &lt;只读，属性，当前元素的占位宽高&gt;
+                      <br>style.width = 样式宽
+                      <br>offsetWidth = 样式宽 + padding + border = 可视区宽 + border ;
+                      <br>这个标签没有兼容性的问题，可放心使用。</p>
+                    <h3 id="操作元素属性的各种方法">
+                      <a href="#操作元素属性的各种方法" class="headerlink" title="操作元素属性的各种方法"></a>操作元素属性的各种方法</h3>
+                    <h4 id="getAttribute">
+                      <a href="#getAttribute" class="headerlink" title="getAttribute"></a>
+                      <font color="#f60">getAttribute</font>
+                    </h4>
+                    <p>元素.getAttribute(属性名称)
+                      <code>&lt;方法，获取指定元素的指定属性的值</code>&gt;</p>
+                    <pre><code>alert( oText.getAttribute(&apos;value&apos;) );
+</code></pre>
+                    <h4 id="setAttribute">
+                      <a href="#setAttribute" class="headerlink" title="setAttribute"></a>
+                      <font color="#f60">setAttribute</font>
+                    </h4>
+                    <p>元素setAttribute(属性名称，属性值) &lt;方法，设置指定元素的指定属性的值&gt;</p>
+                    <pre><code>alert(  Text.setAttribute(‘value’ , ’hello’)  );
+</code></pre>
+                    <h4 id="removeAttribute">
+                      <a href="#removeAttribute" class="headerlink" title="removeAttribute"></a>
+                      <font color="#f60">removeAttribute</font>
+                    </h4>
+                    <p>元素removeAttribute(属性名称)
+                      <code>&lt;方法，删除指定元素的指定属性</code>&gt;</p>
+                    <pre><code>oText.removeAttribute( &apos;value&apos; );
+</code></pre>
+                    <p>
+                      <strong>以上操作元素的优势：</strong>
+                      <br>1.用.和[]的形式无法操作元素的自定义属性</p>
+                    <pre><code>alert( oText.name);
+alert( oText[&apos;name&apos;] );
+</code></pre>
+                    <p>getAttribute可以操作元素的自定义属性</p>
+                    <pre><code>alert( oText.getAttribute(&apos;name&apos;) );
+</code></pre>
+                    <p>2.可以获取元素属性实际的值</p>
+                    <pre><code>ie7下还是会返回资源的绝对路径
+alert( oImg.src );  //绝对路径
+alert( oImg[&apos;src&apos;] );//绝对路径
+alert( oImg.getAttribute(&apos;src&apos;) ); //实际返回书写的地址。
+</code></pre>
+                    <h3 id="元素的创建">
+                      <a href="#元素的创建" class="headerlink" title="元素的创建"></a>元素的创建</h3>
+                    <h4 id="createElement">
+                      <a href="#createElement" class="headerlink" title="createElement"></a>
+                      <font color="#f60">createElement</font>
+                    </h4>
+                    <p>document.createElement(标签名称); 创建元素。</p>
+                    <pre><code>var oLi = document.createElement(&apos;li&apos;);
+oLi.innerHTML = oText.value;
+</code></pre>
+                    <h4 id="appendChild">
+                      <a href="#appendChild" class="headerlink" title="appendChild"></a>
+                      <font color="#f60">appendChild</font>
+                    </h4>
+                    <pre><code>oUl.appendChild (oLi);    //在oUl最有一个子节点后面追加元素。
+</code></pre>
+                    <h4 id="insertBefore">
+                      <a href="#insertBefore" class="headerlink" title="insertBefore"></a>
+                      <font color="#f60">insertBefore</font>
+                    </h4>
+                    <p> 方法 在指定元素前面插入一个新元素.
+                      <br>父级.insertBefore(新的元素，被插入的元素)</p>
+                    <pre><code>oUl.insertBefore( oLi, oUl.children[0] )
+</code></pre>
+                    <p>
+                      <strong>注意：</strong>
+                      <br>1.在ie下如果第二个参数的节点不存在，会报错
+                      <br>2.在其他标准浏览器下如果第二个参数的节点不存在，则会以appendChild的形 式进行添加</p>
+                    <p>
+                      <strong>以上元素需要做IE兼容：</strong>
+                    </p>
+                    <pre><code>if ( oUl.children[0] ) {
+    oUl.insertBefore( oLi, oUl.children[0] );
+}
+else {
+    oUl.appendChild( oLi );
+}
+</code></pre>
+                    <h4 id="removeChild">
+                      <a href="#removeChild" class="headerlink" title="removeChild"></a>
+                      <font color="#f60">removeChild</font>
+                    </h4>
+                    <p>方法 删除父级下的某一个元素。父级.removeChild(要删除的元素); 删除元素</p>
+                    <h4 id="replaceChild">
+                      <a href="#replaceChild" class="headerlink" title="replaceChild"></a>
+                      <font color="#f60">replaceChild</font>
+                    </h4>
+                    <p>父级.replaceChild(新节点，被替换的节点);替换子节点。</p>
+                    <p>appendChild, insertBefore,replaceChild都可以操作动态创建出来的节点，也可以操作已有节点</p>
+                    <h4 id="cloneNode">
+                      <a href="#cloneNode" class="headerlink" title="cloneNode"></a>
+                      <font color="#f60">cloneNode</font>
+                    </h4>
+                    <p>克隆某个元素,不会克隆该元素的事件。
+                      <br>要克隆的元素.cloneNode(有参数，默认为false);
+                      <br>在克隆的时候，默认false只克隆指定元素本身，不会克隆该元素下的所有子节点
+                      <br>只有在括号内传入true的时候，才会克隆该元素下的所有子节点。</p>
+                    <pre><code>Div2.cloneNode(true);
+</code></pre>
+                    <h3 id="表格操作">
+                      <a href="#表格操作" class="headerlink" title="表格操作"></a>表格操作</h3>
+                    <p>tHead : 表格头
+                      <br>Bodies : 表格正文
+                      <br>tFoot : 表格尾
+                      <br>Rows : 行
+                      <br>cells : 列</p>
+                    <h3 id="表单操作">
+                      <a href="#表单操作" class="headerlink" title="表单操作"></a>表单操作</h3>
+                    <p>表单操作中可以通过name值获取元素。
+                      <br>onchange: 当值发生改变是触发。
+                      <br>如果type为
+                      <br>1.text ; 当光标离开的时候如果内容有改变就触发。
+                      <br>2.radio/checkbox：
+                      <br>标准下，点击的时候只要值变了就会触发。
+                      <br>非标准下，焦点离开的时候如果值变了就会触发</p>
+                    <h3 id="BOM操作">
+                      <a href="#BOM操作" class="headerlink" title="BOM操作"></a>BOM操作</h3>
+                    <h4 id="window-open">
+                      <a href="#window-open" class="headerlink" title="window.open()"></a>
+                      <font color="#f60">window.open()</font>
+                    </h4>
+                    <p>open(页面的地址，打开方式) 方法 打开一个新的窗口/页面。
+                      <br>如果url为空，则默认打开一个空白页面。
+                      <br>如果打开方式为空，默认为新窗口方式打开。 </p>
+                    <h4 id="window-close">
+                      <a href="#window-close" class="headerlink" title="window.close()"></a>
+                      <font color="#f60">window.close()</font>
+                    </h4>
+                    <p>关闭窗口/页面，兼容性很差。</p>
+                    <ol>
+                      <li>火狐 : 默认无法关闭，不兼容。</li>
+                      <li>chrome ：默认直接关闭。兼容。</li>
+                      <li>IE ：弹出对话框，询问用户是否关闭。</li>
+                    </ol>
+                    <h4 id="window-navigator-userAgent">
+                      <a href="#window-navigator-userAgent" class="headerlink" title="window.navigator.userAgent"></a>
+                      <font color="#f60">window.navigator.userAgent</font>
+                    </h4>
+                    <p>浏览器信息。</p>
+                    <pre><code>Window.navigator.userAgent.indexOf(‘MSIE’) != -1; //判断IE浏览器
+</code></pre>
+                    <h4 id="window-location">
+                      <a href="#window-location" class="headerlink" title="window.location"></a>
+                      <font color="#f60">window.location</font>
+                    </h4>
+                    <p> 浏览器地址信息。</p>
+                    <pre><code>window.location.href: url.
+window.location.search : url?后面的内容。
+window.location.hash :  url#后面的内容。
+</code></pre>
+                    <h3 id="文档宽高及窗口事件">
+                      <a href="#文档宽高及窗口事件" class="headerlink" title="文档宽高及窗口事件"></a>文档宽高及窗口事件</h3>
+                    <h4 id="clientWidth">
+                      <a href="#clientWidth" class="headerlink" title="clientWidth"></a>
+                      <font color="#f60">clientWidth</font>
+                    </h4>
+                    <p>
+                      <code>&lt;获取浏览器可视区域的宽度</code>&gt;</p>
+                    <pre><code>document.documentElement.clientWidth  
+</code></pre>
+                    <h4 id="clientHeight">
+                      <a href="#clientHeight" class="headerlink" title="clientHeight"></a>
+                      <font color="#f60">clientHeight</font>
+                    </h4>
+                    <p>
+                      <code>&lt;获取浏览器可视区域的高度</code>&gt;</p>
+                    <pre><code>document.documentElement.clientHeight  
+</code></pre>
+                    <h4 id="scrollTop-left">
+                      <a href="#scrollTop-left" class="headerlink" title="scrollTop[left]"></a>
+                      <font color="#f60">scrollTop[left]</font>
+                    </h4>
+                    <p>获取浏览器滚动条滚动的距离</p>
+                    <pre><code>document.documentElement.scrollTop   &lt;获取浏览器滚动条向下滚动的距离&gt;
+document.documentElement.scrollLeft   &lt;获取浏览器滚动条向右滚动的距离&gt;
+</code></pre>
+                    <p>chrome下，需写成document.body.scrollTop[Left];
+                      <br>浏览器兼容：</p>
+                    <pre><code>var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+</code></pre>
+                    <h4 id="scrollHeight-Width">
+                      <a href="#scrollHeight-Width" class="headerlink" title="scrollHeight[Width]"></a>
+                      <font color="#f60">scrollHeight[Width]</font>
+                    </h4>
+                    <p>元素内内容高度/宽度。
+                      <br>documen.元素.scrollHeight</p>
+                    <pre><code>document.oDiv.scrollHeight;
+</code></pre>
+                    <h4 id="offsetHeight">
+                      <a href="#offsetHeight" class="headerlink" title="offsetHeight"></a>
+                      <font color="#f60">offsetHeight</font>
+                    </h4>
+                    <p>文档的高度 document.body.offsetHeight 推荐使用这个，兼容性好</p>
+                    <h4 id="onscroll">
+                      <a href="#onscroll" class="headerlink" title="onscroll"></a>
+                      <font color="#f60">onscroll</font>
+                    </h4>
+                    <p>当滚动条滚动的时候触发。</p>
+                    <h4 id="Onresize">
+                      <a href="#Onresize" class="headerlink" title="Onresize"></a>
+                      <font color="#f60">Onresize</font>
+                    </h4>
+                    <p>当窗口大小发生改变的时候触发。</p>
+                    <h3 id="Event事件详解">
+                      <a href="#Event事件详解" class="headerlink" title="Event事件详解"></a>Event事件详解</h3>
+                    <h4 id="onfocus">
+                      <a href="#onfocus" class="headerlink" title="onfocus"></a>
+                      <font color="#f60">onfocus</font>
+                    </h4>
+                    <p>元素获取焦点时触发。 只可操作可交互性元素的内容。</p>
+                    <h4 id="onblur">
+                      <a href="#onblur" class="headerlink" title="onblur"></a>
+                      <font color="#f60">onblur</font>
+                    </h4>
+                    <p>元素离开焦点时触发。</p>
+                    <h4 id="focus">
+                      <a href="#focus" class="headerlink" title="focus()"></a>
+                      <font color="#f60">focus()</font>
+                    </h4>
+                    <p>元素.focus(); 页面刷新后，元素自动触发焦点，光标自动锁定做元素之内。</p>
+                    <h4 id="blur">
+                      <a href="#blur" class="headerlink" title="blur()"></a>
+                      <font color="#f60">blur()</font>
+                    </h4>
+                    <p>元素.blur(); 页面刷新后，元素自动取消焦点。</p>
+                    <h4 id="select">
+                      <a href="#select" class="headerlink" title="select()"></a>
+                      <font color="#f60">select()</font>
+                    </h4>
+                    <p>元素.select(); 经过某个事件之后，会自动全选元素里面的文本内容。
+                      <br>PS ：只能操作可交互性元素里的文本内容。</p>
+                    <pre><code>oBtn.onclick = function(){
+oText.select();      //点击按钮之后，会自动全选oText里面的文本内容
+}                    //然后可以ctrl+x剪贴  ctrl+c复制
+</code></pre>
+                    <h4 id="event">
+                      <a href="#event" class="headerlink" title="event"></a>
+                      <font color="#f60">event</font>
+                    </h4>
+                    <p>
+                      <strong>IE/chrome:</strong> event是一个全局对象，
+                      <br>
+                      <strong>标准下：</strong>事件对象是通过实践函数的第一个参数传入。</p>
+                    <p>例：
+                      <br> function fn(ev){
+                      <br> var ev = ev || event; //兼容标准和非标准下的event事件。
+                      <br> alert(ev);
+                      <br> for(var attr in ev){
+                      <br> Console.log(attr + ‘=’ + ev[attr]);
+                      <br> }
+                      <br> }</p>
+                    <h4 id="clientX-Y">
+                      <a href="#clientX-Y" class="headerlink" title="clientX[Y]"></a>
+                      <font color="#f60">clientX[Y]</font>
+                    </h4>
+                    <p>当事件发生时，鼠标到页面可视区的位置。即X,Y轴的距离。
+                      <br>结合event事件使用。
+                      <br>例：</p>
+                    <pre><code>var ev = ev || event;
+ev.clientX;             //获取可视区X轴的位置
+</code></pre>
+                    <h4 id="onmousemove">
+                      <a href="#onmousemove" class="headerlink" title="onmousemove"></a>
+                      <font color="#f60">onmousemove</font>
+                    </h4>
+                    <p>鼠标移动事件。
+                      <br>触发的频率不是像素，而是间隔时间，在一个指定的时间内，如果鼠标的位置和上一次的位置发生了变化，那么就会触发一次。</p>
+                    <h4 id="事件冒泡">
+                      <a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h4>
+                    <p>当一个元素接受到事件的时候，会把它接受到的所有事件都传播给它的父级。
+                      <br>一直到顶层window。这种机制，我们称为事件冒泡机制。</p>
+                    <h4 id="阻止事件冒泡">
+                      <a href="#阻止事件冒泡" class="headerlink" title="阻止事件冒泡"></a>阻止事件冒泡</h4>
+                    <p> 在当前要阻止冒泡的时间函数中调用：event.cancelBubble = true;
+                      <br>例：</p>
+                    <pre><code>oBtn.onclick = function(ev){
+var ev = ev || event;
+ev.cancelBubble = true;   //调用它，就可以阻止当前对象的当前事件的冒泡。
+oDiv.style.display = ‘block’;  }
+</code></pre>
+                    <h4 id="call">
+                      <a href="#call" class="headerlink" title="call"></a>
+                      <font color="#f60">call</font>
+                    </h4>
+                    <p>函数下改变this指向的方法
+                      <br>call方法第一个参数可以改变函数执行中this的指向。
+                      <br>Call方法第二个参数开始就是原来函数的参数列表。</p>
+                    <h4 id="事件绑定">
+                      <a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h4>
+                    <p>事件绑定的第二种形式。可以同时绑定多个函数，而不会被覆盖。</p>
+                    <h5 id="标准下">
+                      <a href="#标准下" class="headerlink" title="标准下 :"></a>标准下 :</h5>
+                    <p>obj.addEventListener(事件名称,事件函数,是否捕获)</p>
+                    <ol>
+                      <li>有捕获。
+                        <br>false: 冒泡; true：捕获。
+                        <br>false表示出去的时候触发，true表示进来的时候触发。</li>
+                      <li>事件名称没有on。</li>
+                      <li>时间函数执行顺序是正序。</li>
+                      <li>
+                        <p>this指向触发该事件的对象。
+                          <br>例:</p>
+                        <p> function fn1(){ alert(this); }
+                          <br> function fn2(){ alert(2); }
+                          <br> document.addEventListener(‘click’, fn1, false);
+                          <br> document.addEventListener(‘click’, fn2, false);</p>
+                      </li>
+                    </ol>
+                    <p>addEventListener下阻止默认事件，不能使用return false; 必须使用ev.preventDefault();来阻止</p>
+                    <h5 id="IE下">
+                      <a href="#IE下" class="headerlink" title="IE下 :"></a>IE下 :</h5>
+                    <p>obj.attachEvent(事件名称,事件函数);</p>
+                    <ol>
+                      <li>没有捕获。</li>
+                      <li>事件名称有on。</li>
+                      <li>时间函数执行顺序：标准下正序，非标准下倒序。</li>
+                      <li>
+                        <p>this指向window。
+                          <br>this解决办法：fn.call(oDiv);
+                          <br>例:</p>
+                        <p> function fn1(){ alert(this); }
+                          <br> function fn2(){ alert(2); }
+                          <br> document.attachEvent(‘onclick’, function (){ fn1.call(document);
+                          } );
+                          <br> document.attachEvent(‘onclick’, fn2);</p>
+                      </li>
+                    </ol>
+                    <p>标准IE支持 obj.addEventListener(事件名称,事件函数,是否捕获);</p>
+                    <h4 id="事件取消">
+                      <a href="#事件取消" class="headerlink" title="事件取消 :"></a>事件取消 :</h4>
+                    <p>IE下 : obj.detachEvent(事件名称,事件函数);
+                      <br>标准下 : obj.removeEventListener(事件名称,事件函数,是否捕获)</p>
+                    <h4 id="键盘事件">
+                      <a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h4>
+                    <h5 id="onkeydown">
+                      <a href="#onkeydown" class="headerlink" title="onkeydown"></a>
+                      <font color="#f60">onkeydown</font>
+                    </h5>
+                    <p>当键盘按键按下的时候触发。如果按下不抬起会连续触发。
+                      <br>onkeydown事件是发生在键盘按下按下之前。</p>
+                    <pre><code>oText.onkeydown = function(){
+    alert(this.value);     //每次弹出的值都是这次以前输入的值
+}
+</code></pre>
+                    <h5 id="onkeyup">
+                      <a href="#onkeyup" class="headerlink" title="onkeyup"></a>
+                      <font color="#f60">onkeyup</font>
+                    </h5>
+                    <p>当键盘按键抬起的时候触发。
+                      <br>onkeyup事件是发生在键盘按下按下之后。</p>
+                    <pre><code>oText.onkeyup = function(){
+    alert(this.value);     //每次弹出的值都是this.value已经输入的值
+}
+</code></pre>
+                    <h5 id="event-keyCode">
+                      <a href="#event-keyCode" class="headerlink" title="event.keyCode"></a>
+                      <font color="#f60">event.keyCode</font>
+                    </h5>
+                    <p>数字类型 键盘按键的键值。</p>
+                    <pre><code>document.onkeydown = function(ev){
+    var ev = ev || window.event;
+    alert(ev.keyCode);
+}
+</code></pre>
+                    <h5 id="ctrlKey-shiftKey-altKey">
+                      <a href="#ctrlKey-shiftKey-altKey" class="headerlink" title="ctrlKey,shiftKey,altKey"></a>
+                      <font color="#f60">ctrlKey,shiftKey,altKey</font>
+                    </h5>
+                    <p>这三个键我们称为功能键，返回的是布尔值。
+                      <br>当一个事件发生的时候，如果ctrl 或 shift 或 alt 是按下的时候，返回值true。否者返回false。
+                      <br>
+                      <strong>注意：</strong>
+                      <br>不是所有的元素都能够接受键盘事件。
+                      <br>能够相应用户输入的元素，能够接受焦点的元素才能够接受键盘事件。</p>
+                    <p>document.onclick = function(ev){
+                      <br> var ev = ev || window.event;
+                      <br> alert(ev.ctrlKey); //按下ctrl弹出真，不按弹出假
+                      <br> alert(ev.shiftKey); //按下shift弹出真，不按弹出假
+                      <br> alert(ev.altKey); //按下alt弹出真，不按弹出假
+                      <br>}</p>
+                    <h5 id="oncontextmenu">
+                      <a href="#oncontextmenu" class="headerlink" title="oncontextmenu"></a>
+                      <font color="#f60">oncontextmenu</font>
+                    </h5>
+                    <p>右键菜单事件(环境菜单时间)。
+                      <br>当右键菜单显示出来的时候触发。</p>
+                    <h4 id="事件默认行为">
+                      <a href="#事件默认行为" class="headerlink" title="事件默认行为"></a>事件默认行为</h4>
+                    <p>当一个事件发生的时候浏览器默认做的事情。
+                      <br>
+                      <strong>怎么阻止？</strong>
+                      <br>当前这个行为是什么事件触发的，然后在这个时间的处理函数中使用return false;</p>
+                    <h4 id="setCapture-设置全局捕获。">
+                      <a href="#setCapture-设置全局捕获。" class="headerlink" title="setCapture: 设置全局捕获。"></a>setCapture: 设置全局捕获。</h4>
+                    <p>当我们给一个元素设置全局捕获以后，那么这个元素就会监听后续发生的所有事件， 当有事件发生的时候，就会被当前设置了全局捕获的元素截取触发。
+                      <br>IE ： 有，并且有效果。
+                      <br>FF : 有，但是没有效果。
+                      <br>chrome : 没有效果，会报错。
+                      <br>releaseCapture: 释放全局捕获。</p>
+                    <pre><code>aInput[0].setCapture();    //给aInput[0]设置全局捕获之后，只要发生点击事件都会被aInput[0]捕获触发。
+//就算点击了aInput[1]，也不会触发aInput[1]下的事件，而是会执行aInput[0]下的事件
+aInput[0].onclick = function(){
+    alert(1);
+}
+aInput[1].onclick = function(){
+    alert(2);
+}
+</code></pre>
+                    <h4 id="鼠标滚轮事件">
+                      <a href="#鼠标滚轮事件" class="headerlink" title="鼠标滚轮事件"></a>鼠标滚轮事件</h4>
+                    <h5 id="IE-Chrome-onmousewheel">
+                      <a href="#IE-Chrome-onmousewheel" class="headerlink" title="IE/Chrome : onmousewheel"></a>IE/Chrome : onmousewheel</h5>
+                    <p>
+                      <strong>event.whellDelta</strong>
+                      <br>鼠标滚轮上下滚动，有两个值。 上：120； 下：-120；火狐不支持
+                      <br>阻止默认事件动作需要添加return false;</p>
+                    <h5 id="Firefox-DOMMouseScroll">
+                      <a href="#Firefox-DOMMouseScroll" class="headerlink" title="Firefox : DOMMouseScroll"></a>Firefox : DOMMouseScroll</h5>
+                    <p>必须通过 元素.addEventListener(‘DOMMouseScroll’,函数,布尔值)来绑定
+                      <br>非标准IE下，会报错，需要做判断。</p>
+                    <pre><code>if( oDiv.addEventListener){
+    oDiv.addEventListener(‘DOMMouseScroll’, fn , false);
+}
+</code></pre>
+                    <p>
+                      <strong>event.detail</strong>
+                      <br>鼠标滚轮上下滚动，有两个值。 上：-3； 下：3；
+                      <br>其他标准浏览器的值永远是0；
+                      <br>非标准IE下的值是unendfind.
+                      <br>return fasle; 无法阻止火狐下默认事件。
+                      <br>return false 阻止的是obj.on事件名称 = fn 所触发的默认行为。
+                      <br>addEventListener绑定的事件需要通过event下面的preventDefault();来阻止
+                      <br>示例代码</p>
+                    <pre><code>var oDiv = document.getElementById(&apos;div1&apos;);
+oDiv.onmousewheel = fn;
+if (oDiv.addEventListener) {
+    oDiv.addEventListener(&apos;DOMMouseScroll&apos;, fn, false);
+}
+function fn(ev) {
+
+    var ev = ev || event;
+    var b = true;
+
+    if (ev.wheelDelta) {
+        b = ev.wheelDelta &gt; 0 ? true : false;
+    } else {
+        b = ev.detail &lt; 0 ? true : false;
+    }
+
+    if ( b ) {
+        this.style.height = this.offsetHeight - 10 + &apos;px&apos;;
+    } else {
+        this.style.height = this.offsetHeight + 10 + &apos;px&apos;;
+    }
+
+    if (ev.preventDefault) {
+        ev.preventDefault();
+    }
+    return false;
+}
+</code></pre>
+                    <h3 id="cookie-存储数据">
+                      <a href="#cookie-存储数据" class="headerlink" title="cookie :  存储数据"></a>cookie : 存储数据</h3>
+                    <p> 当用户访问某个网站的时候，我们就可以通过cookie来向访问者的电脑上存 储数据。
+                      <br>1.不同的浏览器存放的cookie位置不一样，也是不能通用的。
+                      <br>2.cookie的存储是以域名形式进行区分的。
+                      <br>3.cookie的数据可以设置名字。
+                      <br>4.一个域名下存放的cookie的个数是有限制的，不同的浏览器存放的个数不一样。每个域名100个cookie,每组值大小4KB
+                      <br>5.每个cookie存放的内容大小也是有限制的，不同的浏览器存放的大小是不一样的。</p>
+                    <pre><code>document.cookie = &apos;username=tang&apos;;
+</code></pre>
+                    <p>我们通过document.cookie来获取当前网站下的cookie的时候，得到的是字符串形式的值，它包含了当前网站下所有的cookie。他会把所有的cookie通过分号
+                      + 空格的形式链接起来。
+                      <br>chorme下是不可以操作本地cookie，不过我们做网站一般也不会用在本地，所以不用担心</p>
+                    <p>如果我们想长时间存放一个cookie。需要在设置这个cookie的时候同时设定一个过期的时间。</p>
+                    <pre><code>var oDate = new Date();
+oDate.setDate(oDate.getDate()+5);
+document.cookie = &apos;username=tang;expires=&apos; + oDate ;
+//这样就能将cookie值保存到5天以后。
+</code></pre>
+                    <p>上面的代码在IE下回出现错误，我们还需要将时间转成字符串的形式，才能兼容IE。
+                      <br>Document.cookie = ‘名称=值;expires=’ + 字符串形式的时间; </p>
+                    <pre><code>Var oDate = new Date();
+oDate.setDate(oDate.getDate() + 5); 表示保存的时间是 当前获取的时间 + 5天
+//oDate.toGMTString();  将时间转成字符串独有的写法。
+Document.cookie = ‘username=leo;expires=’ + oDate.toGMTString(); //
+正确的书写示例。
+</code></pre>
+                    <p>当我们将中文汉字等一些特殊字符存放成cookie的时候，需要使用encodeURI将特殊字符转换整计算机字符编码。
+                      <br>encodeURI() : 编码。
+                      <br>decodeURI() : 解码。
+                      <br>比如</p>
+                    <pre><code>Document.cookie = &apos;username=leo\n你好;expires=&apos; + oDate.toGMTString();是错误的写法。
+</code></pre>
+                    <p>正确</p>
+                    <pre><code>document.cookie =&apos;username =&apos;  + encodeURI(&apos;leo\n你好&apos;) + &apos;;expires=&apos; + oDate.toGMTString();
+</code></pre>
+                    <p>如果我们想要通过cookie的key值获取对应的value值，就需要自己封装一个函数。
+                      <br>代码</p>
+                    <pre><code>var oDate = new Date();
+    oDate.setDate(oDate.getDate()+5);
+    document.cookie = &apos;username=tang;expires=&apos; + oDate.toGMTString() ;
+    document.cookie = &apos;age=30&apos;;
+
+    setCookie(&apos;sex&apos;,&apos;man&apos;,5);   //设置cookie
+    alert(getCookie(&apos;age&apos;));    //获取cookie
+    removeCookie(key,&apos;&apos;,-1);    //删除cookie
+
+    //获取cookie的value值函数
+    function getCookie(key){
+        var arr1 = document.cookie.split(&apos;; &apos;);
+        for(var i=0; i&lt;arr1.length; i++){
+            var arr2 = arr1[i].split(&apos;=&apos;);
+            if(arr2[0] == key){
+                return decodeURI(arr2[1]);
+            }
+        }
+    }
+
+    //设置cookie值函数
+    function setCookie(key,value,t){
+        var oDate = new Date();
+        oDate.setDate(oDate.getDate()+t);
+        document.cookie = key + &apos;=&apos; + value + &apos;;expires=&apos; + oDate.toGMTString();
+    }
+
+    //删除cookie
+    function removeCookie(key){
+        setCookie(key,&apos;&apos;,-1);
+    }
+</code></pre>
+                    <h3 id="事件委托">
+                      <a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3>
+                    <p>事件委托：利用冒泡的原理，把事件加到父级上，利用父级触发执行效果
+                      <br>
+                      <strong>好处:</strong>
+                      <br>1.提高性能。
+                      <br>如果有100个li，给每个li加上事件，会浪费很多性能
+                      <br>但是如果给父级加上事件，就会节省很多性能</p>
+                    <p>2.新添加的元素，还会有之前的事件。
+                      <br>event对象：event对象下有一个事件源；
+                      <br>事件源：不管在哪个事件中，只要你操作的那个元素就是事件源
+                      <br>有兼容性，IE: window.event.srcElement || 标准下: event.target</p>
+                    <p>nodeName：事件源 . nodeName 找到当前元素的表签名。
+                      <br>示例说明：</p>
+                    <pre><code>&lt;script&gt;
+window.onload = function(){
+    var oUl =document.getElementById(&apos;ul&apos;);
+    var aLi = oUl.getElementsByTagName(&apos;li&apos;);
+    var oInput = document.getElementById(&apos;input&apos;);
+
+    oUl.onmouseover = function(ev){
+        var target = window.event.srcElement  || event.target;  //兼容处理标准与非标准下的事件源
+        if(target.nodeName.toLowerCase() == &apos;li&apos;){       //判断事件源的标签名是否和我们已知的标签名相等
+            target.style.background = &apos;red&apos;;
+        }
+    }
+
+    oUl.onmouseout = function(ev){
+        var target = window.event.srcElement  || event.target; 
+        if(target.nodeName.toLowerCase() == &apos;li&apos;){
+            target.style.background = &apos;&apos;;
+        }
+
+    }
+    //手动添加新的li之后，新的li依然拥有操作行为
+    oInput.onclick = function(){
+        var oLi = document.createElement(&apos;li&apos;);
+        oLi.innerHTML = &apos;hello&apos;;
+        oUl.appendChild(oLi);
+    }
+}
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;ul id=&quot;ul&quot;&gt;
+&lt;li&gt;11111&lt;/li&gt;
+&lt;li&gt;11111&lt;/li&gt;
+&lt;li&gt;11111&lt;/li&gt;
+&lt;li&gt;11111&lt;/li&gt;
+&lt;/ul&gt;
+&lt;input type=&quot;button&quot; value=&quot;添加&quot; id=&quot;input&quot;&gt; 
+&lt;/body&gt;
+</code></pre>
+                  </the>
+
+                </div>
+
+                <div>
+
+                </div>
+
+                <div>
+
+                  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+                    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+                    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+                      <span>赏</span>
+                    </button>
+                    <div id="QR" style="display: none;">
+
+                      <div id="wechat" style="display: inline-block">
+                        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="唐大虾 WeChat Pay" />
+                        <p>微信打赏</p>
+                      </div>
+
+                      <div id="alipay" style="display: inline-block">
+                        <img id="alipay_qr" src="/images/alipay.jpg" alt="唐大虾 Alipay" />
+                        <p>支付宝打赏</p>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+                <div>
+
+                </div>
+
+                <footer class="post-footer">
+
+                  <div class="post-tags">
+
+                    <a href="/tags/DOM/" rel="tag"># DOM</a>
+
+                    <a href="/tags/JS/" rel="tag"># JS</a>
+
+                  </div>
+
+                  <div class="post-nav">
+                    <div class="post-nav-next post-nav-item">
+
+                    </div>
+
+                    <span class="post-nav-divider"></span>
+
+                    <div class="post-nav-prev post-nav-item">
+
+                      <a href="/2017/05/01/WEB移动端开发/" rel="prev" title="WEB移动端开发">
+                        WEB移动端开发
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+
+                    </div>
+                  </div>
+
+                </footer>
+              </article>
+
+              <div class="post-spread">
+
+                <script>
+                  with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(
+                      createElement('script')).src =
+                    '//bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' +
+                    ~(-new Date() / 36e5)];
+
+                </script>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class="comments" id="comments">
+
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+
+          </div>
+
+        </div>
+
+        <div class="sidebar-toggle">
+          <div class="sidebar-toggle-line-wrap">
+            <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+            <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+            <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+          </div>
+        </div>
+
+        <aside id="sidebar" class="sidebar">
+          <div class="sidebar-inner">
+
+            <ul class="sidebar-nav motion-element">
+              <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+                文章目录
+              </li>
+              <li class="sidebar-nav-overview" data-target="site-overview">
+                站点概览
+              </li>
+            </ul>
+
+            <section class="site-overview sidebar-panel">
+              <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="唐大虾"
+                />
+                <p class="site-author-name" itemprop="name">唐大虾</p>
+
+                <p class="site-description motion-element" itemprop="description">每天进步一点，做更好的自己。</p>
+
+              </div>
+              <nav class="site-state motion-element">
+
+                <div class="site-state-item site-state-posts">
+                  <a href="/archives">
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+
+                <div class="site-state-item site-state-categories">
+
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+
+                </div>
+
+                <div class="site-state-item site-state-tags">
+
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+
+                </div>
+
+              </nav>
+
+              <div class="links-of-author motion-element">
+
+                <span class="links-of-author-item">
+                  <a href="https://github.com/haiweitang" target="_blank" title="GitHub">
+
+                    <i class="fa fa-fw fa-https://github.com/haiweitang"></i>
+
+                    GitHub
+                  </a>
+                </span>
+
+                <span class="links-of-author-item">
+                  <a href="http://ttyinghua.lofter.com/" target="_blank" title="Lofter">
+
+                    <i class="fa fa-fw fa-http://ttyinghua.lofter.com/"></i>
+
+                    Lofter
+                  </a>
+                </span>
+
+                <span class="links-of-author-item">
+                  <a href="http://sighttp.qq.com/msgrd?v=3&uin=287021663&site=&menu=yes" target="_blank"
+                                                                                                  title="QQ联系我">
+
+                    <i class="fa fa-fw fa-http://sighttp.qq.com/msgrd?v=3&uin=287021663&site=&menu=yes"></i>
+
+                    QQ联系我
+                  </a>
+                </span>
+
+                <span class="links-of-author-item">
+                  <a href="mailto:haiweithw@163.com" target="_blank" title="邮箱">
+
+                    <i class="fa fa-fw fa-haiweithw@163.com"></i>
+
+                    邮箱
+                  </a>
+                </span>
+
+              </div>
+
+              <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+                <div class="links-of-blogroll-title">
+                  <i class="fa  fa-fw fa-globe"></i>
+
+                </div>
+                <ul class="links-of-blogroll-list">
+
+                  <li class="links-of-blogroll-item">
+                    <a href="http://cherryblog.site/" title="Cherry's Blog" target="_blank">Cherry's Blog</a>
+                  </li>
+
+                </ul>
+              </div>
+
+            </section>
+
+            <!--noindex-->
+            <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+              <div class="post-toc">
+
+                <div class="post-toc-content">
+                  <ol class="nav">
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#DOM的概念及子节点类型">
+                        <span class="nav-number">1.</span>
+                        <span class="nav-text">
+                          DOM的概念及子节点类型</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#childNodes">
+                            <span class="nav-number">1.1.</span>
+                            <span class="nav-text">
+
+                              childNodes:
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#children">
+                            <span class="nav-number">1.2.</span>
+                            <span class="nav-text">
+
+                              children:
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#nodeType">
+                            <span class="nav-number">1.3.</span>
+                            <span class="nav-text">
+
+                              nodeType
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#attributes">
+                            <span class="nav-number">1.4.</span>
+                            <span class="nav-text">
+
+                              attributes:
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#以上内容的示例演示：">
+                            <span class="nav-number">1.5.</span>
+                            <span class="nav-text">
+                              以上内容的示例演示：</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#子节点及兄弟节点-父节点的操作">
+                        <span class="nav-number">2.</span>
+                        <span class="nav-text">
+                          子节点及兄弟节点/父节点的操作</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#firstChild">
+                            <span class="nav-number">2.1.</span>
+                            <span class="nav-text">
+
+                              firstChild:
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#firstElementChild">
+                            <span class="nav-number">2.2.</span>
+                            <span class="nav-text">
+
+                              firstElementChild
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#parentNode">
+                            <span class="nav-number">2.3.</span>
+                            <span class="nav-text">
+
+                              parentNode:
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#offsetParent">
+                            <span class="nav-number">2.4.</span>
+                            <span class="nav-text">
+
+                              offsetParent
+                            </span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#元素的各种位置-尺寸-宽高">
+                        <span class="nav-number">3.</span>
+                        <span class="nav-text">
+                          元素的各种位置/尺寸/宽高</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#offsetLeft-Top">
+                            <span class="nav-number">3.1.</span>
+                            <span class="nav-text">
+
+                              offsetLeft[Top]
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#clientWidth-Height">
+                            <span class="nav-number">3.2.</span>
+                            <span class="nav-text">
+
+                              clientWidth[Height]
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#offsetWidth-Height">
+                            <span class="nav-number">3.3.</span>
+                            <span class="nav-text">
+
+                              offsetWidth[Height]
+                            </span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#操作元素属性的各种方法">
+                        <span class="nav-number">4.</span>
+                        <span class="nav-text">
+                          操作元素属性的各种方法</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#getAttribute">
+                            <span class="nav-number">4.1.</span>
+                            <span class="nav-text">
+
+                              getAttribute
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#setAttribute">
+                            <span class="nav-number">4.2.</span>
+                            <span class="nav-text">
+
+                              setAttribute
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#removeAttribute">
+                            <span class="nav-number">4.3.</span>
+                            <span class="nav-text">
+
+                              removeAttribute
+                            </span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#元素的创建">
+                        <span class="nav-number">5.</span>
+                        <span class="nav-text">
+                          元素的创建</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#createElement">
+                            <span class="nav-number">5.1.</span>
+                            <span class="nav-text">
+
+                              createElement
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#appendChild">
+                            <span class="nav-number">5.2.</span>
+                            <span class="nav-text">
+
+                              appendChild
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#insertBefore">
+                            <span class="nav-number">5.3.</span>
+                            <span class="nav-text">
+
+                              insertBefore
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#removeChild">
+                            <span class="nav-number">5.4.</span>
+                            <span class="nav-text">
+
+                              removeChild
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#replaceChild">
+                            <span class="nav-number">5.5.</span>
+                            <span class="nav-text">
+
+                              replaceChild
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#cloneNode">
+                            <span class="nav-number">5.6.</span>
+                            <span class="nav-text">
+
+                              cloneNode
+                            </span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#表格操作">
+                        <span class="nav-number">6.</span>
+                        <span class="nav-text">
+                          表格操作</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#表单操作">
+                        <span class="nav-number">7.</span>
+                        <span class="nav-text">
+                          表单操作</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#BOM操作">
+                        <span class="nav-number">8.</span>
+                        <span class="nav-text">
+                          BOM操作</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#window-open">
+                            <span class="nav-number">8.1.</span>
+                            <span class="nav-text">
+
+                              window.open()
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#window-close">
+                            <span class="nav-number">8.2.</span>
+                            <span class="nav-text">
+
+                              window.close()
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#window-navigator-userAgent">
+                            <span class="nav-number">8.3.</span>
+                            <span class="nav-text">
+
+                              window.navigator.userAgent
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#window-location">
+                            <span class="nav-number">8.4.</span>
+                            <span class="nav-text">
+
+                              window.location
+                            </span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#文档宽高及窗口事件">
+                        <span class="nav-number">9.</span>
+                        <span class="nav-text">
+                          文档宽高及窗口事件</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#clientWidth">
+                            <span class="nav-number">9.1.</span>
+                            <span class="nav-text">
+
+                              clientWidth
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#clientHeight">
+                            <span class="nav-number">9.2.</span>
+                            <span class="nav-text">
+
+                              clientHeight
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#scrollTop-left">
+                            <span class="nav-number">9.3.</span>
+                            <span class="nav-text">
+
+                              scrollTop[left]
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#scrollHeight-Width">
+                            <span class="nav-number">9.4.</span>
+                            <span class="nav-text">
+
+                              scrollHeight[Width]
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#offsetHeight">
+                            <span class="nav-number">9.5.</span>
+                            <span class="nav-text">
+
+                              offsetHeight
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#onscroll">
+                            <span class="nav-number">9.6.</span>
+                            <span class="nav-text">
+
+                              onscroll
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#Onresize">
+                            <span class="nav-number">9.7.</span>
+                            <span class="nav-text">
+
+                              Onresize
+                            </span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#Event事件详解">
+                        <span class="nav-number">10.</span>
+                        <span class="nav-text">
+                          Event事件详解</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#onfocus">
+                            <span class="nav-number">10.1.</span>
+                            <span class="nav-text">
+
+                              onfocus
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#onblur">
+                            <span class="nav-number">10.2.</span>
+                            <span class="nav-text">
+
+                              onblur
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#focus">
+                            <span class="nav-number">10.3.</span>
+                            <span class="nav-text">
+
+                              focus()
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#blur">
+                            <span class="nav-number">10.4.</span>
+                            <span class="nav-text">
+
+                              blur()
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#select">
+                            <span class="nav-number">10.5.</span>
+                            <span class="nav-text">
+
+                              select()
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#event">
+                            <span class="nav-number">10.6.</span>
+                            <span class="nav-text">
+
+                              event
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#clientX-Y">
+                            <span class="nav-number">10.7.</span>
+                            <span class="nav-text">
+
+                              clientX[Y]
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#onmousemove">
+                            <span class="nav-number">10.8.</span>
+                            <span class="nav-text">
+
+                              onmousemove
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#事件冒泡">
+                            <span class="nav-number">10.9.</span>
+                            <span class="nav-text">
+                              事件冒泡</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#阻止事件冒泡">
+                            <span class="nav-number">10.10.</span>
+                            <span class="nav-text">
+                              阻止事件冒泡</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#call">
+                            <span class="nav-number">10.11.</span>
+                            <span class="nav-text">
+
+                              call
+                            </span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#事件绑定">
+                            <span class="nav-number">10.12.</span>
+                            <span class="nav-text">
+                              事件绑定</span>
+                          </a>
+                          <ol class="nav-child">
+                            <li class="nav-item nav-level-5">
+                              <a class="nav-link" href="#标准下">
+                                <span class="nav-number">10.12.1.</span>
+                                <span class="nav-text">
+                                  标准下 :</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-5">
+                              <a class="nav-link" href="#IE下">
+                                <span class="nav-number">10.12.2.</span>
+                                <span class="nav-text">
+                                  IE下 :</span>
+                              </a>
+                            </li>
+                          </ol>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#事件取消">
+                            <span class="nav-number">10.13.</span>
+                            <span class="nav-text">
+                              事件取消 :</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#键盘事件">
+                            <span class="nav-number">10.14.</span>
+                            <span class="nav-text">
+                              键盘事件</span>
+                          </a>
+                          <ol class="nav-child">
+                            <li class="nav-item nav-level-5">
+                              <a class="nav-link" href="#onkeydown">
+                                <span class="nav-number">10.14.1.</span>
+                                <span class="nav-text">
+
+                                  onkeydown
+                                </span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-5">
+                              <a class="nav-link" href="#onkeyup">
+                                <span class="nav-number">10.14.2.</span>
+                                <span class="nav-text">
+
+                                  onkeyup
+                                </span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-5">
+                              <a class="nav-link" href="#event-keyCode">
+                                <span class="nav-number">10.14.3.</span>
+                                <span class="nav-text">
+
+                                  event.keyCode
+                                </span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-5">
+                              <a class="nav-link" href="#ctrlKey-shiftKey-altKey">
+                                <span class="nav-number">10.14.4.</span>
+                                <span class="nav-text">
+
+                                  ctrlKey,shiftKey,altKey
+                                </span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-5">
+                              <a class="nav-link" href="#oncontextmenu">
+                                <span class="nav-number">10.14.5.</span>
+                                <span class="nav-text">
+
+                                  oncontextmenu
+                                </span>
+                              </a>
+                            </li>
+                          </ol>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#事件默认行为">
+                            <span class="nav-number">10.15.</span>
+                            <span class="nav-text">
+                              事件默认行为</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#setCapture-设置全局捕获。">
+                            <span class="nav-number">10.16.</span>
+                            <span class="nav-text">
+                              setCapture: 设置全局捕获。</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-4">
+                          <a class="nav-link" href="#鼠标滚轮事件">
+                            <span class="nav-number">10.17.</span>
+                            <span class="nav-text">
+                              鼠标滚轮事件</span>
+                          </a>
+                          <ol class="nav-child">
+                            <li class="nav-item nav-level-5">
+                              <a class="nav-link" href="#IE-Chrome-onmousewheel">
+                                <span class="nav-number">10.17.1.</span>
+                                <span class="nav-text">
+                                  IE/Chrome : onmousewheel</span>
+                              </a>
+                            </li>
+                            <li class="nav-item nav-level-5">
+                              <a class="nav-link" href="#Firefox-DOMMouseScroll">
+                                <span class="nav-number">10.17.2.</span>
+                                <span class="nav-text">
+                                  Firefox : DOMMouseScroll</span>
+                              </a>
+                            </li>
+                          </ol>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#cookie-存储数据">
+                        <span class="nav-number">11.</span>
+                        <span class="nav-text">
+                          cookie : 存储数据</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-3">
+                      <a class="nav-link" href="#事件委托">
+                        <span class="nav-number">12.</span>
+                        <span class="nav-text">
+                          事件委托</span>
+                      </a>
+                    </li>
+                  </ol>
+                </div>
+
+              </div>
+            </section>
+            <!--/noindex-->
+
+          </div>
+        </aside>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+
+          &copy;
+          <span itemprop="copyrightYear">2017</span>
+          <span class="with-love">
+            <i class="fa fa-heart"></i>
+          </span>
+          <span class="author" itemprop="copyrightHolder">唐大虾</span>
+        </div>
+
+        <div class="powered-by">
+          由
+          <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+        </div>
+
+        <div class="theme-info">
+          主题 -
+          <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+            NexT.Pisces
+          </a>
+        </div>
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+    if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+      window.Promise = null;
+    }
+
+  </script>
+
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+  <script>
+    var cloudTieConfig = {
+      url: document.location.href,
+      sourceId: "",
+      productKey: "54915ed1e07e4d9386fb961dcb11a732",
+      target: "cloud-tie-wrapper"
+    };
+
+  </script>
+  <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+    var onPopupClose = function(e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append(
+          '<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      $('#local-search-input').focus();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function(xmlResponse) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $("entry", xmlResponse).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(
+                  /<[^>]+>/g, "");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if (title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text,
+                      caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0,
+                        position = [],
+                        index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word,
+                          startPosition)) > -1) {
+                        index.push({
+                          position: position,
+                          word: word
+                        });
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+                    indexOfTitle = indexOfTitle.concat(
+                      getIndexByWord(keyword,
+                        titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(
+                      getIndexByWord(keyword,
+                        contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length >
+                    0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length +
+                      indexOfContent.length;
+                  }
+                }
+                // show search results
+                if (isMatch) {
+                  // sort index by position of keyword
+                  [indexOfTitle, indexOfContent].forEach(function(
+                    index) {
+                    index.sort(function(itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft
+                        .position) {
+                        return itemRight.position -
+                          itemLeft.position;
+                      } else {
+                        return itemLeft.word.length -
+                          itemRight.word.length;
+                      }
+                    });
+                  });
+                  // merge hits into slices
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index
+                      .length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({
+                        position: position,
+                        length: word.length
+                      });
+                      var wordEnd = position + word.length;
+                      // move to next position of hit
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0,
+                      title.length, indexOfTitle));
+                  }
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length -
+                      1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if (start < 0) {
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if (end > content.length) {
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content,
+                      start, end, indexOfContent));
+                  }
+                  // sort slices in content by search text's count and hits' count
+                  slicesOfContent.sort(function(sliceLeft,
+                    sliceRight) {
+                    if (sliceLeft.searchTextCount !==
+                      sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount -
+                        sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !==
+                      sliceRight.hits.length) {
+                      return sliceRight.hits.length -
+                        sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+                  // select top N slices in content
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0,
+                      upperBound);
+                  }
+                  // highlight title and content
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function(hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' +
+                        text.substring(hit.position, end) +
+                        '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+                  var resultItem = '';
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl +
+                      "' class='search-result-title'>" +
+                      highlightKeyword(title, slicesOfTitle[0]) +
+                      "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl +
+                      "' class='search-result-title'>" + title +
+                      "</a>";
+                  }
+                  slicesOfContent.forEach(function(slice) {
+                    resultItem += "<a href='" + articleUrl +
+                      "'>" +
+                      "<p class=\"search-result\">" +
+                      highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML =
+                '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML =
+                '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function(resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft
+                    .searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList =
+                '<ul class=\"search-result-list\">';
+              resultItems.forEach(function(result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function(event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+          proceedsearch();
+        }
+      });
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function(event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+  </script>
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>
+    AV.initialize("RGrLClruTLeMXsY654CPkwYI-gzGzoHsz",
+      "0FnMrPgzEIifkun8PB1dAjz1");
+
+  </script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+      $visitors.each(function() {
+        entries.push($(this).attr("id").trim());
+      });
+      query.containedIn('url', entries);
+      query.find()
+        .done(function(results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for (var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if (countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function(object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(
+                  counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log(
+                  'Failed to save Visitor num, with error message: ' +
+                  error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(
+                  newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>

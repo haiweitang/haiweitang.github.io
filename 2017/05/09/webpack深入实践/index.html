@@ -22,24 +22,24 @@
 
   <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
-  <meta name="keywords" content="高德地图,API," />
+  <meta name="keywords" content="工具," />
 
   <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1"
   />
 
-  <meta name="description" content="JS-API页面地址：   http://lbs.amap.com/api/javascript-api/summary-3/      轻捷的架构   API文件极小，简单易用   模块化地图功能，各模块按需加载      灵活开放的接口设计   支持用户自定义点标记、信息窗口等的样式   支持用户自定义插件工具，灵活的进行地图操作      丰富的可视化效果   地图拖拽、缩放平滑流畅   点">
-  <meta name="keywords" content="高德地图,API">
+  <meta name="description" content="webpack简介    什么是Webpack  WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。">
+  <meta name="keywords" content="工具">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="高德地图JSAPI入门">
-  <meta property="og:url" content="http://yoursite.com/2017/04/29/高德地图JSAPI入门/index.html">
+  <meta property="og:title" content="webpack深入实践">
+  <meta property="og:url" content="http://yoursite.com/2017/05/09/webpack深入实践/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
-  <meta property="og:description" content="JS-API页面地址：   http://lbs.amap.com/api/javascript-api/summary-3/      轻捷的架构   API文件极小，简单易用   模块化地图功能，各模块按需加载      灵活开放的接口设计   支持用户自定义点标记、信息窗口等的样式   支持用户自定义插件工具，灵活的进行地图操作      丰富的可视化效果   地图拖拽、缩放平滑流畅   点">
-  <meta property="og:image" content="http://yoursite.com/2017/04/29/高德地图JSAPI入门/API">
-  <meta property="og:updated_time" content="2017-05-03T15:09:12.439Z">
+  <meta property="og:description" content="webpack简介    什么是Webpack  WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。">
+  <meta property="og:image" content="http://yoursite.com/2017/05/09/webpack深入实践/工具">
+  <meta property="og:updated_time" content="2017-05-11T05:15:39.598Z">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="高德地图JSAPI入门">
-  <meta name="twitter:description" content="JS-API页面地址：   http://lbs.amap.com/api/javascript-api/summary-3/      轻捷的架构   API文件极小，简单易用   模块化地图功能，各模块按需加载      灵活开放的接口设计   支持用户自定义点标记、信息窗口等的样式   支持用户自定义插件工具，灵活的进行地图操作      丰富的可视化效果   地图拖拽、缩放平滑流畅   点">
-  <meta name="twitter:image" content="http://yoursite.com/2017/04/29/高德地图JSAPI入门/API">
+  <meta name="twitter:title" content="webpack深入实践">
+  <meta name="twitter:description" content="webpack简介    什么是Webpack  WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。">
+  <meta name="twitter:image" content="http://yoursite.com/2017/05/09/webpack深入实践/工具">
 
   <script type="text/javascript" id="hexo.configurations">
     var NexT = window.NexT || {};
@@ -77,9 +77,9 @@
 
   </script>
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/29/高德地图JSAPI入门/" />
+  <link rel="canonical" href="http://yoursite.com/2017/05/09/webpack深入实践/" />
 
-  <title>高德地图JSAPI入门 | Prawns's Blog</title>
+  <title>webpack深入实践 | Prawns's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -231,7 +231,7 @@
             <div id="posts" class="posts-expand">
 
               <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-                <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/29/高德地图JSAPI入门/">
+                <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/09/webpack深入实践/">
 
                 <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
                   <meta itemprop="name" content="唐大虾">
@@ -247,7 +247,7 @@
 
                   <h1 class="post-title" itemprop="name headline">
 
-                    高德地图JSAPI入门
+                    webpack深入实践
 
                   </h1>
 
@@ -260,8 +260,8 @@
 
                       <span class="post-meta-item-text">发表于</span>
 
-                      <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-29T09:32:10+08:00">
-                        2017-04-29
+                      <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-09T21:02:37+08:00">
+                        2017-05-09
                       </time>
 
                     </span>
@@ -271,12 +271,12 @@
                       <span class="post-meta-item-icon">
                         <i class="fa fa-comment-o"></i>
                       </span>
-                      <a class="cloud-tie-join-count" href="/2017/04/29/高德地图JSAPI入门/#comments" itemprop="discussionUrl">
+                      <a class="cloud-tie-join-count" href="/2017/05/09/webpack深入实践/#comments" itemprop="discussionUrl">
                         <span class="post-comments-count join-count" itemprop="commentCount"></span>
                       </a>
                     </span>
 
-                    <span id="/2017/04/29/高德地图JSAPI入门/" class="leancloud_visitors" data-flag-title="高德地图JSAPI入门">
+                    <span id="/2017/05/09/webpack深入实践/" class="leancloud_visitors" data-flag-title="webpack深入实践">
                       <span class="post-meta-divider">|</span>
                       <span class="post-meta-item-icon">
                         <i class="fa fa-eye"></i>
@@ -297,7 +297,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        638
+                        2,511
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -309,7 +309,7 @@
                       <span class="post-meta-item-text">阅读时长</span>
 
                       <span title="阅读时长">
-                        3
+                        10
                       </span>
 
                     </div>
@@ -322,155 +322,226 @@
                   <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
 
                     <div class="post-gallery-row">
-                      <a class="post-gallery-img fancybox" href="/API" rel="gallery_cj2ipiowb001o4onpove7z42t"
+                      <a class="post-gallery-img fancybox" href="/工具" rel="gallery_cj2ipioup00144onpluptfuy2"
                                                                                                       itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                        <img src="/API" itemprop="contentUrl" />
+                        <img src="/工具" itemprop="contentUrl" />
                       </a>
 
                     </div>
                   </div>
 
-                  <p>JS-API页面地址：
-                    <a href="http://lbs.amap.com/api/javascript-api/summary-3/" target="_blank" rel="external">http://lbs.amap.com/api/javascript-api/summary-3/</a>
-                    <br>
-                    <strong>轻捷的架构</strong>
-                    <br>API文件极小，简单易用
-                    <br>模块化地图功能，各模块按需加载
-                    <br>
-                    <strong>灵活开放的接口设计</strong>
-                    <br>支持用户自定义点标记、信息窗口等的样式
-                    <br>支持用户自定义插件工具，灵活的进行地图操作
-                    <br>
-                    <strong>丰富的可视化效果</strong>
-                    <br>地图拖拽、缩放平滑流畅
-                    <br>点标记、信息窗体效果绚丽
-                    <br>
-                    <strong>兼容各种浏览器</strong>
-                    <br>桌面端：IE6.0+、Chrome、Firefox 3.5+、Safari 3.0+、
-                    <br> Opera 9.0+
-                    <br>移动端：IOS、Android、Windows Phone等移动平台浏览器</p>
+                  <h2 id="webpack简介">
+                    <a href="#webpack简介" class="headerlink" title="webpack简介"></a>webpack简介</h2>
+                  <p>
+                    <strong>什么是Webpack</strong>
+                  </p>
+                  <p>WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。</p>
                   <p>
                     <excerpt in="" index="" |="" 首页摘要="">
                       <br>
                       <a id="more"></a>
                     </excerpt>
                   </p>
-                  <the rest="" of="" contents="" |="" 余下全文="">
-
-                    <p>
-                      <img src="http://op5e32hmc.bkt.clouddn.com/JSAPI.png" alt="img">
-                    </p>
-                    <h3 id="简单地图对象构建">
-                      <a href="#简单地图对象构建" class="headerlink" title="简单地图对象构建"></a>简单地图对象构建</h3>
-                    <p>设置城市(setCity)</p>
-                    <pre><code>var map = new AMap.Map(&apos;map&apos;);
-        map.setCity(&apos;东莞市&apos;)
+                  <p>
+                    <the rest="" of="" contents="" |="" 余下全文="">
+                      <br>
+                      <strong>为什要使用WebPack</strong>
+                    </the>
+                  </p>
+                  <p>今的很多网页其实可以看做是功能丰富的应用，它们拥有着复杂的JavaScript代码和一大堆依赖包。为了简化开发的复杂度，前端社区涌现出了很多好的实践方法</p>
+                  <p>a:模块化，让我们可以把复杂的程序细化为小的文件;</p>
+                  <p>b:类似于TypeScript这种在JavaScript基础上拓展的开发语言：使我们能够实现目前版本的JavaScript不能直接使用的特性，并且之后还能能装换为JavaScript文件使浏览器可以识别；</p>
+                  <p>c:scss，less等CSS预处理器</p>
+                  <p>………</p>
+                  <p>这些改进确实大大的提高了我们的开发效率，但是利用它们开发的文件往往需要进行额外的处理才能让浏览器识别,而手动处理又是非常反锁的，这就为WebPack类的工具的出现提供了需求。</p>
+                  <p>
+                    <strong>WebPack和Grunt以及Gulp相比有什么特性</strong>
+                  </p>
+                  <p>其实Webpack和另外两个并没有太多的可比性，Gulp/Grunt是一种能够优化前端的开发流程的工具，而WebPack是一种模块化的解决方案，不过Webpack的优点使得Webpack可以替代Gulp/Grunt类的工具。</p>
+                  <p>Grunt和Gulp的工作方式是：在一个配置文件中，指明对某些文件进行类似编译，组合，压缩等任务的具体步骤，这个工具之后可以自动替你完成这些任务。</p>
+                  <p>Webpack的工作方式是：把你的项目当做一个整体，通过一个给定的主文件（如：index.js），Webpack将从这个文件开始找到你的项目的所有依赖文件，使用loaders处理它们，最后打包为一个浏览器可识别的JavaScript文件。</p>
+                  <h2 id="安装webpack">
+                    <a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h2>
+                  <p>首先打开命令行进入我们的安装目录
+                    <br>在安装目录下新建一个文件夹</p>
+                  <pre><code>mkdir webpack-test  //后面是文件夹名称
 </code></pre>
-                    <p>获取城市的中心点(getCenter)</p>
-                    <pre><code>alert(map.getCenter())
+                  <p>进入新建的这个文件夹，初始化npm</p>
+                  <pre><code>npm init   //初始化npm
 </code></pre>
-                    <p>设置缩放级别(setZoom) &amp; 获取当前级别(getZoom)</p>
-                    <pre><code>map.setZoom(15);
-console.log(map.getZoom());  //15
+                  <p>执行安装webpack</p>
+                  <pre><code>npm install webpack --save-dev      //安装webpack
 </code></pre>
-                    <p>地图放大(zoomIn) &amp; 缩小(zoomOut)</p>
-                    <pre><code>document.getElementById(&apos;DOM节点&apos;).onclick = fucntion(){ map.zoomIn(); }  //地图放大
-document.getElementById(&apos;DOM节点&apos;).onclick = fucntion(){ map.zoomOut(); }  //地图缩小
+                  <p>windows下还需要全局安装下webpack，不然无法识别webpack命令</p>
+                  <pre><code>npm install webpack -g      //全局安装webpack
 </code></pre>
-                    <p>加载一个插件(plugin)</p>
-                    <pre><code>map.plugin([&quot;AMap.MouseTool&quot;],function(){ 
-    var mousetool = new AMap.MouseTool(map); 
-    mousetool.rule(); //使用鼠标工具，在地图上画标记点
-});
-
-map.plugin([&quot;AMap.Scale&quot;],function(){ 
-    var scale = new AMap.Scale(); 
-    map.addControl(scale);  //添加比例尺
-});
+                  <p>执行完之后就可以识别webpack命令了
+                    <br>查看当前目录内容请输入dir，如果想像linux系统下使用ls命令查看文件内容，可以在C：\windows目录下新建一个文件
+                    命名为 ls.bat。打开编辑这个文件
+                    <br>输入：
+                    <br> @echo off
+                    <br> dir
+                    <br> 这两句保存即可。</p>
+                  <h3 id="css">
+                    <a href="#css" class="headerlink" title="css"></a>css</h3>
+                  <p>webpack提供两个工具处理样式表，css-loader 和 style-loader，二者处理的任务不同，css-loader使你能够使用类似@import
+                    和 url(…)的方法实现 require()的功能,style-loader将所有的计算后的样式加入页面中，二者组合在一起使你能够把样式表嵌入webpack打包后的JS文件中。</p>
+                  <p>需要分别安装：</p>
+                  <pre><code>npm install style-loader css-loader --save-dev
 </code></pre>
-                    <p>监听地图事件(dragend)</p>
-                    <pre><code>AMap.event.addListener(map,&apos;dragend&apos;,function(){
-            alert(&apos;你拽我了&apos;);
-        })
+                  <p>引入css的时候需要特别指明css-loader，不然在打包的时候会报错。
+                    <br>如果要让你引入的css生效，还必须要引入style-loader</p>
+                  <pre><code>require(&apos;style-loader!css-loader!./style.css&apos;);
 </code></pre>
-                    <p>地图类的地址：
-                      <a href="http://lbs.amap.com/api/javascript-api/reference/map/" target="_blank" rel="external">http://lbs.amap.com/api/javascript-api/reference/map/</a>
-                    </p>
-                    <h3 id="地图控件">
-                      <a href="#地图控件" class="headerlink" title="地图控件"></a>地图控件</h3>
-                    <p>地图比例尺(AMap.Scale)
-                      <br>地图类型切换(AMap.MapType)
-                      <br>鹰眼控件(AMap.OverView)
-                      <br>工具条(AMap.ToolBar)</p>
-                    <pre><code>var map = new AMap.Map(&apos;map&apos;);
-map.setCity(&apos;东莞市&apos;)
-map.plugin([&quot;AMap.Scale&quot;],function(){ 
-    var scale = new AMap.Scale(); 
-    map.addControl(scale);  //添加比例尺
-});
-map.plugin([&apos;AMap.MapType&apos;],function(){
-    var maptype = new AMap.MapType()
-    map.addControl(maptype);  //切换插件比如卫星视图
-})
-map.plugin([&apos;AMap.OverView&apos;],function(){
-    var overView = new AMap.OverView({isOpen:true});
-    map.addControl(overView);   //鹰眼
-    overView.show();
-})
-map.plugin([&apos;AMap.ToolBar&apos;],function(){
-    var Bar = new AMap.ToolBar()    //工具条，放大缩小，平移
-    map.addControl(Bar);
-})
+                  <p>我们还可以通过命令行指定loader，通过–module-bind来指定loader,通过–watch来让文件自动更新</p>
+                  <figure class="highlight javascript">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line">webpack hello.js hello.bundle.js --<span class="built_in">module</span>-bind <span class="string">"css=style-loader!css-loader"</span> --watch</div><div class="line"></div><div class="line"><span class="comment">//hello.js是要打包的文件</span></div><div class="line"><span class="comment">//hello.bundle.js是打包之后的文件</span></div><div class="line"><span class="comment">//--module-bind 指定css的loader</span></div><div class="line"></div><div class="line">webpack hello.js hello.bundle.js --progress  </div><div class="line"><span class="comment">//通过--progress来显示打包过程</span></div><div class="line"></div><div class="line">webpack hello.js hello.bundle.js --display-modules</div><div class="line"><span class="comment">//通过--display-modules来显示打包的模块</span></div><div class="line"></div><div class="line">webpack hello.js hello.bundle.js --display-reasons</div><div class="line"><span class="comment">//通过--display-reasons来告诉我们为什么要打包这个模块</span></div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <h2 id="webpack配置">
+                    <a href="#webpack配置" class="headerlink" title="webpack配置"></a>webpack配置</h2>
+                  <h3 id="config配置">
+                    <a href="#config配置" class="headerlink" title="config配置"></a>config配置</h3>
+                  <p>新建一个webpack.config.js文件
+                    <br>webpack.config是webpack的默认命名，使用它可以直接在命令行键入webpack回车执行打包。
+                    <br>当然你也可以用其他命名，比如webpack.dev.config.js，使用这个命名，命令行就需要写成这样的命令才能执行。webpack
+                    –config + 空格 + 文件名</p>
+                  <pre><code>webpack --config webpack.dev.config.js
 </code></pre>
-                    <p>可将控件都传入数组里面，这样可以节省很多代码。</p>
-                    <h3 id="Marker">
-                      <a href="#Marker" class="headerlink" title="Marker"></a>Marker</h3>
-                    <h4 id="构建对象">
-                      <a href="#构建对象" class="headerlink" title="构建对象"></a>构建对象</h4>
-                    <p>传入可选参数MarkerOptions: Map, position, offset, icon, content
-                      <br>初始化不传MarkerOptions: 使用set系列方法</p>
-                    <h4 id="方法-amp-事件">
-                      <a href="#方法-amp-事件" class="headerlink" title="方法&amp;事件"></a>方法&amp;事件</h4>
-                    <p>setOffset / getOffset
-                      <br>setPosition / getPosition
-                      <br>setAngle / getAngle
-                      <br>hide / show
-                      <br>setContent / getContent
-                      <br>setMap / getMap
-                      <br>click mousemove dragend</p>
-                    <pre><code>var marker = new AMap.Marker({
-    map: map,
-    position: [113.8199286,22.8907069]
-});
-
-var center = new AMap.LngLat(116.397428,39.90923);
-for (var j = 0; j &lt;1000; j += 1) {
-       var lnglat = new AMap.LngLat(center.getLng() + Math.random()*0.1, center.getLat() +  Math.random()*0.1);
-    var marker = new AMap.Marker({
-        position: lnglat,
-        draggable: true,
-        raiseOnDrag:true,
-        opacity:1,
-        icon:&apos;http://webapi.amap.com/theme/v1.2/0.png&apos;
-
-    });
-    marker.setMap(map);
-}
+                  <p>webpack.config.js的内容配置很重要，特别是windows系统，要踩许多坑</p>
+                  <figure class="highlight javascript">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line">    <span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line">    <span class="built_in">module</span>.exports = &#123;</div><div class="line">        <span class="attr">entry</span>: <span class="string">'./src/script/main.js'</span>,      <span class="comment">//要打包文件的路径</span></div><div class="line">        output: &#123;</div><div class="line">            <span class="attr">path</span>: __dirname + <span class="string">'./dist/js'</span>,   <span class="comment">//打包以后的文件夹</span></div><div class="line">            filename: <span class="string">'bundle.js'</span>           <span class="comment">//打包以后的文件名</span></div><div class="line">        &#125;   </div><div class="line">    &#125;</div><div class="line"></div><div class="line">entry打包多个不相关联的文件时，我们希望能打包成不同的文件</div><div class="line"></div><div class="line">    <span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line">    <span class="built_in">module</span>.exports = &#123;</div><div class="line">        <span class="attr">entry</span>: &#123;</div><div class="line">            <span class="attr">main</span>: <span class="string">'./src/script/main.js'</span>,</div><div class="line">            <span class="attr">a</span>: <span class="string">'./src/script/a.js'</span></div><div class="line">        &#125;,</div><div class="line"></div><div class="line">        <span class="attr">output</span>: &#123;</div><div class="line">            <span class="attr">path</span>: __dirname + <span class="string">'/dist/js'</span>,   <span class="comment">//打包以后的文件夹</span></div><div class="line">            filename: <span class="string">'[name]-[chunkhash].js'</span>   <span class="comment">//name对应entry里的key值，chunkhash表示不同的hash值，当文件内容修改以后，chunkhash值就会改变</span></div><div class="line">        &#125;   </div><div class="line">    &#125;</div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <h3 id="html-webpack-plugin">
+                    <a href="#html-webpack-plugin" class="headerlink" title="html-webpack-plugin"></a>html-webpack-plugin</h3>
+                  <p>在打包成不同文件之后，如果我们在html页面手动引进打包后的js文件，将会是一件非常繁琐的事情。所以webpack给我们提供了一个插件
+                    html-webpack-plugin ,安装好之后，在config文件里配置好参数，就可以自动生成一个html页面。这个页面已经帮我们配置好了我们在config里配置好的参数。比如引进js文件等。
+                  </p>
+                  <p>
+                    <strong>安装html-webpack-plugin</strong>
+                    <br>命令行进入根文件夹，键入以下代码，回车完成安装</p>
+                  <pre><code>npm install html-webpack-plugin --save-dev
 </code></pre>
-                    <h3 id="Polyline">
-                      <a href="#Polyline" class="headerlink" title="Polyline"></a>Polyline</h3>
-                    <h4 id="构建对象-1">
-                      <a href="#构建对象-1" class="headerlink" title="构建对象"></a>构建对象</h4>
-                    <p>传入可选参数PolylineOptions: map, position, path, strokeStyle…
-                      <br>初始化不传PolylineOptions: 使用set系列方法</p>
-                    <h4 id="方法-amp-事件-1">
-                      <a href="#方法-amp-事件-1" class="headerlink" title="方法&amp;事件"></a>方法&amp;事件</h4>
-                    <p>setPath / getPath
-                      <br>getLength
-                      <br>getBounds
-                      <br>hide / show
-                      <br>mouseover</p>
-                  </the>
+                  <p>完成安装之后，在命令行输入npm run webpack就可以自动生成一个html页面
+                    <br>
+                    <strong>参数</strong>
+                    <br>在plugins数组下可以写入这些参数，或者自定义参数</p>
+                  <ol>
+                    <li>title: 用来生成页面的 title 元素</li>
+                    <li>filename: 输出的 HTML 文件名，默认是 index.html, 也可以直接配置带有子目录。</li>
+                    <li>template: 模板文件路径，支持加载器，比如 html!./index.html</li>
+                    <li>inject: true | ‘head’ | ‘body’ | false ,注入所有的资源到特定的 template
+                      或者 templateContent 中，如果设置为 true 或者 body，所有的 javascript 资源将被放置到
+                      body 元素的底部，’head’ 将放置到 head 元素中。</li>
+                    <li>favicon: 添加特定的 favicon 路径到输出的 HTML 文件中。</li>
+                    <li>minify: {} | false , 传递 html-minifier 选项给 minify 输出</li>
+                    <li>hash: true | false, 如果为 true, 将添加一个唯一的 webpack 编译 hash 到所有包含的脚本和
+                      CSS 文件，对于解除 cache 很有用。
+                    </li>
+                    <li>cache: true | false，如果为 true, 这是默认值，仅仅在文件修改之后才会发布文件。</li>
+                    <li>showErrors: true | false, 如果为 true, 这是默认值，错误信息会写入到 HTML 页面中</li>
+                    <li>chunks: 允许只添加某些块 (比如，仅仅 unit test 块)</li>
+                    <li>chunksSortMode: 允许控制块在添加到页面之前的排序方式，支持的值：’none’ | ‘default’ |
+                      {function}-default:’auto’</li>
+                    <li>excludeChunks: 允许跳过某些块，(比如，跳过单元测试的块)</li>
+                  </ol>
+                  <p>
+                    <strong>示例</strong>
+                  </p>
+                  <figure class="highlight javascript">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line"><span class="keyword">var</span> htmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">"html-webpack-plugin"</span>);     <span class="comment">//引入html-webpack-plugin插件</span></div><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">entry</span>: &#123;</div><div class="line">        <span class="attr">main</span>: <span class="string">'./src/script/main.js'</span>,</div><div class="line">        <span class="attr">a</span>: <span class="string">'./src/script/a.js'</span></div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="attr">output</span>: &#123;</div><div class="line">        <span class="attr">path</span>: __dirname + <span class="string">'/dist'</span>,  <span class="comment">//打包以后生成的根文件夹，存放index.html</span></div><div class="line">        filename: <span class="string">'js/[name]-[chunkhash].js'</span>            <span class="comment">//打包以后的生成js文件的存放路径</span></div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="attr">plugins</span>: [</div><div class="line">        <span class="keyword">new</span> htmlWebpackPlugin(&#123;     <span class="comment">//这里new一个html-webpack-plugin插件</span></div><div class="line">            filename: <span class="string">'index.html'</span>, <span class="comment">//可以在这里指定生成的html名称</span></div><div class="line"></div><div class="line">            template: <span class="string">'index.html'</span>,    <span class="comment">//指定根目录生成html文件</span></div><div class="line"></div><div class="line">            inject: <span class="string">"head"</span>,       <span class="comment">//指定script标签存放的位置，默认在body里面</span></div><div class="line"></div><div class="line">            title: <span class="string">'webpack is good'</span>,     <span class="comment">//指title</span></div><div class="line"></div><div class="line">            minify: &#123;       <span class="comment">//上线压缩</span></div><div class="line">                removeComments: <span class="literal">true</span>,       <span class="comment">//删除注释</span></div><div class="line">                collapseWhitespace: <span class="literal">true</span>,   <span class="comment">//删除空格</span></div><div class="line">            &#125;,</div><div class="line"></div><div class="line">            <span class="comment">//chunks: ['main','a'],           //加载指定的js文件</span></div><div class="line"></div><div class="line">             excludeChunks: [<span class="string">'b'</span>,<span class="string">'c'</span>]        <span class="comment">//排除指定的js，加载其余的js文件</span></div><div class="line">        &#125;)</div><div class="line">    ]</div><div class="line">&#125;</div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <p>
+                    <strong>关于&lt;% %&gt;</strong>
+                    <br>在body里面写在&lt;% %&gt;里面的代码，会被解析成js代码，并且会被webpack识别，在npm run webpack指令回车之后，会被渲染到页面。
+                    <br>&lt;% %&gt;里面的代码是根据config配置里配置好的参数渲染</p>
+                  <p>html代码</p>
+                  <figure class="highlight html">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;<span class="name">%=</span> <span class="attr">htmlWebpackPlugin.options.title</span> %&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">%=</span> <span class="attr">htmlWebpackPlugin.options.data</span> %&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">%</span> <span class="attr">for</span>(<span class="attr">var</span> <span class="attr">key</span> <span class="attr">in</span> <span class="attr">htmlWebpackPlugin.files</span>)&#123; %&gt;</span>    <span class="comment">&lt;!-- 遍历htmlWebpackPlugin.files --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">%=</span> <span class="attr">key</span>  %&gt;</span> : <span class="tag">&lt;<span class="name">%=</span> <span class="attr">JSON.stringify</span> (<span class="attr">htmlWebpackPlugin.files</span>[<span class="attr">key</span>]) %&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">%</span> <span class="attr">for</span>(<span class="attr">var</span> <span class="attr">key</span> <span class="attr">in</span> <span class="attr">htmlWebpackPlugin.options</span>)&#123; %&gt;</span>    <span class="comment">&lt;!-- 遍历htmlWebpackPlugin.options --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">%=</span> <span class="attr">key</span>  %&gt;</span> : <span class="tag">&lt;<span class="name">%=</span> <span class="attr">JSON.stringify</span> (<span class="attr">htmlWebpackPlugin.options</span>[<span class="attr">key</span>]) %&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <p>那么在webpack生成的html页面就会把这写代码生成出来.
+                    <br>例如我们要在head和body分别引入两个不同的js文件，也可以这样写。</p>
+                  <figure class="highlight html">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;<span class="name">%=</span> <span class="attr">htmlWebpackPlugin.options.title</span> %&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;%= htmlWebpackPlugin.files.chunks.main.entry %&gt;"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    //通过htmlWebpackPlugin.files.chunks.main可以拿到文件的引用，entry它的文件路径</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;%= htmlWebpackPlugin.files.chunks.a.entry %&gt;"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <p>我们再深究一下，如果我直接把某个公用的js文件的内容直接放到html页面的
+                    <code>&lt;head</code>&gt;标签里，再把我们要引进的js文件放到
+                    <code>&lt;body</code>&gt;里，是不是可以避免出现多余的http请求，节省性能。
+                    <br>那么怎么来指定呢，请看代码示例</p>
+                  <figure class="highlight html">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text-javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line"></div><div class="line">        &lt;%= compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substring(htmlWebpackPlugin.files.publicPath.length)].source()</div><div class="line">        %&gt;</div><div class="line"></div><div class="line">        <span class="comment">//compilation.assets： webpack提供的方法</span></div><div class="line">        <span class="comment">//htmlWebpackPlugin.files.chunks.main.entry.substring(htmlWebpackPlugin.files.publicPath.length)</span></div><div class="line">        <span class="comment">//这代码是为了排除publicPath设定的公共路径</span></div><div class="line">        <span class="comment">//最后调用source()方法</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">%</span> <span class="attr">for</span> (<span class="attr">var</span> <span class="attr">i</span> <span class="attr">in</span> <span class="attr">htmlWebpackPlugin.files.chunks</span>)&#123;   %&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (<span class="attr">i</span> !== <span class="string">'main'</span>) &#123; %&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"&lt;%= htmlWebpackPlugin.files.chunks[i].entry %&gt;"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></div><div class="line"></div><div class="line">        //因为上面我们已经把main.js文件内容直接放进了<span class="tag">&lt;<span class="name">head</span>&gt;</span>标签里，所以这里我们要排除掉main.js。只引入其他的js文件</div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <p>
+                    <strong>PS:</strong> 以上代码都是webpack根目录下的index.html文件里书写，然后通过webpack.config.js文件配置到各个页面。</p>
+                  <p>
+                    <strong>配置webpack命令行参数脚本</strong>
+                    <br>打开根目录下的package.json 文件，在scripts对象下面输入我们的命令行参数代码就可以了。</p>
+                  <figure class="highlight javascript">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line"><span class="string">"webpack"</span>: <span class="string">"webpack --config webpack.config.js --progress --display-modules --colors --display-reasons"</span></div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <p>通过这样的设置，我们就可以直接在命令行输入npm run webpack实现上面一大串的指令简化。</p>
 
                 </div>
 
@@ -510,18 +581,12 @@ for (var j = 0; j &lt;1000; j += 1) {
 
                   <div class="post-tags">
 
-                    <a href="/tags/高德地图/" rel="tag"># 高德地图</a>
-
-                    <a href="/tags/API/" rel="tag"># API</a>
+                    <a href="/tags/工具/" rel="tag"># 工具</a>
 
                   </div>
 
                   <div class="post-nav">
                     <div class="post-nav-next post-nav-item">
-
-                      <a href="/2017/04/30/vuejs初探/" rel="next" title="vuejs初探">
-                        <i class="fa fa-chevron-left"></i> vuejs初探
-                      </a>
 
                     </div>
 
@@ -529,8 +594,8 @@ for (var j = 0; j &lt;1000; j += 1) {
 
                     <div class="post-nav-prev post-nav-item">
 
-                      <a href="/2017/04/27/applet/" rel="prev" title="微信小程序入门">
-                        微信小程序入门
+                      <a href="/2017/05/03/DOM-BOM详解/" rel="prev" title="DOM,BOM详解">
+                        DOM,BOM详解
                         <i class="fa fa-chevron-right"></i>
                       </a>
 
@@ -683,62 +748,48 @@ for (var j = 0; j &lt;1000; j += 1) {
 
                 <div class="post-toc-content">
                   <ol class="nav">
-                    <li class="nav-item nav-level-3">
-                      <a class="nav-link" href="#简单地图对象构建">
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#webpack简介">
                         <span class="nav-number">1.</span>
                         <span class="nav-text">
-                          简单地图对象构建</span>
+                          webpack简介</span>
                       </a>
                     </li>
-                    <li class="nav-item nav-level-3">
-                      <a class="nav-link" href="#地图控件">
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#安装webpack">
                         <span class="nav-number">2.</span>
                         <span class="nav-text">
-                          地图控件</span>
-                      </a>
-                    </li>
-                    <li class="nav-item nav-level-3">
-                      <a class="nav-link" href="#Marker">
-                        <span class="nav-number">3.</span>
-                        <span class="nav-text">
-                          Marker</span>
+                          安装webpack</span>
                       </a>
                       <ol class="nav-child">
-                        <li class="nav-item nav-level-4">
-                          <a class="nav-link" href="#构建对象">
-                            <span class="nav-number">3.1.</span>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#css">
+                            <span class="nav-number">2.1.</span>
                             <span class="nav-text">
-                              构建对象</span>
-                          </a>
-                        </li>
-                        <li class="nav-item nav-level-4">
-                          <a class="nav-link" href="#方法-amp-事件">
-                            <span class="nav-number">3.2.</span>
-                            <span class="nav-text">
-                              方法&事件</span>
+                              css</span>
                           </a>
                         </li>
                       </ol>
                     </li>
-                    <li class="nav-item nav-level-3">
-                      <a class="nav-link" href="#Polyline">
-                        <span class="nav-number">4.</span>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#webpack配置">
+                        <span class="nav-number">3.</span>
                         <span class="nav-text">
-                          Polyline</span>
+                          webpack配置</span>
                       </a>
                       <ol class="nav-child">
-                        <li class="nav-item nav-level-4">
-                          <a class="nav-link" href="#构建对象-1">
-                            <span class="nav-number">4.1.</span>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#config配置">
+                            <span class="nav-number">3.1.</span>
                             <span class="nav-text">
-                              构建对象</span>
+                              config配置</span>
                           </a>
                         </li>
-                        <li class="nav-item nav-level-4">
-                          <a class="nav-link" href="#方法-amp-事件-1">
-                            <span class="nav-number">4.2.</span>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#html-webpack-plugin">
+                            <span class="nav-number">3.2.</span>
                             <span class="nav-text">
-                              方法&事件</span>
+                              html-webpack-plugin</span>
                           </a>
                         </li>
                       </ol>

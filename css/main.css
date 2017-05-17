@@ -488,6 +488,7 @@ td {
 
 html, body {
   height: 100%;
+  background: #fff;
 }
 
 .container {
@@ -1134,6 +1135,8 @@ pre .keyword, pre .javascript .function {
   display: inline-block;
   margin: 0 10px;
   list-style: none;
+  border-radius: 5px;
+  background: #333;
 }
 
 @media screen and (max-width: 767px) {
@@ -1151,6 +1154,7 @@ pre .keyword, pre .javascript .function {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
+  color: #fff;
 }
 
 .menu .menu-item a:hover {
@@ -1804,6 +1808,7 @@ pre .keyword, pre .javascript .function {
   right: 0;
   top: 0;
   bottom: 0;
+  background: #f60;
   width: 0;
   z-index: 1040;
   box-shadow: inset 0 2px 6px #000;
@@ -1983,7 +1988,7 @@ pre .keyword, pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #feff0f;
+  background: #ff26e8;
 }
 
 .links-of-blogroll {
@@ -3034,7 +3039,7 @@ hr {
 
 .menu {
   float: right;
-  margin: 8px 0 0 0;
+  margin: 18px 0 0 0;
 }
 
 @media (max-width: 767px) {

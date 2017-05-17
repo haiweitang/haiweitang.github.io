@@ -34,7 +34,7 @@
   <meta property="og:url" content="http://yoursite.com/2017/04/08/JS正则表达式/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
   <meta property="og:description" content="正则 ： 也叫做规则，让计算机读懂人类的规则。    PS：正则都是操作字符串的;     简写形式：   var re = /a/; 大部分情况下推荐简写。因双斜杠//会造成浏览器识别成注释，所以做斜杠之间添加一个a。     全写形式：   var re = new RegExp(‘a’); 特殊情况下需要写全写。比如在传参的情况下，就必须写全写方式">
-  <meta property="og:updated_time" content="2017-05-11T08:55:14.953Z">
+  <meta property="og:updated_time" content="2017-05-14T04:33:09.064Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="JS正则表达式">
   <meta name="twitter:description" content="正则 ： 也叫做规则，让计算机读懂人类的规则。    PS：正则都是操作字符串的;     简写形式：   var re = /a/; 大部分情况下推荐简写。因双斜杠//会造成浏览器识别成注释，所以做斜杠之间添加一个a。     全写形式：   var re = new RegExp(‘a’); 特殊情况下需要写全写。比如在传参的情况下，就必须写全写方式">
@@ -177,14 +177,6 @@
               </a>
             </li>
 
-            <li class="menu-item menu-item-potos">
-              <a href="/photos" rel="section">
-
-                <i class="menu-item-icon fa fa-fw fa-question-circle"></i>
-                <br /> menu.potos
-              </a>
-            </li>
-
             <li class="menu-item menu-item-commonweal">
               <a href="/404.html" rel="section">
 
@@ -321,7 +313,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        2,399
+                        2,423
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -384,24 +376,39 @@
                     <br>
                     <strong>test的写法：</strong>
                     <br>正则.test(字符串);</p>
-                  <p>示例：</p>
-                  <pre><code>var str = ‘abcdef’;
-var re = /b/;           //通过b去匹配字符串中的字符。如果含有b，就返回布尔值true/否则返回false
-alert(re.test(str));    //true
-</code></pre>
+                  <p>示例：
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> str = ‘abcdef’;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/b/</span>;           <span class="comment">//通过b去匹配字符串中的字符。如果含有b，就返回布尔值true/否则返回false</span></div><div class="line">alert(re.test(str));    <span class="comment">//true</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <p>转义字符： 字符前面加反斜杠\，会转义字符。
                     <br>\s : 空格; \S : 非空格; \d：数字; \D：非数字; \w：字符(字母，数字，下划线_); \W：非字符;</p>
                   <p>示例：
-                    <br>通过\D来判断，非数字是为真，弹出 ’不全是数字’；没有非数字的时候弹出 ‘全是数字’；</p>
-                  <pre><code>var str = ‘56464t46464’;
-var re = /\D/;
-if( re.test(str) ){
-alert(‘不全是数字’);
-}  
-else{
-  alert( ‘全是数字’ )
-}
-</code></pre>
+                    <br>通过\D来判断，非数字是为真，弹出 ’不全是数字’；没有非数字的时候弹出 ‘全是数字’；
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> str = ‘<span class="number">56464</span>t46464’;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/\D/</span>;</div><div class="line"><span class="keyword">if</span>( re.test(str) )&#123;</div><div class="line">alert(‘不全是数字’);</div><div class="line">&#125;  </div><div class="line"><span class="keyword">else</span>&#123;</div><div class="line">  alert( ‘全是数字’ )</div><div class="line">&#125;</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <h3 id="search方法">
                     <a href="#search方法" class="headerlink" title="search方法"></a>
                     <font color="red">search方法</font>
@@ -412,21 +419,42 @@ else{
                     <br>
                     <strong>search的写法：</strong>
                     <br>字符串.search(正则);
-                    <br>示例：</p>
-                  <pre><code>var str = ‘abcdef’;
-var re = /B/i;           //通过b去匹配字符串中的字符。如果含有b，就返回b的位置/否则返回-1
-alert( tr.search(re) );  // 1
-</code></pre>
+                    <br>示例：
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> str = ‘abcdef’;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/B/i</span>;           <span class="comment">//通过b去匹配字符串中的字符。如果含有b，就返回b的位置/否则返回-1</span></div><div class="line">alert( tr.search(re) );  <span class="comment">// 1</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <p>
                     <strong>正则默认：</strong>
                     <br>正则默认下是区分大小写;
                     <br>如果不区分大小写的话，需要在正则的最后加标识符
                     <font color="#f60">
                       <strong>i</strong> (不区分大小写)</font>
-                    <br>示例：</p>
-                  <pre><code>var re = /B/i;                  //表示不区分大小写。
-var re = new RegExp(‘B’,’i’);   //不区分大小，全写下的写法。
-</code></pre>
+                    <br>示例：
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> re = <span class="regexp">/B/i</span>;                  <span class="comment">//表示不区分大小写。</span></div><div class="line"><span class="keyword">var</span> re = <span class="keyword">new</span> <span class="built_in">RegExp</span>(‘B’,’i’);   <span class="comment">//不区分大小，全写下的写法。</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <h3 id="match方法">
                     <a href="#match方法" class="headerlink" title="match方法"></a>
                     <font color="red">match方法</font>
@@ -437,28 +465,59 @@ var re = new RegExp(‘B’,’i’);   //不区分大小，全写下的写法�
                     <br>
                     <strong>match的写法：</strong>
                     <br>字符串.match(正则);
-                    <br>示例：</p>
-                  <pre><code>var str = ‘ab123c45de678f54fd9’;
-var re = /\d+/g;            //通过/d数字去匹配字符串中的字符。如果含有数字，就返回数组
-alert( str.match(re) );    //1,2,3,4,5,6,7,8,9
-</code></pre>
+                    <br>示例：
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> str = ‘ab123c45de678f54fd9’;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/\d+/g</span>;            <span class="comment">//通过/d数字去匹配字符串中的字符。如果含有数字，就返回数组</span></div><div class="line">alert( str.match(re) );    <span class="comment">//1,2,3,4,5,6,7,8,9</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <p>
                     <strong>正则默认：</strong>
                     <br>正则匹配成功就会结束，不会继续匹配。
                     <br>如果想全部查找，就要加标识符
                     <font color="#f60">
                       <strong>g</strong> (全局匹配)</font>
-                    <br> 示例：</p>
-                  <pre><code>var re = /\d+/g;    //表示走完整个字符串。
- var re = new RegExp(‘\d+’,’g’);  
-</code></pre>
+                    <br> 示例：
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> re = <span class="regexp">/\d+/g</span>;    <span class="comment">//表示走完整个字符串。</span></div><div class="line"> <span class="keyword">var</span> re = <span class="keyword">new</span> <span class="built_in">RegExp</span>(‘\d+’,’g’);</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <p>
                     <strong>量词 ‘+’ :</strong> + 表示至少出现一次(&gt;=1)， 可以匹配不确定的位置。
-                    <br>示例：</p>
-                  <pre><code>var str = ‘ab123c45de678f54fd9’;
-var re = /\d+/g;           
-alert( str.match(re) );    //123，45，678，9
-</code></pre>
+                    <br>示例：
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> str = ‘ab123c45de678f54fd9’;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/\d+/g</span>;           </div><div class="line">alert( str.match(re) );    <span class="comment">//123，45，678，9</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <h3 id="replace方法">
                     <a href="#replace方法" class="headerlink" title="replace方法"></a>
                     <font color="red">replace方法</font>
@@ -470,40 +529,38 @@ alert( str.match(re) );    //123，45，678，9
                     <strong>replace的写法：</strong>
                     <br>字符串.replace(正则, 新的字符串);
                     <br>replace的第二个参数：可以是字符串，也可以是一个回调函数。</p>
-                  <p>示例：</p>
-                  <pre><code>var str = ‘aaa’;
-alert( str.replace(/a/,’b’) );       //弹出baa; 通过a去匹配字符串中的字符。如果含有a，就替换成b
-alert( str.replace(/a/g,’b’) );      //弹出bbb;
-alert( str.replace(/a+/g,’b’) );     //弹出b;
-</code></pre>
+                  <p>示例：
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> str = ‘aaa’;</div><div class="line">alert( str.replace(<span class="regexp">/a/</span>,’b’) );       <span class="comment">//弹出baa; 通过a去匹配字符串中的字符。如果含有a，就替换成b</span></div><div class="line">alert( str.replace(<span class="regexp">/a/g</span>,’b’) );      <span class="comment">//弹出bbb;</span></div><div class="line">alert( str.replace(<span class="regexp">/a+/g</span>,’b’) );     <span class="comment">//弹出b;</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <p>
                     <strong>|:</strong> 正则中表示‘或’的意思。
-                    <br>示例：</p>
-                  <pre><code>&lt;script&gt;
-    window.onload = function(){
-        var aT = document.getElementsByTagName(&apos;textarea&apos;);
-        var oBtn = document.getElementById(&apos;btn&apos;);
-        var re = /大众|技术|特色|越骂越火/g;
-        oBtn.onclick=function(){
-            aT[1].value = aT[0].value.replace(re,function(str){  //函数的第一个参数str，就是匹配成果的字符
-                var result = &apos;&apos;;
-                for(var i=0; i&lt;str.length; i++){
-                    result += &apos;*&apos;;
-                }
-                return result;
-            });
-        }
-    }
-&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    替换前&lt;/br&gt;
-    &lt;textarea name=&quot;&quot; id=&quot;&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;&lt;/br&gt;
-    替换后&lt;/br&gt;
-    &lt;textarea name=&quot;&quot; id=&quot;&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;&lt;/br&gt;
-    &lt;input type=&quot;button&quot; id=&quot;btn&quot; value=&quot;确定&quot;&gt;
-&lt;/body&gt;*
-</code></pre>
+                    <br>示例：
+                    <br>
+                    <figure class="highlight html">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    	<span class="keyword">var</span> aT = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'textarea'</span>);</div><div class="line">    	<span class="keyword">var</span> oBtn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>);</div><div class="line">    	<span class="keyword">var</span> re = <span class="regexp">/大众|技术|特色|越骂越火/g</span>;</div><div class="line">    	oBtn.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    		aT[<span class="number">1</span>].value = aT[<span class="number">0</span>].value.replace(re,<span class="function"><span class="keyword">function</span>(<span class="params">str</span>)</span>&#123;  <span class="comment">//函数的第一个参数str，就是匹配成果的字符</span></div><div class="line">    			<span class="keyword">var</span> result = <span class="string">''</span>;</div><div class="line">    			<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;str.length; i++)&#123;</div><div class="line">    				result += <span class="string">'*'</span>;</div><div class="line">    			&#125;</div><div class="line">    			<span class="keyword">return</span> result;</div><div class="line">    		&#125;);</div><div class="line">    	&#125;</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    替换前<span class="tag">&lt;/<span class="name">br</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">cols</span>=<span class="string">"30"</span> <span class="attr">rows</span>=<span class="string">"10"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></div><div class="line">    替换后<span class="tag">&lt;/<span class="name">br</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">cols</span>=<span class="string">"30"</span> <span class="attr">rows</span>=<span class="string">"10"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">id</span>=<span class="string">"btn"</span> <span class="attr">value</span>=<span class="string">"确定"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>*</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <h3 id="正则表达式中的小括号">
                     <a href="#正则表达式中的小括号" class="headerlink" title="正则表达式中的小括号"></a>
                     <font color="red">正则表达式中的小括号</font>
@@ -512,20 +569,37 @@ alert( str.replace(/a+/g,’b’) );     //弹出b;
                     <br>()还有另外一种意思，分组操作。
                     <br>把正则的整体叫做《母亲》，
                     <br>然后把左边第一个小括号里面的正则，叫做第一个子项(母亲的第一个孩子)
-                    <br>示例：</p>
-                  <pre><code>var str = &apos;2013-6-7&apos;
-var re = /(\d+)(-)/g;
-str = str.replace(re,function($0,$1,$2){    //第一个参数：$0(母亲), 第二个参数:$1(第一个子项), 第二个参数：$2(第二个子项)
-        return $1 + &apos;.&apos;;                    //不用指向的方法return $0.substring(0,$0.length-1) + &apos;.&apos;;
-    })
-    alert(str);                             //通过匹配指向，把str 变成了 2013.6.7
-</code></pre>
+                    <br>示例：
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> str = <span class="string">'2013-6-7'</span></div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/(\d+)(-)/g</span>;</div><div class="line">str = str.replace(re,<span class="function"><span class="keyword">function</span>(<span class="params">$<span class="number">0</span>,$<span class="number">1</span>,$<span class="number">2</span></span>)</span>&#123;    <span class="comment">//第一个参数：$0(母亲), 第二个参数:$1(第一个子项), 第二个参数：$2(第二个子项)</span></div><div class="line">    	<span class="keyword">return</span> $<span class="number">1</span> + <span class="string">'.'</span>;                    <span class="comment">//不用指向的方法return $0.substring(0,$0.length-1) + '.';</span></div><div class="line">    &#125;)</div><div class="line">    alert(str);                             <span class="comment">//通过匹配指向，把str 变成了 2013.6.7</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <p>match指向方法
-                    <br>示例：</p>
-                  <pre><code>var str = ‘abc’;
-Var re = /(a)(b)(c)/;
-alert( str.match(re) ) ;  //[abc,a,b,c]
-</code></pre>
+                    <br>示例：
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> str = ‘abc’;</div><div class="line">Var re = <span class="regexp">/(a)(b)(c)/</span>;</div><div class="line">alert( str.match(re) ) ;  <span class="comment">//[abc,a,b,c]</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <p>当match不加g的时候才可以获取到子项的集合</p>
                   <h3 id="正则表达式中的字符类">
                     <a href="#正则表达式中的字符类" class="headerlink" title="正则表达式中的字符类"></a>
@@ -536,54 +610,74 @@ alert( str.match(re) ) ;  //[abc,a,b,c]
                   <p>用[]中括号来表示。一组相似的元素。
                     <br>[]的整体代表一个字符。
                     <br>[]里面的内容是或者关系。
-                    <br>示例：</p>
-                  <pre><code>var str = ‘abc’;
-var re = /a[bde]c/;   //[]里面的内容是或者关系，只代表一个字符
-alert(re.test(str));   //true
-</code></pre>
+                    <br>示例：
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> str = ‘abc’;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/a[bde]c/</span>;   <span class="comment">//[]里面的内容是或者关系，只代表一个字符</span></div><div class="line">alert(re.test(str));   <span class="comment">//true</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <h4 id="排除">
                     <a href="#排除" class="headerlink" title="排除 :  ^"></a>排除 : ^</h4>
                   <p>如果^写在[]里面的话，就表示排除的意思。
                     <br>和JS中的！差不多意思，都是表示 非 的意思。
                     <br>如果写在正则的最开始位置，就代表起始的意思
-                    <br>示例：</p>
-                  <pre><code>var str = ‘abc’;
-var re = /a[^bde]c/;      //如果str中第二位不是中括号里都内容，那么返回真。
-alert(re.test(str));      // false  意思是必须排除掉中括号里面的内容才是真。
-</code></pre>
+                    <br>示例：
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> str = ‘abc’;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/a[^bde]c/</span>;      <span class="comment">//如果str中第二位不是中括号里都内容，那么返回真。</span></div><div class="line">alert(re.test(str));	  <span class="comment">// false  意思是必须排除掉中括号里面的内容才是真。</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <h4 id="范围">
                     <a href="#范围" class="headerlink" title="范围 :  -"></a>范围 : -</h4>
                   <p>如果-写在[]里面的话，就表示范围的意思。写法是必须从小到大。
-                    <br>示例：</p>
-                  <pre><code>var str = ‘abc’;
-var re = /a[a-z]c/;         //如果str中第二位是中括号里都范围，那么返回真。
-var re=/a[a-z0-9A-Z]+c/;    //如果要增大范围，需要在中括号后面添加一个‘+’；
-                            //意思是从a到做，0到9，A到Z之间的范围
-alert(re.test(str));        //意思是从a到z中间任意一个字母能匹配到b，就返回真。
-</code></pre>
-                  <p>案例：过滤标签</p>
-                  <pre><code>script&gt;
-    window.onload = function(){
-        var aT = document.getElementsByTagName(&apos;textarea&apos;);
-        var oInput = document.getElementById(&apos;input1&apos;);
-    方法1
-        var re = /&lt;[^&gt;]+&gt;/g;               //匹配只要不是&gt;的都可以
-    方法2
-        var re = /[\w\W]+/g;                //匹配所有字符或非字符
-        oInput.onclick = function(){
-            aT[1].value = aT[0].value.replace(re,&apos;&apos;);
-        };
-    };
-&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    替换前&lt;br /&gt;
-    &lt;textarea&gt;&lt;/textarea&gt;&lt;br /&gt;
-    替换后&lt;br /&gt;
-    &lt;textarea&gt;&lt;/textarea&gt;&lt;br /&gt;
-    &lt;input type=&quot;button&quot; value=&quot;确定&quot; id=&quot;input1&quot; /&gt;
-&lt;/body&gt;
-</code></pre>
+                    <br>示例：
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> str = ‘abc’;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/a[a-z]c/</span>;         <span class="comment">//如果str中第二位是中括号里都范围，那么返回真。</span></div><div class="line"><span class="keyword">var</span> re=<span class="regexp">/a[a-z0-9A-Z]+c/</span>;    <span class="comment">//如果要增大范围，需要在中括号后面添加一个‘+’；</span></div><div class="line">                            <span class="comment">//意思是从a到做，0到9，A到Z之间的范围</span></div><div class="line">alert(re.test(str));	    <span class="comment">//意思是从a到z中间任意一个字母能匹配到b，就返回真。</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+                  <p>案例：过滤标签
+                    <br>
+                    <figure class="highlight html">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    	<span class="keyword">var</span> aT = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'textarea'</span>);</div><div class="line">    	<span class="keyword">var</span> oInput = <span class="built_in">document</span>.getElementById(<span class="string">'input1'</span>);</div><div class="line">    方法<span class="number">1</span></div><div class="line">    	<span class="keyword">var</span> re = <span class="regexp">/&lt;[^&gt;]+&gt;/g</span>;               <span class="comment">//匹配只要不是&gt;的都可以</span></div><div class="line">    方法<span class="number">2</span></div><div class="line">        <span class="keyword">var</span> re = <span class="regexp">/[\w\W]+/g</span>;                <span class="comment">//匹配所有字符或非字符</span></div><div class="line">    	oInput.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    		aT[<span class="number">1</span>].value = aT[<span class="number">0</span>].value.replace(re,<span class="string">''</span>);</div><div class="line">    	&#125;;</div><div class="line">    &#125;;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    替换前<span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">textarea</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">    替换后<span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">textarea</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"确定"</span> <span class="attr">id</span>=<span class="string">"input1"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <h2 id="转义字符">
                     <a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2>
                   <p>
@@ -596,100 +690,95 @@ alert(re.test(str));        //意思是从a到z中间任意一个字母能匹配
                     <br>
                     <strong>\w：字符(字母，数字，下划线_); \W：非字符;</strong>
                   </p>
-                  <p>
-                    <strong>. : 任意字符; . : 代表真正的点;</strong>
+                  <figure class="highlight javascript">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line">.   : 任意字符;  </div><div class="line">\.  : 代表真正的点;</div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <p>示例：
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> str = <span class="string">'a.c'</span>;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/a\.c/</span>;        <span class="comment">//a和c中间的 \. 代表只能匹配点 . ;</span></div><div class="line">alert(re.test(str));</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
                   </p>
-                  <p>示例：</p>
-                  <pre><code>var str = &apos;a.c&apos;;
-var re = /a\.c/;        //a和c中间的 \. 代表只能匹配点 . ;
-alert(re.test(str));
-</code></pre>
                   <p>
                     <strong>\b : 独立的部分</strong> （ 起始，结束，空格 ）
                     <br>
                     <strong>\B : 非独立的部分</strong>
                   </p>
-                  <pre><code>var str = &apos;onetwo&apos;;
-var re = /one\b/;       //不是结束的位置，返回false
-var re = /\bone/;       //起始的位置，返回true
-alert( re.test(str) );
-</code></pre>
+                  <figure class="highlight javascript">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line"><span class="keyword">var</span> str = <span class="string">'onetwo'</span>;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/one\b/</span>;       <span class="comment">//不是结束的位置，返回false</span></div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/\bone/</span>;       <span class="comment">//起始的位置，返回true</span></div><div class="line">alert( re.test(str) );</div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
                   <p>案例：利用正则获取class</p>
-                  <pre><code>window.onload = function(){
-    var aLi = getByClass(document,&apos;box1&apos;);
-
-    for(var i=0;i&lt;aLi.length;i++){
-        aLi[i].style.background = &apos;red&apos;;
-    }
-
-利用非正则的方法
-    /*function getByClass(oParent,sClass){
-        var arr = [];
-        var aEle = oParent.getElementsByTagName(&apos;*&apos;);
-
-        for(var i=0;i&lt;aEle.length;i++){
-            if( aEle[i].className == sClass ){
-                arr.push( aEle[i] );
-            }
-        }
-
-        return arr;
-
-    }*/
-
-使用正则的方法
-    function getByClass(oParent,sClass){
-        var arr = [];
-        var aEle = oParent.getElementsByTagName(&apos;*&apos;);
-
-        //var re = /sClass/;  //当正则需要传参的时候，一定要用全称的写法
-        var re = new RegExp(&apos;\\b&apos;+sClass+&apos;\\b&apos;);
-
-        for(var i=0;i&lt;aEle.length;i++){
-            if( re.test(aEle[i].className) ){
-                arr.push( aEle[i] );
-            }
-        }
-        return arr;
-    }
-};
-
-&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;ul&gt;
-    &lt;li class=&quot;box1&quot;&gt;111&lt;/li&gt;
-    &lt;li&gt;111&lt;/li&gt;
-    &lt;li class=&quot;box1box2&quot;&gt;111&lt;/li&gt;
-    &lt;li&gt;111&lt;/li&gt;
-    &lt;li class=&quot;box1 box2&quot;&gt;111&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/body&gt;
-</code></pre>
+                  <figure class="highlight html">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    	<span class="keyword">var</span> aLi = getByClass(<span class="built_in">document</span>,<span class="string">'box1'</span>);</div><div class="line"></div><div class="line">    	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;aLi.length;i++)&#123;</div><div class="line">    		aLi[i].style.background = <span class="string">'red'</span>;</div><div class="line">    	&#125;</div><div class="line"></div><div class="line">    利用非正则的方法</div><div class="line">    	<span class="comment">/*function getByClass(oParent,sClass)&#123;</span></div><div class="line">    		var arr = [];</div><div class="line">    		var aEle = oParent.getElementsByTagName('*');</div><div class="line"></div><div class="line">    		for(var i=0;i&lt;aEle.length;i++)&#123;</div><div class="line">    			if( aEle[i].className == sClass )&#123;</div><div class="line">    				arr.push( aEle[i] );</div><div class="line">    			&#125;</div><div class="line">    		&#125;</div><div class="line"></div><div class="line">    		return arr;</div><div class="line"></div><div class="line">    	&#125;*/</div><div class="line"></div><div class="line">    使用正则的方法</div><div class="line">    	<span class="function"><span class="keyword">function</span> <span class="title">getByClass</span>(<span class="params">oParent,sClass</span>)</span>&#123;</div><div class="line">    		<span class="keyword">var</span> arr = [];</div><div class="line">    		<span class="keyword">var</span> aEle = oParent.getElementsByTagName(<span class="string">'*'</span>);</div><div class="line"></div><div class="line">    		<span class="comment">//var re = /sClass/;  //当正则需要传参的时候，一定要用全称的写法</span></div><div class="line">    		<span class="keyword">var</span> re = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\b'</span>+sClass+<span class="string">'\\b'</span>);</div><div class="line"></div><div class="line">    		<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;aEle.length;i++)&#123;</div><div class="line">    			<span class="keyword">if</span>( re.test(aEle[i].className) )&#123;</div><div class="line">    				arr.push( aEle[i] );</div><div class="line">    			&#125;</div><div class="line">    		&#125;</div><div class="line">    		<span class="keyword">return</span> arr;</div><div class="line">    	&#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"box1"</span>&gt;</span>111<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>111<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"box1box2"</span>&gt;</span>111<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>111<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"box1 box2"</span>&gt;</span>111<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
                   <p>重复的子项</p>
-                  <p>\1 : 重复的第一个子项 ，1这个数字就代表重复的第几个子项</p>
-                  <p>示例：</p>
-                  <pre><code>var str = &apos;abca&apos;;
-var re = /(a)(b)(c)\2/;  //这里的\2表示重复第二个子项，但是\2的位置对应的是a,所以返回的是false
-alert( re.test(str) );
-
-var re = /\w\w/;  c9        
-var re = /(\w)\1/; cc  99   //由于\1是重复第一个子项，所以它匹配的是对应第一个子项通向的字符，比如 cc  99 这样两个相同的字符才能匹配成功。
+                  <pre><code>\1 : 重复的第一个子项  ，
+1这个数字就代表重复的第几个子项
 </code></pre>
-                  <p>案例：查找字符串中重复最多的字符</p>
-                  <p>var str = ‘assssjdssskssalsssdkjsssdss’;
-                    <br>var arr = str.split(‘’);
-                    <br>str = arr.sort().join(‘’);</p>
-                  <p>var value = ‘’;
-                    <br>var index = 0;
-                    <br>var re = /(\w)\1+/g;
-                    <br>str.replace(re,function($0,$1){
-                    <br> if(index&lt;$0.length){
-                    <br> index = $0.length;
-                    <br> value = $1;
-                    <br> }
-                    <br>});
-                    <br>alert(‘最多的字符:’+value+’,重复的次数:’+index);</p>
+                  <p>示例：</p>
+                  <figure class="highlight javascript">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line"><span class="keyword">var</span> str = <span class="string">'abca'</span>;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/(a)(b)(c)\2/</span>;  <span class="comment">//这里的\2表示重复第二个子项，但是\2的位置对应的是a,所以返回的是false</span></div><div class="line">alert( re.test(str) );</div><div class="line"></div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/\w\w/</span>;  c9        </div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/(\w)\1/</span>; cc  <span class="number">99</span>   <span class="comment">//由于\1是重复第一个子项，所以它匹配的是对应第一个子项通向的字符，比如 cc  99 这样两个相同的字符才能匹配成功。</span></div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <p>案例：查找字符串中重复最多的字符
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> str = <span class="string">'assssjdssskssalsssdkjsssdss'</span>;</div><div class="line"><span class="keyword">var</span> arr = str.split(<span class="string">''</span>);</div><div class="line">str = arr.sort().join(<span class="string">''</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> value = <span class="string">''</span>;</div><div class="line"><span class="keyword">var</span> index = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/(\w)\1+/g</span>;</div><div class="line">str.replace(re,<span class="function"><span class="keyword">function</span>(<span class="params">$<span class="number">0</span>,$<span class="number">1</span></span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(index&lt;$<span class="number">0.</span>length)&#123;</div><div class="line">		index = $<span class="number">0.</span>length;</div><div class="line">		value = $<span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line">alert(<span class="string">'最多的字符:'</span>+value+<span class="string">',重复的次数:'</span>+index);</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <h2 id="量词">
                     <a href="#量词" class="headerlink" title="量词"></a>量词</h2>
                   <p>量词 ： 正则中是用大括号来书写的 {}
@@ -700,50 +789,72 @@ var re = /(\w)\1/; cc  99   //由于\1是重复第一个子项，所以它匹配
                     <br>? : {0,1} 出现0次或者1次
                     <br>* : {0,} 至少出现0次</p>
                   <p>+ 和 * 有一定的区别，+ 必须出现至少1次，而* 可以一次也不用出现
-                    <br>示例：</p>
-                  <pre><code>var str = &apos;ab&apos;;
-var re = /ab+/;   
-alert(re.test(str));   //返回真，但是如果str = &apos;ac&apos;; 呢，就会返回假
-</code></pre>
-                  <p>我们再来看</p>
-                  <pre><code>var str = &apos;ac&apos;;
-var re = /ab*/;   
-alert(re.test(str));  //返回真
-</code></pre>
+                    <br>示例：
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> str = <span class="string">'ab'</span>;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/ab+/</span>;   </div><div class="line">alert(re.test(str));   <span class="comment">//返回真，但是如果str = 'ac'; 呢，就会返回假</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+                  <p>我们再来看
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> str = <span class="string">'ac'</span>;</div><div class="line"><span class="keyword">var</span> re = <span class="regexp">/ab*/</span>;   </div><div class="line">alert(re.test(str));  <span class="comment">//返回真</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <p>从上面的例子可以看出来，如果我们把b后面的 + 号换成 * 号，就可以返回true。</p>
                   <p>
                     <strong>^ : 写在正则的最开始位置，就代表起始的意思</strong>
                     <br>
                     <strong>$ : 写在正则的最后位置 , 就代表结束的意思</strong>
                   </p>
-                  <p>案例： 判断是不是QQ号</p>
-                  <pre><code>window.onload = function(){
-    var aInput = document.getElementsByTagName(&apos;input&apos;);
-    var re = /^[1-9]\d{4,11}$/;
-    aInput[1].onclick = function(){
-        if( re.test(aInput[0].value) ){
-            alert(&apos;是QQ号&apos;);
-        }
-        else{
-            alert(&apos;不是QQ号&apos;);
-        }
-    };
-};
-
-&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;input type=&quot;text&quot; /&gt;&lt;input type=&quot;button&quot; value=&quot;确定&quot; /&gt;
-&lt;/body&gt;
-</code></pre>
-                  <p>案例：去除前后空格</p>
-                  <pre><code>var str = &apos; hello &apos;;
-alert( &apos;(&apos;+trim(str)+&apos;)&apos; );
-function trim(str){
-    var re = /^\s+|\s+$/g;
-    return str.replace(re,&apos;&apos;);
-}
-</code></pre>
+                  <p>案例： 判断是不是QQ号
+                    <br>
+                    <figure class="highlight html">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    	<span class="keyword">var</span> aInput = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'input'</span>);</div><div class="line">    	<span class="keyword">var</span> re = <span class="regexp">/^[1-9]\d&#123;4,11&#125;$/</span>;</div><div class="line">    	aInput[<span class="number">1</span>].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    		<span class="keyword">if</span>( re.test(aInput[<span class="number">0</span>].value) )&#123;</div><div class="line">    			alert(<span class="string">'是QQ号'</span>);</div><div class="line">    		&#125;</div><div class="line">    		<span class="keyword">else</span>&#123;</div><div class="line">    			alert(<span class="string">'不是QQ号'</span>);</div><div class="line">    		&#125;</div><div class="line">    	&#125;;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> /&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"确定"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+                  <p>案例：去除前后空格
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> str = <span class="string">' hello '</span>;</div><div class="line">alert( <span class="string">'('</span>+trim(str)+<span class="string">')'</span> );</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">trim</span>(<span class="params">str</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> re = <span class="regexp">/^\s+|\s+$/g</span>;</div><div class="line">	<span class="keyword">return</span> str.replace(re,<span class="string">''</span>);</div><div class="line">&#125;</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
 
                 </div>
 

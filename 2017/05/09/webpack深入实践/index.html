@@ -27,19 +27,17 @@
   <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1"
   />
 
-  <meta name="description" content="webpack简介    什么是Webpack  WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。">
+  <meta name="description" content="webpack简介    什么是Webpack  WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。    为什要使用WebPack  今的很多网页其实可以看做是功能丰富的应用，它们拥有着复杂的JavaScript代码和一大堆依赖">
   <meta name="keywords" content="工具">
   <meta property="og:type" content="article">
   <meta property="og:title" content="webpack深入实践">
   <meta property="og:url" content="http://yoursite.com/2017/05/09/webpack深入实践/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
-  <meta property="og:description" content="webpack简介    什么是Webpack  WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。">
-  <meta property="og:image" content="http://yoursite.com/2017/05/09/webpack深入实践/工具">
-  <meta property="og:updated_time" content="2017-05-11T09:01:11.336Z">
+  <meta property="og:description" content="webpack简介    什么是Webpack  WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。    为什要使用WebPack  今的很多网页其实可以看做是功能丰富的应用，它们拥有着复杂的JavaScript代码和一大堆依赖">
+  <meta property="og:updated_time" content="2017-05-16T15:46:05.257Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="webpack深入实践">
-  <meta name="twitter:description" content="webpack简介    什么是Webpack  WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。">
-  <meta name="twitter:image" content="http://yoursite.com/2017/05/09/webpack深入实践/工具">
+  <meta name="twitter:description" content="webpack简介    什么是Webpack  WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。    为什要使用WebPack  今的很多网页其实可以看做是功能丰富的应用，它们拥有着复杂的JavaScript代码和一大堆依赖">
 
   <script type="text/javascript" id="hexo.configurations">
     var NexT = window.NexT || {};
@@ -179,14 +177,6 @@
               </a>
             </li>
 
-            <li class="menu-item menu-item-potos">
-              <a href="/photos" rel="section">
-
-                <i class="menu-item-icon fa fa-fw fa-question-circle"></i>
-                <br /> menu.potos
-              </a>
-            </li>
-
             <li class="menu-item menu-item-commonweal">
               <a href="/404.html" rel="section">
 
@@ -323,7 +313,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        2,511
+                        2,809
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -335,7 +325,7 @@
                       <span class="post-meta-item-text">阅读时长</span>
 
                       <span title="阅读时长">
-                        10
+                        11
                       </span>
 
                     </div>
@@ -345,17 +335,6 @@
 
                 <div class="post-body" itemprop="articleBody">
 
-                  <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-
-                    <div class="post-gallery-row">
-                      <a class="post-gallery-img fancybox" href="/工具" rel="gallery_cj2n011qw001omonpylh4djt1"
-                                                                                                      itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                        <img src="/工具" itemprop="contentUrl" />
-                      </a>
-
-                    </div>
-                  </div>
-
                   <h2 id="webpack简介">
                     <a href="#webpack简介" class="headerlink" title="webpack简介"></a>webpack简介</h2>
                   <p>
@@ -363,22 +342,12 @@
                   </p>
                   <p>WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。</p>
                   <p>
-                    <excerpt in="" index="" |="" 首页摘要="">
-                      <br>
-                      <a id="more"></a>
-                    </excerpt>
-                  </p>
-                  <p>
-                    <the rest="" of="" contents="" |="" 余下全文="">
-                      <br>
-                      <strong>为什要使用WebPack</strong>
-                    </the>
+                    <strong>为什要使用WebPack</strong>
                   </p>
                   <p>今的很多网页其实可以看做是功能丰富的应用，它们拥有着复杂的JavaScript代码和一大堆依赖包。为了简化开发的复杂度，前端社区涌现出了很多好的实践方法</p>
-                  <p>a:模块化，让我们可以把复杂的程序细化为小的文件;</p>
-                  <p>b:类似于TypeScript这种在JavaScript基础上拓展的开发语言：使我们能够实现目前版本的JavaScript不能直接使用的特性，并且之后还能能装换为JavaScript文件使浏览器可以识别；</p>
-                  <p>c:scss，less等CSS预处理器</p>
-                  <p>………</p>
+                  <p>a: 模块化，让我们可以把复杂的程序细化为小的文件;</p>
+                  <p>b: 类似于TypeScript这种在JavaScript基础上拓展的开发语言：使我们能够实现目前版本的JavaScript不能直接使用的特性，并且之后还能能装换为JavaScript文件使浏览器可以识别；</p>
+                  <p>c: scss，less等CSS预处理器</p>
                   <p>这些改进确实大大的提高了我们的开发效率，但是利用它们开发的文件往往需要进行额外的处理才能让浏览器识别,而手动处理又是非常反锁的，这就为WebPack类的工具的出现提供了需求。</p>
                   <p>
                     <strong>WebPack和Grunt以及Gulp相比有什么特性</strong>
@@ -408,8 +377,10 @@
                     <br> @echo off
                     <br> dir
                     <br> 这两句保存即可。</p>
-                  <h3 id="css">
-                    <a href="#css" class="headerlink" title="css"></a>css</h3>
+                  <h2 id="webpack配置">
+                    <a href="#webpack配置" class="headerlink" title="webpack配置"></a>webpack配置</h2>
+                  <h3 id="loader">
+                    <a href="#loader" class="headerlink" title="loader"></a>loader</h3>
                   <p>webpack提供两个工具处理样式表，css-loader 和 style-loader，二者处理的任务不同，css-loader使你能够使用类似@import
                     和 url(…)的方法实现 require()的功能,style-loader将所有的计算后的样式加入页面中，二者组合在一起使你能够把样式表嵌入webpack打包后的JS文件中。</p>
                   <p>需要分别安装：</p>
@@ -424,16 +395,14 @@
                     <table>
                       <tr>
                         <td class="gutter">
-                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre>
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre>
                         </td>
                         <td class="code">
-                          <pre><div class="line">webpack hello.js hello.bundle.js --<span class="built_in">module</span>-bind <span class="string">"css=style-loader!css-loader"</span> --watch</div><div class="line"></div><div class="line"><span class="comment">//hello.js是要打包的文件</span></div><div class="line"><span class="comment">//hello.bundle.js是打包之后的文件</span></div><div class="line"><span class="comment">//--module-bind 指定css的loader</span></div><div class="line"></div><div class="line">webpack hello.js hello.bundle.js --progress  </div><div class="line"><span class="comment">//通过--progress来显示打包过程</span></div><div class="line"></div><div class="line">webpack hello.js hello.bundle.js --display-modules</div><div class="line"><span class="comment">//通过--display-modules来显示打包的模块</span></div><div class="line"></div><div class="line">webpack hello.js hello.bundle.js --display-reasons</div><div class="line"><span class="comment">//通过--display-reasons来告诉我们为什么要打包这个模块</span></div></pre>
+                          <pre><div class="line">webpack hello.js hello.bundle.js --<span class="built_in">module</span>-bind <span class="string">"css=style-loader!css-loader"</span> --watch</div><div class="line"></div><div class="line"><span class="comment">//hello.js是要打包的文件</span></div><div class="line"><span class="comment">//hello.bundle.js是打包之后的文件</span></div><div class="line"><span class="comment">//--module-bind 指定css的loader</span></div><div class="line"></div><div class="line">webpack hello.js hello.bundle.js --progress  </div><div class="line"><span class="comment">//通过--progress来显示打包过程</span></div><div class="line"></div><div class="line">webpack hello.js hello.bundle.js --display-modules</div><div class="line"><span class="comment">//通过--display-modules来显示打包的模块</span></div><div class="line"></div><div class="line">webpack hello.js hello.bundle.js --display-reasons</div><div class="line"><span class="comment">//通过--display-reasons来告诉我们为什么要打包这个模块</span></div><div class="line"></div><div class="line">--contentBase ./build/</div><div class="line"><span class="comment">//指定文件夹做为新的根目录</span></div></pre>
                         </td>
                       </tr>
                     </table>
                   </figure>
-                  <h2 id="webpack配置">
-                    <a href="#webpack配置" class="headerlink" title="webpack配置"></a>webpack配置</h2>
                   <h3 id="config配置">
                     <a href="#config配置" class="headerlink" title="config配置"></a>config配置</h3>
                   <p>新建一个webpack.config.js文件
@@ -447,14 +416,29 @@
                     <table>
                       <tr>
                         <td class="gutter">
-                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre>
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre>
                         </td>
                         <td class="code">
-                          <pre><div class="line">    <span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line">    <span class="built_in">module</span>.exports = &#123;</div><div class="line">        <span class="attr">entry</span>: <span class="string">'./src/script/main.js'</span>,      <span class="comment">//要打包文件的路径</span></div><div class="line">        output: &#123;</div><div class="line">            <span class="attr">path</span>: __dirname + <span class="string">'./dist/js'</span>,   <span class="comment">//打包以后的文件夹</span></div><div class="line">            filename: <span class="string">'bundle.js'</span>           <span class="comment">//打包以后的文件名</span></div><div class="line">        &#125;   </div><div class="line">    &#125;</div><div class="line"></div><div class="line">entry打包多个不相关联的文件时，我们希望能打包成不同的文件</div><div class="line"></div><div class="line">    <span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line">    <span class="built_in">module</span>.exports = &#123;</div><div class="line">        <span class="attr">entry</span>: &#123;</div><div class="line">            <span class="attr">main</span>: <span class="string">'./src/script/main.js'</span>,</div><div class="line">            <span class="attr">a</span>: <span class="string">'./src/script/a.js'</span></div><div class="line">        &#125;,</div><div class="line"></div><div class="line">        <span class="attr">output</span>: &#123;</div><div class="line">            <span class="attr">path</span>: __dirname + <span class="string">'/dist/js'</span>,   <span class="comment">//打包以后的文件夹</span></div><div class="line">            filename: <span class="string">'[name]-[chunkhash].js'</span>   <span class="comment">//name对应entry里的key值，chunkhash表示不同的hash值，当文件内容修改以后，chunkhash值就会改变</span></div><div class="line">        &#125;   </div><div class="line">    &#125;</div></pre>
+                          <pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">entry</span>: <span class="string">'./src/script/main.js'</span>,      <span class="comment">//要打包文件的路径</span></div><div class="line">    output: &#123;</div><div class="line">        <span class="attr">path</span>: __dirname + <span class="string">'/dist/js'</span>,   <span class="comment">//打包以后的文件夹</span></div><div class="line">        filename: <span class="string">'bundle.js'</span>           <span class="comment">//打包以后的文件名</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">resolve</span>: &#123;</div><div class="line">        <span class="attr">extensions</span>: [</div><div class="line">            <span class="string">''</span>,<span class="string">'.js'</span>,<span class="string">'.css'</span>,<span class="string">'_jsx'</span>      <span class="comment">//配置这个之后，在require的时候，就不用写文件后缀名了,因为会自动补全</span></div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre>
                         </td>
                       </tr>
                     </table>
                   </figure>
+                  <p>entry打包多个不相关联的文件时，我们希望能打包成不同的文件
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">entry</span>: &#123;</div><div class="line">        <span class="attr">main</span>: <span class="string">'./src/script/main.js'</span>,</div><div class="line">        <span class="attr">a</span>: <span class="string">'./src/script/a.js'</span></div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="attr">output</span>: &#123;</div><div class="line">        <span class="attr">path</span>: __dirname + <span class="string">'/dist/js'</span>,   <span class="comment">//打包以后的文件夹</span></div><div class="line">        <span class="comment">//__dirname是nodejs里的一个全局变量,他指向我们的根目录</span></div><div class="line">        filename: <span class="string">'[name]-[chunkhash].js'</span>   <span class="comment">//name对应entry里的key值，chunkhash表示不同的hash值，当文件内容修改以后，chunkhash值就会改变</span></div><div class="line">    &#125;   </div><div class="line">&#125;</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <h3 id="html-webpack-plugin">
                     <a href="#html-webpack-plugin" class="headerlink" title="html-webpack-plugin"></a>html-webpack-plugin</h3>
                   <p>在打包成不同文件之后，如果我们在html页面手动引进打包后的js文件，将会是一件非常繁琐的事情。所以webpack给我们提供了一个插件
@@ -568,6 +552,86 @@
                     </table>
                   </figure>
                   <p>通过这样的设置，我们就可以直接在命令行输入npm run webpack实现上面一大串的指令简化。</p>
+                  <h2 id="处理项目中的资源文件">
+                    <a href="#处理项目中的资源文件" class="headerlink" title="处理项目中的资源文件"></a>处理项目中的资源文件</h2>
+                  <h3 id="处理js文件">
+                    <a href="#处理js文件" class="headerlink" title="处理js文件"></a>处理js文件</h3>
+                  <p>添加babel-loader，将ES6语法转成ES5语法
+                    <br>安装babel</p>
+                  <pre><code>npm install --save-dev babel-loader babel-core
+</code></pre>
+                  <p>安装latest</p>
+                  <pre><code>npm install --save-dev babel-preset-latest
+</code></pre>
+                  <p>添加loader有两种方式
+                    <br>1.在config里配置
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"></div><div class="line"><span class="built_in">module</span>: &#123;</div><div class="line">        <span class="attr">loaders</span>: [</div><div class="line">            &#123;</div><div class="line">                <span class="attr">test</span>: <span class="regexp">/\.js$/</span>,              <span class="comment">// 正则匹配.js</span></div><div class="line">                include: <span class="string">'/src/'</span>,           <span class="comment">// 指定只打包这个文件夹</span></div><div class="line">                <span class="comment">//include: path.resolve(__dirname,'src'),</span></div><div class="line">                exclude: <span class="string">'/node_modules/'</span>,  <span class="comment">// 排除这个文件，不打包它</span></div><div class="line">                <span class="comment">//exclude: path.resolve(__dirname,'node_modules'),</span></div><div class="line">                loader: <span class="string">"babel-loader"</span>,     <span class="comment">// 指定loader为babel</span></div><div class="line">                query: &#123;</div><div class="line">                    <span class="attr">presets</span>: [<span class="string">"latest"</span>]     <span class="comment">//指定转换es6语法</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        ]</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//exclude,include是为了提高打包速度。</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+                  <p>2.在package.json中配置
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="string">"babel"</span>: &#123;</div><div class="line">    <span class="string">"presets"</span>: [<span class="string">"latest"</span>]</div><div class="line">  &#125;,</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+                  <h3 id="处理css文件">
+                    <a href="#处理css文件" class="headerlink" title="处理css文件"></a>处理css文件</h3>
+                  <h4 id="postcss-loader">
+                    <a href="#postcss-loader" class="headerlink" title="postcss-loader"></a>postcss-loader</h4>
+                  <p>postcss-loader,可以帮助我们解决一些浏览器目前无法很好兼容的语法，比如fiex弹性盒模型加各浏览器前缀。
+                    <br>安装postcss-loader
+                    <br>
+                    <figure class="highlight plain">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line">npm install postcss-loader --save-dev</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+                  <p>
+                    <strong>autoprefixer插件</strong>
+                    <br>postcss下的插件，可以加各种浏览器前缀
+                    <br>安装autoprefixer
+                    <br>
+                    <figure class="highlight plain">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line">npm install autoprefixer --save-dev</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
 
                 </div>
 
@@ -791,15 +855,6 @@
                         <span class="nav-text">
                           安装webpack</span>
                       </a>
-                      <ol class="nav-child">
-                        <li class="nav-item nav-level-3">
-                          <a class="nav-link" href="#css">
-                            <span class="nav-number">2.1.</span>
-                            <span class="nav-text">
-                              css</span>
-                          </a>
-                        </li>
-                      </ol>
                     </li>
                     <li class="nav-item nav-level-2">
                       <a class="nav-link" href="#webpack配置">
@@ -809,18 +864,57 @@
                       </a>
                       <ol class="nav-child">
                         <li class="nav-item nav-level-3">
-                          <a class="nav-link" href="#config配置">
+                          <a class="nav-link" href="#loader">
                             <span class="nav-number">3.1.</span>
+                            <span class="nav-text">
+                              loader</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#config配置">
+                            <span class="nav-number">3.2.</span>
                             <span class="nav-text">
                               config配置</span>
                           </a>
                         </li>
                         <li class="nav-item nav-level-3">
                           <a class="nav-link" href="#html-webpack-plugin">
-                            <span class="nav-number">3.2.</span>
+                            <span class="nav-number">3.3.</span>
                             <span class="nav-text">
                               html-webpack-plugin</span>
                           </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#处理项目中的资源文件">
+                        <span class="nav-number">4.</span>
+                        <span class="nav-text">
+                          处理项目中的资源文件</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#处理js文件">
+                            <span class="nav-number">4.1.</span>
+                            <span class="nav-text">
+                              处理js文件</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#处理css文件">
+                            <span class="nav-number">4.2.</span>
+                            <span class="nav-text">
+                              处理css文件</span>
+                          </a>
+                          <ol class="nav-child">
+                            <li class="nav-item nav-level-4">
+                              <a class="nav-link" href="#postcss-loader">
+                                <span class="nav-number">4.2.1.</span>
+                                <span class="nav-text">
+                                  postcss-loader</span>
+                              </a>
+                            </li>
+                          </ol>
                         </li>
                       </ol>
                     </li>

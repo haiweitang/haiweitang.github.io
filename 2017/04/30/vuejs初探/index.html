@@ -37,7 +37,7 @@
   <meta property="og:image" content="http://op5e32hmc.bkt.clouddn.com/%E8%99%9A%E6%8B%9FDOM%E7%A4%BA%E6%84%8F%E5%9B%BE1.png">
   <meta property="og:image" content="http://op5e32hmc.bkt.clouddn.com/31738308-58e8726fbe4d0_articlex.jpg">
   <meta property="og:image" content="http://op5e32hmc.bkt.clouddn.com/20170307143230692.png">
-  <meta property="og:updated_time" content="2017-05-19T15:19:12.277Z">
+  <meta property="og:updated_time" content="2017-05-20T08:09:31.425Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="vuejs初探">
   <meta name="twitter:description" content="vue概念  Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和   Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。">
@@ -299,7 +299,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        6,721
+                        6,777
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -379,11 +379,6 @@
 data: 代理数据              Object | function
 methods: 定义方法           Object
 </code></pre>
-                    <h4 id="v-on">
-                      <a href="#v-on" class="headerlink" title="v-on"></a>v-on
-                    </h4>
-                    <p>v-on:事件名=函数名
-                      <br>当我们往methods里传入事件函数的时候，需要在需要绑定事件的元素上添加 v-on:事件名=函数名，以便完成事件绑定。</p>
                     <font color="green">示例代码</font>
 
                     <figure class="highlight html">
@@ -393,7 +388,7 @@ methods: 定义方法           Object
                             <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre>
                           </td>
                           <td class="code">
-                            <pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"demo"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-on:click</span>=<span class="string">"clickHandle"</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">        <span class="keyword">let</span> obj = &#123;</div><div class="line">            <span class="attr">message</span>: <span class="string">'hello,vue!'</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">new</span> Vue(&#123;</div><div class="line">            <span class="attr">el</span>: <span class="string">'#demo'</span>,</div><div class="line">            <span class="attr">data</span>: obj,          <span class="comment">//传入数据对象，也可以直接写数据message: 'hello,vue!'</span></div><div class="line">            methods: &#123;</div><div class="line">                clickHandle()&#123;</div><div class="line">                    alert(<span class="string">'click'</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre>
+                            <pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"demo"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-on:click</span>=<span class="string">"clickHandle"</span>&gt;</span>&#123;&#123;message&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line">        let obj = &#123;</div><div class="line">            message: 'hello,vue!'</div><div class="line">        &#125;</div><div class="line">        new Vue(&#123;</div><div class="line">            el: '#demo',</div><div class="line">            data: obj,          //传入数据对象，也可以直接写数据message: 'hello,vue!'</div><div class="line">            methods: &#123;</div><div class="line">                clickHandle()&#123;</div><div class="line">                    alert('click');</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre>
                           </td>
                         </tr>
                       </table>
@@ -512,8 +507,8 @@ methods: 定义方法           Object
                         </tr>
                       </table>
                     </figure>
-                    <h4 id="v-on-1">
-                      <a href="#v-on-1" class="headerlink" title="v-on"></a>
+                    <h4 id="v-on">
+                      <a href="#v-on" class="headerlink" title="v-on"></a>
                       <font font-size="20px">v-on</font>
                     </h4>
                     <p>用来监听DOM事件触发代码
@@ -528,8 +523,22 @@ methods: 定义方法           Object
                       <br>修饰符的位置：v-on:eventNme.修饰符
                       <br>修饰符：.stop(阻止冒泡) | .prevent(取消默认行为) | .captrue(捕获) | .self |
                       .once(触发一次)
-                      <br>按键修饰符：.enter | .tab | .delete | .esc | .space | .up | .down
-                      | .left | .right | .ctrl | .alt | .shift | .meta | .键值</p>
+                      <br>
+                      <figure class="highlight javascript">
+                        <table>
+                          <tr>
+                            <td class="gutter">
+                              <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre>
+                            </td>
+                            <td class="code">
+                              <pre><div class="line">&lt;!-- 阻止单击事件冒泡 --&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click.stop</span>=<span class="string">"doThis"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></div><div class="line">&lt;!-- 提交事件不再重载页面 --&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">v-on:submit.prevent</span>=<span class="string">"onSubmit"</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></div><div class="line">&lt;!-- 修饰符可以串联  --&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click.stop.prevent</span>=<span class="string">"doThat"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></div><div class="line">&lt;!-- 只有修饰符 --&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">v-on:submit.prevent</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></div><div class="line">&lt;!-- 添加事件侦听器时使用事件捕获模式 --&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:click.capture</span>=<span class="string">"doThis"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">&lt;!-- 只当事件在该元素本身（而不是子元素）触发时触发回调 --&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:click.self</span>=<span class="string">"doThat"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div></pre>
+                            </td>
+                          </tr>
+                        </table>
+                      </figure>
+                    </p>
+                    <p>按键修饰符：.enter | .tab | .delete | .esc | .space | .up | .down |
+                      .left | .right | .ctrl | .alt | .shift | .meta | .键值</p>
                     <font color="green">示例代码</font>
 
                     <figure class="highlight html">
@@ -1606,16 +1615,6 @@ methods: 定义方法           Object
                               vue实例
                             </span>
                           </a>
-                          <ol class="nav-child">
-                            <li class="nav-item nav-level-4">
-                              <a class="nav-link" href="#v-on">
-                                <span class="nav-number">2.1.1.</span>
-                                <span class="nav-text">
-                                  v-on
-                                </span>
-                              </a>
-                            </li>
-                          </ol>
                         </li>
                         <li class="nav-item nav-level-3">
                           <a class="nav-link" href="#vue代理data数据">
@@ -1692,7 +1691,7 @@ methods: 定义方法           Object
                               </a>
                             </li>
                             <li class="nav-item nav-level-4">
-                              <a class="nav-link" href="#v-on-1">
+                              <a class="nav-link" href="#v-on">
                                 <span class="nav-number">2.5.2.</span>
                                 <span class="nav-text">
 

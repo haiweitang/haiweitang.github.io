@@ -34,7 +34,7 @@
   <meta property="og:url" content="http://yoursite.com/2017/05/03/DOM-BOM详解/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
   <meta property="og:description" content="个人笔记，仅供参考。">
-  <meta property="og:updated_time" content="2017-05-14T03:56:52.968Z">
+  <meta property="og:updated_time" content="2017-05-20T07:23:58.621Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="DOM,BOM详解">
   <meta name="twitter:description" content="个人笔记，仅供参考。">
@@ -295,7 +295,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        4,521
+                        4,719
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -307,7 +307,7 @@
                       <span class="post-meta-item-text">阅读时长</span>
 
                       <span title="阅读时长">
-                        18
+                        19
                       </span>
 
                     </div>
@@ -755,7 +755,8 @@ ev.clientX;             //获取可视区X轴的位置
                       <br>例：</p>
                     <pre><code>oBtn.onclick = function(ev){
 var ev = ev || event;
-ev.cancelBubble = true;   //调用它，就可以阻止当前对象的当前事件的冒泡。
+ev.cancelBubble = true;   //非标准IE下，阻止当前对象的当前事件的冒泡。
+ev.stopPropagation();       //标准下，阻止当前对象的当前事件的冒泡。
 oDiv.style.display = ‘block’;  }
 </code></pre>
                     <h4 id="call">
@@ -869,7 +870,26 @@ oDiv.style.display = ‘block’;  }
                     <p>当一个事件发生的时候浏览器默认做的事情。
                       <br>
                       <strong>怎么阻止？</strong>
-                      <br>当前这个行为是什么事件触发的，然后在这个时间的处理函数中使用return false;</p>
+                      <br>阻止事件默认行为有两个方法，这两个方法有一定差异性，下面我来详细解说这两个方法。
+                      <br>当前这个行为是什么事件触发的，然后在这个事件的处理函数中执行这两个方法。</p>
+                    <ol>
+                      <li>event.returnValue的作用就是：当捕捉到事件(event)时，判断为false，则阻止当前事件继续运行，window.event.returnValue
+                        = false;之后的语句将都不会执行。</li>
+                      <li>return false 不是阻止事件继续向顶层元素传播，而是阻止浏览器对事件的默认处理。
+                        <figure class="highlight javascript">
+                          <table>
+                            <tr>
+                              <td class="gutter">
+                                <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre>
+                              </td>
+                              <td class="code">
+                                <pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">btnChangePage</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> numPage = $(<span class="string">'#custompage'</span>);</div><div class="line">    <span class="keyword">var</span> pageTotal = numPage.attr(<span class="string">'data-pagetotal'</span>);</div><div class="line">    <span class="keyword">var</span> thisVal = numPage.val();</div><div class="line">    <span class="keyword">var</span> caseurl = <span class="string">''</span>;</div><div class="line">    <span class="keyword">var</span> re = <span class="regexp">/^[0-9]+.?[0-9]*$/</span>;</div><div class="line">    <span class="keyword">if</span>(!re.test(thisVal) || (<span class="built_in">parseInt</span>(thisVal) &lt; <span class="number">1</span>) || (<span class="built_in">parseInt</span>(thisVal) &gt; pageTotal)) &#123;</div><div class="line">        alert(<span class="string">'请输入有效的页码!'</span>);</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        <span class="comment">//window.event.returnValue = false;</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> url = numPage.attr(<span class="string">'data-url_format'</span>);</div><div class="line"></div><div class="line">    <span class="built_in">window</span>.location.href = url+<span class="string">"&amp;page_name="</span>+thisVal;</div><div class="line"></div><div class="line">&#125;</div></pre>
+                              </td>
+                            </tr>
+                          </table>
+                        </figure>
+                      </li>
+                    </ol>
                     <h4 id="setCapture-设置全局捕获。">
                       <a href="#setCapture-设置全局捕获。" class="headerlink" title="setCapture: 设置全局捕获。"></a>setCapture: 设置全局捕获。</h4>
                     <p>当我们给一个元素设置全局捕获以后，那么这个元素就会监听后续发生的所有事件， 当有事件发生的时候，就会被当前设置了全局捕获的元素截取触发。

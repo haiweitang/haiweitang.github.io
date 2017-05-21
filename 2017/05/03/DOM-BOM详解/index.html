@@ -34,7 +34,7 @@
   <meta property="og:url" content="http://yoursite.com/2017/05/03/DOM-BOM详解/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
   <meta property="og:description" content="个人笔记，仅供参考。">
-  <meta property="og:updated_time" content="2017-05-20T07:23:58.621Z">
+  <meta property="og:updated_time" content="2017-05-21T07:18:47.650Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="DOM,BOM详解">
   <meta name="twitter:description" content="个人笔记，仅供参考。">
@@ -295,7 +295,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        4,719
+                        4,817
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -307,7 +307,7 @@
                       <span class="post-meta-item-text">阅读时长</span>
 
                       <span title="阅读时长">
-                        19
+                        20
                       </span>
 
                     </div>
@@ -587,12 +587,48 @@ else {
                     <h3 id="表单操作">
                       <a href="#表单操作" class="headerlink" title="表单操作"></a>表单操作</h3>
                     <p>表单操作中可以通过name值获取元素。
-                      <br>onchange: 当值发生改变是触发。
+                      <br>
+                      <strong>onchange:</strong> 当值发生改变是触发。
                       <br>如果type为
                       <br>1.text ; 当光标离开的时候如果内容有改变就触发。
                       <br>2.radio/checkbox：
                       <br>标准下，点击的时候只要值变了就会触发。
                       <br>非标准下，焦点离开的时候如果值变了就会触发</p>
+                    <p>
+                      <strong>onsubmit:</strong> 表单中的确认按钮被点击时触发。
+                      <br>
+                      <figure class="highlight html">
+                        <table>
+                          <tr>
+                            <td class="gutter">
+                              <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre>
+                            </td>
+                            <td class="code">
+                              <pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">"testform"</span> <span class="attr">action</span>=<span class="string">"jsref_onsubmit.asp"</span></span></div><div class="line"><span class="attr">onsubmit</span>=<span class="string">"alert('Hello ' + testform.fname.value +'!')"</span>&gt;</div><div class="line"></div><div class="line">What is your name?<span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"fname"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre>
+                            </td>
+                          </tr>
+                        </table>
+                      </figure>
+                    </p>
+                    <p>
+                      <strong>select()</strong>
+                      <br>select() 方法用于选取密码域中的文本。
+                      <br>passwordObject.select()
+                      <br>实例：
+                      <br>
+                      <figure class="highlight html">
+                        <table>
+                          <tr>
+                            <td class="gutter">
+                              <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre>
+                            </td>
+                            <td class="code">
+                              <pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">function selText()</div><div class="line">  &#123;</div><div class="line">  document.getElementById('password1').select()</div><div class="line">  &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">id</span>=<span class="string">"password1"</span> <span class="attr">value</span>=<span class="string">"thgrt456"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">onclick</span>=<span class="string">"selText()"</span> <span class="attr">value</span>=<span class="string">"Select text"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre>
+                            </td>
+                          </tr>
+                        </table>
+                      </figure>
+                    </p>
                     <h3 id="BOM操作">
                       <a href="#BOM操作" class="headerlink" title="BOM操作"></a>BOM操作</h3>
                     <h4 id="window-open">

@@ -31,7 +31,7 @@
   <meta property="og:url" content="http://yoursite.com/2017/04/09/jQ-常用API/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
   <meta property="og:description" content="JQ下的常用API，个人笔记，方便查询。">
-  <meta property="og:updated_time" content="2017-05-11T08:57:31.103Z">
+  <meta property="og:updated_time" content="2017-06-01T16:03:05.665Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="jQ初探-常用API">
   <meta name="twitter:description" content="JQ下的常用API，个人笔记，方便查询。">
@@ -310,7 +310,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        6,116
+                        6,438
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -322,7 +322,7 @@
                       <span class="post-meta-item-text">阅读时长</span>
 
                       <span title="阅读时长">
-                        26
+                        28
                       </span>
 
                     </div>
@@ -343,7 +343,7 @@
 
                     <h2 id="选择元素：">
                       <a href="#选择元素：" class="headerlink" title="选择元素："></a>选择元素：</h2>
-                    <p>选择ID： </p>
+                    <p>选择ID：</p>
                     <pre><code>$(&apos;#div1&apos;).css(&apos;background&apos;,&apos;red&apos;);
 </code></pre>
                     <p>选择class：</p>
@@ -484,7 +484,7 @@ $(&apos;div&apos;).has(&apos;.box&apos;).css(&apos;background&apos;,&apos;blue&a
     $(function(){
         $(&apos;span&apos;).siblings().css(&apos;background&apos;,&apos;green&apos;);  //span的所有兄弟节点背景变绿
         $(&apos;span&apos;).siblings(&apos;h2&apos;).css(&apos;background&apos;,&apos;red&apos;); //span的兄弟节点h2背景变红
-    });                                                        
+    });
 &lt;/script&gt;
 &lt;/head&gt;
 &lt;body class=&quot;box&quot;&gt;
@@ -620,12 +620,12 @@ $(function(){
                       <a href="#jQuery方法之DOM操作：" class="headerlink" title="jQuery方法之DOM操作："></a>jQuery方法之DOM操作：</h2>
                     <h3 id="insertBefore">
                       <a href="#insertBefore" class="headerlink" title="insertBefore():"></a>insertBefore():</h3>
-                    <p>把元素添加到指定元素的前面 </p>
+                    <p>把元素添加到指定元素的前面</p>
                     <pre><code>$(&apos;span&apos;).insertBefore(&apos;div&apos;);  //把span放到div的前面
 </code></pre>
                     <h3 id="before">
                       <a href="#before" class="headerlink" title="before():"></a>before():</h3>
-                    <p>元素的前面位置应该是某元素 </p>
+                    <p>元素的前面位置应该是某元素</p>
                     <pre><code>$(&apos;div&apos;).before(&apos;span&apos;);        //在div的前面放入span
 </code></pre>
                     <p>Ps: 这两个方法的行为是一样，但是后续的操作变了。</p>
@@ -636,28 +636,28 @@ $(function(){
 </code></pre>
                     <h3 id="after">
                       <a href="#after" class="headerlink" title="after():"></a>after():</h3>
-                    <p>元素的后面是某元素 </p>
+                    <p>元素的后面是某元素</p>
                     <pre><code>$(&apos;div&apos;).after(&apos;span&apos;);  //在div的后面放入span
 </code></pre>
                     <p>Ps: 这两个方法的行为是一样，但是后续的操作变了。</p>
                     <h3 id="appendTo">
                       <a href="#appendTo" class="headerlink" title="appendTo():"></a>appendTo():</h3>
-                    <p>把元素添加到指定元素的里面的最后面 </p>
+                    <p>把元素添加到指定元素的里面的最后面</p>
                     <pre><code>$(‘span’).appendTo(‘div’);  //把span放到div的里面的最后位置
 </code></pre>
                     <h3 id="append">
                       <a href="#append" class="headerlink" title="append():"></a>append():</h3>
-                    <p>元素的里面最后位置应该是某元素 </p>
+                    <p>元素的里面最后位置应该是某元素</p>
                     <pre><code>$(div).append(‘span’);    //div的里面的最后位置放入span
 </code></pre>
                     <h3 id="prependTo">
                       <a href="#prependTo" class="headerlink" title="prependTo():"></a>prependTo():</h3>
-                    <p>把元素放到指定元素的里面的开始位置 </p>
+                    <p>把元素放到指定元素的里面的开始位置</p>
                     <pre><code>$(‘span’).prependTo(‘div’);//把span放到div的里面的开始位置
 </code></pre>
                     <h3 id="prepend">
                       <a href="#prepend" class="headerlink" title="prepend():"></a>prepend():</h3>
-                    <p>元素的里面的开始位置应该是某元素 </p>
+                    <p>元素的里面的开始位置应该是某元素</p>
                     <pre><code>$(‘div’).prepend(‘span’);   //div的里面的开始位置放入span
 </code></pre>
                     <p>示例演示：</p>
@@ -680,12 +680,12 @@ $(function(){
 </code></pre>
                     <h3 id="remove">
                       <a href="#remove" class="headerlink" title="remove():"></a>remove():</h3>
-                    <p>删除某元素并且删除这个元素的所有操作行为 </p>
+                    <p>删除某元素并且删除这个元素的所有操作行为</p>
                     <pre><code>$(&apos;div&apos;).remove();  //删除div元素
 </code></pre>
                     <h3 id="detach">
                       <a href="#detach" class="headerlink" title="detach():"></a>detach():</h3>
-                    <p>删除某元素但是保留这个元素的所有操作行为 </p>
+                    <p>删除某元素但是保留这个元素的所有操作行为</p>
                     <pre><code>$(&apos;div&apos;).detach();  //删除div元素
 </code></pre>
                     <p>示例：</p>
@@ -715,7 +715,7 @@ $(function(){
         alert(123);
     })
     $(&apos;span&apos;).clone(true).appendTo(&apos;div&apos;);  //把span复制到div里面，不删除原元素
-});                                             //clone(内容为true)的时候可以复制这个元素的操作行为            
+});                                             //clone(内容为true)的时候可以复制这个元素的操作行为
 &lt;/script&gt;
 &lt;/head&gt;
 &lt;body class=&quot;box&quot;&gt;
@@ -880,7 +880,7 @@ $(function(){
         alert(123);
     })
 
-    //不同事件执行不同函数                                            
+    //不同事件执行不同函数
     $(&apos;div&apos;).on({
         &apos;click&apos; : function(){ alert(123); },
         &apos;mouseover&apos; : function(){ alert(456); }
@@ -929,14 +929,14 @@ $(function(){
             $(&apos;ul&apos;).append($li);
         })
 
-        $(&apos;ul&apos;).delegate(&apos;li&apos;,&apos;click&apos;,function(ev){        
-            $(this).css(&apos;background&apos;,&apos;red&apos;);  
+        $(&apos;ul&apos;).delegate(&apos;li&apos;,&apos;click&apos;,function(ev){
+            $(this).css(&apos;background&apos;,&apos;red&apos;);
             $(&apos;ul&apos;).undelegate();
         })
         //1.this在事件委托之中，指向的是委托的对象，这里指向的是li
         //2.如果要找到ul有两种方式：
-                                1)  $(‘ul’);   
-                                2)  ev下有一个对象，ev.delegateTarget 指向的就是ul $(ev.delegateTarget)  
+                                1)  $(‘ul’);
+                                2)  ev下有一个对象，ev.delegateTarget 指向的就是ul $(ev.delegateTarget)
         // $(&apos;li&apos;).click(function(){
         //           $(this).css(&apos;background&apos;,&apos;red&apos;);
         // })
@@ -1167,7 +1167,7 @@ $(function(){
     $(&apos;span&apos;).wrapAll(&apos;&lt;div&gt;&apos;);     //把三个span套在一个div标签里面
     $(&apos;span&apos;).wrapInner(&apos;&lt;div&gt;&apos;);   //给每个span里面的内容套一个div标签
     $(&apos;span&apos;).unwrap(&apos;&lt;div&gt;&apos;);      //删除了span外面的div标签
-});            
+});
 &lt;/script&gt;
 &lt;/head&gt;
 &lt;body class=&quot;box&quot;&gt;
@@ -1186,7 +1186,7 @@ $(function(){
 &lt;script&gt;
     $(function(){
         $(&apos;li&apos;).slice(1,4).css(&apos;background&apos;,&apos;green&apos;);   //截取第1个li到第3个li，让他们的背景变绿
-    });                       
+    });
 &lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
@@ -1201,7 +1201,7 @@ $(function(){
 </code></pre>
                     <h3 id="serialize-：">
                       <a href="#serialize-：" class="headerlink" title="serialize()："></a>serialize()：</h3>
-                    <p>串联化数据 字符串形式 </p>
+                    <p>串联化数据 字符串形式</p>
                     <h3 id="serializeArray-：">
                       <a href="#serializeArray-：" class="headerlink" title="serializeArray()："></a>serializeArray()：</h3>
                     <p>串联化数据 数组形式
@@ -1235,10 +1235,24 @@ $(function(){
                       <br>第一个参数是个json，里面传入属性和属性值
                       <br>第二个参数是时间，默认400毫秒，调节运动快慢
                       <br>第三个参数是运动形式，有两种运动形式（默认swing(慢快慢)，linear(匀速)）
-                      <br>第四个餐宿是回调函数。</p>
+                      <br>第四个餐宿是回调函数。
+                      <br>
+                      <figure class="highlight javascript">
+                        <table>
+                          <tr>
+                            <td class="gutter">
+                              <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre>
+                            </td>
+                            <td class="code">
+                              <pre><div class="line">$(<span class="string">'#div'</span>).animate(&#123;<span class="attr">width</span>:<span class="number">300</span>&#125;,&#123;</div><div class="line">    <span class="attr">duration</span>: <span class="number">1000</span>,</div><div class="line">    <span class="attr">easing</span>: linear,</div><div class="line">    <span class="attr">complete</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        alert(<span class="number">123</span>);</div><div class="line">        &#125;,</div><div class="line">    <span class="attr">step</span>: <span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(a); <span class="comment">//a是定时器的每一次变化，这里是width的变化</span></div><div class="line">        <span class="built_in">console</span>.log(b); <span class="comment">//tween对象，参考时间版运动</span></div><div class="line">        <span class="built_in">console</span>.log(b.pos); <span class="comment">//tween对象的时间比例</span></div><div class="line">    &#125;</div><div class="line">    &#125;)</div></pre>
+                            </td>
+                          </tr>
+                        </table>
+                      </figure>
+                    </p>
                     <h3 id="stop-：">
                       <a href="#stop-：" class="headerlink" title="stop()："></a>stop()：</h3>
-                    <p>停止运动
+                    <p>停止运动，清空队列
                       <br>默认阻止当前运动，不会阻止后面的运动
                       <br>括号里写true，就可以阻止后续所有运动。 元素.stop(true);
                       <br>括号里如果写两个true，会立即停止到当前运动的目标点，并且停止后续运动
@@ -1302,10 +1316,12 @@ $(function(){
 </code></pre>
                     <h3 id="hide">
                       <a href="#hide" class="headerlink" title="hide():"></a>hide():</h3>
-                    <p>元素隐藏 （1000）括号内可以传入一个时间参数 以1秒时间的动画过度隐藏</p>
+                    <p>元素隐藏 （）括号内可以传入一个时间参数
+                      <br>normal:400ms; fast: 200ms; slow:600ms; 还可以传入一个时间</p>
                     <h3 id="show">
                       <a href="#show" class="headerlink" title="show():"></a>show():</h3>
-                    <p>元素显示 （1000）括号内可以传入一个时间参数 以1秒时间的动画过度显示
+                    <p>元素显示 （1000）括号内可以传入一个时间参数
+                      <br>normal:400ms; fast: 200ms; slow:600ms; 还可以传入一个时间
                       <br>示例：</p>
                     <pre><code>&lt;script src=&quot;jquery-1.10.1.min.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
@@ -1428,7 +1444,7 @@ $(function(){
                       <br>示例：</p>
                     <pre><code>$(function(){
     function show(a,b){
-        alert(a+&apos;:&apos;+b)
+        /alert(a+&apos;:&apos;+b)
         alert(this);
     }
     //show();                          //这里的this指向是window
@@ -1449,18 +1465,61 @@ miaov(function(){
 </code></pre>
                     <h3 id="parseJSON">
                       <a href="#parseJSON" class="headerlink" title="$.parseJSON():"></a>$.parseJSON():</h3>
-                    <p>把字符串转变成JSON
-                      <br>这个字符串必须是严格模式下的JSON
-                      <br>示例：</p>
+                    <p>把字符串转变成JSON</p>
+                    <p>-9
+                      <br>/-
+                      <em>9+6
+                        <br>“DSAz
+                        <code>Q13+63 21+-示例：
+                        </code> `*</em>
+                    </p>
                     <pre><code>var str = &apos;{&quot;name&quot;:&quot;miaov&quot;}&apos;    //必须写成这样的严格模式。
 alert($.parseJSON(str).name);  //这样就可以把字符串转成可以使用的JSON
 </code></pre>
+                    <h3 id="parseHTML">
+                      <a href="#parseHTML" class="headerlink" title="$.parseHTML():"></a>$.parseHTML():</h3>
+                    <p>转化HTML的形式的字符串，转成DOM节点，放到一个数组中。
+                      <br>
+                      <figure class="highlight javascript">
+                        <table>
+                          <tr>
+                            <td class="gutter">
+                              <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre>
+                            </td>
+                            <td class="code">
+                              <pre><div class="line"><span class="keyword">var</span> a = <span class="string">'&lt;div&gt;div&lt;/div&gt;&lt;span&gt;span&lt;/span&gt;'</span></div><div class="line"><span class="keyword">var</span> arr = $.parseHTML(a);</div><div class="line"><span class="built_in">console</span>.log(arr);   <span class="comment">//[div, span]</span></div><div class="line">arr[<span class="number">0</span>].innerHTML = <span class="string">'hello'</span>;  <span class="comment">//可以通过这种方式更改div里面的内容</span></div><div class="line">$(<span class="string">'body'</span>).append(arr[<span class="number">0</span>]);  <span class="comment">//body中会被添加进一个DOM节点，&lt;div&gt;hello&lt;/div&gt;</span></div></pre>
+                            </td>
+                          </tr>
+                        </table>
+                      </figure>
+                    </p>
+                    <h3 id="parseXML">
+                      <a href="#parseXML" class="headerlink" title="$.parseXML():"></a>$.parseXML():</h3>
+                    <p>把XML形式的字符串，转成真正的XML节点
+                      <br>
+                      <figure class="highlight javascript">
+                        <table>
+                          <tr>
+                            <td class="gutter">
+                              <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre>
+                            </td>
+                            <td class="code">
+                              <pre><div class="line"><span class="keyword">var</span> a = <span class="string">'&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;hello&gt;nihao&lt;/hello&gt;'</span>;</div><div class="line"><span class="keyword">var</span> xmlDoc = $.parseXML(a);</div><div class="line"><span class="built_in">console</span>.log(xmlDoc);  <span class="comment">//Document(是XML下的document)</span></div><div class="line"><span class="built_in">console</span>.log($(xmlDoc).find(<span class="string">'hello'</span>).html());</div></pre>
+                            </td>
+                          </tr>
+                        </table>
+                      </figure>
+                    </p>
+                    <h3 id="isXMLDoc">
+                      <a href="#isXMLDoc" class="headerlink" title="$.isXMLDoc():"></a>$.isXMLDoc():</h3>
+                    <p>判断是不是XML</p>
                     <h3 id="makeArray">
                       <a href="#makeArray" class="headerlink" title="$.makeArray():"></a>$.makeArray():</h3>
                     <p>把类数组变成真正的数组
-                      <br>类数组：一种有长度和下标的元素叫做类数组
-                      <br>示例：</p>
-                    <pre><code>var aDiv = document.getElementsByTagName(&apos;div&apos;); //这种有长度和下标的元素叫做类数组
+                      <br>示例：++-6类数组：一种有长度和下标的元素叫做类数组 ·1-+</p>
+                    <pre><code>。
+
+var aDiv = document.getElementsByTagName(&apos;div&apos;); //这种有长度和下标的元素叫做类数组
 //aDiv.push();              //错误的写法，必须通过下面的方法转成数组
 $.makeArray(aDiv).push();  //通过此方法可以变成真正的数组，不会报错
 </code></pre>
@@ -1468,37 +1527,58 @@ $.makeArray(aDiv).push();  //通过此方法可以变成真正的数组，不会
                       <a href="#JQ的Ajax使用" class="headerlink" title="JQ的Ajax使用"></a>JQ的Ajax使用</h2>
                     <h3 id="ajax">
                       <a href="#ajax" class="headerlink" title="$.ajax():"></a>$.ajax():</h3>
-                    <p>JQ下的ajax使用方法</p>
-                    <pre><code>$.ajax({
-    url : &apos;xxx.php&apos;,                 //地址
-    data : &apos;name=hello&amp;age=20&apos;,      //数据
-    type : &apos;POST&apos;,                    //数据传输方式
-    success : function(data){        //成功之后执行的参数
-        alert(1);
-    },
-    error : function(){                 //失败之后执行的参数
-        alert(2);
-    }
-    contentType                     //请求头信息，post请求的时候需要写一下
-    dataType                        //返回的数据类型
-    cache                            //是否缓存
-    Timeout                            //是否延迟
-})
-</code></pre>
+                    <p>JQ下的ajax使用方法
+                      <br>
+                      <figure class="highlight javascript">
+                        <table>
+                          <tr>
+                            <td class="gutter">
+                              <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre>
+                            </td>
+                            <td class="code">
+                              <pre><div class="line">$.ajax(&#123;</div><div class="line">	<span class="attr">url</span> : <span class="string">'xxx.php'</span>,    		     <span class="comment">//地址</span></div><div class="line">	data : &#123;<span class="attr">user</span>: $(<span class="keyword">this</span>).val()&#125;,    <span class="comment">//数据，get方式可以将数据写在url里，也可以写在这里</span></div><div class="line">	type : <span class="string">'POST'</span>,       	         <span class="comment">//数据传输方式,默认get方式</span></div><div class="line">	success : <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;        <span class="comment">//成功之后执行的参数</span></div><div class="line">		<span class="built_in">console</span>.log(data);</div><div class="line">	&#125;,</div><div class="line">	<span class="attr">error</span> : <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;		     <span class="comment">//因为网络原因或者地址错误请求失败之后执行的函数</span></div><div class="line">		<span class="built_in">console</span>.log(err);</div><div class="line">	&#125;</div><div class="line">    contentType                     <span class="comment">//请求头信息，post请求的时候需要写一下</span></div><div class="line">    dataType: <span class="string">'json'</span>，              <span class="comment">//人为规定返回的数据类型，</span></div><div class="line">                                    <span class="comment">//设定之后程序会自动帮我们完成数据类型转换，不再需要parseJSON转换</span></div><div class="line">    <span class="keyword">async</span>: <span class="literal">true</span>                     <span class="comment">//指定是否异步，false为同步</span></div><div class="line">    cache				            <span class="comment">//是否缓存</span></div><div class="line">    Timeout			                <span class="comment">//是否延迟</span></div><div class="line">&#125;)</div></pre>
+                            </td>
+                          </tr>
+                        </table>
+                      </figure>
+                    </p>
                     <h3 id="get-1">
                       <a href="#get-1" class="headerlink" title="$.get():"></a>$.get():</h3>
                     <p>JQ下的ajax的细分方法，get方式，可传两个参数
                       <br>第一个参数是url地址，如果需要传值可在url后面添加？+你要传的值
                       <br>第二个参数是你成功后的回调函数。
-                      <br>示例：</p>
-                    <pre><code>$.get(‘url?+你要的传的值’function(){});   //两种传数据的方式
-$.get(‘url’,{name:’hello’},function(){});
-</code></pre>
+                      <br>示例：
+                      <br>
+                      <figure class="highlight javascript">
+                        <table>
+                          <tr>
+                            <td class="gutter">
+                              <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre>
+                            </td>
+                            <td class="code">
+                              <pre><div class="line">$.get(‘url?+你要的传的值’,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,<span class="string">'json'</span>);   <span class="comment">//两种传数据的方式</span></div><div class="line">$.get(‘url’,&#123;<span class="attr">name</span>:’hello’&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;&#125;,<span class="string">'json'</span>).error(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;&#125;);</div><div class="line"><span class="comment">//(地址, 数据, 成功的回调函数, 指定返回的数据类型).错误的回调函数</span></div></pre>
+                            </td>
+                          </tr>
+                        </table>
+                      </figure>
+                    </p>
                     <h3 id="post">
                       <a href="#post" class="headerlink" title="$.post():"></a>$.post():</h3>
-                    <p>JQ下的ajax的细分方法，post方式</p>
-                    <pre><code>示例：$.post(‘url’,function(){});
-</code></pre>
+                    <p>JQ下的ajax的细分方法，post方式
+                      <br>
+                      <figure class="highlight javascript">
+                        <table>
+                          <tr>
+                            <td class="gutter">
+                              <pre><div class="line">1</div></pre>
+                            </td>
+                            <td class="code">
+                              <pre><div class="line">$.post(‘url’,&#123;&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;&#125;,<span class="string">'json'</span>).error(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;&#125;);</div></pre>
+                            </td>
+                          </tr>
+                        </table>
+                      </figure>
+                    </p>
                   </the>
 
                 </div>
@@ -1623,21 +1703,21 @@ $.get(‘url’,{name:’hello’},function(){});
 
                 <div class="site-state-item site-state-posts">
                   <a href="/archives">
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
 
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2409,8 +2489,29 @@ $.get(‘url’,{name:’hello’},function(){});
                           </a>
                         </li>
                         <li class="nav-item nav-level-3">
-                          <a class="nav-link" href="#makeArray">
+                          <a class="nav-link" href="#parseHTML">
                             <span class="nav-number">7.7.</span>
+                            <span class="nav-text">
+                              $.parseHTML():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#parseXML">
+                            <span class="nav-number">7.8.</span>
+                            <span class="nav-text">
+                              $.parseXML():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#isXMLDoc">
+                            <span class="nav-number">7.9.</span>
+                            <span class="nav-text">
+                              $.isXMLDoc():</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#makeArray">
+                            <span class="nav-number">7.10.</span>
                             <span class="nav-text">
                               $.makeArray():</span>
                           </a>

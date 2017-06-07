@@ -31,7 +31,7 @@
   <meta property="og:url" content="http://yoursite.com/2017/05/09/webpack深入实践/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
   <meta property="og:description" content="webpack简介    什么是Webpack  WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。    为什要使用WebPack  今的很多网页其实可以看做是功能丰富的应用，它们拥有着复杂的JavaScript代码和一大堆依赖">
-  <meta property="og:updated_time" content="2017-05-16T15:46:05.257Z">
+  <meta property="og:updated_time" content="2017-06-03T12:15:35.569Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="webpack深入实践">
   <meta name="twitter:description" content="webpack简介    什么是Webpack  WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。    为什要使用WebPack  今的很多网页其实可以看做是功能丰富的应用，它们拥有着复杂的JavaScript代码和一大堆依赖">
@@ -310,7 +310,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        2,809
+                        3,315
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -322,7 +322,7 @@
                       <span class="post-meta-item-text">阅读时长</span>
 
                       <span title="阅读时长">
-                        11
+                        14
                       </span>
 
                     </div>
@@ -358,9 +358,36 @@
                     <br>在安装目录下新建一个文件夹</p>
                   <pre><code>mkdir webpack-test  //后面是文件夹名称
 </code></pre>
-                  <p>进入新建的这个文件夹，初始化npm</p>
-                  <pre><code>npm init   //初始化npm
-</code></pre>
+                  <p>进入新建的这个文件夹，初始化npm
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line">npm init   <span class="comment">//初始化npm</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+                  <p>或者直接生成package.json文件
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line">npm init -y</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
                   <p>执行安装webpack</p>
                   <pre><code>npm install webpack --save-dev      //安装webpack
 </code></pre>
@@ -395,7 +422,7 @@
                           <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre>
                         </td>
                         <td class="code">
-                          <pre><div class="line">webpack hello.js hello.bundle.js --<span class="built_in">module</span>-bind <span class="string">"css=style-loader!css-loader"</span> --watch</div><div class="line"></div><div class="line"><span class="comment">//hello.js是要打包的文件</span></div><div class="line"><span class="comment">//hello.bundle.js是打包之后的文件</span></div><div class="line"><span class="comment">//--module-bind 指定css的loader</span></div><div class="line"></div><div class="line">webpack hello.js hello.bundle.js --progress  </div><div class="line"><span class="comment">//通过--progress来显示打包过程</span></div><div class="line"></div><div class="line">webpack hello.js hello.bundle.js --display-modules</div><div class="line"><span class="comment">//通过--display-modules来显示打包的模块</span></div><div class="line"></div><div class="line">webpack hello.js hello.bundle.js --display-reasons</div><div class="line"><span class="comment">//通过--display-reasons来告诉我们为什么要打包这个模块</span></div><div class="line"></div><div class="line">--contentBase ./build/</div><div class="line"><span class="comment">//指定文件夹做为新的根目录</span></div></pre>
+                          <pre><div class="line">webpack hello.js hello.bundle.js --<span class="built_in">module</span>-bind <span class="string">"css=style-loader!css-loader"</span> --watch</div><div class="line"></div><div class="line"><span class="comment">//hello.js是要打包的文件</span></div><div class="line"><span class="comment">//hello.bundle.js是打包之后的文件</span></div><div class="line"><span class="comment">//--module-bind 指定css的loader</span></div><div class="line"></div><div class="line">webpack hello.js hello.bundle.js --progress</div><div class="line"><span class="comment">//通过--progress来显示打包过程</span></div><div class="line"></div><div class="line">webpack hello.js hello.bundle.js --display-modules</div><div class="line"><span class="comment">//通过--display-modules来显示打包的模块</span></div><div class="line"></div><div class="line">webpack hello.js hello.bundle.js --display-reasons</div><div class="line"><span class="comment">//通过--display-reasons来告诉我们为什么要打包这个模块</span></div><div class="line"></div><div class="line">--contentBase ./build/</div><div class="line"><span class="comment">//指定文件夹做为新的根目录</span></div></pre>
                         </td>
                       </tr>
                     </table>
@@ -430,7 +457,7 @@
                             <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre>
                           </td>
                           <td class="code">
-                            <pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">entry</span>: &#123;</div><div class="line">        <span class="attr">main</span>: <span class="string">'./src/script/main.js'</span>,</div><div class="line">        <span class="attr">a</span>: <span class="string">'./src/script/a.js'</span></div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="attr">output</span>: &#123;</div><div class="line">        <span class="attr">path</span>: __dirname + <span class="string">'/dist/js'</span>,   <span class="comment">//打包以后的文件夹</span></div><div class="line">        <span class="comment">//__dirname是nodejs里的一个全局变量,他指向我们的根目录</span></div><div class="line">        filename: <span class="string">'[name]-[chunkhash].js'</span>   <span class="comment">//name对应entry里的key值，chunkhash表示不同的hash值，当文件内容修改以后，chunkhash值就会改变</span></div><div class="line">    &#125;   </div><div class="line">&#125;</div></pre>
+                            <pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">entry</span>: &#123;</div><div class="line">        <span class="attr">main</span>: <span class="string">'./src/script/main.js'</span>,</div><div class="line">        <span class="attr">a</span>: <span class="string">'./src/script/a.js'</span></div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="attr">output</span>: &#123;</div><div class="line">        <span class="attr">path</span>: __dirname + <span class="string">'/dist/js'</span>,   <span class="comment">//打包以后的文件夹</span></div><div class="line">        <span class="comment">//__dirname是nodejs里的一个全局变量,他指向我们的根目录</span></div><div class="line">        filename: <span class="string">'[name]-[chunkhash].js'</span>   <span class="comment">//name对应entry里的key值，chunkhash表示不同的hash值，当文件内容修改以后，chunkhash值就会改变</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre>
                           </td>
                         </tr>
                       </table>
@@ -629,6 +656,129 @@
                       </table>
                     </figure>
                   </p>
+                  <h2 id="eslint代码规范">
+                    <a href="#eslint代码规范" class="headerlink" title="eslint代码规范"></a>eslint代码规范</h2>
+                  <p>eslint可以配置代码规范，并且会对不符合规范的代码报错以及修正。
+                    <br>首先安装eslint
+                    <br>
+                    <figure class="highlight plain">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line">npm install eslint --save-dev</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+                  <p>然后在根目录新建一个 .eslintrc.js 文件。
+                    <br>文件配置如下，更多配置参考eslint官网。
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">env</span>: &#123;</div><div class="line">    <span class="attr">browser</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">commonjs</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">es6</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">node</span>: <span class="literal">true</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">extends</span>: <span class="string">'eslint:recommended'</span>,</div><div class="line">  <span class="attr">parserOptions</span>: &#123;</div><div class="line">    <span class="attr">sourceType</span>: <span class="string">'module'</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">rules</span>: &#123;</div><div class="line">    <span class="string">'comma-dangle'</span>: [<span class="string">'error'</span>, <span class="string">'always-multiline'</span>],</div><div class="line">    <span class="attr">indent</span>: [<span class="string">'error'</span>, <span class="number">2</span>],</div><div class="line">    <span class="string">'linebreak-style'</span>: [<span class="string">'error'</span>, <span class="string">'unix'</span>],</div><div class="line">    <span class="attr">quotes</span>: [<span class="string">'error'</span>, <span class="string">'single'</span>],</div><div class="line">    <span class="attr">semi</span>: [<span class="string">'error'</span>, <span class="string">'always'</span>],</div><div class="line">    <span class="string">'no-unused-vars'</span>: [<span class="string">'warn'</span>],</div><div class="line">    <span class="string">'no-console'</span>: <span class="number">0</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;;</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+                  <p>我们可以在package.json文件里的scripts配置下eslint，方便命令行输入启动eslint
+                    <br>
+                    <figure class="highlight">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line">package.json文件</div><div class="line"></div><div class="line">"scripts": &#123;</div><div class="line">    "lintjs": "eslint app/webpack.*.js --cache"    //这里的app是名为app的文件夹</div><div class="line">&#125;</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+                  <p>通过这样的配置，可以在命令行直接输入
+                    <code>npm run lintjs</code>来启动代码检查，然后你会看到一片飘红的报错。
+                    <br>太多错误不想手动修改，
+                    <br>可以在命令后面添加 – –fix 来自动修正代码。
+                    <code>npm run lintjs -- --fix</code> ，实现规范的代码。</p>
+                  <p>每次打包代码之前都需要先执行
+                    <code>npm run lintjs</code> 命令，真的很麻烦。
+                    <br>通过配置 eslint-loader 来避免这种麻烦，webpack命令打包代码的时候，可以同时检查代码。
+                    <br>安装loader
+                    <br>
+                    <figure class="highlight plain">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line">npm install eslint-loader --save-dev</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+                  <p>webpack.config.js文件配置如下
+                    <br>
+                    <figure class="highlight">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line">module: &#123;</div><div class="line">    rules: [</div><div class="line">      &#123;</div><div class="line">        test: /\.js$/,</div><div class="line">        enforce: 'pre',</div><div class="line">        loader: 'eslint-loader',</div><div class="line">        options: &#123;</div><div class="line">          emitWarning: true,</div><div class="line">        &#125;,</div><div class="line">      &#125;,</div><div class="line">    ],</div><div class="line">  &#125;,</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+                  <p>还可以在devServer里配置overlay，将代码错误抛到浏览器页面上，更加方便我们调试
+                    <br>
+                    <figure class="highlight">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line">devServer: &#123;</div><div class="line">    contentBase: path.join(__dirname,'build'),</div><div class="line">    historyApiFallback: true,</div><div class="line">    compress: true,</div><div class="line">    port: 80,</div><div class="line">    inline: true,</div><div class="line"></div><div class="line">    overlay: &#123;           //eslint下的方法，可以向浏览器抛出命令行上的错误</div><div class="line">      errors: true,      //抛出错误</div><div class="line">      warnings: true,    //抛出警告</div><div class="line">    &#125;</div><div class="line">  &#125;,</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+                  <h2 id="配置文件">
+                    <a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2>
+                  <p>
+                    <a href="https://doc.webpack-china.org/configuration/dev-server/" target="_blank"
+                                                                                                    rel="external">webpack中文文档</a>
+                    <br>
+                    <strong>package.json</strong>
+                    <br>
+                    <figure class="highlight">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line">&#123;</div><div class="line">  "name": "test1",</div><div class="line">  "version": "1.0.0",</div><div class="line">  "description": "",</div><div class="line">  "main": "index.js",</div><div class="line">  "scripts": &#123;</div><div class="line">    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1",</div><div class="line">    "start": "webpack-dev-server --env development",    //设置环境变量为开发环境</div><div class="line">    "build": "webpack --env prodution",</div><div class="line">    "lintjs": "eslint app/webpack.*.js --cache"     //对代码规范限制</div><div class="line">  &#125;,</div><div class="line">  "keywords": [],</div><div class="line">  "author": "",</div><div class="line">  "license": "ISC",</div><div class="line">  "devDependencies": &#123;</div><div class="line">    "html-webpack-plugin": "^2.28.0",</div><div class="line">    "webpack": "^2.6.1",</div><div class="line">    "webpack-dev-server": "^2.4.5"</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
 
                 </div>
 
@@ -752,21 +902,21 @@
 
                 <div class="site-state-item site-state-posts">
                   <a href="/archives">
-                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
 
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -914,6 +1064,20 @@
                           </ol>
                         </li>
                       </ol>
+                    </li>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#eslint代码规范">
+                        <span class="nav-number">5.</span>
+                        <span class="nav-text">
+                          eslint代码规范</span>
+                      </a>
+                    </li>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#配置文件">
+                        <span class="nav-number">6.</span>
+                        <span class="nav-text">
+                          配置文件</span>
+                      </a>
                     </li>
                   </ol>
                 </div>

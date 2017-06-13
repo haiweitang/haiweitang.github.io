@@ -31,7 +31,7 @@
   <meta property="og:url" content="http://yoursite.com/2017/05/09/webpack深入实践/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
   <meta property="og:description" content="webpack简介    什么是Webpack  WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。    为什要使用WebPack  今的很多网页其实可以看做是功能丰富的应用，它们拥有着复杂的JavaScript代码和一大堆依赖">
-  <meta property="og:updated_time" content="2017-06-03T12:15:35.569Z">
+  <meta property="og:updated_time" content="2017-06-12T10:02:12.750Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="webpack深入实践">
   <meta name="twitter:description" content="webpack简介    什么是Webpack  WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。    为什要使用WebPack  今的很多网页其实可以看做是功能丰富的应用，它们拥有着复杂的JavaScript代码和一大堆依赖">
@@ -310,7 +310,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        3,315
+                        3,438
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -620,10 +620,9 @@
                   </p>
                   <h3 id="处理css文件">
                     <a href="#处理css文件" class="headerlink" title="处理css文件"></a>处理css文件</h3>
-                  <h4 id="postcss-loader">
-                    <a href="#postcss-loader" class="headerlink" title="postcss-loader"></a>postcss-loader</h4>
-                  <p>postcss-loader,可以帮助我们解决一些浏览器目前无法很好兼容的语法，比如fiex弹性盒模型加各浏览器前缀。
-                    <br>安装postcss-loader
+                  <h4 id="style-loader-css-loader">
+                    <a href="#style-loader-css-loader" class="headerlink" title="style-loader/css-loader"></a>style-loader/css-loader</h4>
+                  <p>安装
                     <br>
                     <figure class="highlight plain">
                       <table>
@@ -632,30 +631,43 @@
                             <pre><div class="line">1</div></pre>
                           </td>
                           <td class="code">
-                            <pre><div class="line">npm install postcss-loader --save-dev</div></pre>
+                            <pre><div class="line">npm install css-loader style-loader --save-dev</div></pre>
                           </td>
                         </tr>
                       </table>
                     </figure>
                   </p>
-                  <p>
-                    <strong>autoprefixer插件</strong>
-                    <br>postcss下的插件，可以加各种浏览器前缀
-                    <br>安装autoprefixer
+                  <p>默认css是全局的，所以同名的灰造成命名冲突。理解webpack中的css作用域与CSS Modules，设置modules:true，可以防止这种冲突。
+                    <br>如果仍然需要全局定义，那么只能 :global(类名){….}
+                    <br>配置webpack.config.js
                     <br>
-                    <figure class="highlight plain">
+                    <figure class="highlight">
                       <table>
                         <tr>
                           <td class="gutter">
-                            <pre><div class="line">1</div></pre>
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre>
                           </td>
                           <td class="code">
-                            <pre><div class="line">npm install autoprefixer --save-dev</div></pre>
+                            <pre><div class="line">module: &#123;</div><div class="line">    rules: [</div><div class="line">        &#123;</div><div class="line">            test: /\.css$/,</div><div class="line">            exclude: /node_modules/,</div><div class="line">            use: [</div><div class="line">              'style-loader',</div><div class="line">              &#123;</div><div class="line">                loader: 'css-loader',</div><div class="line">                options: &#123;</div><div class="line">                  modules: true,    //默认css是全局的，所以同名的会造成命名冲突</div><div class="line">                                    //设置modules:true，可以防止这种冲突</div><div class="line">                &#125;,</div><div class="line">              &#125;,</div><div class="line">            ],</div><div class="line">          &#125;,</div><div class="line"></div><div class="line">    ],</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">#### postcss-loader</div><div class="line">postcss-loader,可以帮助我们解决一些浏览器目前无法很好兼容的语法，比如fiex弹性盒模型加各浏览器前缀。</div><div class="line">安装postcss-loader</div></pre>
                           </td>
                         </tr>
                       </table>
                     </figure>
                   </p>
+                  <pre><code>npm install postcss-loader --save-dev
+</code></pre>
+                  <figure class="highlight plain">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line"></div><div class="line">**autoprefixer插件**</div><div class="line">postcss下的插件，可以加各种浏览器前缀</div><div class="line">安装autoprefixer</div><div class="line">```node</div><div class="line">npm install autoprefixer --save-dev</div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
                   <h2 id="eslint代码规范">
                     <a href="#eslint代码规范" class="headerlink" title="eslint代码规范"></a>eslint代码规范</h2>
                   <p>eslint可以配置代码规范，并且会对不符合规范的代码报错以及修正。
@@ -818,7 +830,8 @@
 
                   <div class="post-tags">
 
-                    <a href="/tags/工具/" rel="tag"># 工具</a>
+                    <a href="/tags/工具/" rel="tag">
+                      <i class="fa fa-tag"></i> 工具</a>
 
                   </div>
 
@@ -902,7 +915,7 @@
 
                 <div class="site-state-item site-state-posts">
                   <a href="/archives">
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -916,7 +929,7 @@
 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1055,10 +1068,10 @@
                           </a>
                           <ol class="nav-child">
                             <li class="nav-item nav-level-4">
-                              <a class="nav-link" href="#postcss-loader">
+                              <a class="nav-link" href="#style-loader-css-loader">
                                 <span class="nav-number">4.2.1.</span>
                                 <span class="nav-text">
-                                  postcss-loader</span>
+                                  style-loader/css-loader</span>
                               </a>
                             </li>
                           </ol>
@@ -1095,6 +1108,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         <div class="copyright">
 
           &copy;
@@ -1116,6 +1130,17 @@
             NexT.Mist
           </a>
         </div>
+        <div class="powered-by">
+          <i class="fa fa-user-md"></i>
+          <span id="busuanzi_container_site_uv">
+            本站访客数:
+            <span id="busuanzi_value_site_uv"></span>
+          </span>
+        </div>
+        <span id="busuanzi_container_site_pv">
+          本站总访问量
+          <span id="busuanzi_value_site_pv"></span>次
+        </span>
 
       </div>
     </footer>
@@ -1590,6 +1615,8 @@
 
   </script>
 
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
 </body>
 
 </html>

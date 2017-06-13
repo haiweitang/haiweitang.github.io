@@ -24,17 +24,17 @@
   <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1"
   />
 
-  <meta name="description" content="媒体查询                         1                       @media all and (min-width:800px) and (orientation:landscape)&amp;#123;......&amp;#125;                 all：代表全部，不写表示默认all   在逻辑查询中，我们可以使用not(非)， and(与)，">
+  <meta name="description" content="媒体类型    all 所有媒体      braille 盲文触觉设备      embossed 盲文打印机      print 手持设备      projection 打印预览      screen 彩屏设备      speech ‘听觉’类似的媒体类型      tty 不适用像素的设备      tv 电视    媒体查询    媒体特性         width 文档宽">
   <meta name="keywords" content="响应式">
   <meta property="og:type" content="article">
   <meta property="og:title" content="响应式开发">
   <meta property="og:url" content="http://yoursite.com/2017/06/04/响应式开发/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
-  <meta property="og:description" content="媒体查询                         1                       @media all and (min-width:800px) and (orientation:landscape)&amp;#123;......&amp;#125;                 all：代表全部，不写表示默认all   在逻辑查询中，我们可以使用not(非)， and(与)，">
-  <meta property="og:updated_time" content="2017-06-05T09:31:36.434Z">
+  <meta property="og:description" content="媒体类型    all 所有媒体      braille 盲文触觉设备      embossed 盲文打印机      print 手持设备      projection 打印预览      screen 彩屏设备      speech ‘听觉’类似的媒体类型      tty 不适用像素的设备      tv 电视    媒体查询    媒体特性         width 文档宽">
+  <meta property="og:updated_time" content="2017-06-11T16:48:40.053Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="响应式开发">
-  <meta name="twitter:description" content="媒体查询                         1                       @media all and (min-width:800px) and (orientation:landscape)&amp;#123;......&amp;#125;                 all：代表全部，不写表示默认all   在逻辑查询中，我们可以使用not(非)， and(与)，">
+  <meta name="twitter:description" content="媒体类型    all 所有媒体      braille 盲文触觉设备      embossed 盲文打印机      print 手持设备      projection 打印预览      screen 彩屏设备      speech ‘听觉’类似的媒体类型      tty 不适用像素的设备      tv 电视    媒体查询    媒体特性         width 文档宽">
 
   <script type="text/javascript" id="hexo.configurations">
     var NexT = window.NexT || {};
@@ -310,7 +310,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        991
+                        1,798
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -322,7 +322,7 @@
                       <span class="post-meta-item-text">阅读时长</span>
 
                       <span title="阅读时长">
-                        4
+                        8
                       </span>
 
                     </div>
@@ -332,8 +332,36 @@
 
                 <div class="post-body" itemprop="articleBody">
 
+                  <h2 id="媒体类型">
+                    <a href="#媒体类型" class="headerlink" title="媒体类型"></a>媒体类型</h2>
+                  <p>
+                    <strong>all</strong> 所有媒体
+                    <br>
+                    <strong>braille</strong> 盲文触觉设备
+                    <br>
+                    <strong>embossed</strong> 盲文打印机
+                    <br>
+                    <strong>print</strong> 手持设备
+                    <br>
+                    <strong>projection</strong> 打印预览
+                    <br>
+                    <strong>screen</strong> 彩屏设备
+                    <br>
+                    <strong>speech</strong> ‘听觉’类似的媒体类型
+                    <br>
+                    <strong>tty</strong> 不适用像素的设备
+                    <br>
+                    <strong>tv</strong> 电视</p>
                   <h2 id="媒体查询">
                     <a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2>
+                  <h3 id="媒体特性">
+                    <a href="#媒体特性" class="headerlink" title="媒体特性"></a>媒体特性</h3>
+                  <ul>
+                    <li>
+                      <strong>width</strong> 文档宽度</li>
+                    <li>
+                      <strong>orientation</strong> 横竖屏(portrait/landscape)</li>
+                  </ul>
                   <figure class="highlight css">
                     <table>
                       <tr>
@@ -346,8 +374,7 @@
                       </tr>
                     </table>
                   </figure>
-                  <p>all：代表全部，不写表示默认all
-                    <br>在逻辑查询中，我们可以使用not(非)， and(与)，or(或)， noly(仅仅，只有)这三种逻辑查询
+                  <p>在逻辑查询中，我们可以使用not(非)， and(与)，or(或)， noly(仅仅，只有)这三种逻辑查询
                     <br>
                     <strong>not</strong>
                     <br>
@@ -358,7 +385,7 @@
                             <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre>
                           </td>
                           <td class="code">
-                            <pre><div class="line">@<span class="keyword">media</span> not all and (monochrome)&#123;...&#125; </div><div class="line">&lt;!<span class="selector-tag">--</span> 等价于 <span class="selector-tag">--</span>&gt;</div><div class="line">@<span class="keyword">media</span> not (all and (monochrome))&#123;...&#125; </div><div class="line"></div><div class="line">@<span class="keyword">media</span> not screen and (color), print and (color)&#123;....&#125;</div><div class="line">&lt;!<span class="selector-tag">--</span> 等价于 <span class="selector-tag">--</span>&gt;</div><div class="line">@<span class="keyword">media</span> not screen and (color) or print and (color)&#123;....&#125;</div><div class="line">&lt;!<span class="selector-tag">--</span> 等价于 <span class="selector-tag">--</span>&gt;</div><div class="line">@<span class="keyword">media</span> (not ( screen and (color) ) ) , print and (color)&#123;....&#125;</div><div class="line">&lt;!<span class="selector-tag">--</span> 逗号代表<span class="selector-tag">or</span>(或)的意思，而<span class="selector-tag">not</span>有效的范围只是到逗号。 <span class="selector-tag">--</span>&gt;</div></pre>
+                            <pre><div class="line">@<span class="keyword">media</span> not all and (monochrome)&#123;...&#125;</div><div class="line">&lt;!<span class="selector-tag">--</span> 等价于 <span class="selector-tag">--</span>&gt;</div><div class="line">@<span class="keyword">media</span> not (all and (monochrome))&#123;...&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> not screen and (color), print and (color)&#123;....&#125;</div><div class="line">&lt;!<span class="selector-tag">--</span> 等价于 <span class="selector-tag">--</span>&gt;</div><div class="line">@<span class="keyword">media</span> not screen and (color) or print and (color)&#123;....&#125;</div><div class="line">&lt;!<span class="selector-tag">--</span> 等价于 <span class="selector-tag">--</span>&gt;</div><div class="line">@<span class="keyword">media</span> (not ( screen and (color) ) ) , print and (color)&#123;....&#125;</div><div class="line">&lt;!<span class="selector-tag">--</span> 逗号代表<span class="selector-tag">or</span>(或)的意思，而<span class="selector-tag">not</span>有效的范围只是到逗号。 <span class="selector-tag">--</span>&gt;</div></pre>
                           </td>
                         </tr>
                       </table>
@@ -526,6 +553,132 @@
                       </tr>
                     </table>
                   </figure>
+                  <h3 id="bootstrap响应式">
+                    <a href="#bootstrap响应式" class="headerlink" title="bootstrap响应式"></a>bootstrap响应式</h3>
+                  <p>首先在头部要引入bootstart.css
+                    <br>
+                    <figure class="highlight html">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"bs/css/bootstrap.min.css"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 这两个js文件是让IE8也能去支持HTML5标签以及媒体查询 --&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 这两个js文件只能在服务器或本地服务器环境下去运行，不能直接本地运行 --&gt;</span></div><div class="line">    <span class="comment">&lt;!--[if lt IE 9]&gt;</span></div><div class="line">    &lt;script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"&gt;&lt;/script&gt;</div><div class="line">    &lt;script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"&gt;&lt;/script&gt;</div><div class="line">    &lt;![endif]--&gt;</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+                  <ol>
+                    <li>
+                      <strong>布局容器</strong>
+                      <ul>
+                        <li>container 固定宽度</li>
+                        <li>container-fluid （100%宽度）</li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>row</strong>
+                      <ul>
+                        <li>“行（row）”必须包含在.container（固定宽度）或 .container-fluid（100%宽度）中</li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>column</strong>
+                      <ul>
+                        <li>只有”列（column）”可以作为行（row）的直接子元素</li>
+                      </ul>
+                    </li>
+                    <li>
+                      <strong>栅格参数</strong>
+                      <ul>
+                        <li>.col-xs- : 超小屏幕手机 (&lt;768px)</li>
+                        <li>.col-sm- : 小屏幕 平板 (&gt;=768px)</li>
+                        <li>.col-md- : 中等屏幕 左面显示器(&gt;=992px)</li>
+                        <li>.col-lg- : 大屏幕 大桌面显示器(&gt;=1200px)</li>
+                      </ul>
+                    </li>
+                  </ol>
+                  <figure class="highlight html">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,user-scalable=no"</span>/&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"bs/css/bootstrap.min.css"</span>/&gt;</span></div><div class="line"></div><div class="line">		<span class="comment">&lt;!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --&gt;</span></div><div class="line">    	<span class="comment">&lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&gt;</span></div><div class="line">		<span class="comment">&lt;!--[if lt IE 9]&gt;</span></div><div class="line">     		&lt;script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"&gt;&lt;/script&gt;</div><div class="line">    		&lt;script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"&gt;&lt;/script&gt;</div><div class="line">  		&lt;![endif]--&gt;</div><div class="line">		<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">			<span class="selector-tag">body</span>&#123;</div><div class="line">				<span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="selector-tag">div</span>&#123;</div><div class="line">				<span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">				<span class="attribute">background-color</span>: <span class="number">#f00</span>;</div><div class="line">				<span class="attribute">font-size</span>: <span class="number">50px</span>;</div><div class="line">				<span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="selector-class">.row</span> <span class="selector-tag">div</span>&#123;</div><div class="line">				<span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">				<span class="attribute">background-color</span>: yellow;</div><div class="line">				<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</div><div class="line">			&#125;</div><div class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--</span></div><div class="line">			lg	大屏幕 大桌面显示器 (≥1200px)</div><div class="line">			md	中等屏幕 桌面显示器 (≥992px)</div><div class="line">			sm	小屏幕 平板 (≥768px)</div><div class="line">			xs	超小屏幕 手机 (&lt;768px)</div><div class="line">		--&gt;</div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-1 col-md-2 col-sm-4 col-xs-12"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-1 col-md-2 col-sm-4 col-xs-12"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-1 col-md-2 col-sm-4 col-xs-12"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-1 col-md-2 col-sm-4 col-xs-12"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-1 col-md-2 col-sm-4 col-xs-12"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-1 col-md-2 col-sm-4 col-xs-12"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-1 col-md-2 col-sm-4 col-xs-12"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-1 col-md-2 col-sm-4 col-xs-12"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-1 col-md-2 col-sm-4 col-xs-12"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-1 col-md-2 col-sm-4 col-xs-12"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-1 col-md-2 col-sm-4 col-xs-12"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-lg-1 col-md-2 col-sm-4 col-xs-12"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <ol>
+                    <li>
+                      <strong>列偏移</strong>
+                      <ul>
+                        <li>.col-md-offset-* 类可以将列向右侧偏移</li>
+                      </ul>
+                    </li>
+                  </ol>
+                  <figure class="highlight html">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 基于屏幕左边 向右偏移1 格 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-2 col-md-offset-1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 基于第一个div 向右偏移2 格 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-2 col-md-offset-4"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <ol>
+                    <li>
+                      <p>
+                        <strong>列排序</strong>
+                      </p>
+                      <ul>
+                        <li>.col-md-push-
+                          <em> 和 .col-md-pull-</em>
+                          <figure class="highlight html">
+                            <table>
+                              <tr>
+                                <td class="gutter">
+                                  <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre>
+                                </td>
+                                <td class="code">
+                                  <pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-2 col-md-offset-1 col-md-push-6"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-2 col-md-offset-4 col-md-pull-6"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre>
+                                </td>
+                              </tr>
+                            </table>
+                          </figure>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>显示隐藏</strong>
+                      </p>
+                      <ul>
+                        <li>visible-md 、hidden-md
+                          <br>
+                          <a href="http://v3.bootcss.com/css/#responsive-utilities" target="_blank" rel="external">参考链接</a>
+                          <figure class="highlight html">
+                            <table>
+                              <tr>
+                                <td class="gutter">
+                                  <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre>
+                                </td>
+                                <td class="code">
+                                  <pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!--&lt;div class="col-md-2 col-md-offset-1 col-md-push-6 visible-xs"&gt;超小屏幕显示&lt;/div&gt;--&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-2  hidden-xs"</span>&gt;</span>超小屏幕消失<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre>
+                                </td>
+                              </tr>
+                            </table>
+                          </figure>
+                        </li>
+                      </ul>
+                    </li>
+                  </ol>
 
                 </div>
 
@@ -565,12 +718,17 @@
 
                   <div class="post-tags">
 
-                    <a href="/tags/响应式/" rel="tag"># 响应式</a>
+                    <a href="/tags/响应式/" rel="tag">
+                      <i class="fa fa-tag"></i> 响应式</a>
 
                   </div>
 
                   <div class="post-nav">
                     <div class="post-nav-next post-nav-item">
+
+                      <a href="/2017/06/11/面试题记录/" rel="next" title="面试题记录">
+                        <i class="fa fa-chevron-left"></i> 面试题记录
+                      </a>
 
                     </div>
 
@@ -645,7 +803,7 @@
 
                 <div class="site-state-item site-state-posts">
                   <a href="/archives">
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -659,7 +817,7 @@
 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -733,22 +891,38 @@
                 <div class="post-toc-content">
                   <ol class="nav">
                     <li class="nav-item nav-level-2">
-                      <a class="nav-link" href="#媒体查询">
+                      <a class="nav-link" href="#媒体类型">
                         <span class="nav-number">1.</span>
                         <span class="nav-text">
-                          媒体查询</span>
+                          媒体类型</span>
                       </a>
                     </li>
                     <li class="nav-item nav-level-2">
-                      <a class="nav-link" href="#CSS3媒体属性简介">
+                      <a class="nav-link" href="#媒体查询">
                         <span class="nav-number">2.</span>
+                        <span class="nav-text">
+                          媒体查询</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#媒体特性">
+                            <span class="nav-number">2.1.</span>
+                            <span class="nav-text">
+                              媒体特性</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#CSS3媒体属性简介">
+                        <span class="nav-number">3.</span>
                         <span class="nav-text">
                           CSS3媒体属性简介</span>
                       </a>
                       <ol class="nav-child">
                         <li class="nav-item nav-level-3">
                           <a class="nav-link" href="#视口和屏幕的区别">
-                            <span class="nav-number">2.1.</span>
+                            <span class="nav-number">3.1.</span>
                             <span class="nav-text">
                               视口和屏幕的区别</span>
                           </a>
@@ -757,28 +931,28 @@
                     </li>
                     <li class="nav-item nav-level-2">
                       <a class="nav-link" href="#响应式要点">
-                        <span class="nav-number">3.</span>
+                        <span class="nav-number">4.</span>
                         <span class="nav-text">
                           响应式要点</span>
                       </a>
                       <ol class="nav-child">
                         <li class="nav-item nav-level-3">
                           <a class="nav-link" href="#单位">
-                            <span class="nav-number">3.1.</span>
+                            <span class="nav-number">4.1.</span>
                             <span class="nav-text">
                               单位</span>
                           </a>
                           <ol class="nav-child">
                             <li class="nav-item nav-level-4">
                               <a class="nav-link" href="#em">
-                                <span class="nav-number">3.1.1.</span>
+                                <span class="nav-number">4.1.1.</span>
                                 <span class="nav-text">
                                   em</span>
                               </a>
                             </li>
                             <li class="nav-item nav-level-4">
                               <a class="nav-link" href="#rem">
-                                <span class="nav-number">3.1.2.</span>
+                                <span class="nav-number">4.1.2.</span>
                                 <span class="nav-text">
                                   rem</span>
                               </a>
@@ -787,9 +961,16 @@
                         </li>
                         <li class="nav-item nav-level-3">
                           <a class="nav-link" href="#工具样式">
-                            <span class="nav-number">3.2.</span>
+                            <span class="nav-number">4.2.</span>
                             <span class="nav-text">
                               工具样式</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#bootstrap响应式">
+                            <span class="nav-number">4.3.</span>
+                            <span class="nav-text">
+                              bootstrap响应式</span>
                           </a>
                         </li>
                       </ol>
@@ -810,6 +991,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         <div class="copyright">
 
           &copy;
@@ -831,6 +1013,17 @@
             NexT.Mist
           </a>
         </div>
+        <div class="powered-by">
+          <i class="fa fa-user-md"></i>
+          <span id="busuanzi_container_site_uv">
+            本站访客数:
+            <span id="busuanzi_value_site_uv"></span>
+          </span>
+        </div>
+        <span id="busuanzi_container_site_pv">
+          本站总访问量
+          <span id="busuanzi_value_site_pv"></span>次
+        </span>
 
       </div>
     </footer>
@@ -1305,6 +1498,8 @@
 
   </script>
 
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
 </body>
 
 </html>

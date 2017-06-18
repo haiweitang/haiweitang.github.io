@@ -31,7 +31,7 @@
   <meta property="og:url" content="http://yoursite.com/2017/06/12/javascript深入迁出/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
   <meta property="og:description" content="严格模式 严格模式是一种特殊的执行模式，   它修复了部分语言上的不足，提供更强的错误检查，并增强安全性。    申明方式 在需要使用严格模式的地方输入   &amp;#39;use strict&amp;#39;代码，这串代码是向上兼容的，如果IE8不认识，那么就会把它当成一段字符串忽略掉。   如果声明在JS文件头部，那么整个JS文档都会执行严格模式">
-  <meta property="og:updated_time" content="2017-06-12T10:26:07.741Z">
+  <meta property="og:updated_time" content="2017-06-15T07:18:45.310Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="javascript深入浅出">
   <meta name="twitter:description" content="严格模式 严格模式是一种特殊的执行模式，   它修复了部分语言上的不足，提供更强的错误检查，并增强安全性。    申明方式 在需要使用严格模式的地方输入   &amp;#39;use strict&amp;#39;代码，这串代码是向上兼容的，如果IE8不认识，那么就会把它当成一段字符串忽略掉。   如果声明在JS文件头部，那么整个JS文档都会执行严格模式">
@@ -310,7 +310,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        1,033
+                        1,329
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -322,7 +322,7 @@
                       <span class="post-meta-item-text">阅读时长</span>
 
                       <span title="阅读时长">
-                        4
+                        6
                       </span>
 
                     </div>
@@ -669,6 +669,130 @@
                     <br>
                     <strong>arguments.caller, arguments.callee被禁用</strong>
                   </p>
+                  <h2 id="表达式">
+                    <a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2>
+                  <p>表达式是指能计算出值得任何可用程序单元。——Wiki
+                    <br>表达式是一种JS短语，可使JS解释器用来产生一个值。——《JS权威指南》</p>
+                  <h3 id="原始表达式">
+                    <a href="#原始表达式" class="headerlink" title="原始表达式"></a>原始表达式</h3>
+                  <p>
+                    <strong>常量、直接量</strong>
+                    <br>3.14(数字) “test”(字符串)</p>
+                  <p>
+                    <strong>关键字</strong>
+                    <br>null、this、true
+                    <br>
+                    <strong>变量</strong>
+                    <br>var i、k、j</p>
+                  <h3 id="复合表达式">
+                    <a href="#复合表达式" class="headerlink" title="复合表达式"></a>复合表达式</h3>
+                  <p>原始表达式+运算符 = 复合表达式 (10 * 20)</p>
+                  <h3 id="数组、对象的初始化表达式">
+                    <a href="#数组、对象的初始化表达式" class="headerlink" title="数组、对象的初始化表达式"></a>数组、对象的初始化表达式</h3>
+                  <figure class="highlight javascript">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line">[<span class="number">1</span>, <span class="number">2</span>]              <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">2</span>)</div><div class="line">[<span class="number">1</span>, , , <span class="number">4</span>]          [<span class="number">1</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>, <span class="number">4</span>]</div><div class="line">&#123; <span class="attr">x</span> : <span class="number">1</span>, <span class="attr">y</span> : <span class="number">2</span>&#125;     <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">                        o.x = <span class="number">1</span>; o.y = <span class="number">2</span>;</div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <h3 id="函数表达式">
+                    <a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h3>
+                  <figure class="highlight javascript">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line"><span class="keyword">var</span> fe = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'hello world'</span>);&#125;)();</div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <h3 id="属性访问表达式">
+                    <a href="#属性访问表达式" class="headerlink" title="属性访问表达式"></a>属性访问表达式</h3>
+                  <figure class="highlight javascript">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line"><span class="keyword">var</span> o = &#123;<span class="attr">x</span>: <span class="number">1</span>&#125;;</div><div class="line">o.x</div><div class="line">o[<span class="string">'x'</span>]</div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <h3 id="调用表达式">
+                    <a href="#调用表达式" class="headerlink" title="调用表达式"></a>调用表达式</h3>
+                  <p>func();</p>
+                  <h3 id="对象创建表达式">
+                    <a href="#对象创建表达式" class="headerlink" title="对象创建表达式"></a>对象创建表达式</h3>
+                  <figure class="highlight javascript">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line"><span class="keyword">new</span> Func(<span class="number">1</span>, <span class="number">2</span>);</div><div class="line"><span class="keyword">new</span> <span class="built_in">Object</span>;</div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <h2 id="运算符">
+                    <a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2>
+                  <h3 id="逗号运算符">
+                    <a href="#逗号运算符" class="headerlink" title="逗号运算符"></a>逗号运算符</h3>
+                  <figure class="highlight javascript">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line"><span class="keyword">var</span> val = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</div><div class="line"><span class="built_in">console</span>.log(val);   <span class="comment">//3</span></div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <p>表示每一个表达式都会被计算，最终整个表达式的结果是最右边的一个。</p>
+                  <h3 id="delete运算符">
+                    <a href="#delete运算符" class="headerlink" title="delete运算符"></a>delete运算符</h3>
+                  <figure class="highlight javascript">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">x</span> : <span class="number">1</span>&#125;;</div><div class="line">obj.x;                      <span class="comment">// 1</span></div><div class="line"><span class="keyword">delete</span> obj.x;</div><div class="line">obj.x;                      <span class="comment">// undefined</span></div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <p>从IE9开始，我们有了Object.defineProperty()方法
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'x'</span>, &#123;</div><div class="line">    <span class="attr">configurable</span>: <span class="literal">false</span>, <span class="attr">value</span>: <span class="number">1</span></div><div class="line">    &#125;)</div><div class="line"><span class="keyword">delete</span> obj.x;   <span class="comment">//false</span></div><div class="line">obj.x;          <span class="comment">//1</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+                  <p>只有当configurable：true的时候，才能被删除成功。</p>
 
                 </div>
 
@@ -715,6 +839,10 @@
 
                   <div class="post-nav">
                     <div class="post-nav-next post-nav-item">
+
+                      <a href="/2017/06/15/ready与onload的区别，以及用原生实现的方法/" rel="next" title="ready与onload的区别，以及用原生实现的方法">
+                        <i class="fa fa-chevron-left"></i> ready与onload的区别，以及用原生实现的方法
+                      </a>
 
                     </div>
 
@@ -789,7 +917,7 @@
 
                 <div class="site-state-item site-state-posts">
                   <a href="/archives">
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -803,7 +931,7 @@
 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -899,6 +1027,87 @@
                         </li>
                       </ol>
                     </li>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#表达式">
+                        <span class="nav-number">2.</span>
+                        <span class="nav-text">
+                          表达式</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#原始表达式">
+                            <span class="nav-number">2.1.</span>
+                            <span class="nav-text">
+                              原始表达式</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#复合表达式">
+                            <span class="nav-number">2.2.</span>
+                            <span class="nav-text">
+                              复合表达式</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#数组、对象的初始化表达式">
+                            <span class="nav-number">2.3.</span>
+                            <span class="nav-text">
+                              数组、对象的初始化表达式</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#函数表达式">
+                            <span class="nav-number">2.4.</span>
+                            <span class="nav-text">
+                              函数表达式</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#属性访问表达式">
+                            <span class="nav-number">2.5.</span>
+                            <span class="nav-text">
+                              属性访问表达式</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#调用表达式">
+                            <span class="nav-number">2.6.</span>
+                            <span class="nav-text">
+                              调用表达式</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#对象创建表达式">
+                            <span class="nav-number">2.7.</span>
+                            <span class="nav-text">
+                              对象创建表达式</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
+                    <li class="nav-item nav-level-2">
+                      <a class="nav-link" href="#运算符">
+                        <span class="nav-number">3.</span>
+                        <span class="nav-text">
+                          运算符</span>
+                      </a>
+                      <ol class="nav-child">
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#逗号运算符">
+                            <span class="nav-number">3.1.</span>
+                            <span class="nav-text">
+                              逗号运算符</span>
+                          </a>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#delete运算符">
+                            <span class="nav-number">3.2.</span>
+                            <span class="nav-text">
+                              delete运算符</span>
+                          </a>
+                        </li>
+                      </ol>
+                    </li>
                   </ol>
                 </div>
 
@@ -931,6 +1140,12 @@
           <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
         </div>
 
+        <div class="theme-info">
+          主题 -
+          <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+            NexT.Mist
+          </a>
+        </div>
         <div class="powered-by">
           <i class="fa fa-user-md"></i>
           <span id="busuanzi_container_site_uv">
@@ -942,13 +1157,6 @@
           本站总访问量
           <span id="busuanzi_value_site_pv"></span>次
         </span>
-
-        <div class="theme-info">
-          主题 -
-          <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-            NexT.Mist
-          </a>
-        </div>
 
       </div>
     </footer>

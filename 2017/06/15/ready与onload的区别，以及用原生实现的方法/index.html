@@ -19,21 +19,22 @@
 
   <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
-  <meta name="keywords" content="唐大虾, NexT" />
+  <meta name="keywords" content="ready与onload的区别," />
 
   <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1"
   />
 
-  <meta name="description" content="更新中………">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="about">
-  <meta property="og:url" content="http://yoursite.com/about/index.html">
+  <meta name="description" content="转载地址      jQuery中   $(document).ready()的作用类似于传统   JavaScript中的   window.onload方法，不过与   window.onload方法还是有区别的。 总的来说，   window.onload()方法是必须等到页面内包括图片的所有元素加载完毕后才能执行。   $(document).ready()是DOM结构绘制完毕后就执">
+  <meta name="keywords" content="ready与onload的区别">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ready与onload的区别，以及用原生实现的方法">
+  <meta property="og:url" content="http://yoursite.com/2017/06/15/ready与onload的区别，以及用原生实现的方法/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
-  <meta property="og:description" content="更新中………">
-  <meta property="og:updated_time" content="2017-05-13T07:56:47.822Z">
+  <meta property="og:description" content="转载地址      jQuery中   $(document).ready()的作用类似于传统   JavaScript中的   window.onload方法，不过与   window.onload方法还是有区别的。 总的来说，   window.onload()方法是必须等到页面内包括图片的所有元素加载完毕后才能执行。   $(document).ready()是DOM结构绘制完毕后就执">
+  <meta property="og:updated_time" content="2017-06-15T07:26:25.093Z">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="about">
-  <meta name="twitter:description" content="更新中………">
+  <meta name="twitter:title" content="ready与onload的区别，以及用原生实现的方法">
+  <meta name="twitter:description" content="转载地址      jQuery中   $(document).ready()的作用类似于传统   JavaScript中的   window.onload方法，不过与   window.onload方法还是有区别的。 总的来说，   window.onload()方法是必须等到页面内包括图片的所有元素加载完毕后才能执行。   $(document).ready()是DOM结构绘制完毕后就执">
 
   <script type="text/javascript" id="hexo.configurations">
     var NexT = window.NexT || {};
@@ -71,9 +72,10 @@
 
   </script>
 
-  <link rel="canonical" href="http://yoursite.com/about/" />
+  <link rel="canonical" href="http://yoursite.com/2017/06/15/ready与onload的区别，以及用原生实现的方法/"
+  />
 
-  <title>about | Prawns's Blog</title>
+  <title>ready与onload的区别，以及用原生实现的方法 | Prawns's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -96,7 +98,7 @@
 
   </script>
 
-  <div class="container sidebar-position-right  ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -223,14 +225,276 @@
           <div id="content" class="content">
 
             <div id="posts" class="posts-expand">
-              <header class="post-header">
 
-                <h1 class="post-title" itemprop="name headline">about</h1>
+              <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+                <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/15/ready与onload的区别，以及用原生实现的方法/">
 
-              </header>
+                <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+                  <meta itemprop="name" content="唐大虾">
+                  <meta itemprop="description" content="">
+                  <meta itemprop="image" content="/images/avatar.jpeg">
+                </span>
 
-              <p>更新中………</p>
+                <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+                  <meta itemprop="name" content="Prawns's Blog">
+                </span>
 
+                <header class="post-header">
+
+                  <h1 class="post-title" itemprop="name headline">
+
+                    ready与onload的区别，以及用原生实现的方法
+
+                  </h1>
+
+                  <div class="post-meta">
+                    <span class="post-time">
+
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-calendar-o"></i>
+                      </span>
+
+                      <span class="post-meta-item-text">发表于</span>
+
+                      <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-15T15:18:15+08:00">
+                        2017-06-15
+                      </time>
+
+                    </span>
+
+                    <span class="post-category">
+
+                      <span class="post-meta-divider">|</span>
+
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-folder-o"></i>
+                      </span>
+
+                      <span class="post-meta-item-text">分类于</span>
+
+                      <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                        <a href="/categories/JS/" itemprop="url" rel="index">
+                          <span itemprop="name">JS</span>
+                        </a>
+                      </span>
+
+                    </span>
+
+                    <span class="post-comments-count">
+                      <span class="post-meta-divider">|</span>
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-comment-o"></i>
+                      </span>
+                      <a class="cloud-tie-join-count" href="/2017/06/15/ready与onload的区别，以及用原生实现的方法/#comments"
+                                                                                                      itemprop="discussionUrl">
+                        <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                      </a>
+                    </span>
+
+                    <span id="/2017/06/15/ready与onload的区别，以及用原生实现的方法/" class="leancloud_visitors" data-flag-title="ready与onload的区别，以及用原生实现的方法">
+                      <span class="post-meta-divider">|</span>
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-eye"></i>
+                      </span>
+
+                      <span class="post-meta-item-text">阅读次数 </span>
+
+                      <span class="leancloud-visitors-count"></span>
+                    </span>
+
+                    <div class="post-wordcount">
+
+                      <span class="post-meta-divider">|</span>
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-file-word-o"></i>
+                      </span>
+
+                      <span class="post-meta-item-text">字数统计</span>
+
+                      <span title="字数统计">
+                        854
+                      </span>
+
+                      <span class="post-meta-divider">|</span>
+
+                      <span class="post-meta-item-icon">
+                        <i class="fa fa-clock-o"></i>
+                      </span>
+
+                      <span class="post-meta-item-text">阅读时长</span>
+
+                      <span title="阅读时长">
+                        3
+                      </span>
+
+                    </div>
+
+                  </div>
+                </header>
+
+                <div class="post-body" itemprop="articleBody">
+
+                  <p>
+                    <a href="http://blog.csdn.net/LZGS_4/article/details/46358305" target="_blank" rel="external">转载地址</a>
+                    <br>
+                    <strong>jQuery</strong>中
+                    <code>$(document).ready()</code>的作用类似于传统
+                    <strong>JavaScript</strong>中的
+                    <code>window.onload</code>方法，不过与
+                    <code>window.onload</code>方法还是有区别的。</p>
+                  <font color="green">总的来说，
+                    <code>window.onload()</code>方法是必须等到页面内包括图片的所有元素加载完毕后才能执行。
+                    <code>$(document).ready()</code>是DOM结构绘制完毕后就执行，不必等到加载完毕。</font>
+
+                  <p>具体一些，可以从以下几方面对比它们的区别：
+                    <br>
+                    <strong>1.执行时间</strong>
+                    <br>
+                    <code>window.onload</code>必须等到页面内包括图片的所有元素加载完毕后才能执行。
+                    <code>$(d</code>ocument).ready()``是DOM结构绘制完毕后就执行，不必等到加载完毕。</p>
+                  <p>
+                    <strong>2.编写个数不同</strong>
+                    <br>
+                    <code>window.onload</code>不能同时编写多个，如果有多个
+                    <code>window.onload</code>方法，只会执行一个。
+                    <br>
+                    <code>$(document).ready()</code>可以同时编写多个，并且都可以得到执行。</p>
+                  <p>
+                    <strong>3.简化写法</strong>
+                    <br>
+                    <code>window.onload</code>没有简化写法。
+                    <br>
+                    <code>$(document).ready(function(){})</code>可以简写成
+                    <code>$(function(){});</code>
+                    <br>在一些开发中，一般用到javascript，我是采用jquery的模式，也就是大多数时候，第一行写的是：
+                    <br>$(document).ready(function(){
+                    <br>…
+                    <br>});</p>
+                  <p>这个时候，不一定要等所有的js和图片加载完毕，就可以执行一些方法，不过有些时候，必须要等所有的元素都加载完毕，才可以执行一些方法的时候，比如说，部分图片或者什么其他方面还没有加载好，这个时候，点击某些按钮，会导致出现意外的情况，这个时候，就需要用到:</p>
+                  <figure class="highlight javascript">
+                    <table>
+                      <tr>
+                        <td class="gutter">
+                          <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre>
+                        </td>
+                        <td class="code">
+                          <pre><div class="line">$(<span class="built_in">window</span>).load(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  </div><div class="line">    $(<span class="string">"#btn-upload"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;   <span class="comment">//比如说：  </span></div><div class="line">          uploadPhotos();  </div><div class="line">    &#125;);  </div><div class="line">&#125;);</div></pre>
+                        </td>
+                      </tr>
+                    </table>
+                  </figure>
+                  <p>以浏览器装载文档为例，在页面加载完毕后，浏览器会通过 Javascript 为 DOM 元素添加事件。在常规的 Javascript
+                    代码中，通常使用 window.onload 方法，而在 Jquery 中，使用的是 $(document).ready()
+                    方法。 $(document).ready() 方法是事件模块中最重要一个函数，可以极大的提高 Web 应用程序的速度。
+                    <br>另外，需要注意一点，由于在 $(document).ready() 方法内注册的事件，只要 DOM 就绪就会被执行，因此可能此时元素的关联文件未下载完。例如与图片有关的
+                    html 下载完毕，并且已经解析为 DOM 树了，但很有可能图片还没有加载完毕，所以例如图片的高度和宽度这样的属性此时不一定有效。要解决这个问题，可以使用
+                    Jquery 中另一个关于页面加载的方法 —load() 方法。 Load() 方法会在元素的 onload 事件中绑定一个处理函数。如果处理函数绑定给
+                    window 对象，则会在所有内容 ( 包括窗口、框架、对象和图像等 ) 加载完毕后触发，如果处理函数绑定在元素上，则会在元素的内容加载完毕后触发。</p>
+                  <p>Jquery代码如下：
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line">$(<span class="built_in">window</span>).load(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;  </div><div class="line">       <span class="comment">// 编写代码   </span></div><div class="line">&#125;);  </div><div class="line">等价于 JavaScript 中的以下代码  </div><div class="line">Window.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;  </div><div class="line">     <span class="comment">// 编写代码  </span></div><div class="line">&#125;</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+                  <p>那么，对于某些特殊需求，不希望使用jQuery，但又想实现jQuery的ready方法。该如何用原生JS实现jQuery的ready方法呢？下面是其中之一的做法：
+                    <br>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ready</span>(<span class="params">fn</span>)</span>&#123;  </div><div class="line">    <span class="keyword">if</span>(<span class="built_in">document</span>.addEventListener)&#123;      <span class="comment">//标准浏览器  </span></div><div class="line">        <span class="built_in">document</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">            <span class="comment">//注销时间，避免反复触发  </span></div><div class="line">            <span class="built_in">document</span>.removeEventListener(<span class="string">'DOMContentLoaded'</span>,<span class="built_in">arguments</span>.callee,<span class="literal">false</span>);  </div><div class="line">            fn();       <span class="comment">//执行函数  </span></div><div class="line">        &#125;,<span class="literal">false</span>);  </div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">document</span>.attachEvent)&#123;     <span class="comment">//IE浏览器  </span></div><div class="line">        <span class="built_in">document</span>.attachEvent(<span class="string">'onreadystatechange'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">            <span class="keyword">if</span>(<span class="built_in">document</span>.readyState==<span class="string">'complete'</span>)&#123;  </div><div class="line">                <span class="built_in">document</span>.detachEvent(<span class="string">'onreadystatechange'</span>,<span class="built_in">arguments</span>.callee);  </div><div class="line">                fn();       <span class="comment">//函数执行  </span></div><div class="line">            &#125;  </div><div class="line">        &#125;);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                  </p>
+
+                </div>
+
+                <div>
+
+                </div>
+
+                <div>
+
+                  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+                    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+                    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+                      <span>赏</span>
+                    </button>
+                    <div id="QR" style="display: none;">
+
+                      <div id="wechat" style="display: inline-block">
+                        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="唐大虾 WeChat Pay" />
+                        <p>微信打赏</p>
+                      </div>
+
+                      <div id="alipay" style="display: inline-block">
+                        <img id="alipay_qr" src="/images/alipay.jpg" alt="唐大虾 Alipay" />
+                        <p>支付宝打赏</p>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+                <div>
+
+                </div>
+
+                <footer class="post-footer">
+
+                  <div class="post-tags">
+
+                    <a href="/tags/ready与onload的区别/" rel="tag">
+                      <i class="fa fa-tag"></i> ready与onload的区别</a>
+
+                  </div>
+
+                  <div class="post-nav">
+                    <div class="post-nav-next post-nav-item">
+
+                    </div>
+
+                    <span class="post-nav-divider"></span>
+
+                    <div class="post-nav-prev post-nav-item">
+
+                      <a href="/2017/06/12/javascript深入迁出/" rel="prev" title="javascript深入浅出">
+                        javascript深入浅出
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+
+                    </div>
+                  </div>
+
+                </footer>
+              </article>
+
+              <div class="post-spread">
+
+                <script>
+                  with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(
+                      createElement('script')).src =
+                    '//bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' +
+                    ~(-new Date() / 36e5)];
+
+                </script>
+
+              </div>
             </div>
 
           </div>
@@ -424,6 +688,9 @@
   <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
 

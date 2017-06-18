@@ -31,10 +31,12 @@
   <meta property="og:url" content="http://yoursite.com/2017/05/01/WEB移动端开发/index.html">
   <meta property="og:site_name" content="Prawns's Blog">
   <meta property="og:description" content="详细讲解了移动端开发的各种问题以及方法，通过学习本文章就学会了移动端开发。   个人笔记，仅供参考。">
-  <meta property="og:updated_time" content="2017-06-13T14:44:25.368Z">
+  <meta property="og:image" content="http://c.hiphotos.baidu.com/baike/w%3D268%3Bg%3D0/sign=213d675e4836acaf59e091fa44e2ea2d/b219ebc4b74543a968f4deab1d178a82b80114ed.jpg">
+  <meta property="og:updated_time" content="2017-06-13T16:54:05.599Z">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="WEB移动端开发">
   <meta name="twitter:description" content="详细讲解了移动端开发的各种问题以及方法，通过学习本文章就学会了移动端开发。   个人笔记，仅供参考。">
+  <meta name="twitter:image" content="http://c.hiphotos.baidu.com/baike/w%3D268%3Bg%3D0/sign=213d675e4836acaf59e091fa44e2ea2d/b219ebc4b74543a968f4deab1d178a82b80114ed.jpg">
 
   <script type="text/javascript" id="hexo.configurations">
     var NexT = window.NexT || {};
@@ -292,7 +294,7 @@
                       <span class="post-meta-item-text">字数统计</span>
 
                       <span title="字数统计">
-                        4,317
+                        4,823
                       </span>
 
                       <span class="post-meta-divider">|</span>
@@ -304,7 +306,7 @@
                       <span class="post-meta-item-text">阅读时长</span>
 
                       <span title="阅读时长">
-                        19
+                        21
                       </span>
 
                     </div>
@@ -821,9 +823,15 @@
                     <p>transform的matrix的默认值是matrix(1,0,0,1,0,0),也就是说把matirx(1,0,0,1,0,0)赋给transform是不会有任何变化的。</p>
                     <h4 id="矩阵matrix参数">
                       <a href="#矩阵matrix参数" class="headerlink" title="矩阵matrix参数"></a>矩阵matrix参数</h4>
-                    <p>使用matrix矩阵的方法来实现上面的transform 2D效果。
-                      <br>matrix(1,0,0,1,0,0)
-                      <br>matrix(a,b,c,d,e,f)</p>
+                    <p>使用matrix矩阵的方法来实现上面的transform 2D效果。</p>
+                    <font color="#f60" font-size="22px">
+                      <strong>matrix( 1,0,0,1,0,0 )</strong>
+                    </font>
+                    <br>
+                    <font color="#f60" font-size="22px">
+                      <strong>matrix( a,b,c,d,e,f )</strong>
+                    </font>
+
                     <h5 id="位移">
                       <a href="#位移" class="headerlink" title="位移"></a>位移</h5>
                     <ul>
@@ -897,6 +905,127 @@
                       </figure>
                     </p>
                     <p>这就能解释出为什么transform书写顺序不同，执行的结果不同了。</p>
+                    <h5 id="斜切">
+                      <a href="#斜切" class="headerlink" title="斜切"></a>斜切</h5>
+                    <p>角度转弧度公式 =
+                      <code>deg*Math.PI/180</code>
+                      <br>正切 =
+                      <code>Math.tan</code>
+                      <br>
+                      <img src="http://c.hiphotos.baidu.com/baike/w%3D268%3Bg%3D0/sign=213d675e4836acaf59e091fa44e2ea2d/b219ebc4b74543a968f4deab1d178a82b80114ed.jpg"
+                                                                                                      alt="img">
+                    </p>
+                    <ul>
+                      <li>
+                        <p>X斜切：(deg)</p>
+                        <ul>
+                          <li>c = Math.tan(deg
+                            <em>Math.PI/180);
+                              <br>斜切是使用一个三角函数来计算，括号里面不能直接写角度，需写一个弧度，所以在这之前，我们需要把角度转成弧度
+                              <br>上面已经写了角度转弧度公式-角度 </em> Math.PI / 180</li>
+                        </ul>
+                      </li>
+                      <li>
+                        <p>X斜切：(deg)</p>
+                        <ul>
+                          <li>b = Math.tan(deg*Math.PI/180);</li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> b = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> c = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> d = <span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.div'</span>);</div><div class="line">b = <span class="built_in">Math</span>.tan(<span class="number">30</span>*<span class="built_in">Math</span>.PI/<span class="number">180</span>);</div><div class="line"></div><div class="line">div[<span class="number">0</span>].style.WebkitTransform = div[<span class="number">0</span>].style.transform = <span class="string">"skewY(30deg)"</span>;</div><div class="line"><span class="built_in">console</span>.log(getComputedStyle(div[<span class="number">0</span>])[<span class="string">"transform"</span>]);     <span class="comment">//matrix(1, 0.57735, 0, 1, 0, 0)</span></div><div class="line"></div><div class="line">div[<span class="number">1</span>].style.WebkitTransform = div[<span class="number">1</span>].style.transform = <span class="string">" matrix("</span>+a+<span class="string">", "</span>+b+<span class="string">", "</span>+c+<span class="string">", "</span>+d+<span class="string">", 0, 0)"</span>;</div><div class="line"><span class="built_in">console</span>.log(getComputedStyle(div[<span class="number">1</span>])[<span class="string">"transform"</span>]);     <span class="comment">//matrix(1, 0.57735, 0, 1, 0, 0)</span></div><div class="line"></div><div class="line"><span class="comment">//两种写法的执行结果是一样的</span></div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                    <h5 id="旋转">
+                      <a href="#旋转" class="headerlink" title="旋转"></a>旋转</h5>
+                    <p>旋转需要修改4个参数。使用正选、余弦以及角度转弧度公式来计算。跟斜切有一定的差别
+                      <br>角度转弧度公式 =
+                      <code>deg*Math.PI/180</code>
+                      <br>正弦 =
+                      <code>Math.sin</code>
+                      <br>余弦 =
+                      <code>Math.cos</code>
+                    </p>
+                    <ul>
+                      <li>a = Math.cos(deg/180*Math.PI);</li>
+                      <li>b = Math.sin(deg/180*Math.PI);</li>
+                      <li>c = Math.sin(deg/180*Math.PI);</li>
+                      <li>d = Math.cos(deg/180*Math.PI);</li>
+                    </ul>
+                    <figure class="highlight javascript">
+                      <table>
+                        <tr>
+                          <td class="gutter">
+                            <pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre>
+                          </td>
+                          <td class="code">
+                            <pre><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> b = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> c = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> d = <span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> deg = <span class="number">45</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.div'</span>);</div><div class="line">div[<span class="number">0</span>].style.WebkitTransform = div[<span class="number">0</span>].style.transform = <span class="string">"rotate("</span>+deg+<span class="string">"deg)"</span>;</div><div class="line"></div><div class="line">a = <span class="built_in">Math</span>.cos(deg/<span class="number">180</span>*<span class="built_in">Math</span>.PI);</div><div class="line">b = <span class="built_in">Math</span>.sin(deg/<span class="number">180</span>*<span class="built_in">Math</span>.PI);</div><div class="line">c = -<span class="built_in">Math</span>.sin(deg/<span class="number">180</span>*<span class="built_in">Math</span>.PI);</div><div class="line">d = <span class="built_in">Math</span>.cos(deg/<span class="number">180</span>*<span class="built_in">Math</span>.PI);</div><div class="line">div[<span class="number">1</span>].style.WebkitTransform = div[<span class="number">1</span>].style.transform = <span class="string">" matrix("</span>+a+<span class="string">", "</span>+b+<span class="string">", "</span>+c+<span class="string">", "</span>+d+<span class="string">", 0, 0)"</span>;</div></pre>
+                          </td>
+                        </tr>
+                      </table>
+                    </figure>
+                    <h3 id="3D">
+                      <a href="#3D" class="headerlink" title="3D"></a>3D</h3>
+                    <ul>
+                      <li>
+                        <p>
+                          <code>perspective</code> – 景深 （我在多远之外来看这个元素）
+                          <br>景深要加给要做3d变化的元素的父级。
+                          <code>perspective: 200px;</code>
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <code>perspective-origin: center center;</code> – 视线方向</p>
+                      </li>
+                      <li>
+                        <p>
+                          <code>rotateX</code> /
+                          <code>rotateY</code> /
+                          <code>rotateZ</code> /
+                          <code>rotate3D</code> – 旋转
+                          <br>
+                          <code>rotateZ</code> 视觉上相当于2D的
+                          <code>rotate</code>
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <code>translateX</code> /
+                          <code>translateY</code> /
+                          <code>translateZ</code> /
+                          <code>translate3d</code> – 位移
+                          <br>
+                          <code>translataZ</code> 视觉上相当于
+                          <code>scaleX</code>与
+                          <code>scaleY</code> 同时缩放。</p>
+                      </li>
+                      <li>
+                        <p>
+                          <code>transform-style</code> – 元素在做3D变换的时候，是否保留了子元素的3D变换。</p>
+                        <ul>
+                          <li>不保留：在子元素上设置
+                            <code>transform-style: flat;</code>(直接不设置，默认是不保留的)</li>
+                          <li>保留 ：在子元素上设置
+                            <code>transform-style: preserve-3d;</code>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <p>
+                          <code>backface-visibility</code> – 隐藏背面
+                          <code>backface-visibility: hidden;</code>
+                        </p>
+                      </li>
+                    </ul>
                   </the>
 
                 </div>
@@ -1022,7 +1151,7 @@
 
                 <div class="site-state-item site-state-posts">
                   <a href="/archives">
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1036,7 +1165,7 @@
 
                 <div class="site-state-item site-state-tags">
                   <a href="/tags/index.html">
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1393,9 +1522,30 @@
                                       先缩放，再位移</span>
                                   </a>
                                 </li>
+                                <li class="nav-item nav-level-5">
+                                  <a class="nav-link" href="#斜切">
+                                    <span class="nav-number">6.1.1.5.</span>
+                                    <span class="nav-text">
+                                      斜切</span>
+                                  </a>
+                                </li>
+                                <li class="nav-item nav-level-5">
+                                  <a class="nav-link" href="#旋转">
+                                    <span class="nav-number">6.1.1.6.</span>
+                                    <span class="nav-text">
+                                      旋转</span>
+                                  </a>
+                                </li>
                               </ol>
                             </li>
                           </ol>
+                        </li>
+                        <li class="nav-item nav-level-3">
+                          <a class="nav-link" href="#3D">
+                            <span class="nav-number">6.2.</span>
+                            <span class="nav-text">
+                              3D</span>
+                          </a>
                         </li>
                       </ol>
                     </li>
@@ -1431,6 +1581,12 @@
           <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
         </div>
 
+        <div class="theme-info">
+          主题 -
+          <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+            NexT.Mist
+          </a>
+        </div>
         <div class="powered-by">
           <i class="fa fa-user-md"></i>
           <span id="busuanzi_container_site_uv">
@@ -1442,13 +1598,6 @@
           本站总访问量
           <span id="busuanzi_value_site_pv"></span>次
         </span>
-
-        <div class="theme-info">
-          主题 -
-          <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-            NexT.Mist
-          </a>
-        </div>
 
       </div>
     </footer>
